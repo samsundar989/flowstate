@@ -265,7 +265,7 @@ export class Host {
   projectDir(project_id: string) { return join(this.o.projectsRoot, project_id.replace(/^p_/, "")); }
 
   createProject(nameOrPrompt: string, req_id?: string): string {
-    const base = nameOrPrompt.replace(/^\s*new project\s*:\s*/i, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter(w => !["a", "an", "the", "that"].includes(w)).slice(0, 5).join("-") || "project";
+    const base = nameOrPrompt.replace(/^\s*new project\s*[:,.]?\s*/i, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter(w => !["a", "an", "the", "that"].includes(w)).slice(0, 5).join("-") || "project";
     let slug = base, i = 2;
     while (existsSync(join(this.o.projectsRoot, slug)) || this.state.projects.has("p_" + slug)) slug = `${base}-${i++}`;
     initProject(join(this.o.projectsRoot, slug));
@@ -282,7 +282,7 @@ export class Host {
     if (first) try { if (this.meta(first.task_id).phase) phase = "followup"; } catch { /* a task from before #972 */ }
     this.saveMeta({ task_id, project_id, prompt, agent, asks: 0, ...(replay ? { replay } : {}), ...(phase ? { phase } : {}) });
     const view = { task_id, project_id, state: undefined as any } as TaskView;
-    this.setState(view, "queued", clean(prompt.replace(/^\s*new project\s*:\s*/i, "").replace(/\[replay:[^\]]*\]/, ""), "", 80) || "Task", req_id ? { req_id } : {});
+    this.setState(view, "queued", clean(prompt.replace(/^\s*new project\s*[:,.]?\s*/i, "").replace(/\[replay:[^\]]*\]/, ""), "", 80) || "Task", req_id ? { req_id } : {});
     return task_id;
   }
 
@@ -316,7 +316,7 @@ export class Host {
       `If you need a decision only the person can make (or the task says to ask them first), stop before applying that decision and make your final message only ` +
       `{"status":"question","summary":"","question":"<the question>","options":["<2 to 4 short choices>"]}. ` +
       `When you can, ask it as a yes/no question with the options ["Yes","No"]: the person answers from a headset with one word or one pinch. You will be resumed with the answer.`;
-    const task = m.prompt.replace(/^\s*new project\s*:\s*/i, "");
+    const task = m.prompt.replace(/^\s*new project\s*[:,.]?\s*/i, "");
     const prompt = m.answer ? `${m.answer}\nContinue the task. For a prepared first task, apply this answer to the isolated setting, run only its focused check, and return done immediately. Do not rebuild, redesign, add features, or repeat checks already passed.${m.phase ? ` ${WEB_SHAPE}` : ""}${tail}`
       : resuming ? `The host restarted while you were working. The folder holds your work so far. Continue the task.${tail}`
       : m.phase === "plan" ? `You are in a git worktree for the first task of a brand-new project. Work only inside this folder. ` +
