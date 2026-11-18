@@ -1,0 +1,112 @@
+{
+ "_about": "#1015 (R212) retired name Overhand. 'keep' lists every kept use with its reason; 'gate' is the only place tools/brand_gate/retired.py takes exceptions from (each shown: false).",
+ "keep": [
+  {
+   "what": "package id com.overhand.app",
+   "reason": "Changing it makes a new app: no install over the old one, settings and receipts lost, new store record."
+  },
+  {
+   "what": "module path native/overhand and source paths",
+   "reason": "Build and scripts depend on it; never shown."
+  },
+  {
+   "what": "class and package names (OverhandActivity, com.overhand.app.*)",
+   "reason": "Code identifiers; never shown. The launcher shows the label."
+  },
+  {
+   "what": "log tags Overhand* and thread/sound/preference ids (overhand-mic, overhand-earcon, overhand-audio, overhand_origin)",
+   "reason": "The worn-check and session scripts read the tags (tools/session_capture/score_session.py); never shown."
+  },
+  {
+   "what": "[Overhand test N] fixture marker (FirstMinutes.kt:9, DecisionCards.kt:650, assets/windows.js:74)",
+   "reason": "Matched to hide host test fixtures; never drawn (RetiredNameTest; the rendered scope of the gate has no exception)."
+  },
+  {
+   "what": "signing certificate CN=Overhand Release and keystore file overhand-release.jks",
+   "reason": "Changing the key breaks install-over; the certificate name is not shown in the headset."
+  },
+  {
+   "what": "silent voice alias key overhand:4 (res/raw/voice_answers.json)",
+   "reason": "Heard, never shown or spoken."
+  },
+  {
+   "what": "recorded day and judge maps (assets/judge/*), as stored",
+   "reason": "Hash-locked recording (receipt hash); shown only through RecordedText.neutral, which says Flowstate."
+  },
+  {
+   "what": "Web C8 build (web/**), its storage keys overhand.*.v1 and console tags",
+   "reason": "Frozen C8 (#1006); the Head decides on a rename-only Web build."
+  },
+  {
+   "what": "history: take_0x verification files, runs/, logs, .autoflow/wiki, old reports and old drafts not in scripts/judge_facing_files.txt",
+   "reason": "History is not rewritten."
+  },
+  {
+   "what": "developer dashboard app record name and the competition submission URL slug",
+   "reason": "External records: only developer can rename them; docs say so where they navigate there."
+  }
+ ],
+ "gate": [
+  {
+   "scope": "src",
+   "file": "assets/judge/*",
+   "shown": false,
+   "reason": "The recorded day and its maps are hash-locked recordings (receipt hash). Every reader shows them through RecordedText.neutral, which says Flowstate (RetiredNameTest, and the rendered scope of this gate)."
+  },
+  {
+   "scope": "apk",
+   "file": "assets/judge/*",
+   "shown": false,
+   "reason": "Same recordings inside the APK; shown only through RecordedText.neutral (see the src entry)."
+  },
+  {
+   "scope": "src",
+   "file": "assets/windows.js",
+   "text": "isFixture = row => .*Overhand test",
+   "shown": false,
+   "reason": "The [Overhand test N] fixture marker regex: matched to hide test fixtures, never drawn (FirstMinutes.kt:9, DecisionCards.kt:650)."
+  },
+  {
+   "scope": "apk",
+   "file": "assets/windows.js",
+   "text": "isFixture = row => .*Overhand test",
+   "shown": false,
+   "reason": "Same fixture marker regex inside the APK."
+  },
+  {
+   "scope": "src",
+   "file": "res/raw/voice_answers.json",
+   "text": "^overhand:[0-9]+$",
+   "shown": false,
+   "reason": "Silent voice alias: a key phrase the matcher hears; keys are never shown or spoken."
+  },
+  {
+   "scope": "apk",
+   "file": "res/raw/voice_answers.json",
+   "text": "^overhand:[0-9]+$",
+   "shown": false,
+   "reason": "Same silent voice alias inside the APK."
+  },
+  {
+   "scope": "judge",
+   "file": "*",
+   "token": ".*(native/overhand|com[./]overhand|overhand-release|OverhandActivity).*",
+   "shown": false,
+   "reason": "Module path native/overhand, package com.overhand.app, the signing key file and class names are kept (R212 renames only what is shown); a path in an evidence note is not the product's name."
+  },
+  {
+   "scope": "judge",
+   "file": "submission/privacy_nov12/data_flows.md",
+   "token": "overhand\\.[a-z]+\\.v[0-9]+",
+   "shown": false,
+   "reason": "Browser storage keys of the frozen C8 Web build (identifiers in web/, which this card may not change); the privacy table must name the real key."
+  },
+  {
+   "scope": "judge",
+   "file": "*",
+   "token": "https?://\\S*/[0-9]+-overhand/\\S*",
+   "shown": false,
+   "reason": "The submission URL slug the competition site assigned; a link, not the product's name. It changes only if the site renames the entry."
+  }
+ ]
+}

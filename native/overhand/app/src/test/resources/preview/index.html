@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, height=800">
+<title>Counter</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #10161e; color: #f2f5f8; font-family: sans-serif; }
+  main { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 32px; }
+  #count { font-size: 160px; font-variant-numeric: tabular-nums; }
+  .row { display: flex; gap: 32px; }
+  button { font-size: 48px; min-width: 240px; min-height: 120px; border: 0; border-radius: 24px; background: #26354a; color: #fff; }
+  button:active { background: #3a5272; }
+  p { font-size: 28px; color: #c8d2dc; }
+</style>
+</head>
+<body>
+<main>
+  <div id="count">0</div>
+  <div class="row">
+    <button id="minus" type="button">Minus</button>
+    <button id="plus" type="button">Plus</button>
+    <button id="reset" type="button">Reset</button>
+  </div>
+  <p id="note">Pinch a button to count. Everything runs here, with nothing fetched from anywhere.</p>
+</main>
+<script>
+  // A counter with a short history, so a reload on a new commit is visible: the history starts again from zero.
+  var count = 0, history = [];
+  function show() {
+    document.getElementById('count').textContent = String(count);
+    document.getElementById('note').textContent = history.length
+      ? 'Last presses: ' + history.slice(-8).join(' ')
+      : 'Pinch a button to count. Everything runs here, with nothing fetched from anywhere.';
+  }
+  function press(delta, label) {
+    count = delta === null ? 0 : count + delta;
+    history.push(label);
+    show();
+  }
+  document.getElementById('plus').addEventListener('click', function () { press(1, '+'); });
+  document.getElementById('minus').addEventListener('click', function () { press(-1, '-'); });
+  document.getElementById('reset').addEventListener('click', function () { press(null, '0'); });
+  show();
+</script>
+<!-- Padding so the file spans several 4500-byte chunks over the link (the chunk path is what the test checks). -->
+<!--
+  line 0000: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0001: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0002: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0003: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0004: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0005: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0006: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0007: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0008: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0009: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0010: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0011: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0012: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0013: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0014: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0015: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0016: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0017: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0018: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0019: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0020: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0021: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0022: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0023: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0024: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0025: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0026: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0027: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0028: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0029: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0030: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0031: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0032: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0033: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0034: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0035: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0036: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0037: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0038: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0039: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0040: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0041: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0042: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0043: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0044: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0045: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0046: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0047: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0048: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0049: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0050: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0051: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0052: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0053: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0054: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0055: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0056: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0057: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0058: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0059: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0060: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0061: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0062: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0063: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0064: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0065: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0066: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0067: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0068: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0069: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0070: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0071: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0072: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0073: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0074: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0075: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0076: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0077: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0078: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0079: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0080: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0081: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0082: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0083: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0084: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0085: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0086: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0087: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0088: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0089: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0090: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0091: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0092: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0093: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0094: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0095: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0096: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0097: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0098: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0099: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0100: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0101: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0102: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0103: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0104: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0105: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0106: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0107: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0108: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0109: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0110: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0111: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0112: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0113: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0114: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0115: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0116: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0117: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0118: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0119: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0120: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0121: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0122: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0123: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0124: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0125: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0126: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0127: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0128: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0129: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0130: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0131: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0132: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0133: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0134: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0135: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0136: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0137: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0138: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0139: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0140: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0141: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0142: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0143: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0144: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0145: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0146: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0147: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0148: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0149: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0150: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0151: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0152: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0153: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0154: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0155: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0156: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0157: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0158: a counter, a reset button and nothing else; unicode check é ü ✓
+  line 0159: a counter, a reset button and nothing else; unicode check é ü ✓
+-->
+</body>
+</html>

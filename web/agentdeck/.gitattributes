@@ -1,0 +1,4 @@
+# Keep generated recording chunks and upstream legal notices reproducible on checkout.
+src/recordings/*.jsonl text eol=lf
+public/controllers/touch/LICENSE.md text eol=lf
+public/controllers/touch/NOTICE.md text eol=crlf

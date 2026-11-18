@@ -1,0 +1,8 @@
+{"type": "system", "subtype": "init", "cwd": "{{CWD}}", "session_id": "00000000-1052-4000-8000-000000000001", "tools": ["Bash", "Write"], "model": "(model)"}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "tool_use", "id": "w1", "name": "Write", "input": {"file_path": "index.html", "content": "<!doctype html><title>Tap</title><p id=s>0</p><button onclick=\"s.textContent=+s.textContent+1\">Tap</button>"}}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "user", "message": {"role": "user", "content": [{"tool_use_id": "w1", "type": "tool_result", "content": "File created", "is_error": false}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "tool_use", "id": "w2", "name": "Write", "input": {"file_path": "check.js", "content": "console.log('check ok')"}}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "user", "message": {"role": "user", "content": [{"tool_use_id": "w2", "type": "tool_result", "content": "File created", "is_error": false}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "tool_use", "id": "b1", "name": "Bash", "input": {"command": "node check.js"}}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "user", "message": {"role": "user", "content": [{"tool_use_id": "b1", "type": "tool_result", "content": "check ok", "is_error": false}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_stall": true}

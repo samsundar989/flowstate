@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- look_nov17 s2 Tokens and Controls; Dock.dc.html / Question.dc.html CSS (lane K2, #1372). -->
+<resources>
+  <color name="fs_text">#F2F6FA</color>            <!-- s2 Text -->
+  <color name="fs_caption">#B3FFFFFF</color>       <!-- s2 Caption, white 70% -->
+  <color name="fs_cyan">#5CE1E6</color>            <!-- s2 Cyan -->
+  <color name="fs_cyan_16">#295CE1E6</color>       <!-- s2 selected fill, 16% -->
+  <color name="fs_cyan_25">#405CE1E6</color>       <!-- s2 switch on fill, 25% -->
+  <color name="fs_cyan_28">#475CE1E6</color>       <!-- s2 pressed fill, 28% -->
+  <color name="fs_cyan_50">#805CE1E6</color>       <!-- Question.dc.html dim Confirm, cyan 50% -->
+  <color name="fs_on_cyan">#06222A</color>         <!-- s2 text on a filled cyan button -->
+  <color name="fs_amber">#FFB547</color>           <!-- s2 Amber: needs you only -->
+  <color name="fs_green">#45D99A</color>           <!-- s2 Green: done -->
+  <color name="fs_red">#FF6B6B</color>             <!-- s2 Red: errors only -->
+  <color name="fs_control_edge">#38FFFFFF</color>  <!-- s2 Controls: 2 dp edge white 22% -->
+  <color name="fs_switch_edge">#4DFFFFFF</color>   <!-- Dock.dc.html .sw border white 30% -->
+  <color name="fs_switch_knob">#B3FFFFFF</color>   <!-- Dock.dc.html .sw span white 70% -->
+  <color name="fs_edge">#26FFFFFF</color>          <!-- s2 Edge white 15% -->
+  <color name="fs_tile">#12FFFFFF</color>          <!-- s2 Inner tile fill white 7% -->
+  <color name="fs_tile_edge">#1FFFFFFF</color>     <!-- s2 Inner tile edge white 12% -->
+  <color name="fs_well">#59000000</color>          <!-- s2 Code well black 35% -->
+  <color name="fs_planned">#8CFFFFFF</color>       <!-- s2 Status planned, white 55% -->
+  <color name="fs_panel">#A60C121A</color>         <!-- s2 Panel fill 65% -->
+</resources>

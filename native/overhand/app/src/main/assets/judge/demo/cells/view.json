@@ -1,0 +1,853 @@
+{
+ "project": "sfec9f6d88c8b46f6",
+ "goal": "Track every cell and each cell division through microscope movies of growing embryos, for a cell-tracking prediction contest.",
+ "goal_rows": [
+  1
+ ],
+ "entries": [
+  {
+   "block": "NOW",
+   "text": "Project scaffold and pipeline stubs",
+   "from": 2,
+   "until": 3,
+   "rows": [
+    2,
+    3
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Project scaffold and pipeline stubs",
+   "from": 3,
+   "until": null,
+   "rows": [
+    3
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "First scorer-checked entry, and two separate questions about board noise",
+   "from": 4,
+   "until": 16,
+   "rows": [
+    4,
+    16
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "First scorer-checked entry, and two separate questions about board noise",
+   "from": 16,
+   "until": null,
+   "rows": [
+    16
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Make the entry notebook robust; refuse a ladder whose arms run different code",
+   "from": 5,
+   "until": 21,
+   "rows": [
+    5,
+    21
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Make the entry notebook robust; refuse a ladder whose arms run different code",
+   "from": 21,
+   "until": null,
+   "rows": [
+    21
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Daily records: the division score goes from 0.000 to 0.154",
+   "from": 6,
+   "until": 22,
+   "rows": [
+    6,
+    22
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Daily records: the division score goes from 0.000 to 0.154",
+   "from": 22,
+   "until": null,
+   "rows": [
+    22
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Make the notebook run, and ask the board instead of arguing with the local metric",
+   "from": 7,
+   "until": 19,
+   "rows": [
+    7,
+    19
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Make the notebook run, and ask the board instead of arguing with the local metric",
+   "from": 19,
+   "until": null,
+   "rows": [
+    19
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Validation diagnostics, sweepable gates and byte-identical split runs",
+   "from": 8,
+   "until": 18,
+   "rows": [
+    8,
+    18
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Validation diagnostics, sweepable gates and byte-identical split runs",
+   "from": 18,
+   "until": null,
+   "rows": [
+    18
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Detector training that survives memory limits; detection matches the public model",
+   "from": 9,
+   "until": 15,
+   "rows": [
+    9,
+    15
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Detector training that survives memory limits; detection matches the public model",
+   "from": 15,
+   "until": null,
+   "rows": [
+    15
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Fix the two-pass division solve and port the public linker behind switches",
+   "from": 10,
+   "until": 17,
+   "rows": [
+    10,
+    17
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Fix the two-pass division solve and port the public linker behind switches",
+   "from": 17,
+   "until": null,
+   "rows": [
+    17
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Find where divisions are lost: a funnel and a gate tracer",
+   "from": 11,
+   "until": 20,
+   "rows": [
+    11,
+    20
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Find where divisions are lost: a funnel and a gate tracer",
+   "from": 20,
+   "until": null,
+   "rows": [
+    20
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Five scored, 0.942 banked; the first division lane closes on its pre-registered rule",
+   "from": 23,
+   "until": 39,
+   "rows": [
+    23,
+    39
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Five scored, 0.942 banked; the first division lane closes on its pre-registered rule",
+   "from": 39,
+   "until": null,
+   "rows": [
+    39
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Final-evidence gates, frozen requests and certification records",
+   "from": 24,
+   "until": 38,
+   "rows": [
+    24,
+    38
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final-evidence gates, frozen requests and certification records",
+   "from": 38,
+   "until": null,
+   "rows": [
+    38
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A fitted ranker orders candidate divisions 2.3 times better",
+   "from": 25,
+   "until": 36,
+   "rows": [
+    25,
+    36
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A fitted ranker orders candidate divisions 2.3 times better",
+   "from": 36,
+   "until": null,
+   "rows": [
+    36
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Public augmentations and a dense-loss detector retrain",
+   "from": 26,
+   "until": 32,
+   "rows": [
+    26,
+    32
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Public augmentations and a dense-loss detector retrain (in part)",
+   "from": 32,
+   "until": null,
+   "rows": [
+    32
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Ship the dense retrain as an option; pin each model file",
+   "from": 27,
+   "until": 35,
+   "rows": [
+    27,
+    35
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Ship the dense retrain as an option; pin each model file",
+   "from": 35,
+   "until": null,
+   "rows": [
+    35
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Tests that bind the final package to its evidence",
+   "from": 28,
+   "until": 37,
+   "rows": [
+    28,
+    37
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Tests that bind the final package to its evidence",
+   "from": 37,
+   "until": null,
+   "rows": [
+    37
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Dense-label pass; its spec was wrong and 20 seconds of measuring found it",
+   "from": 29,
+   "until": 30,
+   "rows": [
+    29,
+    30
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Dense-label pass; its spec was wrong and 20 seconds of measuring found it",
+   "from": 30,
+   "until": null,
+   "rows": [
+    30
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A locked precision review panel that fails closed",
+   "from": 33,
+   "until": 34,
+   "rows": [
+    33,
+    34
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A locked precision review panel that fails closed",
+   "from": 34,
+   "until": null,
+   "rows": [
+    34
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "First own-pipeline score 0.903, then ties near 0.945",
+   "from": 40,
+   "until": 54,
+   "rows": [
+    40,
+    54
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "First own-pipeline score 0.903, then ties near 0.945",
+   "from": 54,
+   "until": null,
+   "rows": [
+    54
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Day 0 complete at 0.945; the public recipe loses to its own component",
+   "from": 41,
+   "until": 49,
+   "rows": [
+    41,
+    49
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Day 0 complete at 0.945; the public recipe loses to its own component",
+   "from": 49,
+   "until": null,
+   "rows": [
+    49
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Annotation-prior probe and hardened audit tools",
+   "from": 42,
+   "until": 50,
+   "rows": [
+    42,
+    50
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Annotation-prior probe and hardened audit tools",
+   "from": 50,
+   "until": null,
+   "rows": [
+    50
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Division instrument: a symmetry gate refuses 36 of 38 reachable divisions",
+   "from": 44,
+   "until": 45,
+   "rows": [
+    44,
+    45
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Division instrument: a symmetry gate refuses 36 of 38 reachable divisions",
+   "from": 45,
+   "until": null,
+   "rows": [
+    45
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "The division cap fix is correct but buys nothing; the veto must stay",
+   "from": 46,
+   "until": 47,
+   "rows": [
+    46,
+    47
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "The division cap fix is correct but buys nothing; the veto must stay",
+   "from": 47,
+   "until": null,
+   "rows": [
+    47
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "An association headroom oracle and a deletion arm worth plus 0.004",
+   "from": 48,
+   "until": 53,
+   "rows": [
+    48,
+    53
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "An association headroom oracle and a deletion arm worth plus 0.004",
+   "from": 53,
+   "until": null,
+   "rows": [
+    53
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Raw 3D patch evidence without a deep-learning library",
+   "from": 51,
+   "until": 52,
+   "rows": [
+    51,
+    52
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Raw 3D patch evidence without a deep-learning library",
+   "from": 52,
+   "until": null,
+   "rows": [
+    52
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "One plan for the last phase; five entries a day",
+   "from": 55,
+   "until": 71,
+   "rows": [
+    55,
+    71
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "One plan for the last phase; five entries a day",
+   "from": 71,
+   "until": null,
+   "rows": [
+    71
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Daily slates of entry notebooks for the board",
+   "from": 56,
+   "until": 68,
+   "rows": [
+    56,
+    68
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Daily slates of entry notebooks for the board",
+   "from": 68,
+   "until": null,
+   "rows": [
+    68
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Mitosis image model, stacked scorer and fork-rate pricing",
+   "from": 57,
+   "until": 69,
+   "rows": [
+    57,
+    69
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Mitosis image model, stacked scorer and fork-rate pricing",
+   "from": 69,
+   "until": null,
+   "rows": [
+    69
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Measure the oracle ceiling to aim the last slots",
+   "from": 58,
+   "until": 59,
+   "rows": [
+    58,
+    59
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Measure the oracle ceiling to aim the last slots",
+   "from": 59,
+   "until": null,
+   "rows": [
+    59
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Add-only fork insertion and a learned linker head",
+   "from": 60,
+   "until": 63,
+   "rows": [
+    60,
+    63
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Add-only fork insertion and a learned linker head",
+   "from": 63,
+   "until": null,
+   "rows": [
+    63
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A fast commit path and a GPU stage that halves the run time",
+   "from": 61,
+   "until": 64,
+   "rows": [
+    61,
+    64
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A fast commit path and a GPU stage that halves the run time",
+   "from": 64,
+   "until": null,
+   "rows": [
+    64
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Train the mitosis model; an outside detector fails the recall gate",
+   "from": 62,
+   "until": 66,
+   "rows": [
+    62,
+    66
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Train the mitosis model; an outside detector fails the recall gate (in part)",
+   "from": 66,
+   "until": null,
+   "rows": [
+    66
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Final results, audits and the reproduction write-up",
+   "from": 72,
+   "until": 85,
+   "rows": [
+    72,
+    85
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final results, audits and the reproduction write-up",
+   "from": 85,
+   "until": null,
+   "rows": [
+    85
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Final candidates, and both finals reproduce byte for byte",
+   "from": 73,
+   "until": 84,
+   "rows": [
+    73,
+    84
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final candidates, and both finals reproduce byte for byte",
+   "from": 84,
+   "until": null,
+   "rows": [
+    84
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Fork-veto candidates and the missed-division funnel",
+   "from": 74,
+   "until": 77,
+   "rows": [
+    74,
+    77
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Fork-veto candidates and the missed-division funnel",
+   "from": 77,
+   "until": null,
+   "rows": [
+    77
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Release gates for the veto and the insurance pair",
+   "from": 75,
+   "until": 76,
+   "rows": [
+    75,
+    76
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Release gates for the veto and the insurance pair",
+   "from": 76,
+   "until": null,
+   "rows": [
+    76
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Freeze and list every file of the two finals",
+   "from": 80,
+   "until": 81,
+   "rows": [
+    80,
+    81
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Freeze and list every file of the two finals",
+   "from": 81,
+   "until": null,
+   "rows": [
+    81
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A training guide that rebuilds every shipped model from raw data",
+   "from": 82,
+   "until": 83,
+   "rows": [
+    82,
+    83
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A training guide that rebuilds every shipped model from raw data",
+   "from": 83,
+   "until": null,
+   "rows": [
+    83
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Division score rises from 0.000 to 0.154, level with the reference",
+   "from": 12,
+   "until": null,
+   "rows": [
+    12
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "The local score and the public board disagree. Which one steers the work?",
+   "from": 13,
+   "until": 14,
+   "rows": [
+    13,
+    14
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: The board became the instrument.",
+   "from": 14,
+   "until": null,
+   "rows": [
+    13,
+    14
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "All five scored: 0.942 banked on the public board",
+   "from": 31,
+   "until": null,
+   "rows": [
+    31
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Day 0 complete at 0.945 on the public board",
+   "from": 43,
+   "until": null,
+   "rows": [
+    43
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "A public pipeline scores 0.005 higher on the board than our own base. Move our division layer onto it?",
+   "from": 65,
+   "until": 67,
+   "rows": [
+    65,
+    67
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Adopted. Every later entry stacked on the public base.",
+   "from": 67,
+   "until": null,
+   "rows": [
+    65,
+    67
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Best stacked entry reaches 0.966 on the public board",
+   "from": 70,
+   "until": null,
+   "rows": [
+    70
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "Pick the final pair: two twins of the best board entry, or the best one plus our own-pipeline hedge?",
+   "from": 78,
+   "until": 79,
+   "rows": [
+    78,
+    79
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Two twins. On the private board the hedge would have scored 0.938, the twins 0.935 and 0.936.",
+   "from": 79,
+   "until": null,
+   "rows": [
+    78,
+    79
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final: 5th on the public board (0.972), 39th of 4,020 on the private board (0.936)",
+   "from": 86,
+   "until": null,
+   "rows": [
+    86
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Post-mortem: the private movies came from a different, sparser embryo. The borrowed base lost 0.032 to 0.041 from public to private; our own base lost only 0.019 to 0.024.",
+   "from": 87,
+   "until": null,
+   "rows": [
+    87
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Post-mortem: our division layer added about 0.012 to 0.016 on either base and is the part of the work that carried over.",
+   "from": 88,
+   "until": null,
+   "rows": [
+    88
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Post-mortem lesson: check what the hidden test set is made of on day one, build a clean held-out check first, and use the board only to confirm.",
+   "from": 89,
+   "until": null,
+   "rows": [
+    89
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Both finals reproduce byte for byte from frozen copies.",
+   "from": 90,
+   "until": null,
+   "rows": [
+    90
+   ]
+  }
+ ]
+}

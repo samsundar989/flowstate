@@ -1,0 +1,563 @@
+{
+ "window": "seeded_fixture",
+ "kind": "android-view",
+ "source": "LayoutLintCapture.seeded",
+ "width_px": 1800,
+ "height_px": 1296,
+ "width_dp": 1000,
+ "height_dp": 720,
+ "density": 1.8000000715255737,
+ "width_m": 1,
+ "height_m": 0.7200000286102295,
+ "m_per_px": 5.555555555555556E-4,
+ "distance_m": 1,
+ "grid": true,
+ "elements": [
+  {
+   "index": 0,
+   "parent": -1,
+   "name": "LinearLayout#panel_root@0",
+   "class": "android.widget.LinearLayout",
+   "tag": null,
+   "rect": [
+    0,
+    0,
+    1800,
+    1296
+   ],
+   "visible_rect": [
+    0,
+    0,
+    1800,
+    1296
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "orientation": "vertical"
+  },
+  {
+   "index": 1,
+   "parent": 0,
+   "name": "TextView[seed-left-a]'Aligned heading'@1",
+   "class": "android.widget.TextView",
+   "tag": "seed-left-a",
+   "rect": [
+    0,
+    0,
+    405,
+    77
+   ],
+   "visible_rect": [
+    0,
+    0,
+    405,
+    77
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "text": "Aligned heading",
+   "text_size_px": 57.60000228881836,
+   "text_color": "#FFFFFFFF",
+   "gravity_h": "start",
+   "button": false,
+   "max_lines": 2147483647,
+   "inner": [
+    0,
+    0,
+    405,
+    77
+   ],
+   "layout_height": 77,
+   "lines": [
+    {
+     "start": 0,
+     "end": 15,
+     "text": "Aligned heading",
+     "left": 0,
+     "right": 405,
+     "top": 0,
+     "bottom": 77,
+     "baseline": 61,
+     "ellipsis": 0
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "parent": 0,
+   "name": "TextView[seed-left-b]'Shifted line'@2",
+   "class": "android.widget.TextView",
+   "tag": "seed-left-b",
+   "rect": [
+    2,
+    77,
+    285,
+    154
+   ],
+   "visible_rect": [
+    2,
+    77,
+    285,
+    154
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "text": "Shifted line",
+   "text_size_px": 57.60000228881836,
+   "text_color": "#FFFFFFFF",
+   "gravity_h": "start",
+   "button": false,
+   "max_lines": 2147483647,
+   "inner": [
+    2,
+    77,
+    285,
+    154
+   ],
+   "layout_height": 77,
+   "lines": [
+    {
+     "start": 0,
+     "end": 12,
+     "text": "Shifted line",
+     "left": 2,
+     "right": 285,
+     "top": 77,
+     "bottom": 154,
+     "baseline": 138,
+     "ellipsis": 0
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "parent": 0,
+   "name": "TextView[seed-overflow]'Tasks waiting for you today Second line '@3",
+   "class": "android.widget.TextView",
+   "tag": "seed-overflow",
+   "rect": [
+    0,
+    154,
+    1800,
+    258
+   ],
+   "visible_rect": [
+    0,
+    154,
+    1800,
+    258
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "text": "Tasks waiting for you today\nSecond line is cut\nThird line is cut",
+   "text_size_px": 57.60000228881836,
+   "text_color": "#FFFFFFFF",
+   "gravity_h": "start",
+   "button": false,
+   "max_lines": 2147483647,
+   "inner": [
+    0,
+    154,
+    1800,
+    258
+   ],
+   "layout_height": 211,
+   "lines": [
+    {
+     "start": 0,
+     "end": 28,
+     "text": "Tasks waiting for you today\n",
+     "left": 0,
+     "right": 692.45703125,
+     "top": 154,
+     "bottom": 229,
+     "baseline": 215,
+     "ellipsis": 0
+    },
+    {
+     "start": 28,
+     "end": 47,
+     "text": "Second line is cut\n",
+     "left": 0,
+     "right": 444,
+     "top": 229,
+     "bottom": 296,
+     "baseline": 282,
+     "ellipsis": 0
+    },
+    {
+     "start": 47,
+     "end": 64,
+     "text": "Third line is cut",
+     "left": 0,
+     "right": 383.46875,
+     "top": 296,
+     "bottom": 365,
+     "baseline": 349,
+     "ellipsis": 0
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "parent": 0,
+   "name": "View[seed-small]@4",
+   "class": "android.view.View",
+   "tag": "seed-small",
+   "rect": [
+    0,
+    258,
+    58,
+    316
+   ],
+   "visible_rect": [
+    0,
+    258,
+    58,
+    316
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": true,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "index": 5,
+   "parent": 0,
+   "name": "TextView[seed-gross]'Gross shifted line'@5",
+   "class": "android.widget.TextView",
+   "tag": "seed-gross",
+   "rect": [
+    10,
+    316,
+    451,
+    393
+   ],
+   "visible_rect": [
+    10,
+    316,
+    451,
+    393
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "text": "Gross shifted line",
+   "text_size_px": 57.60000228881836,
+   "text_color": "#FFFFFFFF",
+   "gravity_h": "start",
+   "button": false,
+   "max_lines": 2147483647,
+   "inner": [
+    10,
+    316,
+    451,
+    393
+   ],
+   "layout_height": 77,
+   "lines": [
+    {
+     "start": 0,
+     "end": 18,
+     "text": "Gross shifted line",
+     "left": 10,
+     "right": 451,
+     "top": 316,
+     "bottom": 393,
+     "baseline": 377,
+     "ellipsis": 0
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "parent": 0,
+   "name": "LinearLayout[seed-clean]@6",
+   "class": "android.widget.LinearLayout",
+   "tag": "seed-clean",
+   "rect": [
+    0,
+    393,
+    1800,
+    624
+   ],
+   "visible_rect": [
+    0,
+    393,
+    1800,
+    624
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "orientation": "vertical"
+  },
+  {
+   "index": 7,
+   "parent": 6,
+   "name": "TextView[seed-clean-a]'Clean first'@7",
+   "class": "android.widget.TextView",
+   "tag": "seed-clean-a",
+   "rect": [
+    0,
+    393,
+    256,
+    470
+   ],
+   "visible_rect": [
+    0,
+    393,
+    256,
+    470
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "text": "Clean first",
+   "text_size_px": 57.60000228881836,
+   "text_color": "#FFFFFFFF",
+   "gravity_h": "start",
+   "button": false,
+   "max_lines": 2147483647,
+   "inner": [
+    0,
+    393,
+    256,
+    470
+   ],
+   "layout_height": 77,
+   "lines": [
+    {
+     "start": 0,
+     "end": 11,
+     "text": "Clean first",
+     "left": 0,
+     "right": 256,
+     "top": 393,
+     "bottom": 470,
+     "baseline": 454,
+     "ellipsis": 0
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "parent": 6,
+   "name": "TextView[seed-clean-b]'Clean second'@8",
+   "class": "android.widget.TextView",
+   "tag": "seed-clean-b",
+   "rect": [
+    0,
+    470,
+    342,
+    547
+   ],
+   "visible_rect": [
+    0,
+    470,
+    342,
+    547
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "text": "Clean second",
+   "text_size_px": 57.60000228881836,
+   "text_color": "#FFFFFFFF",
+   "gravity_h": "start",
+   "button": false,
+   "max_lines": 2147483647,
+   "inner": [
+    0,
+    470,
+    342,
+    547
+   ],
+   "layout_height": 77,
+   "lines": [
+    {
+     "start": 0,
+     "end": 12,
+     "text": "Clean second",
+     "left": 0,
+     "right": 342,
+     "top": 470,
+     "bottom": 547,
+     "baseline": 531,
+     "ellipsis": 0
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "parent": 6,
+   "name": "TextView[seed-clean-indent]'Clean indent'@9",
+   "class": "android.widget.TextView",
+   "tag": "seed-clean-indent",
+   "rect": [
+    86,
+    547,
+    400,
+    624
+   ],
+   "visible_rect": [
+    86,
+    547,
+    400,
+    624
+   ],
+   "padding": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "clickable": false,
+   "alpha": 1,
+   "scroll_container": false,
+   "margin": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "text": "Clean indent",
+   "text_size_px": 57.60000228881836,
+   "text_color": "#FFFFFFFF",
+   "gravity_h": "start",
+   "button": false,
+   "max_lines": 2147483647,
+   "inner": [
+    86.4000015258789,
+    547,
+    400.3999938964844,
+    624
+   ],
+   "layout_height": 77,
+   "lines": [
+    {
+     "start": 0,
+     "end": 12,
+     "text": "Clean indent",
+     "left": 86.4000015258789,
+     "right": 400.3999938964844,
+     "top": 547,
+     "bottom": 624,
+     "baseline": 608,
+     "ellipsis": 0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+
+# t517: keep the upstream licence byte-identical to the pinned package.
+web/agentdeck/public/controllers/**/LICENSE.md -text
+
+# t887: shell scripts always check out LF (core.autocrlf=true broke bash in jobs, #859/#886).
+*.sh text eol=lf
+
+# t1002: frozen voice test sets are hashed; keep them LF everywhere.
+native/overhand/app/src/test/resources/voice_ui/*.jsonl text eol=lf
+
+# t1056: frozen voice FA judges are hashed; keep them LF everywhere.
+runs/voice_fa/*.tsv text eol=lf
+
+# t1008: the recorded build replay serves these bytes and checks their sha256 against the golden manifest; never convert.
+native/overhand/app/src/main/assets/judge/build_from_nothing/** -text

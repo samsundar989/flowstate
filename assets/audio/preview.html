@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sound cue preview</title>
+<style>
+:root{--bg:#fff;--fg:#111;--btn:#eee}
+@media (prefers-color-scheme:dark){:root{--bg:#161616;--fg:#eee;--btn:#2a2a2a}}
+body{background:var(--bg);color:var(--fg);font:16px system-ui,sans-serif;margin:0;padding:16px}
+button{display:block;width:100%;max-width:420px;margin:6px 0;padding:12px;font:inherit;text-align:left;background:var(--btn);color:var(--fg);border:0;border-radius:8px;cursor:pointer}
+</style></head><body>
+<h1>Sound cues</h1><p>Open from <code>assets/audio/</code>; click to play. Shift-click plays at +3 / +7 semitones (agents B, C).</p>
+<div id="list"></div>
+<script>
+const cues=["hover","press","tick","assign","snap-back","step-done","ask","approve","stop","fail","payoff"];
+const list=document.getElementById("list");
+for(const c of cues){const b=document.createElement("button");b.textContent=c;
+b.onclick=e=>{const play=(r,d)=>setTimeout(()=>{const a=new Audio(c+".wav");a.preservesPitch=false;a.playbackRate=r;a.play();},d);
+play(1,0);if(e.shiftKey){play(2**(3/12),500);play(2**(7/12),1000);}};list.appendChild(b);}
+</script></body></html>

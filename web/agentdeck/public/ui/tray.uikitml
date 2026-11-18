@@ -1,0 +1,218 @@
+<!--
+  Task tray (docs/design.md s2 + "Visual system"): scale 0.05, pixel-size 0.005 (1 unit =
+  0.25 mm), 1200 units = 0.30 m wide at 0.43 m. Stand-up mode (#112, merged #203): replay /
+  tutorial / skip, a mono clock and the scrubber (ion playhead). Slice-1 mode: three role-tagged
+  cards (poke a card, then "Assign" on a panel). Every gap between poke targets is 48 units =
+  12 mm (design s2). src/tray.ts owns selection, the hint line and the buttons.
+  Class names are prefixed (t-): uikit's stylesheet is global.
+-->
+<style>
+  @font-face { font-family: mono; src: url(../fonts/mono-regular.ttf); font-weight: 400; }
+  @font-face { font-family: mono; src: url(../fonts/mono-semibold.ttf); font-weight: 600; }
+  @font-face { font-family: sans; src: url(../fonts/sans-regular.ttf); font-weight: 400; }
+  @font-face { font-family: sans; src: url(../fonts/sans-semibold.ttf); font-weight: 600; }
+  .t-root {
+    pixel-size: 0.005;
+    flex-direction: column;
+    width: 1200px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 16px;
+    background-color: #0C1219;
+    border-width: 3px;
+    border-color: #1C2836;
+    border-radius: 8px;
+  }
+  .t-cards {
+    flex-direction: row;
+    gap: 48px;
+  }
+  .t-card {
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 176px;
+    padding-top: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 6px;
+    border-radius: 8px;
+    border-width: 3px;
+    border-color: #1C2836;
+    background-color: #121A24;
+    cursor: pointer;
+  }
+  .t-card:hover {
+    background-color: #182330;
+  }
+  .t-tag {
+    font-family: mono;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #5A6A7C;
+  }
+  .t-task {
+    font-family: sans;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #E2EAF2;
+  }
+  .t-bottom {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .t-hint {
+    font-family: mono;
+    font-size: 32px;
+    line-height: 1.25;
+    width: 1152px;
+    color: #93A3B5;
+  }
+  .t-ctl {
+    flex-direction: row;
+    gap: 48px;
+  }
+  .t-standup {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .t-clock {
+    font-family: mono;
+    font-size: 34px;
+    letter-spacing: 1px;
+    color: #5CE1E6;
+  }
+  .t-scrub {
+    flex-direction: row;
+    width: 1152px;
+    height: 112px;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #2B3B4F;
+    background-color: #121A24;
+    cursor: pointer;
+  }
+  .t-fill {
+    width: 0px;
+    height: 106px;
+    background-color: #1D4A55;
+  }
+  .t-skip {
+    position-type: absolute;
+    position-top: 0px;
+    position-left: 0px;
+    width: 8px;
+    height: 106px;
+    background-color: #5A6A7C;
+    display: none;
+  }
+  .t-knob {
+    width: 64px;
+    height: 106px;
+    border-radius: 6px;
+    background-color: #5CE1E6;
+  }
+  .t-btn {
+    flex-direction: row;
+    height: 120px;
+    min-width: 140px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #2B3B4F;
+    background-color: #121A24;
+    cursor: pointer;
+  }
+  .t-btn:hover {
+    background-color: #182330;
+  }
+  .t-btn:active {
+    background-color: #1F3340;
+  }
+  .t-label {
+    font-family: mono;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #E2EAF2;
+  }
+  .t-icon {
+    width: 44px;
+    height: 44px;
+    color: #93A3B5;
+  }
+</style>
+<div class="t-root">
+  <div id="standup-controls" class="t-standup">
+    <div class="t-ctl">
+      <div id="replay-night" class="t-btn">
+        <div id="replay-label" class="t-label">REPLAY THE DAY</div>
+      </div>
+      <div id="tutorial-button" class="t-btn">
+        <div class="t-label">TUTORIAL</div>
+      </div>
+      <div id="projects-button" class="t-btn">
+        <div class="t-label">PROJECTS</div>
+      </div>
+      <div id="skip-beat" class="t-btn">
+        <div id="skip-label" class="t-label">SKIP STEP</div>
+      </div>
+    </div>
+    <div id="standup-clock" class="t-clock">00:00:00 / 30X</div>
+    <div id="scrubber" class="t-scrub">
+      <div id="scrub-fill" class="t-fill"></div>
+      <div id="scrub-skip-0" class="t-skip"></div>
+      <div id="scrub-skip-1" class="t-skip"></div>
+      <div id="scrub-skip-2" class="t-skip"></div>
+      <div id="scrub-skip-3" class="t-skip"></div>
+      <div id="scrub-skip-4" class="t-skip"></div>
+      <div id="scrub-skip-5" class="t-skip"></div>
+      <div id="scrub-skip-6" class="t-skip"></div>
+      <div id="scrub-skip-7" class="t-skip"></div>
+      <div id="scrub-knob" class="t-knob"></div>
+    </div>
+  </div>
+  <div id="role-cards" class="t-cards">
+    <div id="card-researcher" class="t-card">
+      <div class="t-tag">RESEARCHER</div>
+      <div id="card-researcher-task" class="t-task">Survey how other repos test this</div>
+    </div>
+    <div id="card-builder" class="t-card">
+      <div class="t-tag">BUILDER</div>
+      <div id="card-builder-task" class="t-task">Update the changelog</div>
+    </div>
+    <div id="card-reviewer" class="t-card">
+      <div class="t-tag">REVIEWER</div>
+      <div id="card-reviewer-task" class="t-task">Re-check the final diff</div>
+    </div>
+  </div>
+  <div class="t-bottom">
+    <div id="hint-label" class="t-hint">Poke a card, then Assign on its panel</div>
+    <div class="t-ctl">
+      <div id="recentre-button" class="t-btn">
+        <div class="t-label">RECENTRE</div>
+      </div>
+      <div id="exit-button" class="t-btn">
+        <div class="t-label">EXIT</div>
+      </div>
+      <div id="scenario-button" class="t-btn">
+        <SkipForward class="t-icon"></SkipForward>
+        <div class="t-label">NEXT</div>
+      </div>
+      <div id="speed-button" class="t-btn">
+        <div id="speed-label" class="t-label">1X</div>
+      </div>
+      <div id="mute-button" class="t-btn">
+        <Volume2 class="t-icon"></Volume2>
+        <div id="mute-label" class="t-label">SOUND</div>
+      </div>
+    </div>
+  </div>
+</div>

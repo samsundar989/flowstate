@@ -1,0 +1,660 @@
+[
+ {
+  "window": "decision_card",
+  "rule": "low_contrast",
+  "element_index": 21,
+  "detail": "1.18:1 text (18, 48, 56) on (28, 60, 68)",
+  "rect": [
+   50,
+   1747,
+   889,
+   1876
+  ],
+  "signature": "0bf52df0d24bd8156a1c6bf917016b0bc98999e9786f3039ae18d7a5aaef4c9b",
+  "reason": "Disabled Confirm intentionally dim until an option is picked: .autoflow/wiki/look_nov17.md:75,89-90. Exact disabled state only; picked state must meet contrast."
+ },
+ {
+  "window": "decision_card_next_no_hands",
+  "rule": "low_contrast",
+  "element_index": 21,
+  "detail": "1.18:1 text (18, 48, 56) on (28, 60, 68)",
+  "rect": [
+   50,
+   1747,
+   889,
+   1876
+  ],
+  "signature": "7cae95d91f6b23513f6c6a113f5e322c4a9dd9888c4d7bbd1baab9e5e5f25e62",
+  "reason": "Disabled Confirm intentionally dim until an option is picked: .autoflow/wiki/look_nov17.md:75,89-90. Exact disabled state only; picked state must meet contrast."
+ },
+ {
+  "window": "decision_card_next_question",
+  "rule": "low_contrast",
+  "element_index": 21,
+  "detail": "1.18:1 text (18, 48, 56) on (28, 60, 68)",
+  "rect": [
+   50,
+   1747,
+   889,
+   1876
+  ],
+  "signature": "50a10933b3f825e46a4703990ad441118ed3eae956ea8b57045c9928e9fbf64c",
+  "reason": "Disabled Confirm intentionally dim until an option is picked: .autoflow/wiki/look_nov17.md:75,89-90. Exact disabled state only; picked state must meet contrast."
+ },
+ {
+  "window": "palm_menu",
+  "rule": "gross_misalignment",
+  "element_index": 3,
+  "detail": "baseline at 122 px, the stack's is 90 px (Button[menu-center]'Center windows'@2): 32 px off",
+  "rect": [
+   14,
+   14,
+   735,
+   187
+  ],
+  "signature": "14c7432efa47ce6053397e4026ab7886972b7667c5634202d89158e87a123155",
+  "reason": "Centered palm-menu buttons: Center windows wraps to two lines, Blueprint has one. Boxes share their vertical center; their first baselines intentionally differ. OpeningFeature.buildMenu; measured 32 px offset only."
+ },
+ {
+  "window": "reading_setup",
+  "rule": "low_contrast",
+  "element_index": 21,
+  "detail": "1.18:1 text (18, 48, 56) on (28, 60, 68)",
+  "rect": [
+   50,
+   1747,
+   889,
+   1876
+  ],
+  "signature": "bcd74a5490bf8816679c3503ab7af20773175b5f5d2e5b356f96c4e77197d41e",
+  "reason": "Disabled Confirm intentionally dim until an option is picked: .autoflow/wiki/look_nov17.md:75,89-90. Exact disabled state only; picked state must meet contrast."
+ },
+ {
+  "window": "settings_about",
+  "rule": "small_target",
+  "element_index": 3,
+  "detail": "4.9 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1373,
+   47,
+   1481,
+   155
+  ],
+  "signature": "8a58706ecbdb68bb4ca4565ade5fa7bff05df1ea6c3fbb04399e97ac5295631a",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_about",
+  "rule": "small_target",
+  "element_index": 5,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   54,
+   155,
+   291,
+   245
+  ],
+  "signature": "91786be076e58379216f4815bbd3ae4259de80e757879886a87903920cfb5af0",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_about",
+  "rule": "small_target",
+  "element_index": 6,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   291,
+   155,
+   529,
+   245
+  ],
+  "signature": "36c11e27654599cd4ef07ff4ef85fef73077fb5f5a1d4a89c0b8d91b18b113c9",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_about",
+  "rule": "small_target",
+  "element_index": 7,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   529,
+   155,
+   767,
+   245
+  ],
+  "signature": "350a1bbf73ddad46f79d32590d560b7b62d953f5b01c09165698a41d4ab98451",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_about",
+  "rule": "small_target",
+  "element_index": 8,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   767,
+   155,
+   1005,
+   245
+  ],
+  "signature": "a7c72016c45c86a66831fcdb91a5a69542ae11e61f90c1d61498ae506904d11c",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_about",
+  "rule": "small_target",
+  "element_index": 9,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1005,
+   155,
+   1243,
+   245
+  ],
+  "signature": "c720209840b0eee6aec669a8ba3fedf76553efd660f70922c9b76902483ad0ee",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_about",
+  "rule": "small_target",
+  "element_index": 10,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1243,
+   155,
+   1481,
+   245
+  ],
+  "signature": "82ffe6a52047ab98eedd61e91036615eea773c8459414b4a351770ec53b3adea",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_link",
+  "rule": "small_target",
+  "element_index": 3,
+  "detail": "4.9 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1373,
+   47,
+   1481,
+   155
+  ],
+  "signature": "1baa6e134cdfa0bba393947dfc7ceff0beed219f55ca7b728572d24143c63a44",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_link",
+  "rule": "small_target",
+  "element_index": 5,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   54,
+   155,
+   291,
+   245
+  ],
+  "signature": "606a5946f8c40b7e98bb9d7242ef4953f6c3038da5a836f7675ece81d0366a56",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_link",
+  "rule": "small_target",
+  "element_index": 6,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   291,
+   155,
+   529,
+   245
+  ],
+  "signature": "4776d8ff12d2cf3be222a503c00077e92e1a2be6ecbd270a255dc819ba4d19ff",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_link",
+  "rule": "small_target",
+  "element_index": 7,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   529,
+   155,
+   767,
+   245
+  ],
+  "signature": "6ccdc754b69930794d3d74e1cb9d9186c44787d53f128cef0de9943690ff7b61",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_link",
+  "rule": "small_target",
+  "element_index": 8,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   767,
+   155,
+   1005,
+   245
+  ],
+  "signature": "cf135d94768d87403e906cbe2fd0d5bd4047e354e0a29526579e9998ccd5a05a",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_link",
+  "rule": "small_target",
+  "element_index": 9,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1005,
+   155,
+   1243,
+   245
+  ],
+  "signature": "819955c48e0aad8674cb681c4f5a2946ff39a15dd982add1c29e321c0632bd3e",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_link",
+  "rule": "small_target",
+  "element_index": 10,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1243,
+   155,
+   1481,
+   245
+  ],
+  "signature": "51d5a5c9e27f9683d79ef45b772c719e2682a58c9b39c48480e92a97dc274e9a",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_room",
+  "rule": "small_target",
+  "element_index": 3,
+  "detail": "4.9 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1373,
+   47,
+   1481,
+   155
+  ],
+  "signature": "af555ffdf34d48cdf61ffb3bcc97bb033047d03cb5ce269d93901378026498f1",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_room",
+  "rule": "small_target",
+  "element_index": 5,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   54,
+   155,
+   291,
+   245
+  ],
+  "signature": "5032ddbbf6277a8af83c7f994fbe548f0fcbf9abfb8ac82d88abc8cce906b0d5",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_room",
+  "rule": "small_target",
+  "element_index": 6,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   291,
+   155,
+   529,
+   245
+  ],
+  "signature": "d35da6d4d23e574e000d4e5fedb1edc9b247e7df3e81649cfe6ae8c2c318803e",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_room",
+  "rule": "small_target",
+  "element_index": 7,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   529,
+   155,
+   767,
+   245
+  ],
+  "signature": "9aa52666ce8991523acb5eab668cf14aa260a154b96c1b58020819d63839a596",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_room",
+  "rule": "small_target",
+  "element_index": 8,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   767,
+   155,
+   1005,
+   245
+  ],
+  "signature": "734e08c843e3f8a799511ae62bbcf1c1509b376cedee35a424b666414fd95096",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_room",
+  "rule": "small_target",
+  "element_index": 9,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1005,
+   155,
+   1243,
+   245
+  ],
+  "signature": "9f07f11b34482ffff39586a9316bc26917fcbd94285f0a7bb6fb187ef4e430da",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_room",
+  "rule": "small_target",
+  "element_index": 10,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1243,
+   155,
+   1481,
+   245
+  ],
+  "signature": "8e88e0a1ba7a0e9cfe66cf005eac943386994ac1ce78219fbcf385b4ab7ad109",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_run",
+  "rule": "small_target",
+  "element_index": 3,
+  "detail": "4.9 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1373,
+   47,
+   1481,
+   155
+  ],
+  "signature": "045d75d678b7583bf42a540d8b0978868b011a2f086a60c3ed93a28ae58e7ba9",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_run",
+  "rule": "small_target",
+  "element_index": 5,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   54,
+   155,
+   291,
+   245
+  ],
+  "signature": "5936f9db0a2839e4ef9d69cfb289a36fb10281c4b6a04d57a13482f8bf5befa2",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_run",
+  "rule": "small_target",
+  "element_index": 6,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   291,
+   155,
+   529,
+   245
+  ],
+  "signature": "eb5db233af84f9f46244bb5557e52e810a8bdf181263d966bc188722a96d9cec",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_run",
+  "rule": "small_target",
+  "element_index": 7,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   529,
+   155,
+   767,
+   245
+  ],
+  "signature": "9af832d3e4176d80531db6d5da7b5634e198fa43c7912b38986040552fd8ee44",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_run",
+  "rule": "small_target",
+  "element_index": 8,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   767,
+   155,
+   1005,
+   245
+  ],
+  "signature": "6bf3a683c120ebcd5c511299b301c5ad72f20c1f3dfef51955e9a9e3a94f69fa",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_run",
+  "rule": "small_target",
+  "element_index": 9,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1005,
+   155,
+   1243,
+   245
+  ],
+  "signature": "3cfc9e362f7b1de40fb4bd897c219d5a491610cd92244b4b744f80e75892f4ed",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_run",
+  "rule": "small_target",
+  "element_index": 10,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1243,
+   155,
+   1481,
+   245
+  ],
+  "signature": "3ae76846104fc5eaa995972fe5b6142c123841cb64bc968609912ef1aa9431b2",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_view",
+  "rule": "small_target",
+  "element_index": 3,
+  "detail": "4.9 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1373,
+   47,
+   1481,
+   155
+  ],
+  "signature": "40097a9b9208a2c429d55a6ee88c1fbb11f5da5b2fa34c334df160a75c327f16",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_view",
+  "rule": "small_target",
+  "element_index": 5,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   54,
+   155,
+   291,
+   245
+  ],
+  "signature": "ecb31cbe8eb62dbef4491e4d3af5e5f886865a2449891df7fb7409f89572271a",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_view",
+  "rule": "small_target",
+  "element_index": 6,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   291,
+   155,
+   529,
+   245
+  ],
+  "signature": "be8a4013119cc5551faca95ee99933682e86962a61f33079964fb4f53107b0ce",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_view",
+  "rule": "small_target",
+  "element_index": 7,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   529,
+   155,
+   767,
+   245
+  ],
+  "signature": "207761e8e636b84f8a8a26c8ee092bfd08415c4ed8be6c0999c5f4c22b1bed1c",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_view",
+  "rule": "small_target",
+  "element_index": 8,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   767,
+   155,
+   1005,
+   245
+  ],
+  "signature": "d6bee46f9649dd755c817b8ec098632c2bab41df27a46aaeed0316c1c9ef6297",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_view",
+  "rule": "small_target",
+  "element_index": 9,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1005,
+   155,
+   1243,
+   245
+  ],
+  "signature": "1d9f92c55c137a8a120c8defc91fa9d43e5c15a21a7ad4a124ce06f8bbbc0e10",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_view",
+  "rule": "small_target",
+  "element_index": 10,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1243,
+   155,
+   1481,
+   245
+  ],
+  "signature": "1299fef1b312382726f5657cf417e2105e7d357ced64cc3bf24bd971f56ab8d9",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_voice",
+  "rule": "small_target",
+  "element_index": 3,
+  "detail": "4.9 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1373,
+   47,
+   1481,
+   155
+  ],
+  "signature": "469a5191cb8a7d13d8ac8e3a3b328150f08829aaef80db4748d62b0b79ef83fd",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_voice",
+  "rule": "small_target",
+  "element_index": 5,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   54,
+   155,
+   291,
+   245
+  ],
+  "signature": "68876639364f2da451043d7280e1ea8e1c4059b3883df8157d5183f90677e1f3",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_voice",
+  "rule": "small_target",
+  "element_index": 6,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   291,
+   155,
+   529,
+   245
+  ],
+  "signature": "30817787fb4eff0af5630836ffc5763b9b2e2f19b7be6df79018935acd1b872e",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_voice",
+  "rule": "small_target",
+  "element_index": 7,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   529,
+   155,
+   767,
+   245
+  ],
+  "signature": "fcce311ea7f956ef89aeac5af4c7f1ea9a5476102263545460c57f88a2d46b74",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_voice",
+  "rule": "small_target",
+  "element_index": 8,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   767,
+   155,
+   1005,
+   245
+  ],
+  "signature": "f98cfbea3059ddbb225fea15338e48aaf619524e87cfbcaeec84fc240ae61922",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_voice",
+  "rule": "small_target",
+  "element_index": 9,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1005,
+   155,
+   1243,
+   245
+  ],
+  "signature": "183212e8f8322fdfa05c7eeda84c084cc0f282cac0a58118c6d023bbe11f8de6",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ },
+ {
+  "window": "settings_voice",
+  "rule": "small_target",
+  "element_index": 10,
+  "detail": "4.1 cm < 5.2 cm (look target 64 dp at 1.30 m)",
+  "rect": [
+   1243,
+   155,
+   1481,
+   245
+  ],
+  "signature": "efb785826fa7fcd0b90cda22f9fa11017a6b55cfed8551b991435ec8cfb0c50a",
+  "reason": "Approved Settings reference Dock.dc.html:17 (50 dp tabs) and :49 (60 dp close) overrides the general 64 dp floor; preserve the worn look. Exact measured target only."
+ }
+]

@@ -1,0 +1,80 @@
+{"run_id":"shot_builder_csv_export","t_ms":0,"agent_id":"builder","agent_name":"Builder","kind":"task_assigned","title":"Export the report as CSV","priority":"normal","status":"SUBMITTED","detail":"Scripted scenario: Builder CSV export (video S4, S5, S9)"}
+{"run_id":"shot_builder_csv_export","t_ms":400,"agent_id":"builder","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_builder_csv_export","t_ms":1200,"agent_id":"builder","kind":"step_start","step_id":"builder.root","parent_step_id":null,"title":"Export the report as CSV"}
+{"run_id":"shot_builder_csv_export","t_ms":1300,"agent_id":"builder","kind":"status","status":"WORKING","step_id":"builder.root","title":"Working"}
+{"run_id":"shot_builder_csv_export","t_ms":2000,"agent_id":"researcher","agent_name":"Researcher","kind":"task_assigned","title":"Check how users download reports today","priority":"normal","status":"SUBMITTED"}
+{"run_id":"shot_builder_csv_export","t_ms":2400,"agent_id":"researcher","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_builder_csv_export","t_ms":2604,"agent_id":"builder","kind":"step_start","step_id":"b1","parent_step_id":"builder.root","title":"Plan the CSV export"}
+{"run_id":"shot_builder_csv_export","t_ms":3200,"agent_id":"researcher","kind":"step_start","step_id":"researcher.root","parent_step_id":null,"title":"Check how users download reports today"}
+{"run_id":"shot_builder_csv_export","t_ms":3300,"agent_id":"researcher","kind":"status","status":"WORKING","step_id":"researcher.root","title":"Working"}
+{"run_id":"shot_builder_csv_export","t_ms":4000,"agent_id":"reviewer","agent_name":"Reviewer","kind":"task_assigned","title":"Review the open report PRs","priority":"normal","status":"SUBMITTED"}
+{"run_id":"shot_builder_csv_export","t_ms":4400,"agent_id":"reviewer","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_builder_csv_export","t_ms":4797,"agent_id":"builder","kind":"plan","step_id":"b1","title":"Plan","plan":["Read report model","Write CSV serializer","Add export route","Test","Export sample"]}
+{"run_id":"shot_builder_csv_export","t_ms":4928,"agent_id":"researcher","kind":"step_start","step_id":"r1","parent_step_id":"researcher.root","title":"Search support tickets"}
+{"run_id":"shot_builder_csv_export","t_ms":5200,"agent_id":"reviewer","kind":"step_start","step_id":"reviewer.root","parent_step_id":null,"title":"Review the open report PRs"}
+{"run_id":"shot_builder_csv_export","t_ms":5300,"agent_id":"reviewer","kind":"status","status":"WORKING","step_id":"reviewer.root","title":"Working"}
+{"run_id":"shot_builder_csv_export","t_ms":6589,"agent_id":"reviewer","kind":"step_start","step_id":"v1","parent_step_id":"reviewer.root","title":"List open PRs"}
+{"run_id":"shot_builder_csv_export","t_ms":8271,"agent_id":"builder","kind":"tool_call","step_id":"b1","tool":"Read","title":"Read","detail":"src/report/export.ts"}
+{"run_id":"shot_builder_csv_export","t_ms":9323,"agent_id":"researcher","kind":"tool_call","step_id":"r1","tool":"Grep","title":"Grep","detail":"export|download|csv tickets/2026-10/*.md"}
+{"run_id":"shot_builder_csv_export","t_ms":10747,"agent_id":"reviewer","kind":"tool_call","step_id":"v1","tool":"Bash","title":"Bash","detail":"repo-cli pr list --label report"}
+{"run_id":"shot_builder_csv_export","t_ms":11690,"agent_id":"builder","kind":"tool_result","step_id":"b1","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"exports PDF and JSON only"}
+{"run_id":"shot_builder_csv_export","t_ms":13245,"agent_id":"builder","kind":"step_end","step_id":"b1","status":"COMPLETED","title":"Plan the CSV export"}
+{"run_id":"shot_builder_csv_export","t_ms":13943,"agent_id":"builder","kind":"step_start","step_id":"b2","parent_step_id":"b1","title":"Read report model"}
+{"run_id":"shot_builder_csv_export","t_ms":14151,"agent_id":"builder","kind":"step_start","step_id":"b3","parent_step_id":"b1","title":"Check for a CSV library"}
+{"run_id":"shot_builder_csv_export","t_ms":14183,"agent_id":"reviewer","kind":"tool_result","step_id":"v1","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"2 open PRs"}
+{"run_id":"shot_builder_csv_export","t_ms":15006,"agent_id":"researcher","kind":"tool_result","step_id":"r1","tool":"Grep","status":"COMPLETED","title":"Grep ok","detail":"31 tickets mention CSV"}
+{"run_id":"shot_builder_csv_export","t_ms":16019,"agent_id":"reviewer","kind":"step_end","step_id":"v1","status":"COMPLETED","title":"List open PRs"}
+{"run_id":"shot_builder_csv_export","t_ms":16907,"agent_id":"researcher","kind":"step_end","step_id":"r1","status":"COMPLETED","title":"Search support tickets"}
+{"run_id":"shot_builder_csv_export","t_ms":17188,"agent_id":"builder","kind":"tool_call","step_id":"b2","tool":"Read","title":"Read","detail":"src/report/model.ts"}
+{"run_id":"shot_builder_csv_export","t_ms":17362,"agent_id":"builder","kind":"tool_call","step_id":"b3","tool":"Grep","title":"Grep","detail":"csv package.json"}
+{"run_id":"shot_builder_csv_export","t_ms":17691,"agent_id":"reviewer","kind":"step_start","step_id":"v2","parent_step_id":"v1","title":"Review PR #318"}
+{"run_id":"shot_builder_csv_export","t_ms":18568,"agent_id":"researcher","kind":"step_start","step_id":"r2","parent_step_id":"r1","title":"Summarise requests"}
+{"run_id":"shot_builder_csv_export","t_ms":19561,"agent_id":"builder","kind":"tool_result","step_id":"b3","tool":"Grep","status":"COMPLETED","title":"Grep ok","detail":"no csv dependency"}
+{"run_id":"shot_builder_csv_export","t_ms":20222,"agent_id":"builder","kind":"tool_result","step_id":"b2","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"Report { rows: Row[], columns: Column[] }"}
+{"run_id":"shot_builder_csv_export","t_ms":21446,"agent_id":"builder","kind":"step_end","step_id":"b3","status":"COMPLETED","title":"Check for a CSV library"}
+{"run_id":"shot_builder_csv_export","t_ms":22107,"agent_id":"builder","kind":"step_end","step_id":"b2","status":"COMPLETED","title":"Read report model"}
+{"run_id":"shot_builder_csv_export","t_ms":23449,"agent_id":"builder","kind":"step_start","step_id":"b4","parent_step_id":"builder.root","title":"Write CSV serializer","depends_on":["b2","b3"]}
+{"run_id":"shot_builder_csv_export","t_ms":26153,"agent_id":"researcher","kind":"tool_call","step_id":"r2","tool":"Read","title":"Read","detail":"tickets/2026-10/summary.md"}
+{"run_id":"shot_builder_csv_export","t_ms":26757,"agent_id":"reviewer","kind":"tool_call","step_id":"v2","tool":"Bash","title":"Bash","detail":"repo-cli pr diff 318 --stat"}
+{"run_id":"shot_builder_csv_export","t_ms":30327,"agent_id":"researcher","kind":"tool_result","step_id":"r2","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"top ask: open in a spreadsheet"}
+{"run_id":"shot_builder_csv_export","t_ms":30404,"agent_id":"reviewer","kind":"tool_result","step_id":"v2","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"3 files, +41 -9"}
+{"run_id":"shot_builder_csv_export","t_ms":31591,"agent_id":"reviewer","kind":"tool_call","step_id":"v2","tool":"Read","title":"Read","detail":"src/report/pdf.ts"}
+{"run_id":"shot_builder_csv_export","t_ms":32241,"agent_id":"builder","kind":"tool_call","step_id":"b4","tool":"Write","title":"Write","detail":"src/report/csv.ts"}
+{"run_id":"shot_builder_csv_export","t_ms":33687,"agent_id":"researcher","kind":"message","step_id":"r2","title":"31 October tickets ask for CSV; most want to open it in a sp","detail":"31 October tickets ask for CSV; most want to open it in a spreadsheet."}
+{"run_id":"shot_builder_csv_export","t_ms":34187,"agent_id":"researcher","kind":"step_end","step_id":"r2","status":"COMPLETED","title":"Summarise requests"}
+{"run_id":"shot_builder_csv_export","t_ms":35901,"agent_id":"researcher","kind":"step_end","step_id":"researcher.root","status":"COMPLETED","title":"Check how users download reports today"}
+{"run_id":"shot_builder_csv_export","t_ms":36101,"agent_id":"researcher","kind":"done","step_id":"researcher.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_builder_csv_export","t_ms":36201,"agent_id":"researcher","kind":"status","status":"COMPLETED","title":"Completed"}
+{"run_id":"shot_builder_csv_export","t_ms":36625,"agent_id":"builder","kind":"tool_result","step_id":"b4","tool":"Write","status":"COMPLETED","title":"Write ok","detail":"wrote 48 lines"}
+{"run_id":"shot_builder_csv_export","t_ms":36857,"agent_id":"reviewer","kind":"tool_result","step_id":"v2","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"88 lines"}
+{"run_id":"shot_builder_csv_export","t_ms":38333,"agent_id":"builder","kind":"step_end","step_id":"b4","status":"COMPLETED","title":"Write CSV serializer"}
+{"run_id":"shot_builder_csv_export","t_ms":39807,"agent_id":"reviewer","kind":"message","step_id":"v2","title":"PR #318 looks good; left one nit on page margins","detail":"PR #318 looks good; left one nit on page margins."}
+{"run_id":"shot_builder_csv_export","t_ms":40034,"agent_id":"builder","kind":"step_start","step_id":"b5","parent_step_id":"b4","title":"Escape quotes and commas"}
+{"run_id":"shot_builder_csv_export","t_ms":40264,"agent_id":"reviewer","kind":"step_end","step_id":"v2","status":"COMPLETED","title":"Review PR #318"}
+{"run_id":"shot_builder_csv_export","t_ms":42385,"agent_id":"reviewer","kind":"step_end","step_id":"reviewer.root","status":"COMPLETED","title":"Review the open report PRs"}
+{"run_id":"shot_builder_csv_export","t_ms":42585,"agent_id":"reviewer","kind":"done","step_id":"reviewer.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_builder_csv_export","t_ms":42685,"agent_id":"reviewer","kind":"status","status":"COMPLETED","title":"Completed"}
+{"run_id":"shot_builder_csv_export","t_ms":45482,"agent_id":"builder","kind":"tool_call","step_id":"b5","tool":"Edit","title":"Edit","detail":"src/report/csv.ts"}
+{"run_id":"shot_builder_csv_export","t_ms":49833,"agent_id":"builder","kind":"tool_result","step_id":"b5","tool":"Edit","status":"COMPLETED","title":"Edit ok","detail":"quote fields that contain a comma, quote or newline"}
+{"run_id":"shot_builder_csv_export","t_ms":51461,"agent_id":"builder","kind":"step_end","step_id":"b5","status":"COMPLETED","title":"Escape quotes and commas"}
+{"run_id":"shot_builder_csv_export","t_ms":52931,"agent_id":"builder","kind":"step_start","step_id":"b6","parent_step_id":"b4","title":"Add export route"}
+{"run_id":"shot_builder_csv_export","t_ms":57388,"agent_id":"builder","kind":"tool_call","step_id":"b6","tool":"Edit","title":"Edit","detail":"src/api/report.ts"}
+{"run_id":"shot_builder_csv_export","t_ms":60874,"agent_id":"builder","kind":"tool_result","step_id":"b6","tool":"Edit","status":"COMPLETED","title":"Edit ok","detail":"GET /report/:id/export?format=csv"}
+{"run_id":"shot_builder_csv_export","t_ms":62575,"agent_id":"builder","kind":"step_end","step_id":"b6","status":"COMPLETED","title":"Add export route"}
+{"run_id":"shot_builder_csv_export","t_ms":63913,"agent_id":"builder","kind":"step_start","step_id":"b7","parent_step_id":"builder.root","title":"Write tests","depends_on":["b5","b6"]}
+{"run_id":"shot_builder_csv_export","t_ms":70476,"agent_id":"builder","kind":"tool_call","step_id":"b7","tool":"Write","title":"Write","detail":"test/report_csv.test.ts"}
+{"run_id":"shot_builder_csv_export","t_ms":75170,"agent_id":"builder","kind":"tool_result","step_id":"b7","tool":"Write","status":"COMPLETED","title":"Write ok","detail":"wrote 7 tests"}
+{"run_id":"shot_builder_csv_export","t_ms":77033,"agent_id":"builder","kind":"step_end","step_id":"b7","status":"COMPLETED","title":"Write tests"}
+{"run_id":"shot_builder_csv_export","t_ms":78357,"agent_id":"builder","kind":"step_start","step_id":"b8","parent_step_id":"b7","title":"Run tests"}
+{"run_id":"shot_builder_csv_export","t_ms":80629,"agent_id":"builder","kind":"tool_call","step_id":"b8","tool":"Bash","title":"Bash","detail":"npm test -- report_csv"}
+{"run_id":"shot_builder_csv_export","t_ms":91945,"agent_id":"builder","kind":"tool_result","step_id":"b8","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"7 passed"}
+{"run_id":"shot_builder_csv_export","t_ms":93579,"agent_id":"builder","kind":"step_end","step_id":"b8","status":"COMPLETED","title":"Run tests"}
+{"run_id":"shot_builder_csv_export","t_ms":94953,"agent_id":"builder","kind":"step_start","step_id":"b9","parent_step_id":"b8","title":"Export the sample report"}
+{"run_id":"shot_builder_csv_export","t_ms":97733,"agent_id":"builder","kind":"tool_call","step_id":"b9","tool":"Bash","title":"Bash","detail":"npm run export -- --report q3 --format csv --out exports/q3_report.csv"}
+{"run_id":"shot_builder_csv_export","t_ms":103315,"agent_id":"builder","kind":"tool_result","step_id":"b9","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"wrote 1,284 rows, 9 columns"}
+{"run_id":"shot_builder_csv_export","t_ms":106547,"agent_id":"builder","kind":"message","step_id":"b9","title":"Report exported as CSV","detail":"Report exported as CSV: 1,284 rows, 9 columns."}
+{"run_id":"shot_builder_csv_export","t_ms":107561,"agent_id":"builder","kind":"artifact","step_id":"b9","title":"exports/q3_report.csv"}
+{"run_id":"shot_builder_csv_export","t_ms":108116,"agent_id":"builder","kind":"step_end","step_id":"b9","status":"COMPLETED","title":"Export the sample report"}
+{"run_id":"shot_builder_csv_export","t_ms":110110,"agent_id":"builder","kind":"step_end","step_id":"builder.root","status":"COMPLETED","title":"Export the report as CSV"}
+{"run_id":"shot_builder_csv_export","t_ms":110310,"agent_id":"builder","kind":"done","step_id":"builder.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_builder_csv_export","t_ms":110410,"agent_id":"builder","kind":"status","status":"COMPLETED","title":"Completed"}

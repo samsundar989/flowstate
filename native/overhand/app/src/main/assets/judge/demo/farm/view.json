@@ -1,0 +1,768 @@
+{
+ "project": "s8a85fea7733bdaab",
+ "goal": "An AI player for a two-player farming-economy game, ranked on a live ladder, for a game AI contest.",
+ "goal_rows": [
+  1
+ ],
+ "entries": [
+  {
+   "block": "NOW",
+   "text": "Set up the project, the experiment ledger and a skeptic review for every slice",
+   "from": 2,
+   "until": 9,
+   "rows": [
+    2,
+    9
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Set up the project, the experiment ledger and a skeptic review for every slice",
+   "from": 9,
+   "until": null,
+   "rows": [
+    9
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "League evaluation and the first agent versions",
+   "from": 3,
+   "until": 4,
+   "rows": [
+    3,
+    4
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "League evaluation and the first agent versions",
+   "from": 4,
+   "until": null,
+   "rows": [
+    4
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "An agent-independent harness and a guide for the operator",
+   "from": 5,
+   "until": 6,
+   "rows": [
+    5,
+    6
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "An agent-independent harness and a guide for the operator",
+   "from": 6,
+   "until": null,
+   "rows": [
+    6
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Predeclare the first live entry",
+   "from": 7,
+   "until": 8,
+   "rows": [
+    7,
+    8
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Predeclare the first live entry",
+   "from": 8,
+   "until": null,
+   "rows": [
+    8
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Ledger: the copied route is rated 2,344, copied moves are banned, and the plan is reset after a failed route",
+   "from": 10,
+   "until": 29,
+   "rows": [
+    10,
+    29
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Ledger: the copied route is rated 2,344, copied moves are banned, and the plan is reset after a failed route",
+   "from": 29,
+   "until": null,
+   "rows": [
+    29
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A planner with no copied moves: animals, watering, weeds and an auction, each measured",
+   "from": 11,
+   "until": 25,
+   "rows": [
+    11,
+    25
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A planner with no copied moves: animals, watering, weeds and an auction, each measured (in part)",
+   "from": 25,
+   "until": null,
+   "rows": [
+    25
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Evidence that fails closed: sparring partners, an arena and a cohort ledger",
+   "from": 12,
+   "until": 26,
+   "rows": [
+    12,
+    26
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Evidence that fails closed: sparring partners, an arena and a cohort ledger",
+   "from": 26,
+   "until": null,
+   "rows": [
+    26
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "State page, a source-boundary check and an origin record for every number",
+   "from": 13,
+   "until": 28,
+   "rows": [
+    13,
+    28
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "State page, a source-boundary check and an origin record for every number",
+   "from": 28,
+   "until": null,
+   "rows": [
+    28
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Wire the cash constraint into the checks, a double count worth $36k is found",
+   "from": 15,
+   "until": 27,
+   "rows": [
+    15,
+    27
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Wire the cash constraint into the checks, a double count worth $36k is found",
+   "from": 27,
+   "until": null,
+   "rows": [
+    27
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A control proof for the planner core and a decision-regret oracle",
+   "from": 19,
+   "until": 22,
+   "rows": [
+    19,
+    22
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A control proof for the planner core and a decision-regret oracle",
+   "from": 22,
+   "until": null,
+   "rows": [
+    22
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Remove the old workflow commands",
+   "from": 20,
+   "until": 21,
+   "rows": [
+    20,
+    21
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Remove the old workflow commands",
+   "from": 21,
+   "until": null,
+   "rows": [
+    21
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "An audit of missed opportunities that changes no behaviour",
+   "from": 23,
+   "until": 24,
+   "rows": [
+    23,
+    24
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "An audit of missed opportunities that changes no behaviour",
+   "from": 24,
+   "until": null,
+   "rows": [
+    24
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "The yardstick collapses, the target moves to the top band, and two finalists are frozen",
+   "from": 30,
+   "until": 43,
+   "rows": [
+    30,
+    43
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "The yardstick collapses, the target moves to the top band, and two finalists are frozen",
+   "from": 43,
+   "until": null,
+   "rows": [
+    43
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "One evaluation manifest, a top-band opponent pool and a local ladder",
+   "from": 31,
+   "until": 40,
+   "rows": [
+    31,
+    40
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "One evaluation manifest, a top-band opponent pool and a local ladder",
+   "from": 40,
+   "until": null,
+   "rows": [
+    40
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Re-based candidates and campaign arms, crop substitution fails, and the ladder picks the route",
+   "from": 32,
+   "until": 41,
+   "rows": [
+    32,
+    41
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Re-based candidates and campaign arms, crop substitution fails, and the ladder picks the route (in part)",
+   "from": 41,
+   "until": null,
+   "rows": [
+    41
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Route census, a fallback matrix and the first ten live games tracked",
+   "from": 33,
+   "until": 42,
+   "rows": [
+    33,
+    42
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Route census, a fallback matrix and the first ten live games tracked",
+   "from": 42,
+   "until": null,
+   "rows": [
+    42
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Continuation search with exact receipts",
+   "from": 34,
+   "until": 36,
+   "rows": [
+    34,
+    36
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Continuation search with exact receipts",
+   "from": 36,
+   "until": null,
+   "rows": [
+    36
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Analyzers for the reacting campaigns",
+   "from": 35,
+   "until": 39,
+   "rows": [
+    35,
+    39
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Analyzers for the reacting campaigns",
+   "from": 39,
+   "until": null,
+   "rows": [
+    39
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A sell-policy fitter that fails closed",
+   "from": 37,
+   "until": 38,
+   "rows": [
+    37,
+    38
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A sell-policy fitter that fails closed",
+   "from": 38,
+   "until": null,
+   "rows": [
+    38
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Packets and ledger rows from four parallel worker lanes",
+   "from": 44,
+   "until": 61,
+   "rows": [
+    44,
+    61
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Packets and ledger rows from four parallel worker lanes",
+   "from": 61,
+   "until": null,
+   "rows": [
+    61
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Refresh the public field as runnable opponents, a 48-member confirmation panel",
+   "from": 45,
+   "until": 58,
+   "rows": [
+    45,
+    58
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Refresh the public field as runnable opponents, a 48-member confirmation panel",
+   "from": 58,
+   "until": null,
+   "rows": [
+    58
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Tune the program: timing, fertiliser, strawberries and overflow sells, each kept only on margin",
+   "from": 46,
+   "until": 60,
+   "rows": [
+    46,
+    60
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Tune the program: timing, fertiliser, strawberries and overflow sells, each kept only on margin",
+   "from": 60,
+   "until": null,
+   "rows": [
+    60
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Ship a public anchor and a floor pair, live readings show both slots declining",
+   "from": 47,
+   "until": 59,
+   "rows": [
+    47,
+    59
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Ship a public anchor and a floor pair, live readings show both slots declining (in part)",
+   "from": 59,
+   "until": null,
+   "rows": [
+    59
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "An exact engine port, native rollouts and a transaction ledger",
+   "from": 48,
+   "until": 62,
+   "rows": [
+    48,
+    62
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "An exact engine port, native rollouts and a transaction ledger",
+   "from": 62,
+   "until": null,
+   "rows": [
+    62
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Clone a strong player's games: 94.6 percent accurate, but an early read of 30 percent of its result",
+   "from": 49,
+   "until": 50,
+   "rows": [
+    49,
+    50
+   ]
+  },
+  {
+   "block": "STUCK",
+   "text": "Did not work: Clone a strong player's games: 94.6 percent accurate, but an early read of 30 percent of its result.",
+   "from": 50,
+   "until": null,
+   "rows": [
+    50
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Difference the leaders' replays and extract a top player's plan skeleton",
+   "from": 51,
+   "until": 52,
+   "rows": [
+    51,
+    52
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Difference the leaders' replays and extract a top player's plan skeleton",
+   "from": 52,
+   "until": null,
+   "rows": [
+    52
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Our own runtime economy, a program and an executor, it fails its first gate",
+   "from": 53,
+   "until": 57,
+   "rows": [
+    53,
+    57
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Our own runtime economy, a program and an executor, it fails its first gate (in part)",
+   "from": 57,
+   "until": null,
+   "rows": [
+    57
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A survival service and a terminal planting guard, kept as experiments",
+   "from": 63,
+   "until": 67,
+   "rows": [
+    63,
+    67
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A survival service and a terminal planting guard, kept as experiments",
+   "from": 67,
+   "until": null,
+   "rows": [
+    67
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Final days: plan of record, live reads and freeze packets",
+   "from": 64,
+   "until": 78,
+   "rows": [
+    64,
+    78
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final days: plan of record, live reads and freeze packets",
+   "from": 78,
+   "until": null,
+   "rows": [
+    78
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Leader-route library: build, graft and screen the route entries",
+   "from": 65,
+   "until": 75,
+   "rows": [
+    65,
+    75
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Leader-route library: build, graft and screen the route entries",
+   "from": 75,
+   "until": null,
+   "rows": [
+    75
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Upload and retire entries under the slot plan, with receipts",
+   "from": 66,
+   "until": 70,
+   "rows": [
+    66,
+    70
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Upload and retire entries under the slot plan, with receipts",
+   "from": 70,
+   "until": null,
+   "rows": [
+    70
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A fixed panel of six public opponents, a harness hash relaxation is reverted",
+   "from": 68,
+   "until": 69,
+   "rows": [
+    68,
+    69
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A fixed panel of six public opponents, a harness hash relaxation is reverted",
+   "from": 69,
+   "until": null,
+   "rows": [
+    69
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A worker crew that takes over after a set day, tuned flag by flag on margin",
+   "from": 71,
+   "until": 73,
+   "rows": [
+    71,
+    73
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A worker crew that takes over after a set day, tuned flag by flag on margin",
+   "from": 73,
+   "until": null,
+   "rows": [
+    73
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Copied top-player route: rated 2,344, rank 384 of 5,225 (top 7 percent)",
+   "from": 14,
+   "until": null,
+   "rows": [
+    14
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "A route copied move for move from a top player rates well but cannot react. Keep copying, or build an agent that plans its own moves?",
+   "from": 16,
+   "until": 18,
+   "rows": [
+    16,
+    18
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Copied moves were banned, enforced by a check; copied routes stay only as sparring partners.",
+   "from": 18,
+   "until": null,
+   "rows": [
+    16,
+    18
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "The next copied build beat it 35 to 5 locally, then levelled off at 1,562 live",
+   "from": 17,
+   "until": null,
+   "rows": [
+    17
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "Our own build failed its gate below the kill line. Which two entries hold the ladder?",
+   "from": 54,
+   "until": 56,
+   "rows": [
+    54,
+    56
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: The floor pair went live; our own lineage came off the ladder.",
+   "from": 56,
+   "until": null,
+   "rows": [
+    54,
+    56
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Floor pair chosen on paired match points against 29 fixed opponents: 0.917 and 0.863",
+   "from": 55,
+   "until": null,
+   "rows": [
+    55
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Leader-route entry peaks at 2,413 live, 110 wins and 38 losses",
+   "from": 72,
+   "until": null,
+   "rows": [
+    72
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "Last evening: replace the 2,352-rated route entry with a new build that hands the farm to our own crew after a set day?",
+   "from": 74,
+   "until": 76,
+   "rows": [
+    74,
+    76
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Uploaded early with the owner's approval; it validated, and the pair froze with it.",
+   "from": 76,
+   "until": null,
+   "rows": [
+    74,
+    76
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Freeze: the best route entry stands at 1,971; the last upload starts from 600",
+   "from": 77,
+   "until": null,
+   "rows": [
+    77
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Finding: replaying a top player's exact moves rated 616 points below that player. Reacting, not the route, was the gap.",
+   "from": 79,
+   "until": null,
+   "rows": [
+    79
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "The own-runtime lane closed on numbers: run by our executor, a leader route's own plan won 27 of 64 games where the route won 60.",
+   "from": 80,
+   "until": null,
+   "rows": [
+    80
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "The project history ends at the freeze; the final standing comes after it.",
+   "from": 81,
+   "until": null,
+   "rows": [
+    81
+   ]
+  }
+ ]
+}

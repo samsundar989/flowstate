@@ -1,0 +1,256 @@
+{
+ "date": "2026-11-02",
+ "projects": [
+  {
+   "id": "sc59abca77c74f1ea",
+   "name": "Puzzle game agent",
+   "components": [
+    {
+     "id": "sims",
+     "name": "Local games and solver",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Local copies of the games and an abstract solver, used to check what is learnable.",
+     "why": "",
+     "after": [],
+     "status": "built",
+     "layer": 0,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 5,
+       "status": "success"
+      },
+      {
+       "id": 17,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "serving",
+     "name": "Model serving",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Runs the language model the agent asks for its moves, locally and on rented machines.",
+     "why": "",
+     "after": [],
+     "status": "built",
+     "layer": 0,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 3,
+       "status": "success"
+      },
+      {
+       "id": 9,
+       "status": "success"
+      },
+      {
+       "id": 12,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "agent",
+     "name": "Game-playing agent",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Reads the grid, keeps a memory of the game and chooses the next action each turn.",
+     "why": "",
+     "after": [
+      "serving"
+     ],
+     "status": "built",
+     "layer": 1,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 1,
+       "status": "success"
+      },
+      {
+       "id": 7,
+       "status": "failed"
+      },
+      {
+       "id": 16,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "notebook",
+     "name": "Entry builds and variants",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Builds each scoring entry and the patched variants of the base it runs on.",
+     "why": "",
+     "after": [
+      "agent",
+      "serving"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 8,
+       "status": "success"
+      },
+      {
+       "id": 14,
+       "status": "success"
+      },
+      {
+       "id": 20,
+       "status": "success"
+      },
+      {
+       "id": 24,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "eval",
+     "name": "Evaluation and daily slots",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The results table, the local instrument and the keeper that spends one board slot a day.",
+     "why": "",
+     "after": [
+      "notebook",
+      "sims"
+     ],
+     "status": "built",
+     "layer": 3,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 10,
+       "status": "success"
+      },
+      {
+       "id": 13,
+       "status": "success"
+      },
+      {
+       "id": 18,
+       "status": "success"
+      },
+      {
+       "id": 21,
+       "status": "success"
+      },
+      {
+       "id": 23,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "tests",
+     "name": "Tests and guards",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The test suite and the guards that refuse a broken entry before it spends a slot.",
+     "why": "",
+     "after": [
+      "notebook"
+     ],
+     "status": "built",
+     "layer": 3,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 2,
+       "status": "success"
+      },
+      {
+       "id": 4,
+       "status": "success"
+      },
+      {
+       "id": 15,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "notes",
+     "name": "Plans and packets",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The plan, the state page, rulings and the final notes.",
+     "why": "",
+     "after": [
+      "eval"
+     ],
+     "status": "built",
+     "layer": 4,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 6,
+       "status": "success"
+      },
+      {
+       "id": 11,
+       "status": "success"
+      },
+      {
+       "id": 19,
+       "status": "success"
+      },
+      {
+       "id": 22,
+       "status": "success"
+      },
+      {
+       "id": 25,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    }
+   ]
+  }
+ ]
+}

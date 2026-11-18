@@ -1,0 +1,308 @@
+{
+ "date": "2026-08-20",
+ "projects": [
+  {
+   "id": "s7e4cee9840c4ba1d",
+   "name": "Card battle AI",
+   "components": [
+    {
+     "id": "engine",
+     "name": "Game engine and turn-plan search",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Plays a full match: priority rules, a board evaluation and a search over the turn plan.",
+     "why": "",
+     "after": [],
+     "status": "built",
+     "layer": 0,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 3,
+       "status": "success"
+      },
+      {
+       "id": 9,
+       "status": "failed"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "deck",
+     "name": "Deck building",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Chooses the 60 cards: mines the ladder for strong decks and tests candidates.",
+     "why": "",
+     "after": [],
+     "status": "built",
+     "layer": 0,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 2,
+       "status": "success"
+      },
+      {
+       "id": 11,
+       "status": "partial"
+      },
+      {
+       "id": 15,
+       "status": "success"
+      },
+      {
+       "id": 21,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "harness",
+     "name": "Local match harness and benchmarks",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Plays thousands of local games between versions, with gates written down before each test.",
+     "why": "",
+     "after": [
+      "engine"
+     ],
+     "status": "built",
+     "layer": 1,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 4,
+       "status": "success"
+      },
+      {
+       "id": 19,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "learned",
+     "name": "Imitation model from replays",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "A model trained on replays of strong players that tells the search which move a good player would make.",
+     "why": "",
+     "after": [
+      "engine"
+     ],
+     "status": "built",
+     "layer": 1,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 6,
+       "status": "success"
+      },
+      {
+       "id": 7,
+       "status": "success"
+      },
+      {
+       "id": 16,
+       "status": "partial"
+      },
+      {
+       "id": 20,
+       "status": "success"
+      },
+      {
+       "id": 25,
+       "status": "failed"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "pilot",
+     "name": "Deck-specific rule pilot",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Hand-written play rules for one deck, checked by the engine before they are trusted.",
+     "why": "",
+     "after": [
+      "engine",
+      "deck"
+     ],
+     "status": "building",
+     "layer": 1,
+     "shown": "building",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 18,
+       "status": "partial"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "tests",
+     "name": "Golden tests and rule checks",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Fixed positions and train/holdout checks that every rule change must pass.",
+     "why": "",
+     "after": [
+      "pilot"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 22,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "ship",
+     "name": "Packaging and ladder entries",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Builds the entry bundle, checks it, pushes it to the ladder and watches its rating.",
+     "why": "",
+     "after": [
+      "harness",
+      "learned",
+      "deck"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 5,
+       "status": "success"
+      },
+      {
+       "id": 12,
+       "status": "success"
+      },
+      {
+       "id": 14,
+       "status": "success"
+      },
+      {
+       "id": 23,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "notes",
+     "name": "Decision records",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The written trail: predeclared gates, results, reviews and the boards the worker lanes kept.",
+     "why": "",
+     "after": [
+      "harness"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 1,
+       "status": "success"
+      },
+      {
+       "id": 8,
+       "status": "success"
+      },
+      {
+       "id": 13,
+       "status": "success"
+      },
+      {
+       "id": 17,
+       "status": "success"
+      },
+      {
+       "id": 24,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "writeup",
+     "name": "Strategy report",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The written report for the judged part of the contest, under a 2,000-word cap.",
+     "why": "",
+     "after": [
+      "notes",
+      "ship"
+     ],
+     "status": "built",
+     "layer": 3,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 10,
+       "status": "success"
+      },
+      {
+       "id": 26,
+       "status": "success"
+      },
+      {
+       "id": 27,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    }
+   ]
+  }
+ ]
+}

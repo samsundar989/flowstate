@@ -1,0 +1,19 @@
+{
+  "description": "Code path after mDNS discovery: six digits typed by the wearer. Check must equal check_for_code in pair.json.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "pair_code",
+      "code": "482915",
+      "device_name": "Headset"
+    },
+    {
+      "dir": "h2c",
+      "type": "paired",
+      "device_id": "d_5a3c91e07b2f",
+      "device_secret": "fixture-device-secret-not-a-real-secret-000",
+      "host_name": "example-pc",
+      "check": "BW2V"
+    }
+  ]
+}

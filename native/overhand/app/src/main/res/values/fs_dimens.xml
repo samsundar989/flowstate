@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- look_nov17 s2 Controls and Type (lane K2, #1372). -->
+<resources>
+  <dimen name="fs_control">72dp</dimen>      <!-- icon button 72, text button 72 tall -->
+  <dimen name="fs_target_min">64dp</dimen>   <!-- target 64 dp minimum -->
+  <dimen name="fs_gap">16dp</dimen>          <!-- 16 dp gap -->
+  <dimen name="fs_edge">2dp</dimen>          <!-- every edge at least 2 dp -->
+  <dimen name="fs_switch_w">68dp</dimen>
+  <dimen name="fs_switch_h">38dp</dimen>
+  <dimen name="fs_knob">24dp</dimen>
+  <dimen name="fs_type_regular">30sp</dimen> <!-- Regular 30 medium -->
+  <dimen name="fs_type_large">40sp</dimen>   <!-- Large 40 semibold -->
+  <dimen name="fs_type_code">26sp</dimen>    <!-- code mono 26 -->
+</resources>

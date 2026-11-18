@@ -1,0 +1,7 @@
+{
+  "bundle": "/opt/flowstate\\Documents\\example-project\\data\\worn\\nov15g_pc\\post\\overhand_partial_20261116_005327.tar.gz",
+  "sha256": "7df979ea6e9f5b6a56dcd12acf7960f093e0ad019c7525e59a3402bf78877881",
+  "member": "overhand_partial_20261116_005327/app/files/hand_frames.jsonl",
+  "selection": "5 per chronological recording block, 2 left / 3 right where available, otherwise 5 right; evenly spaced original-gate open shapes; no replay outcome selection",
+  "limitation": "joint log has no build IDs; e/f are chronological blocks between the nov15d and nov15g captures"
+}

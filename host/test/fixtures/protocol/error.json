@@ -1,0 +1,42 @@
+{
+  "description": "Refusals. Pairing errors close the socket with 4401 after the frame.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "pair_code",
+      "code": "000000",
+      "device_name": "Headset"
+    },
+    {
+      "dir": "h2c",
+      "type": "error",
+      "code": "bad_code",
+      "message": "Wrong code. Check the six digits on the computer."
+    },
+    {
+      "dir": "h2c",
+      "type": "error",
+      "code": "token_expired",
+      "message": "That pairing code has expired. Show a new one."
+    },
+    {
+      "dir": "h2c",
+      "type": "error",
+      "code": "token_used",
+      "message": "That pairing code was already used."
+    },
+    {
+      "dir": "h2c",
+      "type": "error",
+      "code": "rate_limited",
+      "message": "Too many tries. Wait a minute."
+    },
+    {
+      "dir": "h2c",
+      "type": "error",
+      "code": "unknown_decision",
+      "message": "That question is no longer open.",
+      "req_id": "c4"
+    }
+  ]
+}

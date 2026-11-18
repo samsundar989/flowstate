@@ -1,0 +1,70 @@
+{
+ "schema_version": 1,
+ "speedup": 120,
+ "projects": [
+  {
+   "key": "cards",
+   "id": "s7e4cee9840c4ba1d",
+   "name": "Card battle AI",
+   "rows": 69,
+   "tasks": 27,
+   "decisions": 3,
+   "code_excerpts": 7,
+   "files": {
+    "day.jsonl": "7a8bfd529ee7a0e8e6ce29cf09ba11be90b6e3d7149b76b1d5e888d4e8aa4551",
+    "architecture.json": "7627f1ae67e57997b63b136f714cd4d2344edd566494777ac3ed760977b57876",
+    "membership.json": "e3ba3d48e0df00a9de868f43632648559f11401111b0b2529f4f378d6457d9f6",
+    "view.json": "ea15b8cac7d1b54dfbcf58623ff2c162290211d13ede69457ce78d28dffe317a",
+    "code.json": "910630337295b3be7f0fed4cfe73f443058836353217efdf285476a8fd2ccc8c"
+   }
+  },
+  {
+   "key": "cells",
+   "id": "sfec9f6d88c8b46f6",
+   "name": "Embryo cell tracking",
+   "rows": 90,
+   "tasks": 37,
+   "decisions": 3,
+   "code_excerpts": 8,
+   "files": {
+    "day.jsonl": "f20033605b9a2e2fe71f999af7e39d17b0c4ea09f9fde330e0802c968a690ace",
+    "architecture.json": "e27b9b7044e008dd5f4ecfb5f08ba710d43a98458e3b5dd06479fb7506c4fc9b",
+    "membership.json": "d0eef68f8b5869d38ea536d1a34deb3f082253cb67284e12cc9fa32f43a73a8b",
+    "view.json": "4ae04bc79331286094662ce825c86b944dbc3bec7b0bf0c8599904f46b835860",
+    "code.json": "1f35ad5fb10c892f081ca00f2e8e4ba77d7db751339c700155ce937f1a073533"
+   }
+  },
+  {
+   "key": "farm",
+   "id": "s8a85fea7733bdaab",
+   "name": "Farm economy AI",
+   "rows": 81,
+   "tasks": 33,
+   "decisions": 3,
+   "code_excerpts": 7,
+   "files": {
+    "day.jsonl": "67c5d155815698e32652650586adcb769ffeb374c359d624238bdc624e744146",
+    "architecture.json": "2b08131ec412e5de8d56112a7f51c9a065c511590020592ed8288e708ce8c8b1",
+    "membership.json": "441f7430ee76a4c4131cd6659dff313cba6eb64640d38a8d4b3cd0d1f04a1a7e",
+    "view.json": "405cff244087528710e5ec364c353e9a93c709be98cacf7a3c16a697ccb8f852",
+    "code.json": "df8508b06de71d1bf2af9c56a50d4f6b09db4615298a66ffeba579aab98be526"
+   }
+  },
+  {
+   "key": "grid",
+   "id": "sc59abca77c74f1ea",
+   "name": "Puzzle game agent",
+   "rows": 65,
+   "tasks": 25,
+   "decisions": 3,
+   "code_excerpts": 6,
+   "files": {
+    "day.jsonl": "12b9f7ae4682d10cf6d55a47a10211ad59015f5e331ccd2d0cff11b94dad2b8b",
+    "architecture.json": "efaa75f96fdb5c7c69dfb8a6d680741808d4b2c08aef70e38f94b2cb9fed3f6e",
+    "membership.json": "1a0ea7d2aa786cd8b7cab324979676511fecd7a922abb72f18db8350fad7fa0f",
+    "view.json": "13148da30d4c792931c978e77ee402e1f713e0476db2458d38f972e3feeb48ef",
+    "code.json": "d0f51406fc65c46adae4ce686217a5d97eeb004e29ff5f1caaffa8ca0a87f3a1"
+   }
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+{"run_id":"shot_reviewer_needs_input","t_ms":0,"agent_id":"reviewer","agent_name":"Reviewer","kind":"task_assigned","title":"Review and apply the orders migration","priority":"normal","status":"SUBMITTED","detail":"Scripted scenario: Reviewer needs input (video S1, S7, S8)"}
+{"run_id":"shot_reviewer_needs_input","t_ms":400,"agent_id":"reviewer","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_reviewer_needs_input","t_ms":1000,"agent_id":"researcher","agent_name":"Researcher","kind":"task_assigned","title":"Survey slow queries on the orders table","priority":"normal","status":"SUBMITTED"}
+{"run_id":"shot_reviewer_needs_input","t_ms":1200,"agent_id":"reviewer","kind":"step_start","step_id":"reviewer.root","parent_step_id":null,"title":"Review and apply the orders migration"}
+{"run_id":"shot_reviewer_needs_input","t_ms":1300,"agent_id":"reviewer","kind":"status","status":"WORKING","step_id":"reviewer.root","title":"Working"}
+{"run_id":"shot_reviewer_needs_input","t_ms":1400,"agent_id":"researcher","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_reviewer_needs_input","t_ms":2000,"agent_id":"builder","agent_name":"Builder","kind":"task_assigned","title":"Add an index-backed orders search","priority":"normal","status":"SUBMITTED"}
+{"run_id":"shot_reviewer_needs_input","t_ms":2200,"agent_id":"researcher","kind":"step_start","step_id":"researcher.root","parent_step_id":null,"title":"Survey slow queries on the orders table"}
+{"run_id":"shot_reviewer_needs_input","t_ms":2300,"agent_id":"researcher","kind":"status","status":"WORKING","step_id":"researcher.root","title":"Working"}
+{"run_id":"shot_reviewer_needs_input","t_ms":2400,"agent_id":"builder","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_reviewer_needs_input","t_ms":2671,"agent_id":"reviewer","kind":"step_start","step_id":"v1","parent_step_id":"reviewer.root","title":"Check the migration"}
+{"run_id":"shot_reviewer_needs_input","t_ms":3200,"agent_id":"builder","kind":"step_start","step_id":"builder.root","parent_step_id":null,"title":"Add an index-backed orders search"}
+{"run_id":"shot_reviewer_needs_input","t_ms":3300,"agent_id":"builder","kind":"status","status":"WORKING","step_id":"builder.root","title":"Working"}
+{"run_id":"shot_reviewer_needs_input","t_ms":3836,"agent_id":"researcher","kind":"step_start","step_id":"r1","parent_step_id":"researcher.root","title":"Pull slow query log"}
+{"run_id":"shot_reviewer_needs_input","t_ms":4930,"agent_id":"builder","kind":"step_start","step_id":"b1","parent_step_id":"builder.root","title":"Read orders search handler"}
+{"run_id":"shot_reviewer_needs_input","t_ms":5639,"agent_id":"researcher","kind":"plan","step_id":"r1","title":"Plan","plan":["Slow query log","Explain the top two","Recommend indexes"]}
+{"run_id":"shot_reviewer_needs_input","t_ms":9241,"agent_id":"builder","kind":"tool_call","step_id":"b1","tool":"Read","title":"Read","detail":"src/api/orders/search.ts"}
+{"run_id":"shot_reviewer_needs_input","t_ms":9481,"agent_id":"reviewer","kind":"tool_call","step_id":"v1","tool":"Read","title":"Read","detail":"migrations/0042_orders_status.py"}
+{"run_id":"shot_reviewer_needs_input","t_ms":9544,"agent_id":"researcher","kind":"tool_call","step_id":"r1","tool":"Bash","title":"Bash","detail":"psql -c 'select query, mean_ms from pg_stat_statements order by 2 desc limit 10'"}
+{"run_id":"shot_reviewer_needs_input","t_ms":12129,"agent_id":"builder","kind":"tool_result","step_id":"b1","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"118 lines"}
+{"run_id":"shot_reviewer_needs_input","t_ms":12421,"agent_id":"reviewer","kind":"tool_result","step_id":"v1","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"adds orders.status NOT NULL DEFAULT 'open'"}
+{"run_id":"shot_reviewer_needs_input","t_ms":13193,"agent_id":"builder","kind":"tool_call","step_id":"b1","tool":"Grep","title":"Grep","detail":"orders.find"}
+{"run_id":"shot_reviewer_needs_input","t_ms":13739,"agent_id":"reviewer","kind":"tool_call","step_id":"v1","tool":"Bash","title":"Bash","detail":"alembic upgrade head --sql | wc -l"}
+{"run_id":"shot_reviewer_needs_input","t_ms":15985,"agent_id":"builder","kind":"tool_result","step_id":"b1","tool":"Grep","status":"COMPLETED","title":"Grep ok","detail":"4 matches in 2 files"}
+{"run_id":"shot_reviewer_needs_input","t_ms":16382,"agent_id":"researcher","kind":"tool_result","step_id":"r1","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"top: orders by customer_id, 840 ms"}
+{"run_id":"shot_reviewer_needs_input","t_ms":17675,"agent_id":"builder","kind":"step_end","step_id":"b1","status":"COMPLETED","title":"Read orders search handler"}
+{"run_id":"shot_reviewer_needs_input","t_ms":17797,"agent_id":"reviewer","kind":"tool_result","step_id":"v1","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"38 lines of SQL, no drops"}
+{"run_id":"shot_reviewer_needs_input","t_ms":18090,"agent_id":"researcher","kind":"step_end","step_id":"r1","status":"COMPLETED","title":"Pull slow query log"}
+{"run_id":"shot_reviewer_needs_input","t_ms":18773,"agent_id":"researcher","kind":"step_start","step_id":"r2a","parent_step_id":"r1","title":"Explain query 1"}
+{"run_id":"shot_reviewer_needs_input","t_ms":18839,"agent_id":"researcher","kind":"step_start","step_id":"r2b","parent_step_id":"r1","title":"Explain query 2"}
+{"run_id":"shot_reviewer_needs_input","t_ms":19002,"agent_id":"reviewer","kind":"status","status":"INPUT_REQUIRED","step_id":"v1","title":"Apply the database migration to staging?","options":[{"id":"approve","label":"Yes, apply it","gesture":"thumbs_up"},{"id":"reject","label":"No, hold off","gesture":"thumbs_down"}],"default_option":"approve"}
+{"run_id":"shot_reviewer_needs_input","t_ms":19397,"agent_id":"builder","kind":"step_start","step_id":"b2","parent_step_id":"b1","title":"Write search query"}
+{"run_id":"shot_reviewer_needs_input","t_ms":21949,"agent_id":"researcher","kind":"tool_call","step_id":"r2b","tool":"Bash","title":"Bash","detail":"psql -c 'explain analyze select * from orders where status = open order by created_at'"}
+{"run_id":"shot_reviewer_needs_input","t_ms":22144,"agent_id":"researcher","kind":"tool_call","step_id":"r2a","tool":"Bash","title":"Bash","detail":"psql -c 'explain analyze select * from orders where customer_id = 7'"}
+{"run_id":"shot_reviewer_needs_input","t_ms":24243,"agent_id":"reviewer","kind":"status","status":"WORKING","step_id":"v1","title":"User chose: Yes, apply it","answer":"approve"}
+{"run_id":"shot_reviewer_needs_input","t_ms":26670,"agent_id":"reviewer","kind":"step_end","step_id":"v1","status":"COMPLETED","title":"Check the migration"}
+{"run_id":"shot_reviewer_needs_input","t_ms":28238,"agent_id":"reviewer","kind":"step_start","step_id":"v2","parent_step_id":"v1","title":"Apply migration to staging"}
+{"run_id":"shot_reviewer_needs_input","t_ms":29646,"agent_id":"builder","kind":"tool_call","step_id":"b2","tool":"Edit","title":"Edit","detail":"src/api/orders/search.ts"}
+{"run_id":"shot_reviewer_needs_input","t_ms":30516,"agent_id":"reviewer","kind":"tool_call","step_id":"v2","tool":"Bash","title":"Bash","detail":"alembic -x env=staging upgrade head"}
+{"run_id":"shot_reviewer_needs_input","t_ms":30749,"agent_id":"researcher","kind":"tool_result","step_id":"r2a","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"Seq Scan on orders, 812 ms"}
+{"run_id":"shot_reviewer_needs_input","t_ms":30783,"agent_id":"researcher","kind":"tool_result","step_id":"r2b","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"Sort + Seq Scan, 610 ms"}
+{"run_id":"shot_reviewer_needs_input","t_ms":32535,"agent_id":"researcher","kind":"step_end","step_id":"r2b","status":"COMPLETED","title":"Explain query 2"}
+{"run_id":"shot_reviewer_needs_input","t_ms":32632,"agent_id":"researcher","kind":"step_end","step_id":"r2a","status":"COMPLETED","title":"Explain query 1"}
+{"run_id":"shot_reviewer_needs_input","t_ms":34024,"agent_id":"researcher","kind":"step_start","step_id":"r3","parent_step_id":"researcher.root","title":"Recommend indexes","depends_on":["r2a","r2b"]}
+{"run_id":"shot_reviewer_needs_input","t_ms":35036,"agent_id":"builder","kind":"tool_result","step_id":"b2","tool":"Edit","status":"COMPLETED","title":"Edit ok","detail":"filter by status, paginate by created_at"}
+{"run_id":"shot_reviewer_needs_input","t_ms":36728,"agent_id":"builder","kind":"step_end","step_id":"b2","status":"COMPLETED","title":"Write search query"}
+{"run_id":"shot_reviewer_needs_input","t_ms":39837,"agent_id":"reviewer","kind":"tool_result","step_id":"v2","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"Running upgrade 0041 -> 0042, ok"}
+{"run_id":"shot_reviewer_needs_input","t_ms":41138,"agent_id":"reviewer","kind":"tool_call","step_id":"v2","tool":"Bash","title":"Bash","detail":"pytest tests/db -q"}
+{"run_id":"shot_reviewer_needs_input","t_ms":47745,"agent_id":"researcher","kind":"tool_call","step_id":"r3","tool":"Write","title":"Write","detail":"notes/orders_indexes.md"}
+{"run_id":"shot_reviewer_needs_input","t_ms":51154,"agent_id":"researcher","kind":"tool_result","step_id":"r3","tool":"Write","status":"COMPLETED","title":"Write ok","detail":"wrote 22 lines"}
+{"run_id":"shot_reviewer_needs_input","t_ms":52597,"agent_id":"reviewer","kind":"tool_result","step_id":"v2","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"27 passed"}
+{"run_id":"shot_reviewer_needs_input","t_ms":54077,"agent_id":"researcher","kind":"message","step_id":"r3","title":"Two indexes","detail":"Two indexes: orders(customer_id) and orders(status, created_at)."}
+{"run_id":"shot_reviewer_needs_input","t_ms":54604,"agent_id":"researcher","kind":"step_end","step_id":"r3","status":"COMPLETED","title":"Recommend indexes"}
+{"run_id":"shot_reviewer_needs_input","t_ms":55782,"agent_id":"reviewer","kind":"message","step_id":"v2","title":"Migration 0042 applied to staging; 27 DB tests pass","detail":"Migration 0042 applied to staging; 27 DB tests pass."}
+{"run_id":"shot_reviewer_needs_input","t_ms":56127,"agent_id":"builder","kind":"step_start","step_id":"b3","parent_step_id":"builder.root","title":"Add index migration","depends_on":["r3"]}
+{"run_id":"shot_reviewer_needs_input","t_ms":56210,"agent_id":"reviewer","kind":"step_end","step_id":"v2","status":"COMPLETED","title":"Apply migration to staging"}
+{"run_id":"shot_reviewer_needs_input","t_ms":56807,"agent_id":"researcher","kind":"step_end","step_id":"researcher.root","status":"COMPLETED","title":"Survey slow queries on the orders table"}
+{"run_id":"shot_reviewer_needs_input","t_ms":57007,"agent_id":"researcher","kind":"done","step_id":"researcher.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_reviewer_needs_input","t_ms":57107,"agent_id":"researcher","kind":"status","status":"COMPLETED","title":"Completed"}
+{"run_id":"shot_reviewer_needs_input","t_ms":58057,"agent_id":"reviewer","kind":"step_end","step_id":"reviewer.root","status":"COMPLETED","title":"Review and apply the orders migration"}
+{"run_id":"shot_reviewer_needs_input","t_ms":58257,"agent_id":"reviewer","kind":"done","step_id":"reviewer.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_reviewer_needs_input","t_ms":58357,"agent_id":"reviewer","kind":"status","status":"COMPLETED","title":"Completed"}
+{"run_id":"shot_reviewer_needs_input","t_ms":61791,"agent_id":"builder","kind":"tool_call","step_id":"b3","tool":"Write","title":"Write","detail":"migrations/0043_orders_idx.py"}
+{"run_id":"shot_reviewer_needs_input","t_ms":65230,"agent_id":"builder","kind":"tool_result","step_id":"b3","tool":"Write","status":"COMPLETED","title":"Write ok","detail":"wrote 19 lines"}
+{"run_id":"shot_reviewer_needs_input","t_ms":66971,"agent_id":"builder","kind":"step_end","step_id":"b3","status":"COMPLETED","title":"Add index migration"}
+{"run_id":"shot_reviewer_needs_input","t_ms":68561,"agent_id":"builder","kind":"step_start","step_id":"b4","parent_step_id":"builder.root","title":"Run search tests","depends_on":["b2","b3"]}
+{"run_id":"shot_reviewer_needs_input","t_ms":71533,"agent_id":"builder","kind":"tool_call","step_id":"b4","tool":"Bash","title":"Bash","detail":"npm test -- orders/search"}
+{"run_id":"shot_reviewer_needs_input","t_ms":96341,"agent_id":"builder","kind":"tool_result","step_id":"b4","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"14 passed"}
+{"run_id":"shot_reviewer_needs_input","t_ms":97858,"agent_id":"builder","kind":"step_end","step_id":"b4","status":"COMPLETED","title":"Run search tests"}
+{"run_id":"shot_reviewer_needs_input","t_ms":99726,"agent_id":"builder","kind":"step_end","step_id":"builder.root","status":"COMPLETED","title":"Add an index-backed orders search"}
+{"run_id":"shot_reviewer_needs_input","t_ms":99926,"agent_id":"builder","kind":"done","step_id":"builder.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_reviewer_needs_input","t_ms":100026,"agent_id":"builder","kind":"status","status":"COMPLETED","title":"Completed"}

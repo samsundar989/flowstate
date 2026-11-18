@@ -1,0 +1,482 @@
+{
+  "description": "#972 build from nothing, recorded from a real host run (replayed agent): create_project -> plan (parts) -> one design question -> answer -> build (file_written with part_id) -> finished -> preview -> get_file/file_chunk (and a refused path) -> follow-up prompt -> second preview. Events caused by a request may arrive before its ok; match on ids. Seq/at/run_id values are from the recording.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "create_project",
+      "req_id": "c1",
+      "prompt": "new project: a tap counter with a big button and a reset"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "c1",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 1,
+      "at": "2026-11-13T20:03:56.115Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "kind": "project_created",
+      "title": "New project: tap counter with big button",
+      "name": "tap counter with big button",
+      "req_id": "c1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 2,
+      "at": "2026-11-13T20:03:56.118Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "queued",
+      "title": "a tap counter with a big button and a reset",
+      "req_id": "c1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 3,
+      "at": "2026-11-13T20:03:56.317Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "running",
+      "title": "Working"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 4,
+      "at": "2026-11-13T20:03:56.491Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_b467638f",
+      "kind": "started",
+      "title": "Agent started"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 5,
+      "at": "2026-11-13T20:03:56.644Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_b467638f",
+      "kind": "plan",
+      "title": "Plan: Page layout, Colors and type, Tap counter, Reset button",
+      "parts": [
+        {
+          "id": "layout",
+          "name": "Page layout",
+          "files": [
+            "index.html"
+          ]
+        },
+        {
+          "id": "look",
+          "name": "Colors and type",
+          "files": [
+            "style.css"
+          ]
+        },
+        {
+          "id": "counter",
+          "name": "Tap counter",
+          "files": [
+            "app.js"
+          ]
+        },
+        {
+          "id": "reset",
+          "name": "Reset button",
+          "files": [
+            "app.js",
+            "index.html"
+          ]
+        }
+      ]
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 6,
+      "at": "2026-11-13T20:03:56.645Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_b467638f",
+      "kind": "question",
+      "title": "Which color theme should it use?",
+      "decision_id": "q_t1_1",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Dark"
+        },
+        {
+          "id": "o2",
+          "label": "Light"
+        },
+        {
+          "id": "o3",
+          "label": "Ocean"
+        }
+      ],
+      "allow_text": true
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 7,
+      "at": "2026-11-13T20:03:56.645Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "needs_answer",
+      "title": "Waiting for your answer"
+    },
+    {
+      "dir": "c2h",
+      "type": "answer",
+      "req_id": "a1",
+      "decision_id": "q_t1_1",
+      "option_id": "o1"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "a1",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 8,
+      "at": "2026-11-13T20:03:56.647Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_b467638f",
+      "kind": "answered",
+      "title": "You said: Dark",
+      "decision_id": "q_t1_1",
+      "option_id": "o1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 9,
+      "at": "2026-11-13T20:03:56.650Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "running",
+      "title": "Resumed with your answer"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 10,
+      "at": "2026-11-13T20:03:56.801Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "started",
+      "title": "Agent resumed"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 11,
+      "at": "2026-11-13T20:03:56.894Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "message",
+      "title": "Building the counter with the dark theme.",
+      "detail": "Building the counter with the dark theme."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 12,
+      "at": "2026-11-13T20:03:56.941Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "file_written",
+      "title": "Wrote index.html",
+      "path": "index.html",
+      "part_id": "layout"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 13,
+      "at": "2026-11-13T20:03:56.942Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "file_written",
+      "title": "Wrote style.css",
+      "path": "style.css",
+      "part_id": "look"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 14,
+      "at": "2026-11-13T20:03:56.942Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "file_written",
+      "title": "Wrote app.js",
+      "path": "app.js",
+      "part_id": "counter"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 15,
+      "at": "2026-11-13T20:03:56.988Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "message",
+      "title": "Built a tap counter: index.html, style.css and app.js.",
+      "detail": "Built a tap counter: index.html, style.css and app.js."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 16,
+      "at": "2026-11-13T20:03:57.465Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "finished",
+      "title": "Finished and saved",
+      "ok": true,
+      "exit_code": 0,
+      "merged": true,
+      "branch": "task/t1",
+      "commit": "8157748",
+      "files": [
+        "app.js",
+        "index.html",
+        "style.css"
+      ]
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 17,
+      "at": "2026-11-13T20:03:57.637Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "run_id": "r_20df157e",
+      "kind": "preview",
+      "title": "Preview ready",
+      "commit": "8157748221868379194604660eabefde79b28aca",
+      "path": "index.html",
+      "bytes": 429,
+      "sha256": "9aef7e59eaecb068d38e3546ed65b7e64db3a14635923a636c1ae75ac98a4274"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 18,
+      "at": "2026-11-13T20:03:57.638Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "done",
+      "title": "Done",
+      "commit": "8157748"
+    },
+    {
+      "dir": "c2h",
+      "type": "get_file",
+      "req_id": "g1",
+      "project_id": "p_tap-counter-with-big-button",
+      "commit": "8157748221868379194604660eabefde79b28aca",
+      "path": "index.html",
+      "offset": 0
+    },
+    {
+      "dir": "h2c",
+      "type": "file_chunk",
+      "req_id": "g1",
+      "path": "index.html",
+      "sha256": "9aef7e59eaecb068d38e3546ed65b7e64db3a14635923a636c1ae75ac98a4274",
+      "offset": 0,
+      "total": 429,
+      "data": "PCFkb2N0eXBlIGh0bWw+CjxodG1sIGxhbmc9ImVuIj48aGVhZD48bWV0YSBjaGFyc2V0PSJ1dGYtOCI+PG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPTEyODAsaGVpZ2h0PTgwMCI+Cjx0aXRsZT5UYXAgY291bnRlcjwvdGl0bGU+PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJzdHlsZS5jc3MiPjwvaGVhZD4KPGJvZHkgY2xhc3M9InRoZW1lLWRhcmsiPjxtYWluPgo8aDE+VGFwIGNvdW50ZXI8L2gxPgo8ZGl2IGlkPSJjb3VudCIgYXJpYS1saXZlPSJwb2xpdGUiPjA8L2Rpdj4KPGJ1dHRvbiBpZD0idGFwIiB0eXBlPSJidXR0b24iPlRhcDwvYnV0dG9uPgo8YnV0dG9uIGlkPSJyZXNldCIgdHlwZT0iYnV0dG9uIj5SZXNldDwvYnV0dG9uPgo8L21haW4+PHNjcmlwdCBzcmM9ImFwcC5qcyI+PC9zY3JpcHQ+PC9ib2R5PjwvaHRtbD4K"
+    },
+    {
+      "dir": "c2h",
+      "type": "get_file",
+      "req_id": "g2",
+      "project_id": "p_tap-counter-with-big-button",
+      "commit": "8157748221868379194604660eabefde79b28aca",
+      "path": "../secrets.txt",
+      "offset": 0
+    },
+    {
+      "dir": "h2c",
+      "type": "error",
+      "code": "bad_path",
+      "message": "That file name is not allowed.",
+      "req_id": "g2"
+    },
+    {
+      "dir": "c2h",
+      "type": "prompt",
+      "req_id": "f1",
+      "project_id": "p_tap-counter-with-big-button",
+      "text": "add a minus one button"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "f1",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 19,
+      "at": "2026-11-13T20:03:58.257Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "kind": "task_state",
+      "state": "queued",
+      "title": "add a minus one button"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 20,
+      "at": "2026-11-13T20:03:58.445Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "kind": "task_state",
+      "state": "running",
+      "title": "Working"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 21,
+      "at": "2026-11-13T20:03:58.606Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "run_id": "r_3a6515bb",
+      "kind": "started",
+      "title": "Agent started"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 22,
+      "at": "2026-11-13T20:03:58.701Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "run_id": "r_3a6515bb",
+      "kind": "message",
+      "title": "Adding a minus button.",
+      "detail": "Adding a minus button."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 23,
+      "at": "2026-11-13T20:03:58.745Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "run_id": "r_3a6515bb",
+      "kind": "file_written",
+      "title": "Wrote index.html",
+      "path": "index.html",
+      "part_id": "layout"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 24,
+      "at": "2026-11-13T20:03:58.746Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "run_id": "r_3a6515bb",
+      "kind": "file_written",
+      "title": "Wrote app.js",
+      "path": "app.js",
+      "part_id": "counter"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 25,
+      "at": "2026-11-13T20:03:58.793Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "run_id": "r_3a6515bb",
+      "kind": "message",
+      "title": "Added a minus-one button.",
+      "detail": "Added a minus-one button."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 26,
+      "at": "2026-11-13T20:03:59.251Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "run_id": "r_3a6515bb",
+      "kind": "finished",
+      "title": "Finished and saved",
+      "ok": true,
+      "exit_code": 0,
+      "merged": true,
+      "branch": "task/t2",
+      "commit": "1c480f3",
+      "files": [
+        "app.js",
+        "index.html"
+      ]
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 27,
+      "at": "2026-11-13T20:03:59.440Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "run_id": "r_3a6515bb",
+      "kind": "preview",
+      "title": "Preview ready",
+      "commit": "1c480f3acd67e6d2a0fed89db4b5fe790a85ecad",
+      "path": "index.html",
+      "bytes": 481,
+      "sha256": "bdff872a677dc1a9ff8f94f2529bf78bccd4548cf5932582721c3d147d3098a2"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 28,
+      "at": "2026-11-13T20:03:59.440Z",
+      "project_id": "p_tap-counter-with-big-button",
+      "task_id": "t2",
+      "kind": "task_state",
+      "state": "done",
+      "title": "Done",
+      "commit": "1c480f3"
+    }
+  ]
+}

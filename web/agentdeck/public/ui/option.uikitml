@@ -1,0 +1,41 @@
+<!--
+  Decision option button (#111, restyled #203). One per option, stacked by src/stations.ts
+  under the decision card at 0.44 m with a 62 mm pitch: 200 units = 50 mm tall (6.5 deg) and a
+  12 mm clear gap. Scale 0.05, pixel-size 0.005 (1 unit = 0.25 mm), 1280 units = 0.32 m wide.
+  Label sans 40 (1.30 deg at 0.44 m), up to three lines. The recommended option gets the ion
+  border and ion label from code. Classes o-.
+-->
+<style>
+  @font-face { font-family: sans; src: url(../fonts/sans-regular.ttf); font-weight: 400; }
+  @font-face { font-family: sans; src: url(../fonts/sans-semibold.ttf); font-weight: 600; }
+  .o-root {
+    pixel-size: 0.005;
+    flex-direction: row;
+    width: 1280px;
+    height: 200px;
+    padding-left: 32px;
+    padding-right: 32px;
+    align-items: center;
+    border-width: 4px;
+    border-radius: 10px;
+    border-color: #2B3B4F;
+    background-color: #121A24;
+    cursor: pointer;
+  }
+  .o-root:hover {
+    background-color: #182330;
+  }
+  .o-root:active {
+    background-color: #1F3340;
+  }
+  .o-label {
+    font-family: sans;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.15;
+    color: #E2EAF2;
+  }
+</style>
+<div id="option-button" class="o-root">
+  <div id="option-label" class="o-label">Option</div>
+</div>

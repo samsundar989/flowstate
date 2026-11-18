@@ -1,0 +1,150 @@
+{"id": "close_all_1", "text": "okay clear everything out of my face", "action": "close_all", "slot": ""}
+{"id": "close_all_2", "text": "get rid of all these windows please", "action": "close_all", "slot": ""}
+{"id": "close_all_3", "text": "hide all of them", "action": "close_all", "slot": ""}
+{"id": "close_all_4", "text": "close every single panel", "action": "close_all", "slot": ""}
+{"id": "close_all_5", "text": "can you shut all the windows for me", "action": "close_all", "slot": ""}
+{"id": "close_all_6", "text": "remove all the windows i cant see anything", "action": "close_all", "slot": ""}
+{"id": "close_all_7", "text": "clean up the view take them all away", "action": "close_all", "slot": ""}
+{"id": "close_all_8", "text": "kindly close all the windows na", "action": "close_all", "slot": ""}
+{"id": "open_window_1", "text": "pull up the fleet", "action": "open_window", "slot": "fleet"}
+{"id": "open_window_2", "text": "show me the blue print", "action": "open_window", "slot": "blueprint"}
+{"id": "open_window_3", "text": "open the code window", "action": "open_window", "slot": "code"}
+{"id": "open_window_4", "text": "bring up yard", "action": "open_window", "slot": "yard"}
+{"id": "open_window_5", "text": "can i see the chat decisions", "action": "open_window", "slot": "chat"}
+{"id": "open_window_6", "text": "uh how do i get the fleet window open", "action": "open_window", "slot": "fleet"}
+{"id": "open_window_7", "text": "i want to look at the code", "action": "open_window", "slot": "code"}
+{"id": "open_window_8", "text": "lets have the chat up", "action": "open_window", "slot": "chat"}
+{"id": "close_window_1", "text": "close the fleet", "action": "close_window", "slot": "fleet"}
+{"id": "close_window_2", "text": "hide blueprint", "action": "close_window", "slot": "blueprint"}
+{"id": "close_window_3", "text": "take away the code window", "action": "close_window", "slot": "code"}
+{"id": "close_window_4", "text": "get the yard out of the way", "action": "close_window", "slot": "yard"}
+{"id": "close_window_5", "text": "shut the chat", "action": "close_window", "slot": "chat"}
+{"id": "close_window_6", "text": "dismiss the decisions window", "action": "close_window", "slot": "chat"}
+{"id": "close_window_7", "text": "close blue print window", "action": "close_window", "slot": "blueprint"}
+{"id": "close_window_8", "text": "fleet is in my way hide it", "action": "close_window", "slot": "fleet"}
+{"id": "show_architecture_1", "text": "show the architecture", "action": "show_architecture", "slot": "this"}
+{"id": "show_architecture_2", "text": "show me the architecture of geothermal faults", "action": "show_architecture", "slot": "geothermal faults"}
+{"id": "show_architecture_3", "text": "what does the architecture for molecule discovery look like", "action": "show_architecture", "slot": "molecule discovery"}
+{"id": "show_architecture_4", "text": "can you display the architecture graph", "action": "show_architecture", "slot": "this"}
+{"id": "show_architecture_5", "text": "architecture of the sports tracking project", "action": "show_architecture", "slot": "sports tracking"}
+{"id": "show_architecture_6", "text": "show me how this project is built", "action": "show_architecture", "slot": "this"}
+{"id": "show_architecture_7", "text": "pull up the arc hitecture graph for agent challenge", "action": "show_architecture", "slot": "agent challenge"}
+{"id": "show_architecture_8", "text": "let me see the circuit compilation architecture", "action": "show_architecture", "slot": "circuit compilation"}
+{"id": "open_project_1", "text": "go to geothermal faults", "action": "open_project", "slot": "geothermal faults"}
+{"id": "open_project_2", "text": "switch to the molecule discovery project", "action": "open_project", "slot": "molecule discovery"}
+{"id": "open_project_3", "text": "take me to sports tracking", "action": "open_project", "slot": "sports tracking"}
+{"id": "open_project_4", "text": "open circuit compilation", "action": "open_project", "slot": "circuit compilation"}
+{"id": "open_project_5", "text": "lets jump over to agent challenge", "action": "open_project", "slot": "agent challenge"}
+{"id": "open_project_6", "text": "go to the headset competition station", "action": "open_project", "slot": "headset competition"}
+{"id": "open_project_7", "text": "switch over to geo thermal faults", "action": "open_project", "slot": "geothermal faults"}
+{"id": "open_project_8", "text": "open up the molecule project", "action": "open_project", "slot": "molecule discovery"}
+{"id": "zoom_in_1", "text": "zoom in on the bridge", "action": "zoom_in", "slot": "bridge"}
+{"id": "zoom_in_2", "text": "zoom into web runtime", "action": "zoom_in", "slot": "web runtime"}
+{"id": "zoom_in_3", "text": "get closer to the schema", "action": "zoom_in", "slot": "schema"}
+{"id": "zoom_in_4", "text": "zoom on the decision cards", "action": "zoom_in", "slot": "decision cards"}
+{"id": "zoom_in_5", "text": "focus on replay the night", "action": "zoom_in", "slot": "replay the night"}
+{"id": "zoom_in_6", "text": "zoom in to the pass through and scene", "action": "zoom_in", "slot": "passthrough+scene"}
+{"id": "zoom_in_7", "text": "can you zoom in on native app", "action": "zoom_in", "slot": "native app"}
+{"id": "zoom_in_8", "text": "show me the eval up close", "action": "zoom_in", "slot": "eval"}
+{"id": "zoom_out_1", "text": "zoom out", "action": "zoom_out", "slot": ""}
+{"id": "zoom_out_2", "text": "zoom back out please", "action": "zoom_out", "slot": ""}
+{"id": "zoom_out_3", "text": "show me the whole graph again", "action": "zoom_out", "slot": ""}
+{"id": "zoom_out_4", "text": "go back to the full view", "action": "zoom_out", "slot": ""}
+{"id": "zoom_out_5", "text": "pull back i want to see everything", "action": "zoom_out", "slot": ""}
+{"id": "zoom_out_6", "text": "zoom out all the way", "action": "zoom_out", "slot": ""}
+{"id": "zoom_out_7", "text": "back to the overview", "action": "zoom_out", "slot": ""}
+{"id": "zoom_out_8", "text": "too close show the entire thing", "action": "zoom_out", "slot": ""}
+{"id": "undo_1", "text": "undo", "action": "undo", "slot": ""}
+{"id": "undo_2", "text": "undo that", "action": "undo", "slot": ""}
+{"id": "undo_3", "text": "oops bring that back", "action": "undo", "slot": ""}
+{"id": "undo_4", "text": "wait put it back", "action": "undo", "slot": ""}
+{"id": "undo_5", "text": "go back undo the last one", "action": "undo", "slot": ""}
+{"id": "undo_6", "text": "no no reverse that", "action": "undo", "slot": ""}
+{"id": "undo_7", "text": "bring back what you just hid", "action": "undo", "slot": ""}
+{"id": "undo_8", "text": "un do please", "action": "undo", "slot": ""}
+{"id": "center_windows_1", "text": "bring the windows in front of me", "action": "center_windows", "slot": ""}
+{"id": "center_windows_2", "text": "recenter", "action": "center_windows", "slot": ""}
+{"id": "center_windows_3", "text": "re center the windows", "action": "center_windows", "slot": ""}
+{"id": "center_windows_4", "text": "the windows are behind me bring them over here", "action": "center_windows", "slot": ""}
+{"id": "center_windows_5", "text": "put everything in front of me", "action": "center_windows", "slot": ""}
+{"id": "center_windows_6", "text": "center the panels", "action": "center_windows", "slot": ""}
+{"id": "center_windows_7", "text": "move the windows to where im looking", "action": "center_windows", "slot": ""}
+{"id": "center_windows_8", "text": "i lost the windows put them in front", "action": "center_windows", "slot": ""}
+{"id": "open_settings_1", "text": "open settings", "action": "open_settings", "slot": ""}
+{"id": "open_settings_2", "text": "show me the settings", "action": "open_settings", "slot": ""}
+{"id": "open_settings_3", "text": "go to settings", "action": "open_settings", "slot": ""}
+{"id": "open_settings_4", "text": "where are the settings open them", "action": "open_settings", "slot": ""}
+{"id": "open_settings_5", "text": "pull up the settings window", "action": "open_settings", "slot": ""}
+{"id": "open_settings_6", "text": "settings please", "action": "open_settings", "slot": ""}
+{"id": "open_settings_7", "text": "i need to change something open the options", "action": "open_settings", "slot": ""}
+{"id": "open_settings_8", "text": "open set things", "action": "open_settings", "slot": ""}
+{"id": "close_settings_1", "text": "close settings", "action": "close_settings", "slot": ""}
+{"id": "close_settings_2", "text": "hide the settings", "action": "close_settings", "slot": ""}
+{"id": "close_settings_3", "text": "im done with settings close it", "action": "close_settings", "slot": ""}
+{"id": "close_settings_4", "text": "exit settings", "action": "close_settings", "slot": ""}
+{"id": "close_settings_5", "text": "get out of the settings", "action": "close_settings", "slot": ""}
+{"id": "close_settings_6", "text": "dismiss settings window", "action": "close_settings", "slot": ""}
+{"id": "close_settings_7", "text": "close the settings panel", "action": "close_settings", "slot": ""}
+{"id": "close_settings_8", "text": "okay leave settings", "action": "close_settings", "slot": ""}
+{"id": "mute_1", "text": "mute", "action": "mute", "slot": ""}
+{"id": "mute_2", "text": "turn off the sound", "action": "mute", "slot": ""}
+{"id": "mute_3", "text": "mute the sounds please", "action": "mute", "slot": ""}
+{"id": "mute_4", "text": "silence", "action": "mute", "slot": ""}
+{"id": "mute_5", "text": "too loud mute it", "action": "mute", "slot": ""}
+{"id": "mute_6", "text": "turn the audio off", "action": "mute", "slot": ""}
+{"id": "mute_7", "text": "no sounds please", "action": "mute", "slot": ""}
+{"id": "mute_8", "text": "can you mute everything", "action": "mute", "slot": ""}
+{"id": "unmute_1", "text": "unmute", "action": "unmute", "slot": ""}
+{"id": "unmute_2", "text": "turn the sound back on", "action": "unmute", "slot": ""}
+{"id": "unmute_3", "text": "un mute", "action": "unmute", "slot": ""}
+{"id": "unmute_4", "text": "bring the sound back", "action": "unmute", "slot": ""}
+{"id": "unmute_5", "text": "sounds on", "action": "unmute", "slot": ""}
+{"id": "unmute_6", "text": "i want the audio again", "action": "unmute", "slot": ""}
+{"id": "unmute_7", "text": "unmute the sounds", "action": "unmute", "slot": ""}
+{"id": "unmute_8", "text": "turn on the sound please", "action": "unmute", "slot": ""}
+{"id": "ask_done_1", "text": "what did the agents do", "action": "ask_done", "slot": ""}
+{"id": "ask_done_2", "text": "what have they finished so far", "action": "ask_done", "slot": ""}
+{"id": "ask_done_3", "text": "what got built overnight", "action": "ask_done", "slot": ""}
+{"id": "ask_done_4", "text": "tell me what the agents completed", "action": "ask_done", "slot": ""}
+{"id": "ask_done_5", "text": "so what is done", "action": "ask_done", "slot": ""}
+{"id": "ask_done_6", "text": "what did they build last night", "action": "ask_done", "slot": ""}
+{"id": "ask_done_7", "text": "any progress what have the agents achieved", "action": "ask_done", "slot": ""}
+{"id": "ask_done_8", "text": "kindly tell me what all has been finished", "action": "ask_done", "slot": ""}
+{"id": "ask_blocked_1", "text": "what is blocked", "action": "ask_blocked", "slot": ""}
+{"id": "ask_blocked_2", "text": "is anything stuck", "action": "ask_blocked", "slot": ""}
+{"id": "ask_blocked_3", "text": "what needs me", "action": "ask_blocked", "slot": ""}
+{"id": "ask_blocked_4", "text": "what are they waiting on", "action": "ask_blocked", "slot": ""}
+{"id": "ask_blocked_5", "text": "anything waiting for my decision", "action": "ask_blocked", "slot": ""}
+{"id": "ask_blocked_6", "text": "where are the agents stuck", "action": "ask_blocked", "slot": ""}
+{"id": "ask_blocked_7", "text": "what all is pending from my side", "action": "ask_blocked", "slot": ""}
+{"id": "ask_blocked_8", "text": "whats holding things up", "action": "ask_blocked", "slot": ""}
+{"id": "none_1", "text": "dont close all the windows yet", "action": "none", "slot": ""}
+{"id": "none_2", "text": "im going to close all the windows in a second", "action": "none", "slot": ""}
+{"id": "none_3", "text": "should i close all the windows", "action": "none", "slot": ""}
+{"id": "none_4", "text": "if you close everything you lose your place", "action": "none", "slot": ""}
+{"id": "none_5", "text": "he said close all the windows but i didnt", "action": "none", "slot": ""}
+{"id": "none_6", "text": "last time i closed all the windows it crashed", "action": "none", "slot": ""}
+{"id": "none_7", "text": "never close all of them during a demo", "action": "none", "slot": ""}
+{"id": "none_8", "text": "you can close all the windows later when we are done", "action": "none", "slot": ""}
+{"id": "none_9", "text": "my wife always tells me to close all the windows at night", "action": "none", "slot": ""}
+{"id": "none_10", "text": "closing all the windows would be a mistake right now", "action": "none", "slot": ""}
+{"id": "none_11", "text": "i was wondering whether to hide everything", "action": "none", "slot": ""}
+{"id": "none_12", "text": "next i will show you how to close all the windows", "action": "none", "slot": ""}
+{"id": "none_13", "text": "sarah can you open the door", "action": "none", "slot": ""}
+{"id": "none_14", "text": "the fleet of trucks arrives tomorrow", "action": "none", "slot": ""}
+{"id": "none_15", "text": "my code is on the other laptop", "action": "none", "slot": ""}
+{"id": "none_16", "text": "we should zoom in on the budget in the meeting", "action": "none", "slot": ""}
+{"id": "none_17", "text": "thats really close to what the client wanted", "action": "none", "slot": ""}
+{"id": "none_18", "text": "dont mute yourself on the call", "action": "none", "slot": ""}
+{"id": "none_19", "text": "let me show you something cool in a minute", "action": "none", "slot": ""}
+{"id": "none_20", "text": "the yard behind my house needs mowing", "action": "none", "slot": ""}
+{"id": "none_21", "text": "chat with you later", "action": "none", "slot": ""}
+{"id": "none_22", "text": "the bridge on the way here was closed", "action": "none", "slot": ""}
+{"id": "none_23", "text": "molecule discovery is a really interesting area", "action": "none", "slot": ""}
+{"id": "none_24", "text": "i dont want to open settings", "action": "none", "slot": ""}
+{"id": "none_25", "text": "what time is lunch", "action": "none", "slot": ""}
+{"id": "none_26", "text": "the schema we discussed yesterday was wrong", "action": "none", "slot": ""}
+{"id": "none_27", "text": "can you hear me okay with the headset on", "action": "none", "slot": ""}
+{"id": "none_28", "text": "wow this looks amazing", "action": "none", "slot": ""}
+{"id": "none_29", "text": "maybe later we could switch to geothermal faults", "action": "none", "slot": ""}
+{"id": "none_30", "text": "i told him to mute his phone before the demo", "action": "none", "slot": ""}

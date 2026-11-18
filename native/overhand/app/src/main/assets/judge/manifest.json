@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "source_commit": "928d9dfb1f25f3809986b1a425050c10576ab763",
+  "sources": [
+    {
+      "sha256": "1cbc066c4e5fa101c714421900648f874d953bc5f1ab8fe90de9a207062d1afa"
+    },
+    {
+      "sha256": "3515b44246f614fda1f29454242c925c7500e7a1be571f94789339965637e2aa"
+    },
+    {
+      "sha256": "77fec5e8a119b3fa0f5b9a1f25b07f38c222641e003a47c275d98fe101fced59"
+    },
+    {
+      "sha256": "695daa6b75628345939c800eb39b99e7133cb8af4fe395dd826a47d89f490832"
+    },
+    {
+      "sha256": "cf24f4b794c211e22c0c8a1b43e2f25f3ddaa864533ad084a525acc440e0b137"
+    },
+    {
+      "sha256": "f6e48def243ced3470ce25363995ac0c7b1afcd5f8c87adea61c08de5df8a3ea"
+    },
+    {
+      "sha256": "aae74a4a8a3c4451ea6e2f0d8f5bd9b7c384fa560e4dfd5c60c63a4f4512c430"
+    },
+    {
+      "sha256": "e15aebd75f73128007482f5311c1dfaf1a2e8954c3b4c1a6d247b38310039fda"
+    },
+    {
+      "sha256": "216c8aff12a4212db8ec3c5348a7538d6b94f35bb38a6390d9d1ceb3e778f8c1"
+    }
+  ],
+  "transforms": [
+    "explicit display-field whitelist",
+    "stable opaque project IDs",
+    "paths, endpoints, identities, credentials and brands redacted",
+    "Nov 3 partial day; separate Nov 5 architecture"
+  ],
+  "files": {
+    "real_day.jsonl": {
+      "sha256": "a8c1e211cb04ce06295e91048e2d0354d71880632279962369071977f960b8a4",
+      "bytes": 246758
+    },
+    "architecture.json": {
+      "sha256": "1ae18864c2b7406cd4b6a6f325e2035a415d84c9c7cf29541ce0a8071a66e254",
+      "bytes": 24246
+    },
+    "code/s74617e7e4f3c9e64.json": {
+      "sha256": "b6da418f4ca83db9c0a4a4dd90a274b2f9f7a72384074917155028dbb9d15475",
+      "bytes": 28478
+    },
+    "code/sc7e2275fab6a13cd.json": {
+      "sha256": "db62939fabc64a32b1dedbdcc7f4d68f04c7983601f60d4e77fcec53ea6a93bd",
+      "bytes": 23933
+    },
+    "code/s4a3f3b09ec1c0d92.json": {
+      "sha256": "b3e1c50362b7efbea7d87d5b1b34e298ebce7366c022460bc60d1d54d0bfa4e0",
+      "bytes": 28599
+    },
+    "code/s04f0600b6c43c5ad.json": {
+      "sha256": "4461f8299cb4fad55d9ea7baf50e2d662c643e32c9e90f2f9146e304f2e295fc",
+      "bytes": 3589
+    },
+    "code/s523af42b36935d2d.json": {
+      "sha256": "0621f34d10cd95c0f4ddf28f080436701a9a1d88091ab363c182e9e2777ed642",
+      "bytes": 3586
+    },
+    "code/s1f2fd986ca050085.json": {
+      "sha256": "41f351238881f52249493990d6ef7a64c4b7da57a3944e4ff9abbc1b54a09d27",
+      "bytes": 3590
+    },
+    "snapshot.json": {
+      "sha256": "24e961b41b3826ea187b0d433b8f3fd34b7d7a3d8b55313f1bb4c5696130a096",
+      "bytes": 78822
+    }
+  }
+}

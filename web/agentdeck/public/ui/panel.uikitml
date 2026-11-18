@@ -1,0 +1,229 @@
+<!--
+  One agent panel (docs/design.md s2/s5 + "Visual system"). Instanced three times by the scene
+  (panel-researcher / panel-builder / panel-reviewer) at scale 0.05 with pixel-size 0.005, so
+  1 unit = 0.25 mm and 960 x 830 units = 0.24 x 0.21 m at ~0.44 m from the eye.
+  Type: heading 56 (14 mm, 1.8 deg), body 40 (10 mm, 1.3 deg), labels 32 (8 mm, 1.04 deg);
+  `node scripts/legibility.mjs` checks every class. Colours are src/theme.ts tokens.
+  The .ttf faces are answered with prebuilt MSDF atlases by src/fonts.ts. Keep copy ASCII.
+-->
+<style>
+  @font-face { font-family: mono; src: url(../fonts/mono-regular.ttf); font-weight: 400; }
+  @font-face { font-family: mono; src: url(../fonts/mono-semibold.ttf); font-weight: 600; }
+  @font-face { font-family: sans; src: url(../fonts/sans-regular.ttf); font-weight: 400; }
+  @font-face { font-family: sans; src: url(../fonts/sans-semibold.ttf); font-weight: 600; }
+  .root {
+    pixel-size: 0.005;
+    flex-direction: column;
+    width: 960px;
+    height: 830px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 32px;
+    padding-right: 32px;
+    gap: 10px;
+    background-color: #121A24;
+    border-width: 3px;
+    border-color: #1C2836;
+    border-radius: 8px;
+  }
+  .br-tl {
+    position-type: absolute;
+    position-top: -3px;
+    position-left: -3px;
+    width: 40px;
+    height: 40px;
+    border-top-width: 4px;
+    border-left-width: 4px;
+    border-color: #2B3B4F;
+  }
+  .br-br {
+    position-type: absolute;
+    position-bottom: -3px;
+    position-right: -3px;
+    width: 40px;
+    height: 40px;
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+    border-color: #2B3B4F;
+  }
+  .jump-bar {
+    height: 8px;
+    border-radius: 2px;
+    background-color: #5CE1E6;
+  }
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .role {
+    font-family: sans;
+    font-size: 56px;
+    font-weight: 600;
+    color: #E2EAF2;
+  }
+  .chip {
+    flex-direction: row;
+    align-items: center;
+    height: 52px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 6px;
+    border-width: 3px;
+    border-color: #5A6A7C;
+    background-color: #18212C;
+  }
+  .chip-text {
+    font-family: mono;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #93A3B5;
+  }
+  .strip {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+  }
+  .strip-text {
+    font-family: mono;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #93A3B5;
+  }
+  .mode {
+    font-family: mono;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: #5A6A7C;
+  }
+  .rule {
+    height: 2px;
+    background-color: #1C2836;
+  }
+  .current {
+    font-family: sans;
+    font-size: 40px;
+    font-weight: 600;
+    height: 52px;
+    color: #E2EAF2;
+  }
+  .steps {
+    flex-direction: column;
+    height: 220px;
+  }
+  .step {
+    font-family: mono;
+    font-size: 34px;
+    height: 44px;
+    color: #93A3B5;
+  }
+  .note {
+    font-family: sans;
+    font-size: 40px;
+    line-height: 1.25;
+    flex-grow: 1;
+    color: #93A3B5;
+  }
+  .ghint {
+    font-family: mono;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    height: 40px;
+    color: #FFB547;
+  }
+  .hold-track {
+    height: 10px;
+    border-radius: 2px;
+    background-color: #1C2836;
+  }
+  .hold-fill {
+    height: 10px;
+    width: 0%;
+    border-radius: 2px;
+    background-color: #FFB547;
+  }
+  .footer {
+    flex-direction: row;
+    gap: 20px;
+    height: 120px;
+    align-items: center;
+  }
+  .btn {
+    flex-direction: row;
+    flex-grow: 1;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-width: 3px;
+    border-radius: 8px;
+    border-color: #2B3B4F;
+    background-color: #121A24;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color: #182330;
+  }
+  .btn:active {
+    background-color: #1F3340;
+  }
+  .btn-label {
+    font-family: mono;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #E2EAF2;
+  }
+  .icon {
+    width: 44px;
+    height: 44px;
+  }
+</style>
+<div id="panel-root" class="root">
+  <div class="br-tl"></div>
+  <div class="br-br"></div>
+  <div id="jump-bar" class="jump-bar" style="display: none"></div>
+  <div class="header">
+    <div id="role-label" class="role">Agent</div>
+    <div id="status-chip" class="chip">
+      <div id="status-text" class="chip-text">QUEUED</div>
+    </div>
+  </div>
+  <div class="strip">
+    <div id="strip-label" class="strip-text">QUEUED</div>
+    <div id="mode-label" class="mode">SCRIPTED</div>
+  </div>
+  <div class="rule"></div>
+  <div id="current-label" class="current">-</div>
+  <div class="steps">
+    <div id="step-0" class="step">-</div>
+    <div id="step-1" class="step">-</div>
+    <div id="step-2" class="step">-</div>
+    <div id="step-3" class="step">-</div>
+    <div id="step-4" class="step">-</div>
+  </div>
+  <div id="note-label" class="note">-</div>
+  <div id="gesture-hint" class="ghint" style="display: none">HOLD THUMBS UP = APPROVE, DOWN = STOP</div>
+  <div id="hold-track" class="hold-track" style="display: none">
+    <div id="hold-fill" class="hold-fill"></div>
+  </div>
+  <div class="footer">
+    <div id="approve-button" class="btn">
+      <ThumbsUp id="approve-icon" class="icon"></ThumbsUp>
+      <div id="approve-label" class="btn-label">APPROVE</div>
+    </div>
+    <div id="stop-button" class="btn">
+      <ThumbsDown id="stop-icon" class="icon"></ThumbsDown>
+      <div id="stop-label" class="btn-label">STOP</div>
+    </div>
+    <div id="assign-button" class="btn" style="display: none">
+      <Inbox id="assign-icon" class="icon"></Inbox>
+      <div id="assign-label" class="btn-label">ASSIGN</div>
+    </div>
+  </div>
+</div>

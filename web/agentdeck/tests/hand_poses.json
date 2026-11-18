@@ -1,0 +1,1018 @@
+{
+"call_up": {
+"wrist": [
+0.1205,
+1.2999,
+-0.3523
+],
+"thumb-metacarpal": [
+0.1043,
+1.3301,
+-0.3869
+],
+"thumb-phalanx-proximal": [
+0.0965,
+1.3585,
+-0.4007
+],
+"thumb-phalanx-distal": [
+0.0917,
+1.3862,
+-0.4194
+],
+"thumb-tip": [
+0.0895,
+1.4091,
+-0.4281
+],
+"index-finger-metacarpal": [
+0.1109,
+1.3197,
+-0.3888
+],
+"index-finger-phalanx-proximal": [
+0.1131,
+1.3235,
+-0.4483
+],
+"index-finger-phalanx-intermediate": [
+0.0753,
+1.3237,
+-0.451
+],
+"index-finger-phalanx-distal": [
+0.0787,
+1.3226,
+-0.4269
+],
+"index-finger-tip": [
+0.0984,
+1.322,
+-0.4163
+],
+"middle-finger-metacarpal": [
+0.1128,
+1.3035,
+-0.3866
+],
+"middle-finger-phalanx-proximal": [
+0.1179,
+1.3017,
+-0.448
+],
+"middle-finger-phalanx-intermediate": [
+0.0754,
+1.3011,
+-0.4539
+],
+"middle-finger-phalanx-distal": [
+0.0802,
+1.3071,
+-0.4275
+],
+"middle-finger-tip": [
+0.1022,
+1.3094,
+-0.4158
+],
+"ring-finger-metacarpal": [
+0.1145,
+1.2849,
+-0.3871
+],
+"ring-finger-phalanx-proximal": [
+0.1139,
+1.2825,
+-0.441
+],
+"ring-finger-phalanx-intermediate": [
+0.0758,
+1.2807,
+-0.449
+],
+"ring-finger-phalanx-distal": [
+0.0769,
+1.2924,
+-0.4251
+],
+"ring-finger-tip": [
+0.0972,
+1.299,
+-0.4134
+],
+"pinky-finger-metacarpal": [
+0.111,
+1.2769,
+-0.3864
+],
+"pinky-finger-phalanx-proximal": [
+0.1068,
+1.2649,
+-0.4302
+],
+"pinky-finger-phalanx-intermediate": [
+0.1088,
+1.2496,
+-0.4568
+],
+"pinky-finger-phalanx-distal": [
+0.1058,
+1.2392,
+-0.474
+],
+"pinky-finger-tip": [
+0.1011,
+1.2308,
+-0.4938
+]
+},
+"default_up": {
+"wrist": [
+0.1205,
+1.2999,
+-0.3523
+],
+"thumb-metacarpal": [
+0.1043,
+1.3301,
+-0.3869
+],
+"thumb-phalanx-proximal": [
+0.0938,
+1.3509,
+-0.4095
+],
+"thumb-phalanx-distal": [
+0.0876,
+1.3726,
+-0.4347
+],
+"thumb-tip": [
+0.0801,
+1.3867,
+-0.4534
+],
+"index-finger-metacarpal": [
+0.1109,
+1.3197,
+-0.3888
+],
+"index-finger-phalanx-proximal": [
+0.1131,
+1.3235,
+-0.4483
+],
+"index-finger-phalanx-intermediate": [
+0.1117,
+1.3298,
+-0.4857
+],
+"index-finger-phalanx-distal": [
+0.1053,
+1.3334,
+-0.5089
+],
+"index-finger-tip": [
+0.0986,
+1.3353,
+-0.5302
+],
+"middle-finger-metacarpal": [
+0.1128,
+1.3035,
+-0.3866
+],
+"middle-finger-phalanx-proximal": [
+0.1179,
+1.3017,
+-0.448
+],
+"middle-finger-phalanx-intermediate": [
+0.1188,
+1.2965,
+-0.4906
+],
+"middle-finger-phalanx-distal": [
+0.1109,
+1.2933,
+-0.5168
+],
+"middle-finger-tip": [
+0.1041,
+1.2901,
+-0.5406
+],
+"ring-finger-metacarpal": [
+0.1145,
+1.2849,
+-0.3871
+],
+"ring-finger-phalanx-proximal": [
+0.1139,
+1.2825,
+-0.441
+],
+"ring-finger-phalanx-intermediate": [
+0.1176,
+1.2734,
+-0.4788
+],
+"ring-finger-phalanx-distal": [
+0.1129,
+1.2683,
+-0.5044
+],
+"ring-finger-tip": [
+0.1072,
+1.2652,
+-0.5279
+],
+"pinky-finger-metacarpal": [
+0.111,
+1.2769,
+-0.3864
+],
+"pinky-finger-phalanx-proximal": [
+0.1068,
+1.2649,
+-0.4302
+],
+"pinky-finger-phalanx-intermediate": [
+0.1089,
+1.2522,
+-0.4581
+],
+"pinky-finger-phalanx-distal": [
+0.1036,
+1.2442,
+-0.4761
+],
+"pinky-finger-tip": [
+0.0986,
+1.2377,
+-0.4964
+]
+},
+"finger-gun_up": {
+"wrist": [
+0.1205,
+1.2999,
+-0.3523
+],
+"thumb-metacarpal": [
+0.099,
+1.3243,
+-0.3892
+],
+"thumb-phalanx-proximal": [
+0.0979,
+1.3566,
+-0.3926
+],
+"thumb-phalanx-distal": [
+0.0926,
+1.3885,
+-0.4025
+],
+"thumb-tip": [
+0.085,
+1.4099,
+-0.412
+],
+"index-finger-metacarpal": [
+0.1109,
+1.3197,
+-0.3888
+],
+"index-finger-phalanx-proximal": [
+0.1131,
+1.3235,
+-0.4483
+],
+"index-finger-phalanx-intermediate": [
+0.1112,
+1.3281,
+-0.4859
+],
+"index-finger-phalanx-distal": [
+0.1045,
+1.3306,
+-0.5092
+],
+"index-finger-tip": [
+0.096,
+1.3314,
+-0.5299
+],
+"middle-finger-metacarpal": [
+0.1128,
+1.3035,
+-0.3866
+],
+"middle-finger-phalanx-proximal": [
+0.1179,
+1.3017,
+-0.448
+],
+"middle-finger-phalanx-intermediate": [
+0.0753,
+1.3012,
+-0.4532
+],
+"middle-finger-phalanx-distal": [
+0.0782,
+1.3038,
+-0.4259
+],
+"middle-finger-tip": [
+0.1011,
+1.3049,
+-0.416
+],
+"ring-finger-metacarpal": [
+0.1145,
+1.2849,
+-0.3871
+],
+"ring-finger-phalanx-proximal": [
+0.1139,
+1.2825,
+-0.441
+],
+"ring-finger-phalanx-intermediate": [
+0.075,
+1.2821,
+-0.4437
+],
+"ring-finger-phalanx-distal": [
+0.0797,
+1.2904,
+-0.4189
+],
+"ring-finger-tip": [
+0.1031,
+1.2939,
+-0.4131
+],
+"pinky-finger-metacarpal": [
+0.111,
+1.2769,
+-0.3864
+],
+"pinky-finger-phalanx-proximal": [
+0.1068,
+1.2649,
+-0.4302
+],
+"pinky-finger-phalanx-intermediate": [
+0.0777,
+1.2722,
+-0.4371
+],
+"pinky-finger-phalanx-distal": [
+0.079,
+1.2788,
+-0.4179
+],
+"pinky-finger-tip": [
+0.0992,
+1.2798,
+-0.4094
+]
+},
+"fist_up": {
+"wrist": [
+0.1205,
+1.2999,
+-0.3523
+],
+"thumb-metacarpal": [
+0.0955,
+1.3204,
+-0.3908
+],
+"thumb-phalanx-proximal": [
+0.0665,
+1.3268,
+-0.4041
+],
+"thumb-phalanx-distal": [
+0.0592,
+1.3188,
+-0.4361
+],
+"thumb-tip": [
+0.0663,
+1.2956,
+-0.4405
+],
+"index-finger-metacarpal": [
+0.1109,
+1.3197,
+-0.3888
+],
+"index-finger-phalanx-proximal": [
+0.1131,
+1.3235,
+-0.4483
+],
+"index-finger-phalanx-intermediate": [
+0.0752,
+1.3236,
+-0.4497
+],
+"index-finger-phalanx-distal": [
+0.0786,
+1.3182,
+-0.4262
+],
+"index-finger-tip": [
+0.0993,
+1.3165,
+-0.4178
+],
+"middle-finger-metacarpal": [
+0.1128,
+1.3035,
+-0.3866
+],
+"middle-finger-phalanx-proximal": [
+0.1179,
+1.3017,
+-0.448
+],
+"middle-finger-phalanx-intermediate": [
+0.0751,
+1.3014,
+-0.451
+],
+"middle-finger-phalanx-distal": [
+0.0789,
+1.3038,
+-0.4238
+],
+"middle-finger-tip": [
+0.1023,
+1.3047,
+-0.4151
+],
+"ring-finger-metacarpal": [
+0.1145,
+1.2849,
+-0.3871
+],
+"ring-finger-phalanx-proximal": [
+0.1139,
+1.2825,
+-0.441
+],
+"ring-finger-phalanx-intermediate": [
+0.0753,
+1.2813,
+-0.4463
+],
+"ring-finger-phalanx-distal": [
+0.079,
+1.2901,
+-0.4216
+],
+"ring-finger-tip": [
+0.1029,
+1.293,
+-0.4173
+],
+"pinky-finger-metacarpal": [
+0.111,
+1.2769,
+-0.3864
+],
+"pinky-finger-phalanx-proximal": [
+0.1068,
+1.2649,
+-0.4302
+],
+"pinky-finger-phalanx-intermediate": [
+0.0788,
+1.268,
+-0.4426
+],
+"pinky-finger-phalanx-distal": [
+0.0783,
+1.2757,
+-0.4238
+],
+"pinky-finger-tip": [
+0.0982,
+1.2782,
+-0.415
+]
+},
+"open_up": {
+"wrist": [
+0.1205,
+1.2999,
+-0.3523
+],
+"thumb-metacarpal": [
+0.1043,
+1.3301,
+-0.3869
+],
+"thumb-phalanx-proximal": [
+0.106,
+1.361,
+-0.3969
+],
+"thumb-phalanx-distal": [
+0.1095,
+1.3909,
+-0.4123
+],
+"thumb-tip": [
+0.111,
+1.4134,
+-0.4222
+],
+"index-finger-metacarpal": [
+0.1109,
+1.3197,
+-0.3888
+],
+"index-finger-phalanx-proximal": [
+0.1131,
+1.3235,
+-0.4483
+],
+"index-finger-phalanx-intermediate": [
+0.1158,
+1.3345,
+-0.4845
+],
+"index-finger-phalanx-distal": [
+0.1166,
+1.3416,
+-0.5078
+],
+"index-finger-tip": [
+0.1169,
+1.3466,
+-0.5296
+],
+"middle-finger-metacarpal": [
+0.1128,
+1.3035,
+-0.3866
+],
+"middle-finger-phalanx-proximal": [
+0.1179,
+1.3017,
+-0.448
+],
+"middle-finger-phalanx-intermediate": [
+0.1202,
+1.2994,
+-0.4908
+],
+"middle-finger-phalanx-distal": [
+0.1202,
+1.2979,
+-0.5183
+],
+"middle-finger-tip": [
+0.1191,
+1.2963,
+-0.5432
+],
+"ring-finger-metacarpal": [
+0.1145,
+1.2849,
+-0.3871
+],
+"ring-finger-phalanx-proximal": [
+0.1139,
+1.2825,
+-0.441
+],
+"ring-finger-phalanx-intermediate": [
+0.1153,
+1.2682,
+-0.4773
+],
+"ring-finger-phalanx-distal": [
+0.1135,
+1.2591,
+-0.5022
+],
+"ring-finger-tip": [
+0.1103,
+1.2521,
+-0.5254
+],
+"pinky-finger-metacarpal": [
+0.111,
+1.2769,
+-0.3864
+],
+"pinky-finger-phalanx-proximal": [
+0.1068,
+1.2649,
+-0.4302
+],
+"pinky-finger-phalanx-intermediate": [
+0.1057,
+1.2466,
+-0.4549
+],
+"pinky-finger-phalanx-distal": [
+0.102,
+1.2341,
+-0.4705
+],
+"pinky-finger-tip": [
+0.097,
+1.2231,
+-0.4888
+]
+},
+"point_up": {
+"wrist": [
+0.1205,
+1.2999,
+-0.3523
+],
+"thumb-metacarpal": [
+0.1072,
+1.3315,
+-0.3854
+],
+"thumb-phalanx-proximal": [
+0.1014,
+1.3548,
+-0.4074
+],
+"thumb-phalanx-distal": [
+0.0973,
+1.3749,
+-0.4342
+],
+"thumb-tip": [
+0.0956,
+1.3954,
+-0.4478
+],
+"index-finger-metacarpal": [
+0.1124,
+1.3204,
+-0.3881
+],
+"index-finger-phalanx-proximal": [
+0.1131,
+1.3235,
+-0.4483
+],
+"index-finger-phalanx-intermediate": [
+0.1086,
+1.3258,
+-0.4859
+],
+"index-finger-phalanx-distal": [
+0.1028,
+1.3269,
+-0.5095
+],
+"index-finger-tip": [
+0.1006,
+1.3263,
+-0.5318
+],
+"middle-finger-metacarpal": [
+0.1135,
+1.3042,
+-0.3859
+],
+"middle-finger-phalanx-proximal": [
+0.1179,
+1.3017,
+-0.448
+],
+"middle-finger-phalanx-intermediate": [
+0.0794,
+1.2995,
+-0.4669
+],
+"middle-finger-phalanx-distal": [
+0.064,
+1.3031,
+-0.4444
+],
+"middle-finger-tip": [
+0.072,
+1.3091,
+-0.4215
+],
+"ring-finger-metacarpal": [
+0.1145,
+1.2849,
+-0.3871
+],
+"ring-finger-phalanx-proximal": [
+0.1139,
+1.2825,
+-0.441
+],
+"ring-finger-phalanx-intermediate": [
+0.0764,
+1.2835,
+-0.4516
+],
+"ring-finger-phalanx-distal": [
+0.0674,
+1.2918,
+-0.4281
+],
+"ring-finger-tip": [
+0.0826,
+1.2978,
+-0.41
+],
+"pinky-finger-metacarpal": [
+0.111,
+1.2769,
+-0.3864
+],
+"pinky-finger-phalanx-proximal": [
+0.1068,
+1.2649,
+-0.4302
+],
+"pinky-finger-phalanx-intermediate": [
+0.0776,
+1.2709,
+-0.4378
+],
+"pinky-finger-phalanx-distal": [
+0.0726,
+1.2802,
+-0.4204
+],
+"pinky-finger-tip": [
+0.0874,
+1.2868,
+-0.4056
+]
+},
+"thumbs-up_down": {
+"wrist": [
+0.1208,
+1.2997,
+-0.3519
+],
+"thumb-metacarpal": [
+0.1369,
+1.2695,
+-0.3864
+],
+"thumb-phalanx-proximal": [
+0.1437,
+1.2385,
+-0.3935
+],
+"thumb-phalanx-distal": [
+0.1465,
+1.2064,
+-0.4036
+],
+"thumb-tip": [
+0.1476,
+1.1821,
+-0.4071
+],
+"index-finger-metacarpal": [
+0.1303,
+1.2799,
+-0.3883
+],
+"index-finger-phalanx-proximal": [
+0.1281,
+1.2762,
+-0.4479
+],
+"index-finger-phalanx-intermediate": [
+0.166,
+1.2761,
+-0.4492
+],
+"index-finger-phalanx-distal": [
+0.1626,
+1.28,
+-0.4254
+],
+"index-finger-tip": [
+0.1419,
+1.2812,
+-0.417
+],
+"middle-finger-metacarpal": [
+0.1284,
+1.2961,
+-0.3862
+],
+"middle-finger-phalanx-proximal": [
+0.1233,
+1.298,
+-0.4475
+],
+"middle-finger-phalanx-intermediate": [
+0.1662,
+1.2983,
+-0.4505
+],
+"middle-finger-phalanx-distal": [
+0.1623,
+1.2959,
+-0.4233
+],
+"middle-finger-tip": [
+0.1389,
+1.2949,
+-0.4146
+],
+"ring-finger-metacarpal": [
+0.1268,
+1.3147,
+-0.3867
+],
+"ring-finger-phalanx-proximal": [
+0.1273,
+1.3172,
+-0.4406
+],
+"ring-finger-phalanx-intermediate": [
+0.1663,
+1.3174,
+-0.4419
+],
+"ring-finger-phalanx-distal": [
+0.1617,
+1.3084,
+-0.4173
+],
+"ring-finger-tip": [
+0.1385,
+1.3044,
+-0.4109
+],
+"pinky-finger-metacarpal": [
+0.1302,
+1.3227,
+-0.3859
+],
+"pinky-finger-phalanx-proximal": [
+0.1345,
+1.3348,
+-0.4298
+],
+"pinky-finger-phalanx-intermediate": [
+0.1636,
+1.3266,
+-0.4351
+],
+"pinky-finger-phalanx-distal": [
+0.1615,
+1.3199,
+-0.4161
+],
+"pinky-finger-tip": [
+0.1411,
+1.3191,
+-0.408
+]
+},
+"thumbs-up_up": {
+"wrist": [
+0.1208,
+1.2997,
+-0.3519
+],
+"thumb-metacarpal": [
+0.1047,
+1.3299,
+-0.3864
+],
+"thumb-phalanx-proximal": [
+0.0979,
+1.3609,
+-0.3935
+],
+"thumb-phalanx-distal": [
+0.095,
+1.393,
+-0.4036
+],
+"thumb-tip": [
+0.094,
+1.4174,
+-0.4071
+],
+"index-finger-metacarpal": [
+0.1113,
+1.3195,
+-0.3883
+],
+"index-finger-phalanx-proximal": [
+0.1135,
+1.3233,
+-0.4479
+],
+"index-finger-phalanx-intermediate": [
+0.0756,
+1.3233,
+-0.4492
+],
+"index-finger-phalanx-distal": [
+0.079,
+1.3194,
+-0.4254
+],
+"index-finger-tip": [
+0.0996,
+1.3183,
+-0.417
+],
+"middle-finger-metacarpal": [
+0.1131,
+1.3033,
+-0.3862
+],
+"middle-finger-phalanx-proximal": [
+0.1182,
+1.3014,
+-0.4475
+],
+"middle-finger-phalanx-intermediate": [
+0.0754,
+1.3012,
+-0.4505
+],
+"middle-finger-phalanx-distal": [
+0.0793,
+1.3036,
+-0.4233
+],
+"middle-finger-tip": [
+0.1027,
+1.3045,
+-0.4146
+],
+"ring-finger-metacarpal": [
+0.1148,
+1.2847,
+-0.3867
+],
+"ring-finger-phalanx-proximal": [
+0.1143,
+1.2823,
+-0.4406
+],
+"ring-finger-phalanx-intermediate": [
+0.0753,
+1.282,
+-0.4419
+],
+"ring-finger-phalanx-distal": [
+0.0799,
+1.291,
+-0.4173
+],
+"ring-finger-tip": [
+0.1031,
+1.295,
+-0.4109
+],
+"pinky-finger-metacarpal": [
+0.1114,
+1.2767,
+-0.3859
+],
+"pinky-finger-phalanx-proximal": [
+0.1071,
+1.2647,
+-0.4298
+],
+"pinky-finger-phalanx-intermediate": [
+0.078,
+1.2728,
+-0.4351
+],
+"pinky-finger-phalanx-distal": [
+0.08,
+1.2795,
+-0.4161
+],
+"pinky-finger-tip": [
+0.1004,
+1.2803,
+-0.408
+]
+}
+}

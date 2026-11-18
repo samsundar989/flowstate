@@ -1,0 +1,30 @@
+{
+  "description": "The wearer answers by voice or pinch; ok, then an answered event (seen by every paired client).",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "answer",
+      "req_id": "c3",
+      "decision_id": "perm-7c1d",
+      "option_id": "allow"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "c3",
+      "project_id": "p_hello-world-cli-prints-time"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 6,
+      "at": "2026-11-13T06:30:11.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "answered",
+      "title": "You said yes",
+      "decision_id": "perm-7c1d",
+      "option_id": "allow"
+    }
+  ]
+}

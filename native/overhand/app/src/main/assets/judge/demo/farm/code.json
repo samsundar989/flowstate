@@ -1,0 +1,110 @@
+{
+ "project": "s8a85fea7733bdaab",
+ "excerpts": [
+  {
+   "component": "engine",
+   "sha": "25cbbf93398414be57ddb5fcc8aa586e86883c7a",
+   "path": "tools/reactivity.py",
+   "start_line": 86,
+   "end_line": 113,
+   "text": "def probe_fingerprint() -> str:\n    \"\"\"A digest of the instrument, so a stale verdict cannot be reused.\n\n    `runs/027_reactivity.json` was produced by a **10**-perturbation probe.\n    `market:one_price` was added the next day, `SCHEMA` did not move, and\n    nothing in the repository could tell that the committed population table and\n    the current instrument disagreed -- so a third-party agent sat in\n    `docs/CURRENT_STATE.md` as `closed_loop` while the tool at HEAD called it\n    `market_reactive`, and that stale sentence is what scoped Phase 0C.\n\n    The first version of this digest covered perturbation **names** and the\n    source of `probe`.  A reviewer measured what that misses: gutting\n    `_halve_prices` to a no-op, replacing `observations`, and changing\n    `COVERAGE_TIER` all left the digest **unchanged**, so only the exact\n    historical accident (a perturbation *added*) was caught.  F17 says the digest\n    must come from the instrument itself \"so that forgetting is not an available\n    failure\", and forgetting was still available in three directions.\n\n    So the digest covers every part that can change a verdict: each\n    perturbation's NAME, GROUP and BODY; the functions that decide which callable\n    runs and what it is asked (`load_agent`, `observations`, `call_agent`,\n    `canonical`, `is_inert`); the classifier (`probe`); the exact sampled steps;\n    and the tier constants that turn a count into a class.\n    Editing a comment inside any of them invalidates it, which is the\n    conservative direction -- re-measuring is one command, and a stale verdict is\n    not detectable by any other means.\n    \"\"\"\n    import inspect",
+   "sources": [
+    {
+     "repo": "farm",
+     "sha": "25cbbf93398414be57ddb5fcc8aa586e86883c7a",
+     "path": "tools/reactivity.py"
+    }
+   ]
+  },
+  {
+   "component": "eval",
+   "sha": "72db0c28e752658e9b9eaf6c3bd3d34b0435a652",
+   "path": "tools/league.py",
+   "start_line": 59,
+   "end_line": 74,
+   "text": "def _hash_locked(manifest_path: Path, key: str) -> list[dict]:\n    \"\"\"Load a hash-locked third-party manifest; a hash mismatch fails closed.\"\"\"\n    if not manifest_path.exists():\n        return []\n    manifest = json.loads(manifest_path.read_text(encoding=\"utf-8\"))\n    entries = []\n    for item in manifest.get(key, []):\n        path = REPO / item[\"agent\"]\n        item = dict(item, present=path.exists())\n        if item[\"present\"]:\n            digest = hashlib.sha256(path.read_bytes()).hexdigest()\n            if item.get(\"sha256\") and digest != item[\"sha256\"]:\n                raise SystemExit(f\"{item['agent']} hash mismatch: expected \"\n                                 f\"{item['sha256']}, found {digest}\")\n        entries.append(item)\n    return entries",
+   "sources": [
+    {
+     "repo": "farm",
+     "sha": "72db0c28e752658e9b9eaf6c3bd3d34b0435a652",
+     "path": "tools/league.py"
+    }
+   ]
+  },
+  {
+   "component": "strategy",
+   "sha": "a4936699491343073c46edf079bd7e07dc14e4f9",
+   "path": "lab/proto/agent.py",
+   "start_line": 52,
+   "end_line": 56,
+   "text": "def fib(n):\n    a, b = 1, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a",
+   "sources": [
+    {
+     "repo": "farm",
+     "sha": "a4936699491343073c46edf079bd7e07dc14e4f9",
+     "path": "lab/proto/agent.py"
+    }
+   ]
+  },
+  {
+   "component": "runtime",
+   "sha": "7fb5ddeed6baba8623f5836a6b138bea1037374c",
+   "path": "agent/runtime/agent.py",
+   "start_line": 56,
+   "end_line": 65,
+   "text": "class _L1Sells:\n    \"\"\"L1's overrides on whichever market layer (`market.py`, lane L2) is used.\"\"\"\n\n    def sell_orders(self, board, targets=None, fertilizer_need=None) -> list:\n        orders = super().sell_orders(board, targets, fertilizer_need)\n        if RUSH_LOT and board.day == RUSH_DAY:\n            held = int(board.shed.get(\"MELON\", 0) or 0)\n            orders = [[\"SELL\", \"MELON\", min(held, RUSH_LOT)] if o[0] == \"SELL\" and o[1] == \"MELON\" else o\n                      for o in orders]\n        return orders",
+   "sources": [
+    {
+     "repo": "farm",
+     "sha": "7fb5ddeed6baba8623f5836a6b138bea1037374c",
+     "path": "agent/runtime/agent.py"
+    }
+   ]
+  },
+  {
+   "component": "learned",
+   "sha": "f1cf5be4a5447e846365c423aba1c2a01657e07f",
+   "path": "bc/agent.py",
+   "start_line": 67,
+   "end_line": 71,
+   "text": "def _fib(n: int) -> int:\n    a, b = 1, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a",
+   "sources": [
+    {
+     "repo": "farm",
+     "sha": "f1cf5be4a5447e846365c423aba1c2a01657e07f",
+     "path": "bc/agent.py"
+    }
+   ]
+  },
+  {
+   "component": "tests",
+   "sha": "a67db20a36ffd49e5dc27af43f6bb36eac3e56d3",
+   "path": "tools/verify_all.py",
+   "start_line": 38,
+   "end_line": 64,
+   "text": "class Suite:\n    def __init__(self) -> None:\n        self.rows: list[tuple[str, bool, float, str]] = []\n\n    def step(self, name: str, argv: list[str], optional: bool = False) -> None:\n        started = time.perf_counter()\n        try:\n            done = subprocess.run(argv, cwd=REPO, capture_output=True, text=True)\n            ok = done.returncode == 0\n            detail = \"\" if ok else (done.stderr.strip() or done.stdout.strip()\n                                    or f\"exit {done.returncode}\").splitlines()[-1][:160]\n        except FileNotFoundError as error:\n            if optional:\n                self.rows.append((name, True, 0.0, f\"skipped ({error})\"))\n                return\n            ok, detail = False, str(error)[:160]\n        self.rows.append((name, ok, time.perf_counter() - started, detail))\n        print(f\"  [{'ok' if ok else 'FAIL'}] {name}\"\n              + (f\" — {detail}\" if detail else \"\"))\n\n    def assertion(self, name: str, ok: bool, detail: str = \"\") -> None:\n        self.rows.append((name, ok, 0.0, detail))\n        print(f\"  [{'ok' if ok else 'FAIL'}] {name}\" + (f\" — {detail}\" if detail else \"\"))\n\n    @property\n    def failures(self) -> list[str]:\n        return [name for name, ok, _, _ in self.rows if not ok]",
+   "sources": [
+    {
+     "repo": "farm",
+     "sha": "a67db20a36ffd49e5dc27af43f6bb36eac3e56d3",
+     "path": "tools/verify_all.py"
+    }
+   ]
+  },
+  {
+   "component": "ship",
+   "sha": "51496390c51c8e5fc75b7153e171958a2aabfc08",
+   "path": "tools/preflight.py",
+   "start_line": 45,
+   "end_line": 49,
+   "text": "def check(name, condition, detail=\"\"):\n    print((OK if condition else BAD) + name + (f\" — {detail}\" if detail else \"\"))\n    if not condition:\n        failures.append(name)\n    return condition",
+   "sources": [
+    {
+     "repo": "farm",
+     "sha": "51496390c51c8e5fc75b7153e171958a2aabfc08",
+     "path": "tools/preflight.py"
+    }
+   ]
+  }
+ ]
+}

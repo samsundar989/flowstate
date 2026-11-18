@@ -1,0 +1,207 @@
+question	label	source
+What did we implement today?	built	developer_logcat_nov13
+What did we implement today	built	developer_variant
+What got built today?	built	log
+What can I ask you?	help	log
+So what am I looking at here?	overview	log
+What needs me right now?	needs_me	log
+One needs me right now.	needs_me	log_asr
+Which project is furthest along.	furthest	log
+Why is that one ember?	graph|why	log_asr
+Why is the upload blocked?	failed	log
+Which agent worked the hardest?	agents	log
+What happened overnight?	overnight	log
+Is anything broken.	failed	log
+What failed this morning?	failed	log
+What's the geothermal thing about?	geothermal	log
+How many agents were running?	agents	log
+What's the headset project doing?	headset	log
+When's that supposed to be done?	headset	log
+What's the riskiest project right now?	risk	log
+I'm what's this green node?	graph	judge_asr
+You	out_of_scope	log_noise
+Yes.	out_of_scope	log_noise
+Yeah.	out_of_scope	log_noise
+You should have.	out_of_scope	log_noise
+After the.	out_of_scope	log_noise
+So	out_of_scope	log_noise
+10.	out_of_scope	log_noise
+I'm going to show	out_of_scope	log_noise
+Sometimes, as it happens, it becomes a problem. Sometimes, as it happens, it	out_of_scope	log_noise
+New project, a web page with a counter button.	out_of_scope	log_host
+New project, a script that rolls two dice and prints the total.	out_of_scope	log_host
+what was implemented today	built	card
+what got done	built	written
+what got done today	built	written
+what did the agents implement	built	written
+what did the agents implement today	built	written
+anything new	built	written
+anything new today	built	written
+what's new	built	written
+what is new since this morning	built	written
+what did they add today	built	written
+what features were added	built	written
+what did they ship	built	written
+what shipped today	built	written
+what was finished today	built	written
+what did the agents make	built	written
+what was made today	built	written
+what did they work on today	built	written
+what did the team get through	built	written
+how much got done	built	written
+how many tasks were finished	built	written
+show me what was implemented	built	written
+list what got built	built	written
+what changed today	built	written
+what new stuff is there	built	written
+what was implemented	built	written
+implemented today	built	fragment
+what got implimented	built	asr_error
+what did we implant today	built	asr_error
+what did we bill today	built	asr_error
+what got bilt	built	asr_error
+what's left	now|needs_me	written
+what's left to do	now|needs_me	written
+what is still pending	needs_me	written
+what do I need to do	needs_me	written
+what do you need from me	needs_me	written
+is anything waiting for me	needs_me	written
+do I need to approve anything	needs_me	written
+what decisions are open	needs_me	written
+what questions do the agents have	needs_me	written
+what should I decide	needs_me	written
+anything for me	needs_me	written
+what needs my attention	needs_me	written
+needs me	needs_me	fragment
+what knees me	needs_me	asr_error
+what needs be	needs_me	asr_error
+is anything broken	failed	written
+did anything break	failed	written
+what went wrong today	failed	written
+any errors	failed	written
+were there any failures	failed	written
+what didn't work	failed	written
+did any task fail	failed	written
+what crashed	failed	written
+what broke	failed	written
+any problems	failed	written
+failures	failed	fragment
+what fell over	failed	written
+what failed	failed	written
+what fail	failed	asr_error
+what's broke in	failed	asr_error
+which project is furthest ahead	furthest	written
+which one is closest to done	furthest	written
+who's winning	furthest	written
+which project made the most progress	furthest	written
+what's the most advanced project	furthest	written
+furthest along	furthest	fragment
+which project is farthest a long	furthest	asr_error
+which project is most at risk	risk	written
+what should I worry about	risk	written
+what's the biggest risk	risk	written
+which project is in trouble	risk	written
+what's behind schedule	risk	written
+riskiest	risk	fragment
+what's risky	risk	written
+what's the risky as project	risk	asr_error
+what happened last night	overnight	written
+when did it all start	overnight	written
+how long did the agents work	overnight	written
+walk me through the day	overnight|overview	written
+what time did the agents start	overnight	written
+give me the timeline	overnight	written
+what happened while I was sleeping	overnight	written
+over night	overnight	asr_error
+what are they doing right now	now	written
+what's happening now	now	written
+what are the agents working on	now	written
+what's running at the moment	now	written
+what's in progress right now	now	written
+what's currently going on	now	written
+what's next for the agents	now	written
+who are the agents	agents	written
+how many workers were there	agents	written
+who did the work	agents	written
+who built this	agents	written
+how does the team of agents work	agents	written
+which agent did the most	agents	written
+who's in charge	agents	written
+what is this	overview	written
+what am I seeing	overview	written
+give me a summary	overview	written
+summarize the day	overview	written
+what is all this about	overview	written
+give me the overview	overview	written
+tell me about this day	overview	written
+what is this app showing me	overview	written
+recap	overview	fragment
+summery	overview	asr_error
+why do they recommend that	why	written
+why that option	why	written
+what's the reasoning	why	written
+why lidar	why|geothermal	written
+why should I pick the small model	why	written
+what's the evidence	why	written
+tell me about geothermal	geothermal	written
+what is the fault mapping project	geothermal	written
+how is the geothermal project going	geothermal	written
+what are the faults	geothermal	written
+geo thermal	geothermal	asr_error
+tell me about the headset project	headset	written
+what's the deadline	headset	written
+when is the competition due	headset	written
+what is overhand	headset	written
+what is this app for	headset	written
+what is the agent challenge	agent_challenge	written
+tell me about the coding agent	agent_challenge	written
+what's the bonus entry	agent_challenge	written
+what do the colors mean	graph	written
+what does green mean	graph	written
+what does amber mean	graph	written
+what are the dots	graph	written
+what do the lines mean	graph	written
+why is that one orange	graph	written
+what's this graph	graph	written
+is this real	real	written
+is this a demo	real	written
+is this data real or fake	real	written
+did this actually happen	real	written
+is this live	real	written
+is this simulated	real	written
+do you need the internet	voice_how	written
+are you listening to me all the time	voice_how	written
+where does my voice go	voice_how	written
+is my voice sent to the cloud	voice_how	written
+how do you understand me	voice_how	written
+who are you	voice_how	written
+does this work offline	voice_how	written
+how do I get to my room	places	written
+can I see my real room	places	written
+take me home	places	written
+turn on passthrough	places	written
+go back to the moon	places	written
+what can I say	help	written
+help	help	fragment
+what can you do	help	written
+how does this work	help	written
+what should I ask	help	written
+what's the weather today	out_of_scope	written
+play some music	out_of_scope	written
+what time is it	out_of_scope	written
+tell me a joke	out_of_scope	written
+who won the game last night	out_of_scope	written
+what's the capital of France	out_of_scope	written
+set a timer for five minutes	out_of_scope	written
+how old are you	out_of_scope	written
+what's two plus two	out_of_scope	written
+call my mom	out_of_scope	written
+what's the stock price of apple	out_of_scope	written
+order me a pizza	out_of_scope	written
+what is the meaning of life	out_of_scope	written
+do you like cats	out_of_scope	written
+what's the news	out_of_scope	written
+translate hello into spanish	out_of_scope	written
+how tall is mount everest	out_of_scope	written
+what's the weather like on the moon	out_of_scope	written
+can you sing	out_of_scope	written

@@ -1,0 +1,654 @@
+{
+ "project": "s7e4cee9840c4ba1d",
+ "goal": "An AI player for a turn-based trading-card creature battle game, ranked on a live ladder, plus a written strategy report, for an AI battle contest.",
+ "goal_rows": [
+  1
+ ],
+ "entries": [
+  {
+   "block": "NOW",
+   "text": "Set up the project and record the first game observations",
+   "from": 2,
+   "until": 16,
+   "rows": [
+    2,
+    16
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Set up the project and record the first game observations",
+   "from": 16,
+   "until": null,
+   "rows": [
+    16
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Install the sample deck, mine the ladder and build five candidate decks",
+   "from": 3,
+   "until": 12,
+   "rows": [
+    3,
+    12
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Install the sample deck, mine the ladder and build five candidate decks",
+   "from": 12,
+   "until": null,
+   "rows": [
+    12
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "First agent: priority rules and a board evaluation, then a turn-plan search",
+   "from": 4,
+   "until": 10,
+   "rows": [
+    4,
+    10
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "First agent: priority rules and a board evaluation, then a turn-plan search",
+   "from": 10,
+   "until": null,
+   "rows": [
+    10
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Benchmark the engine and run a 1,320-game burn-in",
+   "from": 5,
+   "until": 7,
+   "rows": [
+    5,
+    7
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Benchmark the engine and run a 1,320-game burn-in",
+   "from": 7,
+   "until": null,
+   "rows": [
+    7
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Deck tournament under search and a second ladder entry",
+   "from": 6,
+   "until": 11,
+   "rows": [
+    6,
+    11
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Deck tournament under search and a second ladder entry",
+   "from": 11,
+   "until": null,
+   "rows": [
+    11
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Imitation model from ladder replays: about twice the pool strength",
+   "from": 13,
+   "until": 14,
+   "rows": [
+    13,
+    14
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Imitation model from ladder replays: about twice the pool strength",
+   "from": 14,
+   "until": null,
+   "rows": [
+    14
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Imitation model v5: more replays, a value head and a nightly refresh",
+   "from": 17,
+   "until": 25,
+   "rows": [
+    17,
+    25
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Imitation model v5: more replays, a value head and a nightly refresh",
+   "from": 25,
+   "until": null,
+   "rows": [
+    25
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Repair the rating model and re-check every gate with a skeptic review",
+   "from": 19,
+   "until": 28,
+   "rows": [
+    19,
+    28
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Repair the rating model and re-check every gate with a skeptic review",
+   "from": 28,
+   "until": null,
+   "rows": [
+    28
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Search records its paired test; the value-head replay gate fails",
+   "from": 20,
+   "until": 24,
+   "rows": [
+    20,
+    24
+   ]
+  },
+  {
+   "block": "STUCK",
+   "text": "Did not work: Search records its paired test; the value-head replay gate fails.",
+   "from": 24,
+   "until": null,
+   "rows": [
+    24
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Log the negative results as a methods note for the report",
+   "from": 21,
+   "until": 23,
+   "rows": [
+    21,
+    23
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Log the negative results as a methods note for the report",
+   "from": 23,
+   "until": null,
+   "rows": [
+    23
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Deck sweep with statistical gates and a seat audit: underpowered",
+   "from": 22,
+   "until": 29,
+   "rows": [
+    22,
+    29
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Deck sweep with statistical gates and a seat audit: underpowered (in part)",
+   "from": 29,
+   "until": null,
+   "rows": [
+    29
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Fix the push advice before another ladder slot is spent",
+   "from": 26,
+   "until": 27,
+   "rows": [
+    26,
+    27
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Fix the push advice before another ladder slot is spent",
+   "from": 27,
+   "until": null,
+   "rows": [
+    27
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Predeclared studies: more data, missed winning attacks, a duel instrument",
+   "from": 30,
+   "until": 37,
+   "rows": [
+    30,
+    37
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Predeclared studies: more data, missed winning attacks, a duel instrument",
+   "from": 37,
+   "until": null,
+   "rows": [
+    37
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Teach the model which energy can pay for an attack; plan the wall-deck push",
+   "from": 31,
+   "until": 35,
+   "rows": [
+    31,
+    35
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Teach the model which energy can pay for an attack; plan the wall-deck push",
+   "from": 35,
+   "until": null,
+   "rows": [
+    35
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Fixed-deck duel evaluator and a census of our own deck on the ladder",
+   "from": 32,
+   "until": 36,
+   "rows": [
+    32,
+    36
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Fixed-deck duel evaluator and a census of our own deck on the ladder",
+   "from": 36,
+   "until": null,
+   "rows": [
+    36
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Put the agent back in a shippable state after the ship gates failed",
+   "from": 34,
+   "until": 38,
+   "rows": [
+    34,
+    38
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Put the agent back in a shippable state after the ship gates failed (in part)",
+   "from": 38,
+   "until": null,
+   "rows": [
+    38
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Four parallel worker lanes keep boards and decision records for the last three days",
+   "from": 41,
+   "until": 56,
+   "rows": [
+    41,
+    56
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Four parallel worker lanes keep boards and decision records for the last three days",
+   "from": 56,
+   "until": null,
+   "rows": [
+    56
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A new pilot for the leaders' deck: rules first, checked by the engine",
+   "from": 33,
+   "until": 54,
+   "rows": [
+    33,
+    54
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A new pilot for the leaders' deck: rules first, checked by the engine (in part)",
+   "from": 54,
+   "until": null,
+   "rows": [
+    54
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Duel and fleet screens price each rule change before it ships",
+   "from": 44,
+   "until": 52,
+   "rows": [
+    44,
+    52
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Duel and fleet screens price each rule change before it ships",
+   "from": 52,
+   "until": null,
+   "rows": [
+    52
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Grow the replay corpus to 17 days and 5,002 leader seats",
+   "from": 45,
+   "until": 47,
+   "rows": [
+    45,
+    47
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Grow the replay corpus to 17 days and 5,002 leader seats",
+   "from": 47,
+   "until": null,
+   "rows": [
+    47
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Rebuild six top-band decks from the mined replays",
+   "from": 46,
+   "until": 48,
+   "rows": [
+    46,
+    48
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Rebuild six top-band decks from the mined replays",
+   "from": 48,
+   "until": null,
+   "rows": [
+    48
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Rule fixes, each passing train and holdout checks; one is reverted",
+   "from": 49,
+   "until": 51,
+   "rows": [
+    49,
+    51
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Rule fixes, each passing train and holdout checks; one is reverted",
+   "from": 51,
+   "until": null,
+   "rows": [
+    51
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Ship rail and watches: place, verify and smoke-test the final pair",
+   "from": 50,
+   "until": 53,
+   "rows": [
+    50,
+    53
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Ship rail and watches: place, verify and smoke-test the final pair",
+   "from": 53,
+   "until": null,
+   "rows": [
+    53
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "After the contest: two explanations for the gap are tested and both fail",
+   "from": 58,
+   "until": 64,
+   "rows": [
+    58,
+    64
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "After the contest: two explanations for the gap are tested and both fail",
+   "from": 64,
+   "until": null,
+   "rows": [
+    64
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Test whether the model representation explains the gap: not supported",
+   "from": 60,
+   "until": 61,
+   "rows": [
+    60,
+    61
+   ]
+  },
+  {
+   "block": "STUCK",
+   "text": "Did not work: Test whether the model representation explains the gap: not supported.",
+   "from": 61,
+   "until": null,
+   "rows": [
+    61
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Strategy report: drafts, the 2,000-word cap and four skeptic passes",
+   "from": 62,
+   "until": 63,
+   "rows": [
+    62,
+    63
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Strategy report: drafts, the 2,000-word cap and four skeptic passes",
+   "from": 63,
+   "until": null,
+   "rows": [
+    63
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Refresh every number in the report and split it into entry fields",
+   "from": 65,
+   "until": 66,
+   "rows": [
+    65,
+    66
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Refresh every number in the report and split it into entry fields",
+   "from": 66,
+   "until": null,
+   "rows": [
+    66
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "The fitted board evaluation predicts well but wins nothing. Ship it, or keep the live agent?",
+   "from": 8,
+   "until": 9,
+   "rows": [
+    8,
+    9
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Reverted. The agent is byte-for-byte the live one again.",
+   "from": 9,
+   "until": null,
+   "rows": [
+    8,
+    9
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Imitation model v4: 79.8 percent against the local opponent pool",
+   "from": 15,
+   "until": null,
+   "rows": [
+    15
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Imitation model v5: 83.3 percent against the pool, 3.5 points over v4",
+   "from": 18,
+   "until": null,
+   "rows": [
+    18
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "The new pilot on the leaders' deck is 7.9 points better than before, but scores about 60 against a ship bar of 82. Push it?",
+   "from": 39,
+   "until": 43,
+   "rows": [
+    39,
+    43
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Not pushed. The wall pair stays the entry for the freeze.",
+   "from": 43,
+   "until": null,
+   "rows": [
+    39,
+    43
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "New pilot on the leaders' deck: plus 7.9 points over before, below the ship bar",
+   "from": 40,
+   "until": null,
+   "rows": [
+    40
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "v6 beats v5 head to head, 52.6 percent of games",
+   "from": 42,
+   "until": null,
+   "rows": [
+    42
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "36 minutes before the freeze: replace the weaker slot with a fresh copy of the same entry, hoping for a luckier rating?",
+   "from": 55,
+   "until": 57,
+   "rows": [
+    55,
+    57
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Re-rolled. Later, three mature draws of the same entry landed at 888, 912 and 889: the hoped-for spread was not there.",
+   "from": 57,
+   "until": null,
+   "rows": [
+    55,
+    57
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final: rank 412 of 6,892 (top 6 percent) at a rating of about 903; the leader was about 1,263",
+   "from": 59,
+   "until": null,
+   "rows": [
+    59
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Post-contest finding: a top-10 team played 50 of our same 60 cards and finished about 290 points higher. The deck was competitive; the play was short.",
+   "from": 67,
+   "until": null,
+   "rows": [
+    67
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Post-contest finding: the ladder never matched us against a top-10 team more than 3 times (all lost), so it gave no signal from the top of the field.",
+   "from": 68,
+   "until": null,
+   "rows": [
+    68
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Report finished after four skeptic passes, with every ladder number refreshed.",
+   "from": 69,
+   "until": null,
+   "rows": [
+    69
+   ]
+  }
+ ]
+}

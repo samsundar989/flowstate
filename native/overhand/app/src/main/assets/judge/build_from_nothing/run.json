@@ -1,0 +1,60 @@
+{
+ "source": "runs/host/e2e/golden/events.jsonl (#1000 golden run r08_A, a real agent build from an empty folder)",
+ "events_sha256": "a77d5579270928b43ac0e8c8fef2dc8955d8e6449c1ab7e05963cc095155b215",
+ "project_id": "p_squash-bug-bugs-pop-up",
+ "real_elapsed_ms": 204413,
+ "frames": 37,
+ "events": 36,
+ "followup": {
+  "task_id": "t2",
+  "text": "make the bugs faster and keep a best score"
+ },
+ "question": {
+  "decision_id": "q_t1_1",
+  "recorded_label": "Sunny garden"
+ },
+ "files": [
+  {
+   "commit": "eed342c973cdf13da4afe4fd27ed014175789669",
+   "path": "app.js",
+   "bytes": 4402,
+   "sha256": "6899ee33045ee383ab60151bbabd8e73b24e0861f7fabb6ecc405cbbca10be6d",
+   "source": "runs/host/e2e/golden/preview_build/app.js"
+  },
+  {
+   "commit": "eed342c973cdf13da4afe4fd27ed014175789669",
+   "path": "index.html",
+   "bytes": 2469,
+   "sha256": "3adae045da32d8a5af82012b58b98fb36f9fb74f04dbb202ec59343e951abc22",
+   "source": "runs/host/e2e/golden/preview_build/index.html"
+  },
+  {
+   "commit": "eed342c973cdf13da4afe4fd27ed014175789669",
+   "path": "style.css",
+   "bytes": 7061,
+   "sha256": "3a6c0ead4d97d9e4dd37bf725df23b561f1b34fa9169c6b0d013ce541ab98925",
+   "source": "runs/host/e2e/golden/preview_build/style.css"
+  },
+  {
+   "commit": "3d8bb8a4c2f66013abd7ace36ede159c879c8fba",
+   "path": "app.js",
+   "bytes": 4917,
+   "sha256": "28fbf939a8b84da264118794bf4479db09f0faefaa0d08306c7736b89c935c10",
+   "source": "runs/host/e2e/golden/preview_followup/app.js"
+  },
+  {
+   "commit": "3d8bb8a4c2f66013abd7ace36ede159c879c8fba",
+   "path": "index.html",
+   "bytes": 2491,
+   "sha256": "3ebf0fb76aba111e7f12b87ef29c3a3fcda38988c2c08728ab56beef7a140ca5",
+   "source": "runs/host/e2e/golden/preview_followup/index.html"
+  },
+  {
+   "commit": "3d8bb8a4c2f66013abd7ace36ede159c879c8fba",
+   "path": "style.css",
+   "bytes": 7061,
+   "sha256": "3a6c0ead4d97d9e4dd37bf725df23b561f1b34fa9169c6b0d013ce541ab98925",
+   "source": "runs/host/e2e/golden/preview_followup/style.css"
+  }
+ ]
+}

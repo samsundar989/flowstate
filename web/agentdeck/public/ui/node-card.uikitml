@@ -1,0 +1,143 @@
+<!--
+  Node detail card (docs/design.md s2 + "Visual system"): beside the selected node on the
+  graph's near face (z = 1.00, up to ~1.15 m from the eye). Scale 0.1 with pixel-size 0.005,
+  so 1 unit = 0.5 mm and 880 x 640 units = 0.44 x 0.32 m. Title 56 (28 mm, 1.4 deg), body 50
+  (1.25 deg), labels 42 (1.05 deg) at 1.15 m. src/graph/system.ts fills it. Classes prefixed c-.
+-->
+<style>
+  @font-face { font-family: mono; src: url(../fonts/mono-regular.ttf); font-weight: 400; }
+  @font-face { font-family: mono; src: url(../fonts/mono-semibold.ttf); font-weight: 600; }
+  @font-face { font-family: sans; src: url(../fonts/sans-regular.ttf); font-weight: 400; }
+  @font-face { font-family: sans; src: url(../fonts/sans-semibold.ttf); font-weight: 600; }
+  .c-root {
+    pixel-size: 0.005;
+    flex-direction: column;
+    width: 880px;
+    height: 640px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 32px;
+    padding-right: 32px;
+    gap: 8px;
+    background-color: #121A24;
+    border-width: 2px;
+    border-color: #377D85;
+    border-radius: 6px;
+  }
+  .c-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .c-agent {
+    font-family: mono;
+    font-size: 42px;
+    letter-spacing: 1px;
+    color: #5A6A7C;
+  }
+  .c-chip {
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 4px;
+    border-width: 2px;
+    border-color: #5A6A7C;
+    background-color: #18212C;
+  }
+  .c-chip-text {
+    font-family: mono;
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #93A3B5;
+  }
+  .c-title {
+    font-family: sans;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.2;
+    height: 140px;
+    color: #E2EAF2;
+  }
+  .c-meta {
+    font-family: mono;
+    font-size: 42px;
+    height: 52px;
+    color: #93A3B5;
+  }
+  .c-detail {
+    font-family: sans;
+    font-size: 50px;
+    line-height: 1.2;
+    flex-grow: 1;
+    color: #93A3B5;
+  }
+  .c-footer {
+    flex-direction: row;
+    gap: 20px;
+    height: 100px;
+    align-items: center;
+  }
+  .c-btn {
+    flex-direction: row;
+    flex-grow: 1;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color: #2B3B4F;
+    background-color: #121A24;
+    cursor: pointer;
+  }
+  .c-btn:hover {
+    background-color: #182330;
+  }
+  .c-btn:active {
+    background-color: #1F3340;
+  }
+  .c-btn-primary {
+    border-color: #377D85;
+  }
+  .c-label {
+    font-family: mono;
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #E2EAF2;
+  }
+  .c-label-primary {
+    color: #5CE1E6;
+  }
+  .c-icon {
+    width: 48px;
+    height: 48px;
+    color: #93A3B5;
+  }
+</style>
+<div class="c-root">
+  <div class="c-header">
+    <div id="card-agent" class="c-agent">AGENT</div>
+    <div id="card-chip" class="c-chip">
+      <div id="card-status" class="c-chip-text">WORKING</div>
+    </div>
+  </div>
+  <div id="card-title" class="c-title">-</div>
+  <div id="card-tool" class="c-meta">-</div>
+  <div id="card-duration" class="c-meta">-</div>
+  <div id="card-detail" class="c-detail">-</div>
+  <div class="c-footer">
+    <div id="jump-button" class="c-btn c-btn-primary">
+      <LocateFixed class="c-icon"></LocateFixed>
+      <div class="c-label c-label-primary">JUMP TO AGENT</div>
+    </div>
+    <div id="close-button" class="c-btn">
+      <X class="c-icon"></X>
+      <div class="c-label">CLOSE</div>
+    </div>
+  </div>
+</div>

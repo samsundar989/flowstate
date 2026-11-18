@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- look_nov17 s2: inner tile, white 7%, edge white 12%, radius 20 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle"><corners android:radius="20dp"/><solid android:color="@color/fs_tile"/><stroke android:width="2dp" android:color="@color/fs_tile_edge"/></shape>

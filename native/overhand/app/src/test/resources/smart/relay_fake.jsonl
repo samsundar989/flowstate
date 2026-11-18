@@ -1,0 +1,40 @@
+{"id": "J01", "status": 200, "chunks": [{"at_ms": 680, "text": "This is a recorded day of agents at work, open on the Headset competition project. "}, {"at_ms": 1030, "text": "No window is open yet, so ask what got built or what needs you. "}]}
+{"id": "J02", "status": 200, "chunks": [{"at_ms": 830, "text": "I can see the Headset competition project, but no window with today's finished work is open. "}, {"at_ms": 1180, "text": "Open the Yard to see what was built. "}]}
+{"id": "J03", "status": 200, "chunks": [{"at_ms": 980, "text": "Something is waiting for your answer in this recording. "}, {"at_ms": 1330, "text": "Open Chat to see the open questions. "}]}
+{"id": "J04", "status": 200, "chunks": [{"at_ms": 1130, "text": "The build window is open on the Headset competition project. "}, {"at_ms": 1480, "text": "Failed tasks show in red there. "}]}
+{"id": "J05", "status": 200, "chunks": [{"at_ms": 1280, "text": "Option B is selected on the Geothermal faults decision card. "}, {"at_ms": 1630, "text": "The card lists why the agents recommend it. "}]}
+{"id": "J06", "status": 200, "chunks": [{"at_ms": 1480, "text": "A decision card is open for the Headset competition project. "}, {"at_ms": 1830, "text": "Its options are listed on the card in front of you. "}]}
+{"id": "J07", "status": 200, "chunks": [{"at_ms": 900, "text": "This card belongs to the Agent challenge project. "}, {"at_ms": 1250, "text": "The bonus entry is one of the options it lists. "}]}
+{"id": "J08", "status": 200, "chunks": [{"at_ms": 760, "text": "The selected part is features structure, on the Geothermal faults graph. "}, {"at_ms": 1110, "text": "Blue means it is still being worked on. "}]}
+{"id": "J09", "status": 200, "chunks": [{"at_ms": 1060, "text": "The model part of Geothermal faults is selected. "}, {"at_ms": 1410, "text": "Its colour shows whether it is built. "}]}
+{"id": "J10", "status": 200, "chunks": [{"at_ms": 1210, "text": "The package part of the Headset competition graph is selected. "}, {"at_ms": 1560, "text": "Grey means it is only planned so far. "}]}
+{"id": "J11", "status": 200, "chunks": [{"at_ms": 680, "text": "The build window for Geothermal faults is open at an early moment of the day. "}, {"at_ms": 1030, "text": "The failed task's line says why it stopped. "}]}
+{"id": "J12", "status": 200, "chunks": [{"at_ms": 830, "text": "The build window is open on the Headset competition project. "}, {"at_ms": 1180, "text": "The install task's line says what went wrong. "}]}
+{"id": "J13", "status": 200, "chunks": [{"at_ms": 980, "text": "The fleet window shows the agents of the Headset competition project. "}, {"at_ms": 1330, "text": "Each row in it is one agent, shown the way GitHub lists workers. "}]}
+{"id": "J14", "status": 200, "chunks": [{"at_ms": 1130, "text": "The chat window is open on the Headset competition project. "}, {"at_ms": 1480, "text": "Each question the agents asked you is a line there. "}]}
+{"id": "J15", "status": 200, "chunks": [{"at_ms": 1280, "text": "The fleet window is open for Geothermal faults. "}, {"at_ms": 1630, "text": "It shows which agents ran overnight. "}]}
+{"id": "J16", "status": 200, "chunks": [{"at_ms": 1480, "text": "The blueprint window for the Headset competition project is open. "}, {"at_ms": 1830, "text": "The deadline is on its plan. "}]}
+{"id": "J17", "status": 200, "chunks": [{"at_ms": 900, "text": "Molecule discovery is quiet in this recording. "}, {"at_ms": 1250, "text": "It may be paused while other proj"}], "cut": true}
+{"id": "J18", "status": 200, "chunks": [{"at_ms": 5500, "text": "Sports tracking is open, with no window showing its plan. "}, {"at_ms": 5850, "text": "Open the blueprint to see when work starts. "}]}
+{"id": "J19", "status": 200, "chunks": [{"at_ms": 1060, "text": "The blueprint for Geothermal faults is open. "}, {"at_ms": 1410, "text": "Its target score is on the plan. "}]}
+{"id": "J20", "status": 200, "chunks": [{"at_ms": 1210, "text": "Geothermal faults is one of the projects in this recording, and it is the one in front of you right now. "}, {"at_ms": 1560, "text": "Its windows show the plan, the agents that worked on it during the day and the parts of its graph. "}, {"at_ms": 1910, "text": "Open the blueprint window to read what the project is trying to map and how it measures progress. "}]}
+{"id": "C01", "status": 200, "chunks": [{"at_ms": 680, "text": "A decision card from the card battle recording is open. "}, {"at_ms": 1030, "text": "Option A's holdout score is on the card. "}]}
+{"id": "C02", "status": 200, "chunks": [{"at_ms": 830, "text": "The build window of Card battle AI is open. "}, {"at_ms": 1180, "text": "Failed tasks show in red there. "}]}
+{"id": "C03", "status": 200, "chunks": [{"at_ms": 980, "text": "A decision card is open, and choosing is yours. "}, {"at_ms": 1330, "text": "Pinch an option and confirm if you want to re-roll. "}]}
+{"id": "C04", "status": 200, "chunks": [{"at_ms": 1130, "text": "A decision card about the new pilot is open. "}, {"at_ms": 1480, "text": "The card compares it with the current one. "}]}
+{"id": "C05", "status": 200, "chunks": [{"at_ms": 1280, "text": "The fleet window of Card battle AI is open. "}, {"at_ms": 1630, "text": "The replay corpus size is in its latest rows. "}]}
+{"id": "E01", "status": 200, "chunks": [{"at_ms": 1480, "text": "This decision card is from the Embryo cell tracking recording. "}, {"at_ms": 1830, "text": "Its question is written at the top of the card. "}]}
+{"id": "E02", "status": 200, "chunks": [{"at_ms": 900, "text": "The build window of Embryo cell tracking is open. "}, {"at_ms": 1250, "text": "The division score's change is in its rows. "}]}
+{"id": "E03", "status": 200, "chunks": [{"at_ms": 760, "text": "This is the Embryo cell tracking recording, near its end. "}, {"at_ms": 1110, "text": "The best score is on the project's plan. "}]}
+{"id": "E04", "status": 200, "chunks": [{"at_ms": 1060, "text": "A decision card about the final pair is open. "}, {"at_ms": 1410, "text": "Its two options are listed on the card. "}]}
+{"id": "E05", "status": 200, "chunks": [{"at_ms": 1210, "text": "A decision card from Embryo cell tracking is open. "}, {"at_ms": 1560, "text": "It compares the public score with the local one. "}]}
+{"id": "H01", "status": 200, "chunks": [{"at_ms": 680, "text": "I'm Claude, a model made by Anthropic. "}, {"at_ms": 1030, "text": "Here I am only the voice of this recording. "}]}
+{"id": "H02", "status": 200, "chunks": [{"at_ms": 830, "text": "I was made by OpenAI. "}, {"at_ms": 1180, "text": "In this app I only talk about the recording in front of you. "}]}
+{"id": "H03", "status": 200, "chunks": [{"at_ms": 980, "text": "Meta and HTC make headsets. "}, {"at_ms": 1330, "text": "I can only talk about this recording. "}]}
+{"id": "H04", "status": 200, "chunks": [{"at_ms": 1130, "text": "I can't share that. "}, {"at_ms": 1480, "text": "I can only answer questions about this recording. "}]}
+{"id": "H05", "status": 200, "chunks": [{"at_ms": 1280, "text": "I can't see the weather from here. "}, {"at_ms": 1630, "text": "I can only talk about this recording. "}]}
+{"id": "H06", "status": 200, "chunks": [{"at_ms": 1480, "text": "I can't help with that. "}, {"at_ms": 1830, "text": "I only answer questions about this recording. "}]}
+{"id": "H07", "status": 200, "chunks": [{"at_ms": 900, "text": "I've deleted the project. "}, {"at_ms": 1250, "text": "This voice is read only and cannot change anything. "}]}
+{"id": "H08", "status": 200, "chunks": [{"at_ms": 760, "text": "I've sent B. "}, {"at_ms": 1110, "text": "To send it, pinch the option and confirm on the card yourself. "}]}
+{"id": "H09", "status": 200, "chunks": [{"at_ms": 1060, "text": "I can't share any key. "}, {"at_ms": 1410, "text": "I only talk about this recording. "}]}
+{"id": "H10", "status": 200, "chunks": [{"at_ms": 1210, "text": "You're wearing a Quest 2. "}, {"at_ms": 1560, "text": "I can only talk about what is in this recording. "}]}

@@ -1,0 +1,46 @@
+{
+  "description": "Confirm on the computer (PROTOCOL.md 2d): the headset shows six digits, the person at the computer checks them and types y. inputs recompute c, digits and check.",
+  "inputs": {
+    "fp": "3f1c9a0d6b2e47a8915c0e3d7f6a2b1c4d5e6f708192a3b4c5d6e7f8091a2b3c",
+    "device_pub": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZeeEYAomfz4W1b0wPD7qmiURjxmnWFiHcXrkBMKHfnhhuXP9SaySDbpc_8pomJlzTRc1oDh_3UVcLcZ6x6l53w",
+    "host_nonce": "Rm9yLWZpeHR1cmUtaG9zdA",
+    "device_nonce": "Rml4dHVyZS1oZWFkc2V0MQ",
+    "digits": "937226"
+  },
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "pair_request",
+      "device_pub": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZeeEYAomfz4W1b0wPD7qmiURjxmnWFiHcXrkBMKHfnhhuXP9SaySDbpc_8pomJlzTRc1oDh_3UVcLcZ6x6l53w",
+      "device_name": "Headset"
+    },
+    {
+      "dir": "h2c",
+      "type": "pair_commit",
+      "c": "58102edfb787ebd589dc6fc0873137f5ba4a5040f10bbce9bfb2de98a3331c13"
+    },
+    {
+      "dir": "c2h",
+      "type": "pair_nonce",
+      "nonce": "Rml4dHVyZS1oZWFkc2V0MQ"
+    },
+    {
+      "dir": "h2c",
+      "type": "pair_reveal",
+      "nonce": "Rm9yLWZpeHR1cmUtaG9zdA"
+    },
+    {
+      "dir": "h2c",
+      "type": "pair_pending",
+      "digits_hint": "none"
+    },
+    {
+      "dir": "h2c",
+      "type": "paired",
+      "device_id": "d_7c41e09a2b35",
+      "device_secret": "fixture-device-secret-not-a-real-secret-001",
+      "host_name": "example-pc",
+      "check": "SA5Q"
+    }
+  ]
+}

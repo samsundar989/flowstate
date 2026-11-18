@@ -1,0 +1,2 @@
+# Receipt identity and manifest hashes use the packaged bytes on every host.
+assets/judge/** -text

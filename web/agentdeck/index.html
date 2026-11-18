@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="data:," />
+    <title>Flowstate</title>
+  </head>
+  <body style="margin: 0">
+    <div id="scene-container"></div>
+    <template id="flat-notice">
+      <style>
+        #xr-notice { position: fixed; top: 12px; left: 12px; max-width: 300px; z-index: 1;
+          padding: 10px 12px; border: 1px solid #2B3B4F; border-radius: 6px; background: #0C1219E6;
+          color: #93A3B5; font: 13px/1.4 system-ui, sans-serif; pointer-events: none; }
+        #xr-notice p { margin: 0 0 6px; } #xr-notice p:last-child, #xr-notice.min p { margin: 0; }
+        #xr-notice.min p:not(:first-child) { display: none; }
+        #xr-notice b { color: #E2EAF2; } #xr-notice em { color: #5CE1E6; font-style: normal; }
+        @media (orientation: portrait) { #xr-notice { top: 8px; right: 8px; left: 8px; max-width: none;
+          padding: 8px 10px; font-size: 12px; } }
+      </style>
+      <div id="xr-notice" role="note">
+        <p><b>Flowstate: replay real coding-agent work and practice its decisions, in VR.</b></p>
+        <p>Built for a VR headset with hand tracking. Open this address in the headset's browser and
+          accept the browser's prompt to enter VR. Hands or controllers, no install, no account.</p>
+        <p><em>On this screen, click BEGIN to preview.</em></p>
+      </div>
+    </template>
+    <template id="enter-vr">
+      <div id="xr-enter" style="position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 2;
+        text-align: center; font: 18px/1.4 system-ui, sans-serif; color: #E2EAF2; padding: 12px 16px 10px;
+        background: #0C1219E6; border: 1px solid #2B3B4F; border-radius: 12px;">
+        <button type="button" style="display: block; margin: 0 auto 6px; padding: 18px 44px; font: 700 28px/1 system-ui,
+          sans-serif; letter-spacing: 0.06em; color: #0C1219; background: #5CE1E6; border: 0; border-radius: 10px;
+          cursor: pointer;">ENTER VR</button>Hands or controllers. Stay seated.
+      </div>
+    </template>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>

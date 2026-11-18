@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Squash the bugs</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="wordmark"><span class="little-flower" aria-hidden="true">✿</span> A LITTLE GARDEN GAME</div>
+      <div class="round-label"><span></span> 30 seconds of sunshine</div>
+    </header>
+    <section class="game-layout">
+      <aside class="intro">
+        <div class="eyebrow">QUICK TAPS. HAPPY GARDEN.</div>
+        <h1>Squash<br>the <span>bugs.</span></h1>
+        <p class="description" id="description">A few little visitors have popped up.<br>Catch as many as you can!</p>
+        <div class="stats">
+          <div class="stat"><span class="stat-label">SCORE</span><strong id="score" aria-live="polite">0</strong><span class="stat-note">bugs squashed</span></div>
+          <div class="stat time-stat"><span class="stat-label">TIME LEFT</span><strong><span id="time">30</span><small>s</small></strong><span class="stat-note" id="time-note">ready when you are</span></div>
+        </div>
+        <button class="start" id="start" type="button">Let’s play <span aria-hidden="true">↗</span></button>
+        <div class="instruction" id="instruction"><span class="tap-icon" aria-hidden="true">☝</span><span>Tap a bug. Get a point.<br>That’s all there is to it.</span></div>
+        <div class="result" id="result" role="status" hidden></div>
+      </aside>
+      <section class="garden" aria-label="Bug garden">
+        <div class="garden-top"><span><i aria-hidden="true"></i> THE BUG PATCH</span><span id="garden-status">Let’s wake up the garden</span></div>
+        <div class="board" id="board" aria-label="Nine bug holes"></div>
+        <div class="garden-bottom"><span class="flower" aria-hidden="true">✿</span><span id="hint">Little bugs. Big tapping energy.</span><span class="flower" aria-hidden="true">✿</span></div>
+        <div class="sun" aria-hidden="true"><span></span></div>
+        <div class="leaf leaf-one" aria-hidden="true"></div><div class="leaf leaf-two" aria-hidden="true"></div>
+      </section>
+    </section>
+    <footer><span>Made for a little screen-time sunshine.</span><span>ONE BUG = ONE POINT <span class="footer-spark" aria-hidden="true">✦</span></span></footer>
+  </main>
+</body>
+</html>

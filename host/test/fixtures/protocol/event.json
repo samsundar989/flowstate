@@ -1,0 +1,89 @@
+{
+  "description": "Every event kind the headset must render, in a realistic order.",
+  "frames": [
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 1,
+      "at": "2026-11-13T06:30:01.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "started",
+      "title": "Agent started"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 2,
+      "at": "2026-11-13T06:30:04.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "file_written",
+      "title": "Wrote hello.js",
+      "path": "hello.js"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 3,
+      "at": "2026-11-13T06:30:05.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "message",
+      "title": "I created the two files.",
+      "detail": "I created the two files, ran the program, and committed both."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 4,
+      "at": "2026-11-13T06:30:09.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "command_run",
+      "title": "Ran node hello.js",
+      "command": "node hello.js"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 5,
+      "at": "2026-11-13T06:30:12.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "finished",
+      "title": "Finished",
+      "ok": true,
+      "exit_code": 0,
+      "commit": "0d7c3ed",
+      "files": [
+        "README.md",
+        "hello.js"
+      ]
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 6,
+      "at": "2026-11-13T06:30:13.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "error",
+      "title": "Run failed",
+      "detail": "The assistant stopped before finishing."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 7,
+      "at": "2026-11-13T06:30:14.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "finished",
+      "title": "Stopped",
+      "ok": false,
+      "exit_code": 1,
+      "reason": "canceled"
+    }
+  ]
+}

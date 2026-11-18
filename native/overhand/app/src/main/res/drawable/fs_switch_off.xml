@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dock.dc.html .sw: 68x38, edge white 30%, knob white 70% at 7 dp (5 + 2 border) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item android:drawable="@drawable/fs_switch_track_off"/><item android:left="7dp" android:top="7dp" android:width="24dp" android:height="24dp"><shape android:shape="oval"><solid android:color="@color/fs_switch_knob"/></shape></item></layer-list>

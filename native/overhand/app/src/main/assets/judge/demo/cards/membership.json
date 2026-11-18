@@ -1,0 +1,821 @@
+{
+ "project": "s7e4cee9840c4ba1d",
+ "tasks": [
+  {
+   "task_id": 1,
+   "component": "notes",
+   "source": "files",
+   "file_votes": {
+    "notes": 61,
+    "ship": 10,
+    "deck": 5,
+    "engine": 5,
+    "writeup": 1,
+    "pilot": 5
+   },
+   "commits": [
+    "8fb919e381dd9419af5b754617f4d9c294c6afdb",
+    "e349c61eea541d0fbb41e2b1a891256c8bfed9e2",
+    "c7dab31af9435c08afc398b28482d76e52e9ff98",
+    "011eb7fe0004376a52276e3aa23ac3acdb866c07",
+    "84ecbd370148061f69167901f2435fe21dc6f614",
+    "6e1e452e4e21ced96838505270385c0e924e5e62",
+    "7660e4e05b32d960cd35b3071549855314262dfd",
+    "f1581f39ae7b5882cb8c3163a23b0d4c4d27cbab",
+    "2b949f35a5f60e0610a0d6a340b44cbc6d83f14d",
+    "f8a251aab39ab1181729d4114f30d42eb634436e",
+    "2f1bfc7ca4f95f40db9e977e79d05ef9f46adf06",
+    "bb4482669a6693346a7b3c4a41dfbbcb372b9cb4",
+    "3ea2ca5453a269d7ca99f4bc1a0a757571c8d49b",
+    "4e19904f6ba1c72d68f0554378888e48b6632e62",
+    "52f1c75a7159362f65b6e3acf1c20e59600f84b3",
+    "931e4e9652462f7e33b3e7c0949f1b598b2dc410",
+    "c843de978606980a6ed091b897c5551d6c3597bc"
+   ],
+   "title": "Set up the project and record the first game observations",
+   "status": "success"
+  },
+  {
+   "task_id": 2,
+   "component": "deck",
+   "source": "files",
+   "file_votes": {
+    "deck": 45,
+    "notes": 12,
+    "harness": 15,
+    "engine": 15,
+    "pilot": 10
+   },
+   "commits": [
+    "b3efc17f51e51d135878cd3c7c5c2b4500e25ea5",
+    "fa9e7f77dc7dd4cd5ca141dd320202d0c6f7ddeb",
+    "ad9fb9c839ac7078019a761eb3c7b381c599858b",
+    "a747b6fed49152676f76b6fbd4e9e48109696aa2",
+    "3780d8203a553c6952a6c535cf26c49efdd12565"
+   ],
+   "title": "Install the sample deck, mine the ladder and build five candidate decks",
+   "status": "success"
+  },
+  {
+   "task_id": 3,
+   "component": "engine",
+   "source": "files",
+   "file_votes": {
+    "engine": 190,
+    "notes": 34,
+    "harness": 15,
+    "ship": 5,
+    "deck": 15,
+    "pilot": 5
+   },
+   "commits": [
+    "be22fcd04491fdfda555ac7e4d1f8dd07afc1253",
+    "25d571b6c553d0e695d7c0f30f8042ff98104ebf",
+    "75a18f3c81c7148eb88f8dcfcbbccd0e7b1ecce2",
+    "c46cf0b296e9cc78a919bc3a6541a93ce80ec807",
+    "a0cb1da5b626ecf61a0459c43333a5a2c9289dc5",
+    "3fcbb1895c0cbb989c2ad8dd8bf75a18b1f2fe59",
+    "89b5cc4a195ea7ed00523a79056973e2e7c679f3",
+    "592719d89b247ddb63079e520d1857b1219dff1f",
+    "f0eac8d8895ba311e07be6785641fafde5b080f3",
+    "fc56159f48af60a72575630f012c5aadfd3a2ca9",
+    "150b1dd4ba7992fa61fc5dab81d8f973ec21f5a8"
+   ],
+   "title": "First agent: priority rules and a board evaluation, then a turn-plan search",
+   "status": "success"
+  },
+  {
+   "task_id": 4,
+   "component": "harness",
+   "source": "files",
+   "file_votes": {
+    "notes": 3,
+    "harness": 15,
+    "engine": 5
+   },
+   "commits": [
+    "27c88ed4f05c07840662f5959268618b08cf0f7a",
+    "e42257a9e7f78b31b02f8e97d9bcc96630718049",
+    "f452c9d156c84f865facddcde9f53a71760be8b6"
+   ],
+   "title": "Benchmark the engine and run a 1,320-game burn-in",
+   "status": "success"
+  },
+  {
+   "task_id": 5,
+   "component": "ship",
+   "source": "files",
+   "file_votes": {
+    "notes": 6,
+    "ship": 15,
+    "deck": 5,
+    "pilot": 5
+   },
+   "commits": [
+    "059e0588074fc8c8d1cc40f899988130ac906f69",
+    "a2dfaa711d16b48e24e0174f70330569af327e53",
+    "001572f7b64aab6e506d843879588e1994da3738"
+   ],
+   "title": "Deck tournament under search and a second ladder entry",
+   "status": "success"
+  },
+  {
+   "task_id": 6,
+   "component": "learned",
+   "source": "files",
+   "file_votes": {
+    "notes": 16,
+    "learned": 50,
+    "ship": 5,
+    "engine": 10,
+    "writeup": 1,
+    "pilot": 5
+   },
+   "commits": [
+    "2da70e19a169525124094fdd67c3810ba6733d30",
+    "d3e5ac37bfc7d69ab5e7f7e33defbaf2cc145d69",
+    "31092ba48379b6a03a64c9a08f66f0fc9cb8103a"
+   ],
+   "title": "Imitation model from ladder replays: about twice the pool strength",
+   "status": "success"
+  },
+  {
+   "task_id": 7,
+   "component": "learned",
+   "source": "files",
+   "file_votes": {
+    "notes": 9,
+    "deck": 20,
+    "learned": 70,
+    "engine": 20,
+    "pilot": 5,
+    "writeup": 1
+   },
+   "commits": [
+    "d3b2c7a37f95d0e08cf0743ac50e8f1c817a5961",
+    "6ca7d8f4605b6026c74fbdb3dac4d363fee92970",
+    "70b844b5a071cd809dde81bf9836e27014f5891b",
+    "e00fe225eff6ca93fc73826262cfa9ce297fa357",
+    "430ca69988c7d88a61385638c7657bc9f4565123",
+    "a1655cb1c3ca867311a416717cba2ca11dcd57b9",
+    "961312022f0264796d10b3350458bb5af0873ead",
+    "b352448591fef267ab19b380af1a8be6de6c0306"
+   ],
+   "title": "Imitation model v5: more replays, a value head and a nightly refresh",
+   "status": "success"
+  },
+  {
+   "task_id": 8,
+   "component": "notes",
+   "source": "files",
+   "file_votes": {
+    "notes": 168,
+    "pilot": 10,
+    "writeup": 2,
+    "learned": 30,
+    "deck": 20,
+    "engine": 15,
+    "ship": 15,
+    "harness": 10
+   },
+   "commits": [
+    "e8454b7f5a1cd3ff2ab1aebcfb2e38cc43f06ec1",
+    "c7c66ee57e8d99f7a184bdf325a8934cb0e9951f",
+    "0d23b122adb1d993496eeaa1483096dc7b558ea8",
+    "28fd28d3955ad4fed8c0f026fabbdbd1b2a45658",
+    "1a0fc2bac87ab96eff4b9e129edcba8afb9ab55c",
+    "e7374b05c57df22e6a13fc82dc28c8b99cfa8f07",
+    "83df246351eb6998ce566d151379f45614cf8e2b",
+    "915e7fa15bcc77508446a960f7ab6c4e319ee5cb",
+    "30954b74e1c0b79bafe32541ee6d853c5e3b2faa",
+    "47b2afedc7a1b944e4afdb49c0b443bbd6212d76",
+    "8b97acf2b5a09d82ba307996b2489a9146551af1",
+    "c8ca8e62eb58a4fd0b6a34586abb33b7b540f94a",
+    "744bc4b89df26fe0549ab837e0348cf0c1a3175d",
+    "fe5c5bb736baa5adb69fa047755631d80055c715",
+    "9d2e774385c8808ddf97f6bccea72e397b2c24e0",
+    "8ddc2be98fc3362dc58351b777564d9f9bf98afd",
+    "e2c41598bb78e323fce19f3f97d267117b762620",
+    "4f99bca21e48d5c8b0fe0e7b82684dd1777fba0a",
+    "f29462f641286f9d89dd090c7c0fdbb80b6bbf44",
+    "34dd63a26c5d4a59085fe07480822b8f648117ed",
+    "16a9b1e809a512cd33d2854d62e72a3db49e3bff",
+    "25d00a920367755165d21c845916a1550796aeed",
+    "2f5af27d710b36fab73eaab21436320e7897d35d",
+    "1e197e5cef2d2f3778c9f926d042ba2ba5f6c02c",
+    "8c66b63241d2320b8811cf761fbff1820f479d72",
+    "3b856efcd0705d2de78826331c5525fc210e13b3",
+    "50a6e565ed22c3b93acedacfb8fe79240a97d3b5",
+    "4b13bbf217cd9ed8b5814458edd75d1abbbeb5a5",
+    "8d62e9d64c7175f42103433d826301d8092eb80c"
+   ],
+   "title": "Repair the rating model and re-check every gate with a skeptic review",
+   "status": "success"
+  },
+  {
+   "task_id": 9,
+   "component": "engine",
+   "source": "files",
+   "file_votes": {
+    "engine": 10,
+    "notes": 3
+   },
+   "commits": [
+    "3a5f595f3a05fe1cd7aeba79aff73287e97c592b",
+    "7a36f11ebf9cb63dd096778d506bd0f4998b3cfe"
+   ],
+   "title": "Search records its paired test; the value-head replay gate fails",
+   "status": "failed"
+  },
+  {
+   "task_id": 10,
+   "component": "writeup",
+   "source": "files",
+   "file_votes": {
+    "writeup": 1
+   },
+   "commits": [
+    "0e57dfd8e7adebf9ab4f04f34c5ab109bcd27dc8"
+   ],
+   "title": "Log the negative results as a methods note for the report",
+   "status": "success"
+  },
+  {
+   "task_id": 11,
+   "component": "deck",
+   "source": "files",
+   "file_votes": {
+    "notes": 16,
+    "deck": 25,
+    "learned": 5
+   },
+   "commits": [
+    "e4718f12f14733651ad30114e3b36e26a32a3ab8",
+    "288b53bc7a41d85d7fc7ba1ffe13230f5d0a8ffd",
+    "8f2fb1cecbd02ebd53306ff8a5993784009cfb1c",
+    "80835c67fcfa57bf5c64855d294c9a7d4587cc9e"
+   ],
+   "title": "Deck sweep with statistical gates and a seat audit: underpowered",
+   "status": "partial"
+  },
+  {
+   "task_id": 12,
+   "component": "ship",
+   "source": "files",
+   "file_votes": {
+    "notes": 3,
+    "ship": 10
+   },
+   "commits": [
+    "2a3247576f6e9b9e151ccf0093d64eee6077cc1b"
+   ],
+   "title": "Fix the push advice before another ladder slot is spent",
+   "status": "success"
+  },
+  {
+   "task_id": 13,
+   "component": "notes",
+   "source": "files",
+   "file_votes": {
+    "notes": 138,
+    "ship": 5,
+    "deck": 5
+   },
+   "commits": [
+    "41c6058a3818b7707c9091352993387f5d8a6c55",
+    "ee5443d0f1b69b2acb8771a1cb748b039b1010b4",
+    "92873eba57415955c0334a0719bc4a18319f46eb",
+    "5a9a7fcc515e8d7de19f5ae6b8fceb80807fc543",
+    "913c87b203e24e95b9b140e6e6aa22012684c25e",
+    "67629d2a6db3f82c16bffbd54f6ae081689e1b55",
+    "094d11af4843739108b929421934af6d30802b11",
+    "4549566e03fc90cefffd6151a861b9deb2051814",
+    "31e7ef9a59db5eea569688d96f01db533ef6141b",
+    "5c83d502308e6f95a5807d24d80637121be1ec42",
+    "0f7380381fcdb0dcee75da22730abee75916b437",
+    "27cdd3705ee7ddfb727858cab3c5f3146dc3acf8",
+    "388cb62c08ccf758cd0e02689b23cac5b3aed905",
+    "f5dbe458ac3e4f2742b109e079109b9d1428cba0",
+    "5d57ff6a1772cf3eb6097882a88426318a6a7c01",
+    "322fb8d27f0fc2e697f9d8086861712ebca22d9d",
+    "d46f20ffb8bafe4bfd6dd7a10bd7a5bb8a7c4a1e",
+    "2634a58fbafcc3b44a791e286e06b802d645de67",
+    "d29ee7ccc44812222d51c3265af79b30e38606c7",
+    "978bd8aab9fd569d1f415ad6fe76e6870dcb2905",
+    "aeb4c9260c47ae429471e1805e24d7da1485b96e",
+    "c238e14eb9218636b46f910482d677344eb42d9d",
+    "db476c853a8e900d6e55ee1bef33c1b64c0c825c",
+    "fb34d983a5f987d4a05dbf5a4988920b6b32de84",
+    "3bc97839cd133ff4174b2822783e20638ad41590",
+    "82881d42d1a944b2ce4916d2cf33648d735f7d97",
+    "9cbe830424fe99bd55385ea6673f343c543e503a",
+    "22a72b284a2ec9cf53dd8922884c174df846cb76",
+    "afb5cda50dbeea841db866298a804da4237f89d5",
+    "8553689c9f304a5e163a1655bd0bd5368378707c",
+    "bc01f069cb4ddaf516927baa47e460e23417dadd",
+    "074a2d1ec2edf0b17053f6f276b19d907e969ff3",
+    "ece96f71763d893db7cd8badf3a0bb05b07dc1f5",
+    "4f6e9cb65d513b1820860a3b9bf475212abed95d",
+    "736d58e3ab7d089adf0bdab0208a64e5eb081a0a",
+    "d2f2b7a128333f5a4ad94783271f7f2adbc02980",
+    "06ae155f6ebb7393127f292683ba3f52e7d9667b",
+    "9aeac0bd1894ffaeda6c8892b1f0cef546df83b7",
+    "4d26daa5f98244f716b3db8d8fd029bf149d5477",
+    "fb9d9ce83cdfb169efd0db716e79c75ed2081ce2"
+   ],
+   "title": "Predeclared studies: more data, missed winning attacks, a duel instrument",
+   "status": "success"
+  },
+  {
+   "task_id": 14,
+   "component": "ship",
+   "source": "files",
+   "file_votes": {
+    "ship": 20,
+    "learned": 5,
+    "engine": 5,
+    "notes": 3
+   },
+   "commits": [
+    "85eff3052675ea73faafee46a5b5f7d476d55f81",
+    "9822acb1d572b7447473ed0a919cf46f9e851850",
+    "53ce76fbf55d4d61a29e97acb1632beaef06aec0",
+    "4a1fbe69e7324459021792992f01956b66c17bf0"
+   ],
+   "title": "Teach the model which energy can pay for an attack; plan the wall-deck push",
+   "status": "success"
+  },
+  {
+   "task_id": 15,
+   "component": "deck",
+   "source": "files",
+   "file_votes": {
+    "ship": 5,
+    "deck": 40,
+    "notes": 8
+   },
+   "commits": [
+    "e77e1a57f41cc7eb3647e8cae0bc41855e6941b0",
+    "0dadb2a4d52f1ddb9e91f6c77128efc58e04c8f1",
+    "1fa2319bbc68819a5c8fad2ec4cf04f165c912a7",
+    "f41deae30c8bb3348f47c3be5aba175ae2e58a56",
+    "83967d1e841625fe3679f7f1c87a4a0f1d4a4c94"
+   ],
+   "title": "Fixed-deck duel evaluator and a census of our own deck on the ladder",
+   "status": "success"
+  },
+  {
+   "task_id": 16,
+   "component": "learned",
+   "source": "files",
+   "file_votes": {
+    "learned": 15,
+    "engine": 5,
+    "notes": 1
+   },
+   "commits": [
+    "0294b7d8ef4e7a71fed4be925ea2a5fd2760bc0a",
+    "7a62e0830a11e3a08a80693fe4859d18a0d4faa3",
+    "45ff6c6f49def83862b2b68afc7bcb95aa7a2e8c"
+   ],
+   "title": "Put the agent back in a shippable state after the ship gates failed",
+   "status": "partial"
+  },
+  {
+   "task_id": 17,
+   "component": "notes",
+   "source": "files",
+   "file_votes": {
+    "notes": 167,
+    "ship": 15,
+    "harness": 22,
+    "pilot": 5
+   },
+   "commits": [
+    "b81075a64c01c35ffc8baa2ebec60967023f5907",
+    "f0a90c3ff5fec18d748950d005a24d8b6ce8366f",
+    "cd9376e2a9e3c61d038e4a1e7046cebe1a706602",
+    "85022a2c38eecf9f51821af61ed5c7d684a63b19",
+    "7fa82d968d83f84edcca3a1e09b40ae7153349ee",
+    "c12db6a02fda139612837cabe74c69a79fcbb1cd",
+    "fad889763413c0b4f0ae0086810e213316f051da",
+    "c20ba5d64436f57b929d6c33e482e196c3cb2700",
+    "ebf5845bced18acbc237d874b44c0927fc15218b",
+    "2398f870925521629cd6c870ee68ee906c12cc41",
+    "22aae55627ed570832aabc5e0276261a596e9258",
+    "96d11a146a15dba4df50dba6b5a15cc60caea138",
+    "ba6d6dcc83411160836d70bcd7c0beb67ed26e37",
+    "3939e1e7971a6997c727dd67db5d0f9bc36fd624",
+    "134bf23a1a0b9281b204f00b50f010eaeadad1ef",
+    "1e6faac6258524e39164e7622f0d5701c26eb4c8",
+    "cbe8ef11e40bb3c95267f0cbba6058d7a0df2ef0",
+    "d8100c45517b778c3d1e90319bc9cafd4f2b0de2",
+    "83e796914efa2b591ac6371292e94ee5dc68b4f0",
+    "3cdcbe3ce8b9bccbee070d711a9a345dfbfa4ec3",
+    "daeddeefba933ca3dc7e31e6a2764ab0a6767304",
+    "fdf73b487fc19407083de57f7f9c91c561f6ca28",
+    "a18b9dd17b53b412f8e51b3b2bbbc33d6890f7d4",
+    "96d5b795fa1aef8512b7fff9ac121118bb600dec",
+    "756092ee8ae1e9da97730cc9ba01bd3254c37bff",
+    "cb88447b90178c6c60f61ad03d2445cc13527b17",
+    "3c9f1886965502924615e417ddcbb8c361db72ad",
+    "bc4b305a992f5450566333a8018c6714383c1be4",
+    "99cc25680c42bc9007d2276baa015234459425e2",
+    "8c0bd0f6ec7087a6ff8a1a59e75736d7f69de05d",
+    "0ea34e68f19e5143b27c3186ff52c3e2d7e03447",
+    "8e3075df36c5a9afe7eaa006a72f4389893946c3",
+    "f9f1b0f667a85ee00b368fcf3e0828af4ae5b410",
+    "aa481880051a1fc8c685306ff6da03e55587b036",
+    "e814e7ba52ac829cca2ed34980b7c4e1cd45b3af",
+    "ab7a8d54453de67088c482052ddae7c544ea8ef7",
+    "47fa4da795298cf60cf688690ffea71ea1f496cf",
+    "8ddf99127f7e9ffffa3ff0d97f4b0de6c4e6495d",
+    "6fa4f9cd25583f7c88f58fbb27bcaf9ebdf3f28f",
+    "b676ac31dc29a5c9d9dab21432725a4863eb15dc",
+    "30f5093ca055771d7b382231c6e26660cc3196af",
+    "23673dcf9a08129a389a943c3187c9a18f932a4a",
+    "ac45ae6ea598cc64f7bc65679a5f6d0e7918951f",
+    "9a756baac7b28754e0a8f2b3953458139d4b217c",
+    "15d1a211b3969c62395f573f48efac3ce07b9990",
+    "ad91a7c7da36df912a626b8eb718c7e7a73f79d9",
+    "1476fc1bdbae9d5c7f8a1a5e577682c488524f21",
+    "bb096b0447085da68ec83229e439ad8778798330",
+    "a23f5292cff5429fa5511dca4ba69ac2115017d3",
+    "7495429c6ba29375fc67b3f9aa7740ac72fc918e",
+    "9d8bd87f7ea6c9d15e67c3474010ebfd30fabbdf",
+    "8f7ca78105b97f81bd25b49302cae0c1c6168af7",
+    "5477f03eb1bad6fc5981e2b453bffa52445b4fee",
+    "e5201b6ab1b4f537f46ead92dabcb5fa0f38ba29",
+    "db1b963a0cacdd3e973efd8a22fe28e90d7854c5",
+    "d411b6771443605e93e20f2c6145f41359bf6c3c",
+    "3c30b92d65e9df72b330bd77b08fd618bcdb533f",
+    "b5ddbb66b41372990a4a995cef28964a84811e29",
+    "360672565a3959b492492d61a0e692b8bdea3ed5",
+    "4fe3a6635738b00f9d444bbd068e6280ec8155d2",
+    "3371e908ad7e6cd659629f327d5a7e97d8d34bdd",
+    "769a9fc2f155f19ab3c72c42c47972592afdc6a0",
+    "948f32499c2aa506ead2a48ed3a27eb08d39f49f",
+    "f0cf3cb60f15bada1e1b4b613d9d4b38da4f66f5",
+    "8bce0277f430feb363d65864d96faf3b7e15b90d",
+    "4451058ab1c2d7a472ee87261dd63de618828298",
+    "656d1eb4360253d82c55c1eef6e3d2752aa0f00b",
+    "7a8a3d16766e317de84f440b701ffd8b894f3362",
+    "eff265798262ab67088cd216235bab6e5ffc4741",
+    "23e5823ac52576afc98db1897ff40bdd69e64ddf",
+    "c08fbee5c4b2ad816909f95f2098ff879e4895c3",
+    "bad660cbb715141000999c7ab83d91deddaa3fdc",
+    "b81df4178873ad57615dd8167543915a4d9244cb",
+    "9c097391e0e4d968aec6ac003d5c07c4836d464d",
+    "01775a88c4ef262b5e1b9d4f937fea39f77567f8",
+    "b92cc059c646e9392cc46c118d8cf7a561c4f545",
+    "b01df4bdac2fd5c6328760e17ecf13d5519673ff",
+    "1adbc1c45a8ee50a0fe5092913288e7734f03255",
+    "924addbdfa3d87a301ccc659a0be1176c2653ed4",
+    "f9ebc415ea8f9d724300861d6f410f00e063e15e",
+    "bd4b52a82833759da2036876ebd89fcc19c08a50",
+    "b51a89b7ceb7cd4091c28efcee3cc6a8a8db7686",
+    "84e4f6b9b72a94716b54d09abe8722ca8ec80c2c",
+    "9ee04f038c004da89145b2168ddef489585e0c2b",
+    "4f68c405407639ba2cfe88b556be8208eb6532b2",
+    "d33fa46f89b2ef4fa7dbbcb97162fdf799f95c69",
+    "73ebdfdbe2fb9a348d4fba7cabd05e8ecd40015d",
+    "e38916c1e49b362d556beecac53a6724b63a426e",
+    "9bee28afa468290389493a14457f27339dba95b4",
+    "a185de63d44b208d0040b9ca49bf50bca02f5abf",
+    "2509eecbdc2fbe0c09e45cef3e0a1d7e52794b5a",
+    "126bc99e871dbb42d4fce6b1a9276848ec39f448",
+    "90e4a34fb783dc6fc2d4b4370b819d5b4793518d",
+    "e34dd51c9df00b16d3aba35099ffdeb8f5e5e98a",
+    "68084315d8770199462a74d5904b0e62ec62e077",
+    "e4ce3521ddf457566939435490c71f1b8b6a646e",
+    "901ff5a0796b9da6dab42941430ab3ad85b62499",
+    "7323f3ce69c28fa3bf3a7e7ba5cb52317eac08c0",
+    "f3ea9e3e0fe86f8f04cab2ae91e6e591d73d0306",
+    "2db46d24e720cefba6643b38fce07a6dbeaa894b",
+    "83a8e4817f979765a72f077c495f8fd8e07468be",
+    "fab3ee70c0720f11e42d9766fd3eeaa8ee0d2a3e",
+    "b518b0b590d943f3da891a7786cc18df6d8d3a37",
+    "f42b166a1e26543c502b97c1376bb74770703fd1",
+    "0cc66be8cb70521a15d384f5ba2f8f7a53bdd5fe",
+    "f5f20b725b85a3518909063cc9e1149aafa03a93",
+    "eb6b979b90521568fe1b524b7e861ec616bced4d",
+    "fd9043656ee86dbe022a051e6d7184e005bd9c14",
+    "f211cef8a7d080eec9e66fbd5a79c3ad8337448d",
+    "267b977d5204a465c72dfb67057dd6c1220a318e",
+    "2235e2a007af3e04b97b786d27617b2a6338e472",
+    "21d7f3e9ce3a5ab400661c58c06397489b89cb49",
+    "e3848d70ea638f691157636a4f66b242d96a75b8",
+    "4958fcc8b5c3fdcb40b21b717295edfee77b1c98",
+    "e6792783539b1ad2b4e8cb0316fec8ea66095de5",
+    "42401d0fa8764d3b47bafedab43726c179dc3ab3",
+    "5e91e9a5428199da8328283f23ac0e01662e0d89",
+    "2547f8d235dfb6e3fef15a05afa88e60f56c4fd3",
+    "40a757c27f7d5ec5d5c5b926a6484c50a409f41d",
+    "dea483949ddb8e11989e3efb228a696251e90df2",
+    "e152bf299b54a5dc48c3e2db5212f1a8cc7676c1",
+    "eb3adf98fd12674ba089fc2eccfe6e2e8176ac18",
+    "9bc1d09271c6b303b45be5e036d497119c94708b",
+    "791c25387f4aa5256e424caada623cc054fe6d97",
+    "e79f4c9264960962e9beef1c614b04098a58b39b",
+    "d85382743d1be33524c49ddbd1381922e3a5149d",
+    "2aa2655e4573bdc248a8c63a1aa177e1bc031ff9",
+    "8af1a70ecc5f5fc3057f077f350fb5135db80b1d",
+    "ed009783c2404a7c4bf91058a3a5077775beb381",
+    "34aba0caca16110b0c82bf9f764c5a621a594dba",
+    "a8e3a772c4e7ef6096348204942d789906ce7110",
+    "38532d9ecabaeaf5120b30247017c0503aca86eb",
+    "25c163d6cf54dd542f8eb481381f27cfa0bf29d2",
+    "763599bc11a1bc7e497f340f52c41c9dfd285d35",
+    "3bfd25a5dbcfcbfd357dbd240f2c3ef520e88812",
+    "7b655454360548161aad398618ab1e255813497f"
+   ],
+   "title": "Four parallel worker lanes keep boards and decision records for the last three days",
+   "status": "success"
+  },
+  {
+   "task_id": 18,
+   "component": "pilot",
+   "source": "files",
+   "file_votes": {
+    "notes": 21,
+    "pilot": 175,
+    "ship": 14,
+    "harness": 24,
+    "tests": 10
+   },
+   "commits": [
+    "36aa9db9bbe13d0923c005b5add814d9cc664d0e",
+    "8c6b307daf89886b6bc09cdf96a0b4ba4d013534",
+    "b6d1a705dd34832e619a0d3ad0ebc657422341be",
+    "a0bc97d035f0a77cc9cfe69837ecef7072ff609b",
+    "d6e9b08907a2cf5d0253ad9606afc771cab82e0b",
+    "a3feba2d166b97ec22bbdc8544dd0bc7dbfae118",
+    "a48c9c2b07ab2ce6dadaeaabd68cbe49c01f2bd2",
+    "e0ee7ae49fae5bd872a73c89443fb0d4b6226b9c",
+    "79973b4929d0481cb400bb6c5becde415ab345ac",
+    "23c86281c7252f9df50e6db2d119ff0543d0bdec",
+    "9b85a87e0ac1cddce96bf5cdf3cbf0be50d15d71",
+    "287de0b18e3d4632332135bc897467481e515f9b",
+    "933b1c7a533747b0934e6380a144c3bb9f1170c6"
+   ],
+   "title": "A new pilot for the leaders' deck: rules first, checked by the engine",
+   "status": "partial"
+  },
+  {
+   "task_id": 19,
+   "component": "harness",
+   "source": "files",
+   "file_votes": {
+    "notes": 71,
+    "ship": 19,
+    "harness": 958,
+    "pilot": 15,
+    "tests": 15
+   },
+   "commits": [
+    "b529875712fee2af38d53d0199cba3cb0b08b7be",
+    "e68e8881ef8ceb2185c870986294229de4422a4b",
+    "c62644e8cdf3c05f20dfd7ccbb44b0ee4a6faa6c",
+    "bfbb7d6dfcc7081d0d1cbc09abeedc8e374d665e",
+    "ddfd91ae7330fc78dd63eddd73e758294b8bb144",
+    "12830958b2a2afc3772f8ca0d45b256b998d56f5",
+    "786cb0c6c2484a302fb9c31a4689fd7c820c2da8",
+    "dbd70d842e7d0e4c68d98bd1c49a17c32d67f7d4",
+    "9d354bc3e893495825048b84ca61265fbd27f51b",
+    "805605e9a989465dbda8fe390c6195bdc0ec8fe2",
+    "7ca6157882f07c61306ba398908e50d9cd4fcf0d",
+    "ab0cecb4b998efcdbbed86fb42614e03f42c5658",
+    "ae1058c6cdcc15a4fcd45988c31d27426bf2a7e6",
+    "1deb7daea4616d09d43631892951813245358542",
+    "547fdc8666d24ab2a83dc21ebb22b279b5a3e163",
+    "1f2ff00cbccf1e100905e906ae74b18e1137ee0d",
+    "1920107053cdda47bcd255c8ec7cbd000b3287b5",
+    "1ea698a982ba428f23ced3ab1bb015925cbaa5bf",
+    "0f18fc64682db881378f2ad908de46dab0edb96f",
+    "edcca2a0e4e1ae6f8e0f251bf24e49cd75bd2d2f",
+    "74e611b13d55d813fa653744e91cf507d4ab8306",
+    "76955d5231c61791832a0c48fc0ce99fb13588e9",
+    "ddff304ef8c1ed0e3875d52062c2772b9a453c58",
+    "1b87f1589300860057b18510c86f3cf5748cd754",
+    "b9ef15f0d30c68d81a029a40b257ff64212add14",
+    "8c3f351e612bb04e44d79770e23d5ef9336a31d1",
+    "e46fd5b65a725bc4280fde22bc4876b56f9766f9",
+    "fe3ec2ddfe5660689f50b10653a2dbb8eb317253",
+    "72fd3c8bde06c2188dbd0671a56f942d0b89cbf9",
+    "4be28c93c8844da6127055362545939c702f40cb",
+    "b00089121ee48208003a422096e014105b4bc6c7",
+    "186325bc3ff27caae2b78bf53de9220274f52583",
+    "07d81af1a6d859b0538b9bf9ee8a95acc8754d88",
+    "9ce4261ced464922f09ab2bf9a626ab17e81d940",
+    "48b51a8aa9af8e9b2b1b12ca28e4a959e81e8702",
+    "72c31b389d0bf9a93a70f776d608508c03b9a18d",
+    "38630f63d88f23536a62320bc17c648da23022ea",
+    "5b7c66601c37e11b7c48a34bbcf6f37adcc2bfcc",
+    "a543222b0630cb41a8e38aeebfb646370c7a9719",
+    "0c7882d0e083cd602ec064cadbb62eb98e0d284a",
+    "e6a721d7b439e302151691b5eb7ccf4dbdc5b485",
+    "41f2dd950a719cc520e20447bbfeef78961c04b1",
+    "0b124c0c88346639ec0be46427d03979872a8256",
+    "29af6b9030de43e133d442620327181a20090644",
+    "99cf4fa76b0c01cd33ec8405a7eecf6a591fa5ad",
+    "2512154f2923557f01195dd667424ef86ceeb365",
+    "406980e1ff433e7655d5de069a821084c50a5041",
+    "5ee63e9d6697ba721fbe87fad417a80c570dfb79",
+    "82ad5f2955b9b165ad6a1a9a6271d443ab13bf30",
+    "21e2a59ea6196310b8c47fd0425a9b03ac7f6e5a",
+    "650f96cc0d70871c8b0ceb9955c1e61dcb61392d",
+    "a251b8d9ca2e9ee8de3d4e0b3ca3efd516af9649",
+    "f253c516560f9dfa6f554accf5f02fdacb9b895e",
+    "594b71e0240859b559e1a08c9ec47ae176ebd036",
+    "7b4d9591bd93f3b55e66088ae9ab6fb13562a926",
+    "33c0a1acdeef7baddb6a9b74798790bba716efbb",
+    "70c677df0bff02b6d6eafa86c2af944ef8c53760",
+    "7cc9fca3d13907b3b19b725a017064c16a7a9992",
+    "bccd3d0d6dbb06965a9653e74c67c33ff28ec2e1",
+    "4da84c6d6da7c24382b430a1f55bba36a4718936",
+    "8befc737279996638f4c49d97b762f37e20494d6",
+    "0b8d1b3b7a12dd9c811e7f9a0a238ba6eba8c49f",
+    "b29dd4d35fc7824ecf4571e9b295b35a7676f5b5",
+    "c73c8fd6385ef07a7aaf9bbcec35c1cd3497d00c",
+    "fba32721a3b25f3b9948c3320c631642f49501b6",
+    "64f5f687698a058685f63d12434db2e2a7c37b90",
+    "cb940f9a0367d0aa70dd2ce17236640f3b25ae5c",
+    "ea6708b1c2c59d4917fd01773a5af556449b8b79",
+    "308c08dcd05928a0f723b4e5e71d0d9ce29b9216",
+    "e9f52fea786712de899b96ba32945d54817bd76f",
+    "3cfdbffd77aa345924b7b23c7bb653b02568a763",
+    "a60cd8b1126c145532d82d57322ce6e9f0d75977",
+    "cd90e3ba649c3c7582fc92ea35a61ee55b8053b0",
+    "df06d56a61639aef7a49d4f6fca0fd4e2ffd4754",
+    "1e58928b285e37f46ceb74d9b1e751e69befb3a4",
+    "79346f7a6677ba10bad17d98ec1dc00991b7a0e8"
+   ],
+   "title": "Duel and fleet screens price each rule change before it ships",
+   "status": "success"
+  },
+  {
+   "task_id": 20,
+   "component": "learned",
+   "source": "files",
+   "file_votes": {
+    "notes": 1,
+    "learned": 5
+   },
+   "commits": [
+    "7a08971395e6e66b68f7ba9f650efa551de0a4b0"
+   ],
+   "title": "Grow the replay corpus to 17 days and 5,002 leader seats",
+   "status": "success"
+  },
+  {
+   "task_id": 21,
+   "component": "deck",
+   "source": "files",
+   "file_votes": {
+    "notes": 1,
+    "deck": 5
+   },
+   "commits": [
+    "1131a29d5e356ef97b297de740807f920d35952f"
+   ],
+   "title": "Rebuild six top-band decks from the mined replays",
+   "status": "success"
+  },
+  {
+   "task_id": 22,
+   "component": "tests",
+   "source": "files",
+   "file_votes": {
+    "pilot": 50,
+    "tests": 170,
+    "harness": 32,
+    "notes": 2
+   },
+   "commits": [
+    "8d3f7b0b67eab7020d12c3a4b857b6ec0f8bdeae",
+    "b88c77036f8cee87fef0b285ea3333ec5be33873",
+    "559584832323edeedf21567fa753e04bdbad2524",
+    "9281435024adb9020c2576da6aa0861e9ded8fe3",
+    "c6bb629dc72ccd0c10b438304ecdaeacfc80621b",
+    "1804f9a620c3f6bf9638d5aab9cbd8b63244802d",
+    "d69c034604c932bb7ae5e2905e3b8c0b9c29e187",
+    "d4f41be2221cd6cdb7b653d5c337bfcdf4f16c4f",
+    "3b42d737fa9e8ef0212478db7c7b5205ea3b72b7",
+    "51a61674ad6e7efb9c478c2bcfcdde5475e5b80a",
+    "fab961820becdc40a89805370c4dda1903a5908a",
+    "3d937e315dd4043616897bb6a4498dbec8ac5d88",
+    "1f0016f781ef49ec126d799a110d012e9be41a4f",
+    "c1928654868929c1a5a008182c93e16764a80041",
+    "48340ca1b82a57bfe8ad5b38d2fd7ba19776549b"
+   ],
+   "title": "Rule fixes, each passing train and holdout checks; one is reverted",
+   "status": "success"
+  },
+  {
+   "task_id": 23,
+   "component": "ship",
+   "source": "files",
+   "file_votes": {
+    "ship": 62,
+    "notes": 9,
+    "harness": 5
+   },
+   "commits": [
+    "737428f85bacd2de924e5c17a4307e8cbfb1ec8a",
+    "ee00e557fd24e8aedbe8360e40e0bf206a2a9f55",
+    "3e9787592d1202e9b61f8326579d0f5d12a9d7df",
+    "1a913c38713c51fedc8d0e39d32b6eadbe4761a5",
+    "ff24852f6f53645000b37ed69c32263941b02efd",
+    "22f4cd2422bd6a8a12c94eff6aa126c0ce50dc5f",
+    "f40760853367bae7c618384a4507c9c628108321",
+    "d096055e9957c7edad933380de714d1eec9ccd65",
+    "57046f7da90483f79fc256208f2a360d5f1382d7",
+    "4171fe0063183127bd5e0acfc453645ecf497889",
+    "141f6f504274e3fb4c1cf4b5fbbe32ffddd36693",
+    "fcfc79dc769332422372e806a58a1ef796bd858f"
+   ],
+   "title": "Ship rail and watches: place, verify and smoke-test the final pair",
+   "status": "success"
+  },
+  {
+   "task_id": 24,
+   "component": "notes",
+   "source": "files",
+   "file_votes": {
+    "notes": 36,
+    "writeup": 12
+   },
+   "commits": [
+    "4546e7cde0fac3608eb7fb1070df69617228da07",
+    "fd6f2ce71eed7e94068d7360a5521fe4ec80305b",
+    "0a53681afb19a824d2b25de19af942b57586c3ba",
+    "67304c5d867b07a33ea37ba8b2356725c139af79",
+    "4db827447e48567a3e7c240d06847fd899528cc0",
+    "2285fa272c97060cc8ab2cc70d959cbb1b87fce2",
+    "4c22c49789939b368d44b2f0b9aad8f72be4bfb2",
+    "08bda28ad4991b2d33608678536870e41f806ea3",
+    "777e5e2dd22df7f9b844a3dd400503365a3bdc41",
+    "9ecb5b7fcdef34291453f96f1f73838966bdf970"
+   ],
+   "title": "After the contest: two explanations for the gap are tested and both fail",
+   "status": "success"
+  },
+  {
+   "task_id": 25,
+   "component": "learned",
+   "source": "files",
+   "file_votes": {
+    "notes": 1,
+    "learned": 15
+   },
+   "commits": [
+    "50190cac3446465be4be321462f062908d6c1faa"
+   ],
+   "title": "Test whether the model representation explains the gap: not supported",
+   "status": "failed"
+  },
+  {
+   "task_id": 26,
+   "component": "writeup",
+   "source": "files",
+   "file_votes": {
+    "notes": 3,
+    "writeup": 62,
+    "harness": 4
+   },
+   "commits": [
+    "6e59e4614f81f2e921b9f24f4f75238bd8e42cd9",
+    "143405f787282eb312b77dc0042deba415285ec3",
+    "154e91b0e53fcf39d9dc0f06d1863ac3470d3c1b",
+    "9021f58a4ef80d505eb460daeaa70bc6113e61ab",
+    "5d9bcc0304c4ef76a0c661b464c2a1ba1b2c2880",
+    "669eb24fa9990a80effefa0916ed05d58a555853",
+    "eba1116a72894cd610fe56373f7586e5738896da",
+    "269b8744d610ce16cfff13cb89d6399252dcc447",
+    "17661996fd1616dda3619d6b2966dacde861c084",
+    "a50ed8b622d0006e1b6382a0f2c86841011840f7",
+    "8cb8e4b1b6e54244cc4b56c955ff120481a91096",
+    "e22ca8854d636411b0deb1508bb7ec754856e959"
+   ],
+   "title": "Strategy report: drafts, the 2,000-word cap and four skeptic passes",
+   "status": "success"
+  },
+  {
+   "task_id": 27,
+   "component": "writeup",
+   "source": "files",
+   "file_votes": {
+    "writeup": 28,
+    "notes": 1,
+    "ship": 5
+   },
+   "commits": [
+    "c56a5fca112cdda4da78bf557fdba198ab174a8a",
+    "3e4c1e8a4502ee3dd496c116ddc63b3c981eef0c",
+    "c30e8792a5aa708443c3c59d10a28c14238528dc"
+   ],
+   "title": "Refresh every number in the report and split it into entry fields",
+   "status": "success"
+  }
+ ]
+}

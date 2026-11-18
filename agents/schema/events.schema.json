@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agent-deck.local/schema/events.schema.json",
+  "schema_version": "1.1",
+  "title": "Agent Deck event stream",
+  "description": "One flat event type the headset consumes (server -> headset), plus the messages the headset sends back (headset -> server). Wire format: one JSON object per line (JSONL) or per WebSocket text frame.",
+  "definitions": {
+    "status": {
+      "description": "A2A-style task state. Agent-level on kind=status; step-level on step_end/tool_result.",
+      "type": "string",
+      "enum": ["SUBMITTED", "WORKING", "INPUT_REQUIRED", "COMPLETED", "FAILED", "CANCELED"]
+    },
+    "priority": { "type": "string", "enum": ["low", "normal", "high"] },
+    "option": {
+      "type": "object",
+      "required": ["id", "label"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "gesture": {
+          "description": "Suggested hand gesture that picks this option.",
+          "type": "string",
+          "enum": ["thumbs_up", "thumbs_down", "swipe_left", "swipe_right", "pinch", "palm_open"]
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["t_ms", "agent_id", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {"type": "string", "enum": ["1.0", "1.1"]},
+        "project": {"type": "string"},
+        "project_name": {"type": "string"},
+        "decision_id": {"type": "string", "minLength": 1},
+        "recommendation": {"type": "string"},
+        "deadline_ms": {"type": "integer", "minimum": 0},
+        "blocking": {"type": "boolean"},
+        "evidence": {"type": "string"},
+        "name": {"type": "string"},
+        "value": {"type": "number"},
+        "pct": {"type": "number"},
+        "pace_pct": {"type": "number"},
+        "t_ms": { "description": "Milliseconds since run start. Non-decreasing within a stream.", "type": "integer", "minimum": 0 },
+        "run_id": { "description": "Optional run identifier; a new run_id means the headset may clear its graph.", "type": "string" },
+        "agent_id": { "description": "Stable lowercase id, e.g. researcher|builder|reviewer. 'user' for events the human caused.", "type": "string", "minLength": 1 },
+        "agent_name": { "description": "Display name; sent at least on the agent's first event.", "type": "string" },
+        "kind": {
+          "type": "string",
+          "enum": ["task_assigned", "plan", "step_start", "tool_call", "tool_result", "step_end", "status", "message", "artifact", "done", "error", "decision", "metric", "budget"]
+        },
+        "step_id": { "description": "DAG node id, unique within a run.", "type": ["string", "null"] },
+        "parent_step_id": { "description": "Tree parent (null for an agent's root step).", "type": ["string", "null"] },
+        "depends_on": { "description": "Extra DAG edges (fan-in), may cross agents. Only on step_start.", "type": "array", "items": { "type": "string" } },
+        "retry_of": { "description": "On step_start: the failed step this one retries.", "type": "string" },
+        "attempt": { "type": "integer", "minimum": 1 },
+        "title": { "description": "Short label for a panel row or graph node (<= ~60 chars).", "type": "string" },
+        "detail": { "description": "Longer free text (tool input, result excerpt, message body). May be truncated.", "type": "string" },
+        "status": { "$ref": "#/definitions/status" },
+        "tool": { "description": "Tool name on tool_call/tool_result (Read, Edit, Bash, Grep, WebSearch, ...).", "type": "string" },
+        "priority": { "$ref": "#/definitions/priority" },
+        "options": { "description": "On status=INPUT_REQUIRED: the choices offered.", "type": "array", "minItems": 1, "items": { "$ref": "#/definitions/option" } },
+        "default_option": { "description": "On status=INPUT_REQUIRED: option the scripted responder picks in replay mode.", "type": "string" },
+        "answer": { "description": "On the status=WORKING that resumes after INPUT_REQUIRED: the option chosen.", "type": "string" },
+        "plan": { "description": "On kind=plan: ordered step titles.", "type": "array", "items": { "type": "string" } }
+      },
+      "allOf": [
+        { "if": { "properties": { "kind": { "const": "step_start" } } }, "then": { "required": ["step_id", "parent_step_id", "title"], "properties": { "step_id": { "type": "string" } } } },
+        { "if": { "properties": { "kind": { "const": "step_end" } } }, "then": { "required": ["step_id", "status"], "properties": { "status": { "enum": ["COMPLETED", "FAILED", "CANCELED"] } } } },
+        { "if": { "properties": { "kind": { "enum": ["tool_call", "tool_result"] } } }, "then": { "required": ["step_id", "tool"] } },
+        { "if": { "properties": { "kind": { "const": "tool_result" } } }, "then": { "required": ["status"] } },
+        { "if": { "properties": { "kind": { "const": "status" } } }, "then": { "required": ["status"] } },
+        { "if": { "properties": { "kind": { "const": "status" }, "status": { "const": "INPUT_REQUIRED" } }, "required": ["kind", "status"] }, "then": { "required": ["step_id", "title", "options"] } },
+        { "if": { "properties": { "kind": { "const": "task_assigned" } } }, "then": { "required": ["title"] } },
+        { "if": { "properties": { "kind": { "const": "plan" } } }, "then": { "required": ["plan"] } },
+        { "if": { "properties": { "kind": { "enum": ["message", "artifact", "error"] } } }, "then": { "required": ["title"] } },
+        {"if": {"properties": {"kind": {"const": "decision"}}}, "then": {"required": ["decision_id", "title", "options", "blocking"]}},
+        {"if": {"properties": {"kind": {"const": "metric"}}}, "then": {"required": ["name", "value"]}},
+        {"if": {"properties": {"kind": {"const": "budget"}}}, "then": {"required": ["pct", "pace_pct"]}}
+      ]
+    },
+    "client_message": {
+      "description": "What the headset sends back over the same WebSocket.",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "agent_id", "task"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "task_assigned" },
+            "agent_id": { "type": "string", "minLength": 1 },
+            "task": { "type": "string", "minLength": 1 },
+            "priority": { "$ref": "#/definitions/priority" },
+            "task_id": { "type": "string" }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["kind", "agent_id", "option_id"],
+          "anyOf": [{ "required": ["step_id"] }, { "required": ["decision_id"] }],
+          "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "input_response" },
+            "agent_id": { "type": "string", "minLength": 1 },
+            "step_id": { "type": "string" },
+            "decision_id": { "type": "string", "minLength": 1 },
+            "option_id": { "type": "string" },
+            "text": { "description": "Optional free-text redirect.", "type": "string" }
+          }
+        }
+      ]
+    }
+  },
+  "$ref": "#/definitions/event"
+}

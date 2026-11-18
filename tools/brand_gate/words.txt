@@ -1,0 +1,140 @@
+# Brand gate word list (#879, rules s.4: no brand names, corporate names or recognizable branded products in the app).
+# The ONE list tools/brand_gate/gate.py reads. Plain lines match case-insensitively as whole words; a space or
+# hyphen in an entry also matches '-', '_', ' ' or nothing ("hugging face" = huggingface = hugging-face).
+# Lines starting 're:' are case-SENSITIVE regular expressions (model sizes); they are matched as whole tokens.
+# Open standards (WebXR, OpenXR, HTTP) are not vendor names and are not listed.
+# Sources: rules s.4 (.autoflow/wiki/intel.md "Branding rule"), the vendor list in intel.md, agents/bridge/src/brands.ts.
+
+# Platform, headset and engine vendors
+Meta
+Oculus
+Quest
+Horizon
+Reality Labs
+Android
+Google
+Microsoft
+Apple
+Vision Pro
+visionOS
+Samsung
+Pico
+ByteDance
+Valve
+SteamVR
+HTC
+Vive
+Unity
+Unreal
+Epic Games
+Godot
+IWSDK
+Spatial SDK
+Interaction SDK
+ISDK
+Voice SDK
+MRUK
+Presence Platform
+Jetpack
+Nvidia
+GeForce
+Qualcomm
+Snapdragon
+
+# Model vendors and model families
+Anthropic
+Claude
+Sonnet
+Opus
+OpenAI
+GPT
+ChatGPT
+Codex
+o1
+o3
+Gemini
+Gemma
+DeepMind
+Bard
+Llama
+Mistral
+Mixtral
+Qwen
+DeepSeek
+Kimi
+Moonshot
+Grok
+xAI
+Cohere
+Phi-3
+Phi-4
+Whisper
+Vosk
+Moonshine
+Kokoro
+Piper
+ElevenLabs
+Hugging Face
+Ollama
+llama.cpp
+LM Studio
+
+# Coding-agent and developer-tool vendors (and every entry of the runtime deny lists in brands.ts / windows.js)
+VS Code
+vLLM
+TodoWrite
+Haiku
+RTX
+fly.io
+itch.io
+gh-pages
+Milvus
+Qdrant
+Pinecone
+Weaviate
+Elasticsearch
+Kafka
+Snowflake
+Databricks
+pgvector
+LanceDB
+Excel
+Firefox
+Chromium
+WebKit
+GitHub
+GitLab
+Bitbucket
+Copilot
+Cursor
+Windsurf
+Devin
+Replit
+Tailscale
+ngrok
+Devpost
+Vercel
+Netlify
+Heroku
+AWS
+Azure
+GCP
+Firebase
+Supabase
+Docker
+Kubernetes
+Cloudflare
+Slack
+Discord
+Jira
+Stripe
+Datadog
+Sentry
+Redis
+Kaggle
+AIcrowd
+
+# Model sizes count as model names (#864's readers saw "31B/E4B"): 7B, 31B, 1.5B, 270M, E4B, A3B
+re:\d+(?:\.\d+)?B
+re:\d{3}M
+re:[EA]\d+B

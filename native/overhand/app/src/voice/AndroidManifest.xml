@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Debug manifest used only with -PoverhandVoice (task 736): the mic permission is declared here and
+     requested at runtime on the first hold of the mic button, the standard Android way. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+</manifest>

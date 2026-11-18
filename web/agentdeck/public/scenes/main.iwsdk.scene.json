@@ -1,0 +1,252 @@
+{
+  "version": "iwsdk.scene.v1",
+  "units": "meters",
+  "components": {
+    "com.iwsdk.components.IBLGradient": {
+      "sky": [
+        0.169,
+        0.231,
+        0.31,
+        1
+      ],
+      "equator": [
+        0.071,
+        0.102,
+        0.141,
+        1
+      ],
+      "ground": [
+        0.027,
+        0.043,
+        0.063,
+        1
+      ],
+      "intensity": 0.35
+    }
+  },
+  "environment": {
+    "toneMapping": "aces",
+    "exposure": 1.1,
+    "shadows": false,
+    "shadowMapType": "pcf"
+  },
+  "resources": {},
+  "nodes": [
+    {
+      "id": "panel-researcher",
+      "name": "Researcher Panel",
+      "content": {
+        "type": "asset",
+        "asset": "agent-panel"
+      },
+      "transform": {
+        "position": [
+          -0.25,
+          1.43,
+          -0.32
+        ],
+        "rotationDeg": [
+          -23,
+          38,
+          0
+        ],
+        "scale": 0.05
+      },
+      "components": {
+        "RayInteractable": {},
+        "PokeInteractable": {}
+      }
+    },
+    {
+      "id": "panel-builder",
+      "name": "Builder Panel",
+      "content": {
+        "type": "asset",
+        "asset": "agent-panel"
+      },
+      "transform": {
+        "position": [
+          0,
+          1.43,
+          -0.4
+        ],
+        "rotationDeg": [
+          -23,
+          0,
+          0
+        ],
+        "scale": 0.05
+      },
+      "components": {
+        "RayInteractable": {},
+        "PokeInteractable": {}
+      }
+    },
+    {
+      "id": "panel-reviewer",
+      "name": "Reviewer Panel",
+      "content": {
+        "type": "asset",
+        "asset": "agent-panel"
+      },
+      "transform": {
+        "position": [
+          0.25,
+          1.43,
+          -0.32
+        ],
+        "rotationDeg": [
+          -23,
+          -38,
+          0
+        ],
+        "scale": 0.05
+      },
+      "components": {
+        "RayInteractable": {},
+        "PokeInteractable": {}
+      }
+    },
+    {
+      "id": "task-tray",
+      "name": "Task Tray",
+      "content": {
+        "type": "asset",
+        "asset": "task-tray"
+      },
+      "transform": {
+        "position": [
+          0,
+          1.31,
+          -0.31
+        ],
+        "rotationDeg": [
+          -45,
+          0,
+          0
+        ],
+        "scale": 0.05
+      },
+      "components": {
+        "RayInteractable": {},
+        "PokeInteractable": {}
+      }
+    },
+    {
+      "id": "node-card",
+      "name": "Node Card",
+      "content": {
+        "type": "asset",
+        "asset": "node-card"
+      },
+      "transform": {
+        "position": [
+          0,
+          -50,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": 0.1
+      },
+      "components": {
+        "RayInteractable": {},
+        "PokeInteractable": {}
+      }
+    },
+    {
+      "id": "key-light",
+      "name": "Key Light",
+      "transform": {
+        "position": [
+          -2.3541,
+          11.2763,
+          1.762
+        ],
+        "rotationDeg": [
+          -73.3982,
+          -11.3134,
+          0
+        ]
+      },
+      "components": {
+        "DirectionalLight": {
+          "color": [
+            1,
+            0.851,
+            0.659,
+            1
+          ],
+          "intensity": 2.2,
+          "castShadow": false,
+          "shadowMapSize": "1024",
+          "shadowCameraSize": 6,
+          "shadowCameraNear": 2,
+          "shadowCameraFar": 24,
+          "shadowRadius": 5,
+          "shadowBias": -0.0004,
+          "shadowNormalBias": 0.02
+        }
+      }
+    },
+    {
+      "id": "fill-light",
+      "name": "Fill Light",
+      "components": {
+        "HemisphereLight": {
+          "skyColor": [
+            0.169,
+            0.231,
+            0.31,
+            1
+          ],
+          "groundColor": [
+            0.027,
+            0.043,
+            0.063,
+            1
+          ],
+          "intensity": 1.6
+        }
+      }
+    },
+    {
+      "id": "rim-light",
+      "name": "Rim Light",
+      "transform": {
+        "position": [
+          1.5,
+          2.6,
+          -4
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ]
+      },
+      "components": {
+        "DirectionalLight": {
+          "color": [
+            0.361,
+            0.882,
+            0.902,
+            1
+          ],
+          "intensity": 1.4,
+          "castShadow": false,
+          "shadowMapSize": "1024",
+          "shadowCameraSize": 6,
+          "shadowCameraNear": 2,
+          "shadowCameraFar": 24,
+          "shadowRadius": 5,
+          "shadowBias": -0.0004,
+          "shadowNormalBias": 0.02
+        }
+      }
+    }
+  ]
+}

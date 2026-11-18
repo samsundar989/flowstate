@@ -1,0 +1,113 @@
+<!--
+  Project station (#111, restyled #203 on docs/design.md s8). Placed by src/stations.ts on the
+  arc at 1.10 m (scale 0.05, pixel-size 0.005: 1 unit = 0.25 mm, 1120 units = 0.28 m) and, when
+  promoted, at 0.44 m at 0.6x scale (1 unit = 0.15 mm). Sizes by angle at 1.10 m (1 deg = 77
+  units): name 132 (1.72 deg), micro-labels 80 (1.04 deg). At 0.44 m promoted (0.6x): 2.58 / 1.56 deg.
+  Status colour from STATUS; the root border turns amber while a decision is open. The sparkline
+  is a line drawn in the bottom padding by stations.ts. Classes prefixed s-.
+-->
+<style>
+  @font-face { font-family: mono; src: url(../fonts/mono-regular.ttf); font-weight: 400; }
+  @font-face { font-family: mono; src: url(../fonts/mono-semibold.ttf); font-weight: 600; }
+  @font-face { font-family: sans; src: url(../fonts/sans-regular.ttf); font-weight: 400; }
+  @font-face { font-family: sans; src: url(../fonts/sans-semibold.ttf); font-weight: 600; }
+  .s-root {
+    pixel-size: 0.005;
+    flex-direction: column;
+    width: 1120px;
+    height: 1840px;
+    padding-top: 40px;
+    padding-bottom: 170px;
+    padding-left: 40px;
+    padding-right: 40px;
+    gap: 14px;
+    background-color: #121A24;
+    border-width: 6px;
+    border-color: #1C2836;
+    border-radius: 12px;
+  }
+  .s-name {
+    font-family: sans;
+    font-size: 132px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #E2EAF2;
+  }
+  .s-chip {
+    flex-direction: row;
+    align-self: flex-start;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-width: 4px;
+    border-radius: 6px;
+    border-color: #5CE1E6;
+    background-color: #173B47;
+  }
+  .s-status {
+    font-family: mono;
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #5CE1E6;
+  }
+  .s-row {
+    font-family: mono;
+    font-size: 80px;
+    line-height: 1.2;
+    color: #93A3B5;
+  }
+  .s-metric {
+    font-family: mono;
+    font-size: 80px;
+    line-height: 1.2;
+    color: #E2EAF2;
+  }
+  .s-gate {
+    font-family: mono;
+    font-size: 80px;
+    line-height: 1.2;
+    color: #93A3B5;
+  }
+  .s-btn {
+    flex-direction: row;
+    height: 200px;
+    margin-top: 12px;
+    align-items: center;
+    justify-content: center;
+    border-width: 4px;
+    border-radius: 10px;
+    border-color: #377D85;
+    background-color: #121A24;
+    cursor: pointer;
+  }
+  .s-btn:hover {
+    background-color: #182330;
+  }
+  .s-label {
+    font-family: mono;
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #5CE1E6;
+  }
+</style>
+<div id="station-root" class="s-root">
+  <div id="station-name" class="s-name">Project</div>
+  <div id="station-chip" class="s-chip">
+    <div id="station-status" class="s-status">WORKING</div>
+  </div>
+  <div id="station-agent-0" class="s-row">HEAD</div>
+  <div id="station-agent-1" class="s-row">WORKER</div>
+  <div id="station-agent-2" class="s-row">WORKER</div>
+  <div id="station-agent-3" class="s-row">WORKER</div>
+  <div id="station-agent-4" class="s-row">WORKER</div>
+  <div id="station-agent-5" class="s-row">WORKER</div>
+  <div id="station-metric" class="s-metric">METRIC -</div>
+  <div id="station-gate" class="s-gate">NEXT GATE -</div>
+  <div id="station-decisions" class="s-row">0 OPEN</div>
+  <div id="promote-button" class="s-btn">
+    <div id="promote-label" class="s-label">BRING HERE</div>
+  </div>
+</div>

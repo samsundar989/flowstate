@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <item type="id" name="fleet_panel" />
+  <item type="id" name="blueprint_panel" />
+  <item type="id" name="code_panel" />
+  <item type="id" name="yard_panel" />
+  <item type="id" name="chat_panel" />
+  <item type="id" name="settings_panel" />
+  <item type="id" name="settings_button_panel" />
+  <item type="id" name="dock_panel" />
+  <item type="id" name="webview" />
+  <item type="id" name="decision_panel" />
+  <item type="id" name="graph_panel" />
+  <item type="id" name="palm_menu_panel" />
+  <item type="id" name="opening_hint_panel" />
+</resources>

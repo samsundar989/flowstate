@@ -1,0 +1,110 @@
+{
+ "project": "s7e4cee9840c4ba1d",
+ "excerpts": [
+  {
+   "component": "engine",
+   "sha": "150b1dd4ba7992fa61fc5dab81d8f973ec21f5a8",
+   "path": "src/policy.py",
+   "start_line": 45,
+   "end_line": 56,
+   "text": "def configure(deck):\n    \"\"\"Tell the policy which pre-evolutions our deck can actually use.\"\"\"\n    EVOLVES_FROM_IN_DECK.clear()\n    for cid in set(deck):\n        c = CARDS.get(cid)\n        if c and c.get(\"evolvesFrom\"):\n            EVOLVES_FROM_IN_DECK.add(c[\"evolvesFrom\"])\n    if playbook is not None:\n        try:\n            playbook.configure(deck)\n        except Exception:\n            pass",
+   "sources": [
+    {
+     "repo": "cards",
+     "sha": "150b1dd4ba7992fa61fc5dab81d8f973ec21f5a8",
+     "path": "src/policy.py"
+    }
+   ]
+  },
+  {
+   "component": "deck",
+   "sha": "f41deae30c8bb3348f47c3be5aba175ae2e58a56",
+   "path": "scripts/deck_sprint.py",
+   "start_line": 56,
+   "end_line": 83,
+   "text": "def energised_fraction(deck_path, games=12):\n    \"\"\"Can this pilot actually fly this deck? Measured from the board, not from the policy.\n\n    REDEFINED 2026-08-06, because the first version did not discriminate: every candidate\n    scored 6-27 % including the one that won the pool gate at 51 %, so an 80 % bar would have\n    vetoed the whole field. Two things were wrong with it.\n\n      1. It counted from the turn an attacker first *existed*, which in a game running to\n         turn 15 is dominated by setup turns where nothing could possibly be charged. The\n         honest question is what happens *after* the attacker comes online, so the headline\n         number now starts at the turn it first reaches full attack cost.\n      2. It asked an attacker question of a **wall** deck, whose plan is not to attack at\n         all. A wall wins by standing in front of something that cannot hurt it, so it gets\n         its own number: how much of the game the wall is actually holding the Active spot.\n\n    Returns a dict, so a deck is described rather than scored out of one number:\n      online_turn   median turn the designated attacker first pays its main attack cost\n      energised     fraction of turns AFTER that, where it is still able to pay it\n      wall_uptime   (wall decks) fraction of our turns with a wall body Active\n      wall_online   (wall decks) median turn the wall is first charged\n    \"\"\"\n    import gate as G\n    import playbook\n\n    deck = [int(x) for x in open(deck_path, encoding=\"utf-8\").read().split() if x.isdigit()]\n    playbook.configure(deck)\n    is_wall = bool(playbook.DECK_WALL_IDS)\n    agent = G.bundle(\"sanity_\" + os.path.basename(deck_path)[:20], SRC, None, deck_path)",
+   "sources": [
+    {
+     "repo": "cards",
+     "sha": "f41deae30c8bb3348f47c3be5aba175ae2e58a56",
+     "path": "scripts/deck_sprint.py"
+    }
+   ]
+  },
+  {
+   "component": "harness",
+   "sha": "a543222b0630cb41a8e38aeebfb646370c7a9719",
+   "path": "scripts/leader_bench.py",
+   "start_line": 93,
+   "end_line": 115,
+   "text": "def _load_decoder():\n    \"\"\"`label`, `CTX_NAME`, `cname` from mine_divergence, then UNDO its sys.path/sys.modules edits.\n\n    mine_divergence imports `cards`, `policy`, `playbook`, `bcnet`, `bcsafety` and pushes\n    `ROOT/src` onto sys.path.  If we left that in place, an agent we load afterwards would\n    `import cards` / `import pilot` and silently get THIS REPO's copy instead of its own — the\n    module-isolation hazard `pilot_arena.py` documents in its header.  A staged build must be\n    measured as staged, so we take the decoder's function objects (which keep their own module\n    globals alive) and then restore sys.path and sys.modules to their pre-import state.\n    \"\"\"\n    path_before = list(sys.path)\n    mods_before = set(sys.modules)\n    sys.path.insert(0, os.path.join(ROOT, \"scripts\"))\n    spec = importlib.util.spec_from_file_location(\n        \"_bench_decoder\", os.path.join(ROOT, \"scripts\", \"mine_divergence.py\"))\n    mod = importlib.util.module_from_spec(spec)\n    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):\n        spec.loader.exec_module(mod)\n    for name in list(sys.modules):\n        if name not in mods_before:\n            del sys.modules[name]\n    sys.path[:] = path_before\n    return mod",
+   "sources": [
+    {
+     "repo": "cards",
+     "sha": "a543222b0630cb41a8e38aeebfb646370c7a9719",
+     "path": "scripts/leader_bench.py"
+    }
+   ]
+  },
+  {
+   "component": "learned",
+   "sha": "50190cac3446465be4be321462f062908d6c1faa",
+   "path": "src/bcfeat.py",
+   "start_line": 50,
+   "end_line": 53,
+   "text": "def _get(o, k, d=None):\n    if isinstance(o, dict):\n        return o.get(k, d)\n    return getattr(o, k, d)",
+   "sources": [
+    {
+     "repo": "cards",
+     "sha": "50190cac3446465be4be321462f062908d6c1faa",
+     "path": "src/bcfeat.py"
+    }
+   ]
+  },
+  {
+   "component": "pilot",
+   "sha": "e0ee7ae49fae5bd872a73c89443fb0d4b6226b9c",
+   "path": "src/hybrid_main.py",
+   "start_line": 112,
+   "end_line": 119,
+   "text": "def _ov_set():\n    try:\n        v = os.environ.get(\"PILOT_OV\")\n        if v is None or v == \"\":\n            v = DEFAULT_OV\n        return frozenset(x.strip() for x in v.split(\",\") if x.strip())\n    except Exception:\n        return frozenset(DEFAULT_OV.split(\",\"))",
+   "sources": [
+    {
+     "repo": "cards",
+     "sha": "e0ee7ae49fae5bd872a73c89443fb0d4b6226b9c",
+     "path": "src/hybrid_main.py"
+    }
+   ]
+  },
+  {
+   "component": "ship",
+   "sha": "3e9787592d1202e9b61f8326579d0f5d12a9d7df",
+   "path": "scripts/build_submission.py",
+   "start_line": 62,
+   "end_line": 67,
+   "text": "def _sha256(path: str) -> str:\n    h = hashlib.sha256()\n    with open(path, \"rb\") as f:\n        for chunk in iter(lambda: f.read(1 << 20), b\"\"):\n            h.update(chunk)\n    return h.hexdigest()",
+   "sources": [
+    {
+     "repo": "cards",
+     "sha": "3e9787592d1202e9b61f8326579d0f5d12a9d7df",
+     "path": "scripts/build_submission.py"
+    }
+   ]
+  },
+  {
+   "component": "writeup",
+   "sha": "3e4c1e8a4502ee3dd496c116ddc63b3c981eef0c",
+   "path": "scripts/make_figures.py",
+   "start_line": 67,
+   "end_line": 73,
+   "text": "def _clean(ax, xgrid=False, ygrid=False):\n    ax.tick_params(length=0)\n    if xgrid:\n        ax.xaxis.grid(True, color=GRID, lw=0.8)\n    if ygrid:\n        ax.yaxis.grid(True, color=GRID, lw=0.8)\n    ax.set_axisbelow(True)",
+   "sources": [
+    {
+     "repo": "cards",
+     "sha": "3e4c1e8a4502ee3dd496c116ddc63b3c981eef0c",
+     "path": "scripts/make_figures.py"
+    }
+   ]
+  }
+ ]
+}

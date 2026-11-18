@@ -1,0 +1,18 @@
+{
+  "description": "A follow-up instruction to an existing project.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "prompt",
+      "req_id": "c2",
+      "project_id": "p_hello-world-cli-prints-time",
+      "text": "also print the date"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "c2",
+      "project_id": "p_hello-world-cli-prints-time"
+    }
+  ]
+}

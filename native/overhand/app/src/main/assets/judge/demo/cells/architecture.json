@@ -1,0 +1,347 @@
+{
+ "date": "2026-09-30",
+ "projects": [
+  {
+   "id": "sfec9f6d88c8b46f6",
+   "name": "Embryo cell tracking",
+   "components": [
+    {
+     "id": "data",
+     "name": "Data and labels",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Downloads the movies and builds the training labels.",
+     "why": "",
+     "after": [],
+     "status": "built",
+     "layer": 0,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 1,
+       "status": "success"
+      },
+      {
+       "id": 16,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "detect",
+     "name": "Nucleus detector",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "A model that finds every cell nucleus in each 3D frame.",
+     "why": "",
+     "after": [
+      "data"
+     ],
+     "status": "built",
+     "layer": 1,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 7,
+       "status": "success"
+      },
+      {
+       "id": 13,
+       "status": "partial"
+      },
+      {
+       "id": 24,
+       "status": "success"
+      },
+      {
+       "id": 31,
+       "status": "partial"
+      },
+      {
+       "id": 37,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "link",
+     "name": "Linking cells across frames",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Joins the detections frame to frame into tracks, one per cell.",
+     "why": "",
+     "after": [
+      "detect"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 8,
+       "status": "success"
+      },
+      {
+       "id": 23,
+       "status": "success"
+      },
+      {
+       "id": 29,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "divisions",
+     "name": "Division detection",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Decides where a track splits in two: a classifier, a stacked scorer, a fork veto and a small image model of dividing cells.",
+     "why": "",
+     "after": [
+      "link"
+     ],
+     "status": "built",
+     "layer": 3,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 9,
+       "status": "success"
+      },
+      {
+       "id": 12,
+       "status": "success"
+      },
+      {
+       "id": 22,
+       "status": "success"
+      },
+      {
+       "id": 27,
+       "status": "success"
+      },
+      {
+       "id": 34,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "eval",
+     "name": "Local scorer and review panels",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The contest metric run locally, plus locked panels for checking precision by hand.",
+     "why": "",
+     "after": [
+      "data"
+     ],
+     "status": "built",
+     "layer": 1,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 2,
+       "status": "success"
+      },
+      {
+       "id": 17,
+       "status": "success"
+      },
+      {
+       "id": 28,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "runtime",
+     "name": "Submission pipeline",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Runs the whole chain inside the contest time limit, split over two GPUs, byte for byte repeatable.",
+     "why": "",
+     "after": [
+      "divisions"
+     ],
+     "status": "built",
+     "layer": 4,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 6,
+       "status": "success"
+      },
+      {
+       "id": 14,
+       "status": "success"
+      },
+      {
+       "id": 21,
+       "status": "success"
+      },
+      {
+       "id": 30,
+       "status": "success"
+      },
+      {
+       "id": 36,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "tests",
+     "name": "Tests and release gates",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Checks that bind each shipped package to the evidence it was chosen on.",
+     "why": "",
+     "after": [
+      "runtime"
+     ],
+     "status": "built",
+     "layer": 5,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 5,
+       "status": "success"
+      },
+      {
+       "id": 15,
+       "status": "success"
+      },
+      {
+       "id": 20,
+       "status": "success"
+      },
+      {
+       "id": 35,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "ship",
+     "name": "Leaderboard entries and certification",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Builds each entry notebook, spends the daily slots and certifies the finals.",
+     "why": "",
+     "after": [
+      "runtime",
+      "eval"
+     ],
+     "status": "built",
+     "layer": 5,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 3,
+       "status": "success"
+      },
+      {
+       "id": 11,
+       "status": "success"
+      },
+      {
+       "id": 19,
+       "status": "success"
+      },
+      {
+       "id": 26,
+       "status": "success"
+      },
+      {
+       "id": 33,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "notes",
+     "name": "Plans and ledgers",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The plan, the daily results ledger and the hand-off records.",
+     "why": "",
+     "after": [
+      "ship"
+     ],
+     "status": "built",
+     "layer": 6,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 4,
+       "status": "success"
+      },
+      {
+       "id": 10,
+       "status": "success"
+      },
+      {
+       "id": 18,
+       "status": "success"
+      },
+      {
+       "id": 25,
+       "status": "success"
+      },
+      {
+       "id": 32,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    }
+   ]
+  }
+ ]
+}

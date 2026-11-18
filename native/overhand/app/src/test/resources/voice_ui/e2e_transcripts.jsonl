@@ -1,0 +1,12 @@
+{"voice": "david", "line": "close all windows", "action": "close_all", "slot": "", "transcript": "Close all windows."}
+{"voice": "zira", "line": "close all windows", "action": "close_all", "slot": "", "transcript": "Close all windows."}
+{"voice": "synth_nano", "line": "close all windows", "action": "close_all", "slot": "", "transcript": "Close all windows,"}
+{"voice": "david", "line": "show me the architecture for this project", "action": "show_architecture", "slot": "this", "transcript": "Show me the architecture for this project."}
+{"voice": "zira", "line": "show me the architecture for this project", "action": "show_architecture", "slot": "this", "transcript": "Show me the architecture for this project."}
+{"voice": "synth_nano", "line": "show me the architecture for this project", "action": "show_architecture", "slot": "this", "transcript": "Show me the architecture for this project."}
+{"voice": "david", "line": "open project geothermal faults", "action": "open_project", "slot": "geothermal faults", "transcript": "Open project geothermal faults."}
+{"voice": "zira", "line": "open project geothermal faults", "action": "open_project", "slot": "geothermal faults", "transcript": "Open project geothermal faults."}
+{"voice": "synth_nano", "line": "open project geothermal faults", "action": "open_project", "slot": "geothermal faults", "transcript": "Open project geothermal faults,"}
+{"voice": "david", "line": "zoom into the web runtime", "action": "zoom_in", "slot": "web runtime", "transcript": "Zoom into the web runtime."}
+{"voice": "zira", "line": "zoom into the web runtime", "action": "zoom_in", "slot": "web runtime", "transcript": "Zoom into the web runtime."}
+{"voice": "synth_nano", "line": "zoom into the web runtime", "action": "zoom_in", "slot": "web runtime", "transcript": "Zoom into the web."}

@@ -1,0 +1,30 @@
+{
+  "description": "Stop a run: the whole process tree is killed.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "cancel",
+      "req_id": "c5",
+      "project_id": "p_hello-world-cli-prints-time"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "c5",
+      "project_id": "p_hello-world-cli-prints-time"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 7,
+      "at": "2026-11-13T06:30:14.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "finished",
+      "title": "Stopped",
+      "ok": false,
+      "exit_code": 1,
+      "reason": "canceled"
+    }
+  ]
+}

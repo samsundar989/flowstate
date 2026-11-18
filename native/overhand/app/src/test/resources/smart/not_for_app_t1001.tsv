@@ -1,0 +1,25 @@
+clip	split	text
+room_03	dev	We should order pizza tonight. What do you think?
+film_04	heldout	He opened the letters slowly knowing it would change everything.
+room_01	dev	I think the meeting got moved to three tomorrow.
+film_02	heldout	Millions of years ago these mountains were the floor of an ancient sea.
+room_00	heldout	Did you remember to buy milk on the way home?
+app_05	heldout	Ask me about this recorded day, for example, what needs me, what got built, what failed, or what happened overnight.
+room_06	heldout	Honestly, the weather has been awful all week.
+room_02	dev	Can you pass me the charger it is on the table?
+film_03	heldout	As winter arrives, the herd must decide where to find water.
+film_05	heldout	Scientists believe the fault line beneath the valley could shift at any moment.
+room_05	dev	The train was late again this morning, so I missed the first half.
+app_03	dev	Say yes or pinch an option.
+room_04	heldout	My brother built a treehouse last summer and it is still standing.
+app_01	dev	In this replay, agents did twenty-five tasks and three questions wait for you. Should they keep their two entries as they say, Yes, or pinch to see the options.
+film_00	heldout	In the depths of the ocean, where a single whale begins its long journey north.
+app_00	dev	In this, we play agents to twenty two tasks, and three questions block them.
+app_00	dev	Should they add laser elevation maps to find geothermal faults?
+app_00	dev	Say yes, or pinch to see the options.
+app_02	heldout	In this replay, agents did thirty seven tasks and three questions wait for you.
+app_02	heldout	Should they submit two copies of the best entry as the final pair?
+app_02	heldout	Say yes or pinch to see the options.
+app_04	dev	Saved next in their plan, the laser elevation features, asked me anything or look around.
+film_01	dev	The city never slept and needed the detective who walked its streets.
+room_07	heldout	She said the project was going fine, but the deadline is tight.

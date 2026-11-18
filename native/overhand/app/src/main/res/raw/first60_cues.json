@@ -1,0 +1,108 @@
+{
+ "voice": "Kitten nano en v0.8 int8 (sherpa-onnx), speaker 0, speed 1.0, 16 kHz (#756/#781)",
+ "sets": {
+  "day": {
+   "seconds": 11.65,
+   "ask_ends_s": 8.7,
+   "decision": {
+    "project_name": "Geothermal faults",
+    "decision_id": "16",
+    "project": "s4a3f3b09ec1c0d92",
+    "t_ms": 65177969,
+    "yes_option": "B"
+   },
+   "cues": [
+    {
+     "i": 0,
+     "start_s": 0.05,
+     "end_s": 4.41,
+     "text": "In this replay, agents did twenty two tasks, and three questions block them."
+    },
+    {
+     "i": 1,
+     "start_s": 4.69,
+     "end_s": 8.7,
+     "text": "Should they add laser elevation maps to find geothermal faults?"
+    },
+    {
+     "i": 2,
+     "start_s": 8.98,
+     "end_s": 11.37,
+     "text": "Say yes, or pinch to see the options."
+    }
+   ],
+   "then_yes": "Practice answer saved here. The recorded run keeps its original outcome. Ask me anything, or look around.",
+   "then_yes_s": 6.72
+  },
+  "cards": {
+   "seconds": 9.92,
+   "ask_ends_s": 6.98,
+   "decision": {
+    "project_name": "Card battle AI",
+    "decision_id": "3",
+    "project": "s7e4cee9840c4ba1d",
+    "t_ms": 5496720,
+    "yes_option": "A"
+   },
+   "cues": [
+    {
+     "i": 0,
+     "start_s": 0.05,
+     "end_s": 4.44,
+     "text": "In this replay, agents did twenty five tasks, and asked three questions."
+    },
+    {
+     "i": 1,
+     "start_s": 4.72,
+     "end_s": 6.98,
+     "text": "Should they keep their two entries as they are?"
+    },
+    {
+     "i": 2,
+     "start_s": 7.26,
+     "end_s": 9.64,
+     "text": "Say yes, or pinch to see the options."
+    }
+   ],
+   "then_yes": "Practice answer saved here. The recorded run keeps its original outcome. Ask me anything, or look around.",
+   "then_yes_s": 6.72
+  },
+  "cells": {
+   "seconds": 11.4,
+   "ask_ends_s": 8.46,
+   "decision": {
+    "project_name": "Embryo cell tracking",
+    "decision_id": "3",
+    "project": "sfec9f6d88c8b46f6",
+    "t_ms": 6483480,
+    "yes_option": "A"
+   },
+   "cues": [
+    {
+     "i": 0,
+     "start_s": 0.05,
+     "end_s": 4.56,
+     "text": "In this replay, agents did thirty seven tasks, and asked three questions."
+    },
+    {
+     "i": 1,
+     "start_s": 4.84,
+     "end_s": 8.46,
+     "text": "Should they submit two copies of the best entry as the final pair?"
+    },
+    {
+     "i": 2,
+     "start_s": 8.74,
+     "end_s": 11.12,
+     "text": "Say yes, or pinch to see the options."
+    }
+   ],
+   "then_yes": "Practice answer saved here. The recorded run keeps its original outcome. Ask me anything, or look around.",
+   "then_yes_s": 6.72
+  }
+ },
+ "then_no": "Practice answer saved here. The recorded run keeps its original outcome. Ask me anything, or look around.",
+ "then_no_s": 6.72,
+ "reprompt": "Say yes, or pinch an option.",
+ "reprompt_s": 2.21
+}

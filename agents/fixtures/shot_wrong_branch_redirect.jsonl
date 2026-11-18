@@ -1,0 +1,72 @@
+{"run_id":"shot_wrong_branch_redirect","t_ms":0,"agent_id":"builder","agent_name":"Builder","kind":"task_assigned","title":"Fix the retry backoff bug","priority":"normal","status":"SUBMITTED","detail":"Scripted scenario: Wrong branch, redirect (video S10)"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":400,"agent_id":"builder","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":1200,"agent_id":"builder","kind":"step_start","step_id":"builder.root","parent_step_id":null,"title":"Fix the retry backoff bug"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":1300,"agent_id":"builder","kind":"status","status":"WORKING","step_id":"builder.root","title":"Working"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":2000,"agent_id":"researcher","agent_name":"Researcher","kind":"task_assigned","title":"Find where retries are configured","priority":"normal","status":"SUBMITTED"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":2400,"agent_id":"researcher","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":2691,"agent_id":"builder","kind":"step_start","step_id":"b1","parent_step_id":"builder.root","title":"Switch to working branch"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":3200,"agent_id":"researcher","kind":"step_start","step_id":"researcher.root","parent_step_id":null,"title":"Find where retries are configured"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":3300,"agent_id":"researcher","kind":"status","status":"WORKING","step_id":"researcher.root","title":"Working"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":4000,"agent_id":"reviewer","agent_name":"Reviewer","kind":"task_assigned","title":"Triage new issues","priority":"normal","status":"SUBMITTED"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":4400,"agent_id":"reviewer","kind":"status","status":"SUBMITTED","title":"Queued"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":4708,"agent_id":"researcher","kind":"step_start","step_id":"r1","parent_step_id":"researcher.root","title":"Grep retry config"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":4790,"agent_id":"builder","kind":"plan","step_id":"b1","title":"Plan","plan":["Pick branch","Fix backoff","Test","Commit"]}
+{"run_id":"shot_wrong_branch_redirect","t_ms":5200,"agent_id":"reviewer","kind":"step_start","step_id":"reviewer.root","parent_step_id":null,"title":"Triage new issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":5300,"agent_id":"reviewer","kind":"status","status":"WORKING","step_id":"reviewer.root","title":"Working"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":6589,"agent_id":"reviewer","kind":"step_start","step_id":"v1","parent_step_id":"reviewer.root","title":"List new issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":7630,"agent_id":"builder","kind":"tool_call","step_id":"b1","tool":"Bash","title":"Bash","detail":"git switch feature/x"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":9180,"agent_id":"researcher","kind":"tool_call","step_id":"r1","tool":"Grep","title":"Grep","detail":"retry|backoff src/"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":9625,"agent_id":"builder","kind":"tool_result","step_id":"b1","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"Switched to branch 'feature/x'"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":9992,"agent_id":"reviewer","kind":"tool_call","step_id":"v1","tool":"Bash","title":"Bash","detail":"repo-cli issue list --label new"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":11286,"agent_id":"builder","kind":"step_end","step_id":"b1","status":"COMPLETED","title":"Switch to working branch"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":12812,"agent_id":"builder","kind":"step_start","step_id":"b2","parent_step_id":"b1","title":"Patch backoff on feature/x"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":13106,"agent_id":"researcher","kind":"tool_result","step_id":"r1","tool":"Grep","status":"COMPLETED","title":"Grep ok","detail":"src/net/retry.ts, src/config.ts:18"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":14299,"agent_id":"reviewer","kind":"tool_result","step_id":"v1","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"4 issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":14678,"agent_id":"researcher","kind":"step_end","step_id":"r1","status":"COMPLETED","title":"Grep retry config"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":16051,"agent_id":"researcher","kind":"step_start","step_id":"r2","parent_step_id":"r1","title":"Read config"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":16052,"agent_id":"reviewer","kind":"step_end","step_id":"v1","status":"COMPLETED","title":"List new issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":17108,"agent_id":"builder","kind":"tool_call","step_id":"b2","tool":"Read","title":"Read","detail":"src/net/retry.ts"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":17420,"agent_id":"reviewer","kind":"step_start","step_id":"v2","parent_step_id":"v1","title":"Label issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":20541,"agent_id":"builder","kind":"tool_result","step_id":"b2","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"delay = base * attempt (linear)"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":21427,"agent_id":"researcher","kind":"tool_call","step_id":"r2","tool":"Read","title":"Read","detail":"src/config.ts"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":21716,"agent_id":"builder","kind":"tool_call","step_id":"b2","tool":"Bash","title":"Bash","detail":"git status -sb"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":23478,"agent_id":"builder","kind":"tool_result","step_id":"b2","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"## feature/x...origin/feature/x [behind 41]"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":24107,"agent_id":"researcher","kind":"tool_result","step_id":"r2","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"retries: 5, base_ms: 200"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":24854,"agent_id":"builder","kind":"status","status":"INPUT_REQUIRED","step_id":"b2","title":"feature/x is 41 commits behind main. Continue on feature/x?","options":[{"id":"continue","label":"Continue on feature/x","gesture":"thumbs_up"},{"id":"stop","label":"No, start from main","gesture":"thumbs_down"}],"default_option":"stop"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":26402,"agent_id":"reviewer","kind":"tool_call","step_id":"v2","tool":"Bash","title":"Bash","detail":"repo-cli issue edit 211 212 --add-label bug"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":27363,"agent_id":"researcher","kind":"message","step_id":"r2","title":"Retries live in src/net/retry","detail":"Retries live in src/net/retry.ts; base 200 ms, 5 attempts."}
+{"run_id":"shot_wrong_branch_redirect","t_ms":27824,"agent_id":"researcher","kind":"step_end","step_id":"r2","status":"COMPLETED","title":"Read config"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":29870,"agent_id":"researcher","kind":"step_end","step_id":"researcher.root","status":"COMPLETED","title":"Find where retries are configured"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":30070,"agent_id":"researcher","kind":"done","step_id":"researcher.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":30170,"agent_id":"researcher","kind":"status","status":"COMPLETED","title":"Completed"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":30318,"agent_id":"reviewer","kind":"tool_result","step_id":"v2","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"labelled 2 issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":32049,"agent_id":"reviewer","kind":"step_end","step_id":"v2","status":"COMPLETED","title":"Label issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":32149,"agent_id":"builder","kind":"status","status":"WORKING","step_id":"b2","title":"User chose: No, start from main","answer":"stop"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":34167,"agent_id":"reviewer","kind":"step_end","step_id":"reviewer.root","status":"COMPLETED","title":"Triage new issues"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":34367,"agent_id":"reviewer","kind":"done","step_id":"reviewer.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":34467,"agent_id":"reviewer","kind":"status","status":"COMPLETED","title":"Completed"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":34544,"agent_id":"builder","kind":"step_end","step_id":"b2","status":"CANCELED","title":"Patch backoff on feature/x"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":34844,"agent_id":"builder","kind":"status","status":"CANCELED","step_id":"b2","title":"Stopped: Patch backoff on feature/x"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":36529,"agent_id":"builder","kind":"status","status":"WORKING","step_id":"builder.root","title":"Restarting"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":38118,"agent_id":"builder","kind":"step_start","step_id":"b3","parent_step_id":"builder.root","title":"Restart from main on fix/retry-backoff"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":40227,"agent_id":"builder","kind":"tool_call","step_id":"b3","tool":"Bash","title":"Bash","detail":"git switch -c fix/retry-backoff main"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":42305,"agent_id":"builder","kind":"tool_result","step_id":"b3","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"Switched to a new branch 'fix/retry-backoff'"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":44126,"agent_id":"builder","kind":"step_end","step_id":"b3","status":"COMPLETED","title":"Restart from main on fix/retry-backoff"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":45707,"agent_id":"builder","kind":"step_start","step_id":"b4","parent_step_id":"b3","title":"Fix backoff"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":51361,"agent_id":"builder","kind":"tool_call","step_id":"b4","tool":"Read","title":"Read","detail":"src/net/retry.ts"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":54196,"agent_id":"builder","kind":"tool_result","step_id":"b4","tool":"Read","status":"COMPLETED","title":"Read ok","detail":"delay = base * attempt (linear)"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":55536,"agent_id":"builder","kind":"tool_call","step_id":"b4","tool":"Edit","title":"Edit","detail":"src/net/retry.ts"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":59275,"agent_id":"builder","kind":"tool_result","step_id":"b4","tool":"Edit","status":"COMPLETED","title":"Edit ok","detail":"delay = base * 2 ** attempt + jitter"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":60834,"agent_id":"builder","kind":"step_end","step_id":"b4","status":"COMPLETED","title":"Fix backoff"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":62234,"agent_id":"builder","kind":"step_start","step_id":"b5","parent_step_id":"b4","title":"Run tests"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":64423,"agent_id":"builder","kind":"tool_call","step_id":"b5","tool":"Bash","title":"Bash","detail":"npm test -- retry"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":74022,"agent_id":"builder","kind":"tool_result","step_id":"b5","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"11 passed"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":75739,"agent_id":"builder","kind":"step_end","step_id":"b5","status":"COMPLETED","title":"Run tests"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":77114,"agent_id":"builder","kind":"step_start","step_id":"b6","parent_step_id":"b5","title":"Commit"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":80225,"agent_id":"builder","kind":"tool_call","step_id":"b6","tool":"Bash","title":"Bash","detail":"git commit -am 'Exponential retry backoff'"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":82247,"agent_id":"builder","kind":"tool_result","step_id":"b6","tool":"Bash","status":"COMPLETED","title":"Bash ok","detail":"[fix/retry-backoff 5e7c210] 2 files changed"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":84469,"agent_id":"builder","kind":"artifact","step_id":"b6","title":"commit 5e7c210"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":84910,"agent_id":"builder","kind":"step_end","step_id":"b6","status":"COMPLETED","title":"Commit"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":87163,"agent_id":"builder","kind":"step_end","step_id":"builder.root","status":"COMPLETED","title":"Fix the retry backoff bug"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":87363,"agent_id":"builder","kind":"done","step_id":"builder.root","status":"COMPLETED","title":"Done"}
+{"run_id":"shot_wrong_branch_redirect","t_ms":87463,"agent_id":"builder","kind":"status","status":"COMPLETED","title":"Completed"}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- look_nov17 s2 Controls: icon button, round 72 dp, edge white 22%, no fill; pointed at cyan edge; pressed cyan 28% (Dock.dc.html .ic). Selected = the open window (s5 Dock, cyan 16%). -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_enabled="false"><shape android:shape="oval"><solid android:color="@android:color/transparent"/><stroke android:width="2dp" android:color="@color/fs_edge"/><size android:width="72dp" android:height="72dp"/></shape></item>
+  <item android:state_pressed="true"><shape android:shape="oval"><solid android:color="@color/fs_cyan_28"/><stroke android:width="2dp" android:color="@color/fs_cyan"/><size android:width="72dp" android:height="72dp"/></shape></item>
+  <item android:state_hovered="true"><shape android:shape="oval"><solid android:color="@android:color/transparent"/><stroke android:width="2dp" android:color="@color/fs_cyan"/><size android:width="72dp" android:height="72dp"/></shape></item>
+  <item android:state_selected="true"><shape android:shape="oval"><solid android:color="@color/fs_cyan_16"/><stroke android:width="2dp" android:color="@color/fs_cyan"/><size android:width="72dp" android:height="72dp"/></shape></item>
+  <item android:state_activated="true"><shape android:shape="oval"><solid android:color="@color/fs_cyan_16"/><stroke android:width="2dp" android:color="@color/fs_cyan"/><size android:width="72dp" android:height="72dp"/></shape></item>
+  <item><shape android:shape="oval"><solid android:color="@android:color/transparent"/><stroke android:width="2dp" android:color="@color/fs_control_edge"/><size android:width="72dp" android:height="72dp"/></shape></item>
+</selector>

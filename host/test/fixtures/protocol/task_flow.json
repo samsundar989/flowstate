@@ -1,0 +1,382 @@
+{
+  "description": "Recorded from a real offline host run. New project by voice -> task t1 queued/running -> the agent asks (question with options, allow_text) -> needs_answer -> answer -> answered -> the same agent session resumes -> finished (merged into main, commit) -> done. Then a second task in the same project by `prompt`, cancelled with `task_id` while writing: its worktree is kept and named. An answer may also be free text: {\"type\":\"answer\",\"req_id\":\"a2\",\"decision_id\":\"q_t1_1\",\"text\":\"Python, please\"}.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "resume",
+      "device_id": "d_3f9a1c2b7e4d",
+      "device_secret": "<device_secret>",
+      "last_seq": 0
+    },
+    {
+      "dir": "h2c",
+      "type": "welcome",
+      "host_name": "example-pc",
+      "head_seq": 0,
+      "open_decisions": [],
+      "projects": []
+    },
+    {
+      "dir": "c2h",
+      "type": "create_project",
+      "req_id": "c1",
+      "prompt": "new project: a hello-world CLI that prints the time. Ask me which language before writing.",
+      "name": "time cli"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 1,
+      "at": "2026-11-13T06:56:55.231Z",
+      "project_id": "p_time-cli",
+      "kind": "project_created",
+      "title": "New project: time cli",
+      "name": "time cli"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 2,
+      "at": "2026-11-13T06:56:55.241Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "queued",
+      "title": "a hello-world CLI that prints the time. Ask me which language before writing."
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "c1",
+      "project_id": "p_time-cli",
+      "task_id": "t1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 3,
+      "at": "2026-11-13T06:56:55.410Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "running",
+      "title": "Working"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 4,
+      "at": "2026-11-13T06:56:55.680Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_16245e8c",
+      "kind": "started",
+      "title": "Agent started"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 5,
+      "at": "2026-11-13T06:56:56.160Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_16245e8c",
+      "kind": "question",
+      "title": "Which language should the CLI be written in?",
+      "decision_id": "q_t1_1",
+      "options": [
+        {
+          "id": "o1",
+          "label": "Python"
+        },
+        {
+          "id": "o2",
+          "label": "JavaScript (Node)"
+        },
+        {
+          "id": "o3",
+          "label": "Go"
+        }
+      ],
+      "allow_text": true
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 6,
+      "at": "2026-11-13T06:56:56.160Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "needs_answer",
+      "title": "Waiting for your answer"
+    },
+    {
+      "dir": "c2h",
+      "type": "answer",
+      "req_id": "a1",
+      "decision_id": "q_t1_1",
+      "option_id": "o1"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "a1",
+      "project_id": "p_time-cli",
+      "task_id": "t1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 7,
+      "at": "2026-11-13T06:56:56.163Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_16245e8c",
+      "kind": "answered",
+      "title": "You said: Python",
+      "decision_id": "q_t1_1",
+      "option_id": "o1"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 8,
+      "at": "2026-11-13T06:56:56.166Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "running",
+      "title": "Resumed with your answer"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 9,
+      "at": "2026-11-13T06:56:56.441Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_ac17123e",
+      "kind": "started",
+      "title": "Agent resumed"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 10,
+      "at": "2026-11-13T06:56:56.753Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_ac17123e",
+      "kind": "message",
+      "title": "Writing it in Python as you chose.",
+      "detail": "Writing it in Python as you chose."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 11,
+      "at": "2026-11-13T06:56:56.907Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_ac17123e",
+      "kind": "file_written",
+      "title": "Wrote hello.py",
+      "path": "hello.py"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 12,
+      "at": "2026-11-13T06:56:57.063Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_ac17123e",
+      "kind": "command_run",
+      "title": "Ran python hello.py",
+      "command": "python hello.py"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 13,
+      "at": "2026-11-13T06:56:57.373Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_ac17123e",
+      "kind": "message",
+      "title": "Wrote hello.py, which prints the time.",
+      "detail": "Wrote hello.py, which prints the time."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 14,
+      "at": "2026-11-13T06:56:58.175Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "run_id": "r_ac17123e",
+      "kind": "finished",
+      "title": "Finished and saved",
+      "ok": true,
+      "exit_code": 0,
+      "merged": true,
+      "branch": "task/t1",
+      "commit": "1cc1130",
+      "files": [
+        "hello.py"
+      ]
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 15,
+      "at": "2026-11-13T06:56:58.175Z",
+      "project_id": "p_time-cli",
+      "task_id": "t1",
+      "kind": "task_state",
+      "state": "done",
+      "title": "Done",
+      "commit": "1cc1130"
+    },
+    {
+      "dir": "c2h",
+      "type": "prompt",
+      "req_id": "c2",
+      "project_id": "p_time-cli",
+      "text": "add a second clock module"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 16,
+      "at": "2026-11-13T06:56:58.177Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "kind": "task_state",
+      "state": "queued",
+      "title": "add a second clock module"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "c2",
+      "project_id": "p_time-cli",
+      "task_id": "t2"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 17,
+      "at": "2026-11-13T06:56:58.351Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "kind": "task_state",
+      "state": "running",
+      "title": "Working"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 18,
+      "at": "2026-11-13T06:56:58.584Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "run_id": "r_6db89c9a",
+      "kind": "started",
+      "title": "Agent started"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 19,
+      "at": "2026-11-13T06:56:58.895Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "run_id": "r_6db89c9a",
+      "kind": "message",
+      "title": "Building a small time CLI in three files.",
+      "detail": "Building a small time CLI in three files."
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 20,
+      "at": "2026-11-13T06:56:59.052Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "run_id": "r_6db89c9a",
+      "kind": "file_written",
+      "title": "Wrote clock.js",
+      "path": "clock.js"
+    },
+    {
+      "dir": "c2h",
+      "type": "cancel",
+      "req_id": "k1",
+      "project_id": "p_time-cli",
+      "task_id": "t2"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "k1",
+      "project_id": "p_time-cli",
+      "task_id": "t2"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 21,
+      "at": "2026-11-13T06:56:59.382Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "run_id": "r_6db89c9a",
+      "kind": "file_written",
+      "title": "Wrote main.js",
+      "path": "main.js"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 22,
+      "at": "2026-11-13T06:56:59.383Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "run_id": "r_6db89c9a",
+      "kind": "file_written",
+      "title": "Wrote package.json",
+      "path": "package.json"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 23,
+      "at": "2026-11-13T06:56:59.386Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "run_id": "r_6db89c9a",
+      "kind": "finished",
+      "title": "Stopped",
+      "ok": false,
+      "exit_code": null,
+      "reason": "canceled",
+      "merged": false,
+      "branch": "task/t2",
+      "worktree": ".worktrees/t2"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 24,
+      "at": "2026-11-13T06:56:59.386Z",
+      "project_id": "p_time-cli",
+      "task_id": "t2",
+      "kind": "task_state",
+      "state": "cancelled",
+      "title": "Stopped",
+      "worktree": ".worktrees/t2",
+      "reason": "canceled"
+    }
+  ]
+}

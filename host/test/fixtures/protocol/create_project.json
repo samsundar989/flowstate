@@ -1,0 +1,28 @@
+{
+  "description": "Start a new project by voice; the host answers ok with the project id, then events follow.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "create_project",
+      "req_id": "c1",
+      "prompt": "new project: a hello-world CLI that prints the time",
+      "agent": "auto"
+    },
+    {
+      "dir": "h2c",
+      "type": "ok",
+      "req_id": "c1",
+      "project_id": "p_hello-world-cli-prints-time"
+    },
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 1,
+      "at": "2026-11-13T06:30:01.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "started",
+      "title": "Agent started"
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+{
+ "date": "2026-09-30",
+ "projects": [
+  {
+   "id": "s8a85fea7733bdaab",
+   "name": "Farm economy AI",
+   "components": [
+    {
+     "id": "engine",
+     "name": "Game engine port and search",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "A fast copy of the official game engine, checked against it, plus searches over how a game could continue.",
+     "why": "",
+     "after": [],
+     "status": "built",
+     "layer": 0,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 10,
+       "status": "success"
+      },
+      {
+       "id": 17,
+       "status": "success"
+      },
+      {
+       "id": 26,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "eval",
+     "name": "Local league and opponent panels",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Plays candidates against fixed panels of public opponents, in both seats, on the same seeds.",
+     "why": "",
+     "after": [
+      "engine"
+     ],
+     "status": "built",
+     "layer": 1,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 2,
+       "status": "success"
+      },
+      {
+       "id": 7,
+       "status": "success"
+      },
+      {
+       "id": 14,
+       "status": "success"
+      },
+      {
+       "id": 21,
+       "status": "success"
+      },
+      {
+       "id": 32,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "strategy",
+     "name": "Route and policy builds",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The agent builds: routes, planting and selling rules, each arm declared before it is measured.",
+     "why": "",
+     "after": [
+      "engine"
+     ],
+     "status": "built",
+     "layer": 1,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 4,
+       "status": "success"
+      },
+      {
+       "id": 6,
+       "status": "partial"
+      },
+      {
+       "id": 15,
+       "status": "partial"
+      },
+      {
+       "id": 22,
+       "status": "success"
+      },
+      {
+       "id": 30,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "runtime",
+     "name": "Own runtime economy",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Our own planner and executor: a daily program of targets and a crew that carries it out.",
+     "why": "",
+     "after": [
+      "engine",
+      "strategy"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 12,
+       "status": "success"
+      },
+      {
+       "id": 19,
+       "status": "success"
+      },
+      {
+       "id": 27,
+       "status": "partial"
+      },
+      {
+       "id": 33,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "learned",
+     "name": "Imitation from replays",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "A model cloned from a strong player's games, and the harness it runs in.",
+     "why": "",
+     "after": [
+      "eval"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 3,
+       "status": "success"
+      },
+      {
+       "id": 11,
+       "status": "success"
+      },
+      {
+       "id": 25,
+       "status": "failed"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "tests",
+     "name": "Tests and engine checks",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The fast check suite, the exact engine port tests and the transaction ledger.",
+     "why": "",
+     "after": [
+      "strategy"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 9,
+       "status": "success"
+      },
+      {
+       "id": 18,
+       "status": "success"
+      },
+      {
+       "id": 24,
+       "status": "success"
+      },
+      {
+       "id": 28,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "ship",
+     "name": "Entries, preflight and provenance",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "Builds each entry, times it under the contest limits, uploads it and records where every number came from.",
+     "why": "",
+     "after": [
+      "strategy",
+      "eval"
+     ],
+     "status": "built",
+     "layer": 2,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 8,
+       "status": "success"
+      },
+      {
+       "id": 16,
+       "status": "success"
+      },
+      {
+       "id": 23,
+       "status": "partial"
+      },
+      {
+       "id": 31,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    },
+    {
+     "id": "notes",
+     "name": "Ledger and plans",
+     "short": "",
+     "kind": "",
+     "technique": "",
+     "desc": "The one-row experiment ledger, the state page, plans, kickoffs and worker packets.",
+     "why": "",
+     "after": [
+      "ship"
+     ],
+     "status": "built",
+     "layer": 3,
+     "shown": "built",
+     "pct": 1.0,
+     "tasks": [
+      {
+       "id": 1,
+       "status": "success"
+      },
+      {
+       "id": 5,
+       "status": "success"
+      },
+      {
+       "id": 13,
+       "status": "success"
+      },
+      {
+       "id": 20,
+       "status": "success"
+      },
+      {
+       "id": 29,
+       "status": "success"
+      }
+     ],
+     "sources": {
+      "membership": "membership.json (file votes per task); path rules in tools/demo_projects/extract.py"
+     }
+    }
+   ]
+  }
+ ]
+}

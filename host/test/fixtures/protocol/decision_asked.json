@@ -1,0 +1,26 @@
+{
+  "description": "The agent asks permission; the host turns it into a question with Yes/No.",
+  "frames": [
+    {
+      "dir": "h2c",
+      "type": "event",
+      "seq": 5,
+      "at": "2026-11-13T06:30:09.000Z",
+      "project_id": "p_hello-world-cli-prints-time",
+      "run_id": "r_1f2e3d4c",
+      "kind": "question",
+      "title": "Allow running node hello.js?",
+      "decision_id": "perm-7c1d",
+      "options": [
+        {
+          "id": "allow",
+          "label": "Yes"
+        },
+        {
+          "id": "deny",
+          "label": "No"
+        }
+      ]
+    }
+  ]
+}

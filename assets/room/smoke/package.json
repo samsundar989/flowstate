@@ -1,0 +1,7 @@
+{
+  "name": "room-smoke",
+  "private": true,
+  "type": "module",
+  "scripts": { "stats": "node room_stats.mjs" },
+  "dependencies": { "three": "0.170.0" }
+}

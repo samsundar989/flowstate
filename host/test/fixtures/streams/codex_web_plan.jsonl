@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"0b5e2c8a-2222-7000-8000-00000000b001"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"status\":\"question\",\"summary\":\"A tap counter with a big tap button and a reset.\",\"question\":\"Which color theme should it use?\",\"options\":[\"Dark\",\"Light\",\"Ocean\"],\"parts\":[{\"id\":\"layout\",\"name\":\"Page layout\",\"files\":[\"index.html\"]},{\"id\":\"look\",\"name\":\"Colors and type\",\"files\":[\"style.css\"]},{\"id\":\"counter\",\"name\":\"Tap counter\",\"files\":[\"app.js\"]},{\"id\":\"reset\",\"name\":\"Reset button\",\"files\":[\"app.js\",\"index.html\"]}]}"}}
+{"type":"turn.completed","usage":{"input_tokens":1,"output_tokens":1}}

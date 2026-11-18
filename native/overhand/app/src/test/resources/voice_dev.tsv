@@ -1,0 +1,73 @@
+question	label	source
+what did you guys build	built	dev
+what did the robots get done today	built	dev
+what was added this morning	built	dev
+tell me what the agents finished	built	dev
+what has been implemented so far	built	dev
+what is new	built	dev
+new stuff	built	dev
+what did they complete	built	dev
+what did the workers ship today	built	dev
+what was accomplished tonight	built	dev
+what got merged	built	dev
+which features are done	built	dev
+what was build today	built	asr
+what did they implements	built	asr
+what still needs doing	now|needs_me	dev
+what is waiting on me	needs_me	dev
+do they need anything from me	needs_me	dev
+is there a decision for me	needs_me	dev
+what should I do now	needs_me	dev
+my turn	needs_me	dev
+did something go wrong	failed	dev
+was there an error	failed	dev
+which tasks failed	failed	dev
+is something not working	failed	dev
+anything broken	failed	dev
+any bugs	failed	dev
+what is stuck	failed	dev
+which project is ahead	furthest	dev
+who is leading	furthest	dev
+what project is nearly done	furthest	dev
+what is most at risk	risk	dev
+what worries you	risk	dev
+which project is weakest	risk	dev
+what happened in the night	overnight	dev
+when did they begin	overnight	dev
+how long did it all take	overnight	dev
+what is happening right now	now	dev
+what are they busy with	now	dev
+what is being worked on	now	dev
+how many agents are there	agents	dev
+who are the workers	agents	dev
+who is the chief	agents	dev
+what is going on here	overview	dev
+can you sum up the day	overview	dev
+explain this to me	overview	dev
+why did they pick that	why	dev
+what do they recommend	why	dev
+what is the geothermal project	geothermal	dev
+tell me about the faults	geothermal	dev
+when is the headset project due	headset	dev
+what is this app	headset|overview	dev
+tell me about the agent challenge	agent_challenge	dev
+what does blue mean	graph	dev
+what are these nodes	graph	dev
+is any of this fake	real	dev
+is this real data	real	dev
+are you online	voice_how	dev
+can you hear me	voice_how	dev
+take me to my room	places	dev
+what can I ask	help	dev
+how do I use this	help	dev
+what is the weather tomorrow	out_of_scope	dev
+sing me a song	out_of_scope	dev
+what is your favourite color	out_of_scope	dev
+how far is the sun	out_of_scope	dev
+book a flight	out_of_scope	dev
+who is the president	out_of_scope	dev
+what day is it	out_of_scope	dev
+new project a calculator app	out_of_scope	dev
+um	out_of_scope	dev
+thank you	out_of_scope	dev
+hello	out_of_scope	dev

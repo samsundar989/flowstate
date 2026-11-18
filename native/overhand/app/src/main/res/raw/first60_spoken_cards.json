@@ -1,0 +1,45 @@
+{
+ "_about": "Hand-written spoken lines for the cards the greeting can lead with (task #781). Keyed by project_name#decision_id. Each restates the recorded card (agents/fixtures/recorded_cards.json, demo day.jsonl) in words a stranger hears once; yes_option is the option a spoken 'yes' picks, always the card's own recommendation. question (t873): the one yes/no sentence the short greeting asks, naming the topic and the recommendation.",
+ "cards": {
+  "Geothermal faults#16": {
+   "topic": "how to map geothermal faults.",
+   "pick": "The agents recommend adding laser elevation maps.",
+   "ask": "Do you agree?",
+   "yes_option": "B",
+   "then": "Practice answer saved here. The recorded run keeps its original outcome.",
+   "question": "Should they add laser elevation maps to find geothermal faults?"
+  },
+  "Agent challenge#17": {
+   "topic": "which direction to take in the coding agent challenge.",
+   "pick": "The agents recommend adding a small-model entry for the bonus.",
+   "ask": "Do you agree?",
+   "yes_option": "C",
+   "then": "Practice answer saved here. The recorded run keeps its original outcome.",
+   "question": "Should they add a small-model entry for the coding agent challenge bonus?"
+  },
+  "Headset competition#18": {
+   "topic": "which app to build for the headset competition.",
+   "pick": "The agents recommend this app, the one you are in.",
+   "ask": "Do you agree?",
+   "yes_option": "A",
+   "then": "Practice answer saved here. The recorded run keeps its original outcome.",
+   "question": "Should they build this app, the one you are in, for the headset competition?"
+  },
+  "Card battle AI#3": {
+   "topic": "whether to re-enter the weaker entry, for a luckier rating.",
+   "pick": "The agents recommend holding the pair.",
+   "ask": "Hold the pair?",
+   "yes_option": "A",
+   "then": "Practice answer saved here. The recorded run keeps its original outcome.",
+   "question": "Should they keep their two entries as they are?"
+  },
+  "Embryo cell tracking#3": {
+   "topic": "which final pair of entries to submit.",
+   "pick": "The agents recommend two copies of the best entry.",
+   "ask": "Do you agree?",
+   "yes_option": "A",
+   "then": "Practice answer saved here. The recorded run keeps its original outcome.",
+   "question": "Should they submit two copies of the best entry as the final pair?"
+  }
+ }
+}

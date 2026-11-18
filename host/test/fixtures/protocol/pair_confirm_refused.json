@@ -1,0 +1,36 @@
+{
+  "description": "The person at the computer typed n (or 120 s passed, or another request was waiting). Nothing is issued.",
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "pair_request",
+      "device_pub": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZeeEYAomfz4W1b0wPD7qmiURjxmnWFiHcXrkBMKHfnhhuXP9SaySDbpc_8pomJlzTRc1oDh_3UVcLcZ6x6l53w",
+      "device_name": "Headset"
+    },
+    {
+      "dir": "h2c",
+      "type": "pair_commit",
+      "c": "58102edfb787ebd589dc6fc0873137f5ba4a5040f10bbce9bfb2de98a3331c13"
+    },
+    {
+      "dir": "c2h",
+      "type": "pair_nonce",
+      "nonce": "Rml4dHVyZS1oZWFkc2V0MQ"
+    },
+    {
+      "dir": "h2c",
+      "type": "pair_reveal",
+      "nonce": "Rm9yLWZpeHR1cmUtaG9zdA"
+    },
+    {
+      "dir": "h2c",
+      "type": "pair_pending",
+      "digits_hint": "none"
+    },
+    {
+      "dir": "h2c",
+      "type": "pair_refused",
+      "reason": "declined"
+    }
+  ]
+}

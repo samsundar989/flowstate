@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Dev only: the dashboard is served over plain http from the PC (adb reverse to 127.0.0.1, or the LAN). -->
+<network-security-config>
+  <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

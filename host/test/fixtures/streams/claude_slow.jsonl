@@ -1,0 +1,25 @@
+{"type": "system", "subtype": "init", "cwd": "{{CWD}}", "session_id": "00000000-1052-4000-8000-000000000001", "tools": ["Bash", "Write"], "model": "(model)"}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "tool_use", "id": "w1", "name": "Write", "input": {"file_path": "index.html", "content": "<!doctype html><title>Tap</title><p id=s>0</p><button onclick=\"s.textContent=+s.textContent+1\">Tap</button>"}}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "user", "message": {"role": "user", "content": [{"tool_use_id": "w1", "type": "tool_result", "content": "File created", "is_error": false}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 1 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 2 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 3 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 4 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 5 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 6 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 7 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 8 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 9 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"_sleep_ms": 200}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "Still working, step 10 of 10."}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "assistant", "message": {"role": "assistant", "content": [{"type": "text", "text": "{\"status\": \"done\", \"summary\": \"Built a tap counter.\", \"question\": \"\", \"options\": [], \"parts\": []}"}]}, "session_id": "00000000-1052-4000-8000-000000000001"}
+{"type": "result", "subtype": "success", "is_error": false, "result": "{\"status\": \"done\", \"summary\": \"Built a tap counter.\", \"question\": \"\", \"options\": [], \"parts\": []}", "session_id": "00000000-1052-4000-8000-000000000001"}

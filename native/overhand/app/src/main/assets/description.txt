@@ -1,0 +1,17 @@
+Inspiration
+
+Autonomous agents can keep moving while their operator is away, but supervising several projects still means searching through windows, logs, and notifications. Flowstate starts from a different question: what would a useful morning with an agent portfolio feel like in a headset? The goal is to see what changed, find the work that needs judgment, and give an answer without losing the surrounding context. We wanted a place to return to, where projects have recognizable positions and the operator remains responsible for consequential choices.
+
+Flowstate is a native spatial workspace for supervising real agent projects through autoflow. Fleet shows the portfolio, project stations identify work that needs attention, and shared windows provide the project's plan, code, build history, and conversation. A native decision card presents the question, options, and recommendation. The operator can select an option and confirm it by pinch, or use a held thumbs gesture. The answer goes back to the server, and the card reports whether the server acknowledged it. A failed connection leaves the decision pending instead of inventing a successful outcome.
+
+How it was built
+
+The application uses Kotlin, native platform views, and a spatial entity system. Dashboard windows are embedded browser surfaces connected to the existing server rather than a second copy of the project database. One dashboard window stays live while background windows retain snapshots; focusing a window reloads its current content. Window poses and sizes are saved locally. Project stations give each project a stable place, and focusing a station moves the shared workspace into that project's context.
+
+The architecture view turns a project's code map into a three dimensional graph with native labels and selection. The decision adapter reads current questions and sends the original option text to the server. A geometric hand recognizer checks finger joints, direction, hold time, release, and cooldown before firing. A separate practice mode measures recognition without sending live answers. When room data is available, the workspace can use passthrough and desk placement; when it is unavailable or permission is denied, a virtual room remains available.
+
+We built host tests for geometry, saved placement, project attention rules, hand recognition, display copy, and launch accounting. Host evidence is useful for catching regressions, but it cannot establish headset comfort, real hand accuracy, or readable motion. Those claims require device recordings and a worn session. The launch trace records a monotonic native draw milestone so a capture can relate startup to visible content; it does not substitute for inspecting the capture itself.
+
+Future plans
+
+The next step is a real morning across several projects, with measured decision completion time, recognition accuracy, and frame rate. We plan to use those observations to tune placement, text size, feedback, and recovery before expanding the workspace. Further work includes clearer progress summaries and a replay of overnight changes. Persistent room placement and the graph need further device validation. The ambition is practical: let an operator return, understand the portfolio, make the decisions only they can make, and leave the agents with clear direction.

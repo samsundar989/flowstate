@@ -1,0 +1,332 @@
+{
+  "_about": "Hand-written display copy for the recorded day (task #748). Each card restates what was really asked on Nov 3, with brands, links, paths and private names removed by rewriting, never by machine redaction. Option ids, default_option, timing and answers stay as recorded (R166), except decision 9, whose single option 'done,later,question' was three reply words joined by commas and is split here. Applied in place by tools/recorded_cards/apply.py and on re-record by agents/bridge/src/autoflow_day.ts; tools/recorded_cards/gate.py fails the build if any displayed recorded string reads like machine redaction.",
+  "cards": {
+    "1": {
+      "title": "Are you a member of the headset maker's developer program, and which headset do you own?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Yes, I am a member (I will name my headset)"
+        },
+        {
+          "id": "B",
+          "label": "B: Not yet, I will apply today"
+        },
+        {
+          "id": "C",
+          "label": "C: Not eligible, drop this competition"
+        }
+      ],
+      "recommendation": "A: Yes, I am a member (I will name my headset)",
+      "evidence": [
+        "Why now: the entry only counts if you are a program member by Nov 18.",
+        "Owning a headset does not count; membership is checked on its own.",
+        "If unanswered: building goes on, and this comes back on Nov 4 at 18:00."
+      ]
+    },
+    "2": {
+      "title": "Do you approve a plan of 40 to 45 hands-on hours a week across all projects, or switch to the 25-hour fallback?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Approve 40 to 45 hours a week"
+        },
+        {
+          "id": "B",
+          "label": "B: Fall back to 25 hours a week"
+        }
+      ],
+      "recommendation": "A: Approve 40 to 45 hours a week",
+      "evidence": [
+        "Why now: the plan for the next month needs your approval.",
+        "At 25 hours every entry stays valid, but only the three biggest keep improving.",
+        "If unanswered: the 40 to 45 hour plan stands; it can change any week."
+      ]
+    },
+    "3": {
+      "title": "Can you finish the four steps only you can do today: join the developer program, turn on developer access, register the entry, and connect your headset by USB?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: All four done (I will name my headset)"
+        },
+        {
+          "id": "B",
+          "label": "B: Some done (I will say which)"
+        },
+        {
+          "id": "C",
+          "label": "C: Blocked (I will say why)"
+        }
+      ],
+      "recommendation": "A: All four done (I will name my headset)",
+      "evidence": [
+        "Why now: the Nov 4 check needs a build running on your own headset.",
+        "Each step takes about five minutes and costs nothing.",
+        "If unanswered: work goes on in the simulator, and the check waits on you."
+      ]
+    },
+    "4": {
+      "title": "Will you join the sports tracking hackathon and accept its rules now, so the agents can download the data?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Accept now on this machine's account"
+        },
+        {
+          "id": "B",
+          "label": "B: Use another account (I will give its key)"
+        },
+        {
+          "id": "C",
+          "label": "C: Wait until Dec 14"
+        }
+      ],
+      "recommendation": "A: Accept now on this machine's account",
+      "evidence": [
+        "Why now: the download is refused until the rules are accepted; three data tasks wait.",
+        "It is free; the only lasting choice is which account submits the entry.",
+        "If unanswered: nothing runs on the data, which gets costly after Dec 1."
+      ]
+    },
+    "6": {
+      "title": "Will you join the circuit compilation competition and renew its download key now, and should agents start on Nov 9 or this week?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Join now, agents start Nov 9"
+        },
+        {
+          "id": "B",
+          "label": "B: Join now, one agent starts this week"
+        },
+        {
+          "id": "C",
+          "label": "C: Do not join yet"
+        }
+      ],
+      "recommendation": "A: Join now, agents start Nov 9",
+      "evidence": [
+        "Why now: nothing can be downloaded or submitted until you join, and the key was refused.",
+        "The Nov 20 early prize is out of reach, so there is no rush beyond being ready.",
+        "If unanswered: the work stays queued; joining commits you to nothing."
+      ]
+    },
+    "7": {
+      "title": "Will you do the four setup steps only you can do: join the competition, accept the model's licence, turn on the test sandbox, and give the sandbox more memory?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: All four done"
+        },
+        {
+          "id": "B",
+          "label": "B: First three done, keep the sandbox at 20 GB"
+        },
+        {
+          "id": "C",
+          "label": "C: Not before Nov 5 (I will say which)"
+        }
+      ],
+      "recommendation": "A: All four done",
+      "evidence": [
+        "Why now: nothing can be downloaded, run or submitted until these are done.",
+        "The model needs about 17 GB, so 36 GB leaves room for the tests beside it.",
+        "If unanswered: agents work around it, and the Nov 7 milestone slips."
+      ]
+    },
+    "8": {
+      "title": "Will you sign up for the geothermal fault-mapping challenge, confirm you are eligible, and download its data this week?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Yes, this week (about 30 minutes)"
+        },
+        {
+          "id": "B",
+          "label": "B: Yes, but after Nov 8 (milestones slip)"
+        },
+        {
+          "id": "C",
+          "label": "C: Stay signed in and let an agent download it"
+        }
+      ],
+      "recommendation": "A: Yes, this week (about 30 minutes)",
+      "evidence": [
+        "Why now: nothing can be measured until the data is on this machine.",
+        "Entry needs US citizenship or residence, which you certify when you sign up.",
+        "If unanswered: work goes on with stand-in data, and the Nov 9 milestone slips."
+      ]
+    },
+    "9": {
+      "title": "Will you join the molecule identification competition and accept its rules now, so the agents can download its data?",
+      "options": [
+        {
+          "id": "done",
+          "label": "Done: joined, on this account, solo team"
+        },
+        {
+          "id": "later",
+          "label": "Later: not joined yet"
+        },
+        {
+          "id": "question",
+          "label": "Question: I need to ask something first"
+        }
+      ],
+      "recommendation": "Done: joined, on this account, solo team",
+      "evidence": [
+        "Why now: the data download is refused until you join; entries close Dec 7.",
+        "Use the one account this machine already uses; the team stays solo unless you say so.",
+        "Later, in mid-December, you choose the two final submissions."
+      ]
+    },
+    "10": {
+      "title": "The judges test on the newest headset, but you own an older one. Should we buy the newest headset for testing by Nov 8?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Buy one now, delivered by about Nov 8"
+        },
+        {
+          "id": "B",
+          "label": "B: Borrow one or use a test swap"
+        },
+        {
+          "id": "C",
+          "label": "C: No, test on the older headset and the simulator"
+        }
+      ],
+      "recommendation": "A: Buy one now, delivered by about Nov 8",
+      "evidence": [
+        "Why now: judges score passthrough, room understanding and frame rate on the newest headset.",
+        "The older headset can check none of these: its passthrough is grey and it has no depth sensor.",
+        "If unanswered: build for hands and the simulator, and keep passthrough minimal."
+      ]
+    },
+    "11": {
+      "title": "Can you apply to the headset maker's developer program today and tell me when the application is sent?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Sent today"
+        },
+        {
+          "id": "B",
+          "label": "B: The form fails (I will say what I see)"
+        },
+        {
+          "id": "C",
+          "label": "C: Not today"
+        }
+      ],
+      "recommendation": "A: Sent today",
+      "evidence": [
+        "Why now: you are not a member yet, the entry needs one by Nov 18, and reviews take an unknown time.",
+        "The form takes about five minutes, and applying commits you to nothing.",
+        "If unanswered: building goes on, and this is raised again on Nov 11."
+      ]
+    },
+    "12": {
+      "title": "The web version is online only at a temporary address that expires in an hour. Which one-time step should give it a permanent secure address?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Sign in to the hosting service once; agents publish from then on"
+        },
+        {
+          "id": "B",
+          "label": "B: Publish it from the code repository's free pages"
+        },
+        {
+          "id": "C",
+          "label": "C: Skip it; keep it local and republish when needed"
+        }
+      ],
+      "recommendation": "A: Sign in to the hosting service once; agents publish from then on",
+      "evidence": [
+        "Why now: the browser version works, but its temporary address lasts about an hour.",
+        "There is no shared code repository yet, and the hosting account is signed out here.",
+        "If unanswered: option C costs nothing until the Nov 4 check picks the web version."
+      ]
+    },
+    "16": {
+      "title": "Which approach should we use to map geothermal faults?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: An image model on the official map layers"
+        },
+        {
+          "id": "B",
+          "label": "B: A, plus fault scarps from laser elevation maps (recommended)"
+        },
+        {
+          "id": "C",
+          "label": "C: B, plus learning that treats unmarked ground as unknown"
+        }
+      ],
+      "recommendation": "B: A, plus fault scarps from laser elevation maps (recommended)",
+      "evidence": [
+        "Why now: the next tasks commit GPU time and a 181 GB download to one approach.",
+        "Only newly found faults score, and a missed fault costs four times a false alarm.",
+        "B is how geologists find new faults, and the one top-five team that shared its method used it."
+      ]
+    },
+    "17": {
+      "title": "For the coding-agent competition, should we only improve the agent around the large model, also fine-tune it on paid compute, or add a second entry with a small model?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Improve the agent around the large model, no training"
+        },
+        {
+          "id": "B",
+          "label": "B: A, plus fine-tuning (needs paid compute)"
+        },
+        {
+          "id": "C",
+          "label": "C: A, plus a small-model entry for the $10k bonus (recommended)"
+        }
+      ],
+      "recommendation": "C: A, plus a small-model entry for the $10k bonus (recommended)",
+      "evidence": [
+        "Why now: each task gets about five minutes on the scorer's machine, and running over scores zero.",
+        "Fixing three common agent failures could beat today's leader; fine-tuning would cost $100 to $300.",
+        "C adds a cheap second entry aimed at the $10k bonus for small models."
+      ]
+    },
+    "18": {
+      "title": "Which app should this project build for the Nov 18 headset competition deadline?",
+      "options": [
+        {
+          "id": "A",
+          "label": "A: Overhand, a hands-first room for supervising AI coding agents (two web prototypes built)"
+        },
+        {
+          "id": "B",
+          "label": "B: Focus Desk, a hands-first task and habit desk with no AI agents"
+        },
+        {
+          "id": "C",
+          "label": "C: An immersive video studio (a restart, not ready by Nov 14)"
+        }
+      ],
+      "recommendation": "A: Overhand, a hands-first room for supervising AI coding agents (two web prototypes built)",
+      "evidence": [
+        "Why now: 14 days are left, and every build day on an unconfirmed idea is at risk.",
+        "A is the only option with a working build, and no one has shipped agent supervision on a headset.",
+        "If unanswered: A becomes binding on Nov 5 at noon."
+      ]
+    }
+  },
+  "echo_only": {
+    "5": "Will you do the sign-up steps only you can do for the market project now?",
+    "13": "Can you do the three desktop steps that unblock the game engine: approve the simulator's install prompt, install the engine editor, and sign in for a free licence?",
+    "14": "Can you do the five owner steps in the attached note while an agent runs the install: two install prompts, the engine sign-in, the program membership check, and the headset on USB?",
+    "15": "The computer is short of memory for the large model server. Can you free some memory now and raise the sandbox limit to 36 GB?"
+  },
+  "answers": {
+    "1": "not a member, need to apply, i have a second-generation headset"
+  }
+}

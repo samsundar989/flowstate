@@ -1,0 +1,24 @@
+{
+ "about": "#1085: ids tools/demo_projects/build.py derives from public text (sid(demo:<key>), sid(demo:<key>:<agent name>)); the gate re-hashes each and drops any whose text holds a dictionary word.",
+ "sources": [
+  "demo:cards",
+  "demo:cards:head",
+  "demo:cards:Worker",
+  "demo:cards:Worker A",
+  "demo:cards:Worker B",
+  "demo:cards:Worker C",
+  "demo:cards:Worker D",
+  "demo:cells",
+  "demo:cells:head",
+  "demo:cells:Worker",
+  "demo:farm",
+  "demo:farm:head",
+  "demo:farm:Worker",
+  "demo:farm:Worker 1",
+  "demo:farm:Worker 3",
+  "demo:farm:Worker 5",
+  "demo:grid",
+  "demo:grid:head",
+  "demo:grid:Worker"
+ ]
+}

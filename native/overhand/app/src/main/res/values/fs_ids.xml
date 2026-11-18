@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- PanelPolish marks each control with its kit kind (K2, #1372); a layout asks for the filled button with tag "fs_primary". -->
+  <item type="id" name="fs_kind" />
+</resources>

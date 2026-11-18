@@ -1,0 +1,44 @@
+[
+ {
+  "scope": "assets",
+  "file": "assets/windows.js",
+  "text": "^\\s*(?:'[^']*',?\\s*)+$",
+  "shown": false,
+  "reason": "The runtime scrubber's own deny array (const deny = [...]): lines holding only quoted list entries. It is code that REMOVES these words from displayed web text, never displayed itself."
+ },
+ {
+  "scope": "apk",
+  "file": "assets/windows.js",
+  "text": "^\\s*(?:'[^']*',?\\s*)+$",
+  "shown": false,
+  "reason": "Same deny array, as packaged in the APK."
+ },
+ {
+  "scope": "apk",
+  "file": "assets/moonshine/tokens.txt",
+  "text": "^[A-Za-z0-9+/]+=* [0-9]+$",
+  "shown": false,
+  "reason": "Speech model vocabulary: each line is a base64-encoded subword token and its id (e.g. 'aWs= 638' decodes to 'ik'). Read only by the recogniser, never displayed; base64 fragments collide with short words."
+ },
+ {
+  "scope": "assets",
+  "file": "assets/moonshine/tokens.txt",
+  "text": "^[A-Za-z0-9+/]+=* [0-9]+$",
+  "shown": false,
+  "reason": "Speech model vocabulary: each line is a base64-encoded subword token and its id (e.g. 'aWs= 638' decodes to 'ik'). Read only by the recogniser, never displayed; base64 fragments collide with short words."
+ },
+ {"scope": "apk", "file": "assets/moonshine/tokens.txt", "match": "aws",
+  "text": "^aWs= 638$", "shown": false,
+  "reason": "Recognizer token table: base64 aWs= decodes to 'ik', followed by token id 638. This encoded token is never displayed."},
+ {"scope": "apk", "file": "assets/moonshine/tokens.txt", "match": "xai",
+  "text": "^xaI= 31783$", "shown": false,
+  "reason": "Recognizer token table: base64 xaI= is the UTF-8 bytes for U+0162, followed by token id 31783. This encoded token is never displayed."},
+ {"scope": "assets", "file": "assets/judge/build_from_nothing/frames.jsonl", "text": "^o[1-9]$", "shown": false, "reason": "#1008: a question option's protocol id (o1, o2, o3) in the recorded host frames. The card shows the option's label, never its id."},
+ {"scope": "assets", "file": "assets/judge/build_from_nothing/files/*/index.html", "match": "meta", "text": "<meta\\b", "shown": false, "reason": "#1008: the recorded game's HTML <meta charset/viewport> tags. Markup, run by the Preview WebView, never displayed."},
+ {"scope": "assets", "file": "assets/judge/build_from_nothing/files/*/style.css", "match": "cursor", "text": "cursor\\s*:", "shown": false, "reason": "#1008: the CSS property cursor: in the recorded game's stylesheet. Style code, never displayed."},
+ {"scope": "assets", "file": "assets/judge/build_from_nothing/files/*/style.css", "match": "webkit", "text": "-webkit-", "shown": false, "reason": "#1008: the CSS -webkit- prefix in the recorded game's stylesheet. Style code, never displayed."},
+ {"scope": "apk", "file": "assets/judge/build_from_nothing/frames.jsonl", "text": "^o[1-9]$", "shown": false, "reason": "#1008: a question option's protocol id (o1, o2, o3) in the recorded host frames. The card shows the option's label, never its id."},
+ {"scope": "apk", "file": "assets/judge/build_from_nothing/files/*/index.html", "match": "meta", "text": "<meta\\b", "shown": false, "reason": "#1008: the recorded game's HTML <meta charset/viewport> tags. Markup, run by the Preview WebView, never displayed."},
+ {"scope": "apk", "file": "assets/judge/build_from_nothing/files/*/style.css", "match": "cursor", "text": "cursor\\s*:", "shown": false, "reason": "#1008: the CSS property cursor: in the recorded game's stylesheet. Style code, never displayed."},
+ {"scope": "apk", "file": "assets/judge/build_from_nothing/files/*/style.css", "match": "webkit", "text": "-webkit-", "shown": false, "reason": "#1008: the CSS -webkit- prefix in the recorded game's stylesheet. Style code, never displayed."}
+]

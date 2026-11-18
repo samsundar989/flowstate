@@ -1,0 +1,106 @@
+<!--
+  Decision card (#111, restyled #203 on docs/design.md s8). Also carries the Chief summary,
+  the guided stand-up beats (<= 25 words each, src/standup.ts tutorialCard) and inbox zero.
+  Placed by src/stations.ts at 0.44 m, scale 0.05, pixel-size 0.005: 1 unit = 0.25 mm,
+  1280 units = 0.32 m; 1 deg = 30.7 units. Header mono 34 (1.11 deg), question sans 52
+  (1.69), recommendation sans 42 in ion (1.37), default / deadline mono 36 (1.17), evidence sans
+  40 (1.30), hint mono 34 (1.11). The hold bar fills while a thumbs pose is held. Classes d-.
+-->
+<style>
+  @font-face { font-family: mono; src: url(../fonts/mono-regular.ttf); font-weight: 400; }
+  @font-face { font-family: mono; src: url(../fonts/mono-semibold.ttf); font-weight: 600; }
+  @font-face { font-family: sans; src: url(../fonts/sans-regular.ttf); font-weight: 400; }
+  @font-face { font-family: sans; src: url(../fonts/sans-semibold.ttf); font-weight: 600; }
+  .d-root {
+    pixel-size: 0.005;
+    flex-direction: column;
+    width: 1280px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    padding-left: 40px;
+    padding-right: 40px;
+    gap: 16px;
+    background-color: #121A24;
+    border-width: 4px;
+    border-color: #1C2836;
+    border-radius: 10px;
+  }
+  .d-header {
+    font-family: mono;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #5A6A7C;
+  }
+  .d-question {
+    font-family: sans;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #E2EAF2;
+  }
+  .d-recommend {
+    font-family: sans;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.2;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-width: 3px;
+    border-radius: 6px;
+    border-color: #377D85;
+    background-color: #173B47;
+    color: #5CE1E6;
+  }
+  .d-default {
+    font-family: mono;
+    font-size: 36px;
+    line-height: 1.2;
+    color: #93A3B5;
+  }
+  .d-evidence {
+    font-family: sans;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #93A3B5;
+  }
+  .d-hint {
+    font-family: mono;
+    font-size: 34px;
+    line-height: 1.25;
+    color: #5A6A7C;
+  }
+  .d-page {
+    font-family: mono;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #5CE1E6;
+  }
+  .d-hold {
+    flex-direction: row;
+    height: 16px;
+    border-radius: 4px;
+    background-color: #1C2836;
+  }
+  .d-hold-fill {
+    width: 0%;
+    height: 16px;
+    border-radius: 4px;
+    background-color: #FFB547;
+  }
+</style>
+<div id="decision-root" class="d-root">
+  <div id="decision-header" class="d-header">DECISION INBOX</div>
+  <div id="decision-question" class="d-question">-</div>
+  <div id="decision-recommend" class="d-recommend">-</div>
+  <div id="decision-default" class="d-default">-</div>
+  <div id="decision-evidence" class="d-evidence">-</div>
+  <div id="decision-hint" class="d-hint">-</div>
+  <div id="decision-page" class="d-page" style="display: none">-</div>
+  <div id="decision-hold" class="d-hold">
+    <div id="decision-hold-fill" class="d-hold-fill"></div>
+  </div>
+</div>

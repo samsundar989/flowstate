@@ -1,0 +1,27 @@
+{
+  "description": "QR path: the client scans the URI, pins fp, sends the one-time token. Code path is identical with pair_code.",
+  "qr": "flowstate://pair?v=1&h=192.0.2.10&p=47821&fp=3f1c9a0d6b2e47a8915c0e3d7f6a2b1c4d5e6f708192a3b4c5d6e7f8091a2b3c&t=fixture-token-not-real&n=example-pc",
+  "check_inputs": {
+    "fp": "3f1c9a0d6b2e47a8915c0e3d7f6a2b1c4d5e6f708192a3b4c5d6e7f8091a2b3c",
+    "token": "fixture-token-not-real",
+    "code": "482915",
+    "check_for_token": "WS36",
+    "check_for_code": "BW2V"
+  },
+  "frames": [
+    {
+      "dir": "c2h",
+      "type": "pair_token",
+      "token": "fixture-token-not-real",
+      "device_name": "Headset"
+    },
+    {
+      "dir": "h2c",
+      "type": "paired",
+      "device_id": "d_5a3c91e07b2f",
+      "device_secret": "fixture-device-secret-not-a-real-secret-000",
+      "host_name": "example-pc",
+      "check": "WS36"
+    }
+  ]
+}

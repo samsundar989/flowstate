@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"0b5e2c8a-1111-7000-8000-00000000a5c1"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"status\":\"question\",\"summary\":\"\",\"question\":\"Which language should the CLI be written in?\",\"options\":[\"Python\",\"JavaScript (Node)\",\"Go\"]}"}}
+{"type":"turn.completed","usage":{"input_tokens":1,"output_tokens":1}}

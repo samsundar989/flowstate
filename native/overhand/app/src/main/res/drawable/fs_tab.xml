@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- look_nov17 s5 Settings: text tabs, the current one with a cyan edge (Dock.dc.html .tab) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_selected="true"><shape android:shape="rectangle"><corners android:radius="999dp"/><solid android:color="@android:color/transparent"/><stroke android:width="2dp" android:color="@color/fs_cyan"/></shape></item>
+  <item android:state_activated="true"><shape android:shape="rectangle"><corners android:radius="999dp"/><solid android:color="@android:color/transparent"/><stroke android:width="2dp" android:color="@color/fs_cyan"/></shape></item>
+  <item android:state_pressed="true"><shape android:shape="rectangle"><corners android:radius="999dp"/><solid android:color="@color/fs_cyan_28"/><stroke android:width="2dp" android:color="@color/fs_cyan"/></shape></item>
+  <item android:state_hovered="true"><shape android:shape="rectangle"><corners android:radius="999dp"/><solid android:color="@android:color/transparent"/><stroke android:width="2dp" android:color="@color/fs_control_edge"/></shape></item>
+  <item><shape android:shape="rectangle"><corners android:radius="999dp"/><solid android:color="@android:color/transparent"/><stroke android:width="2dp" android:color="@android:color/transparent"/></shape></item>
+</selector>

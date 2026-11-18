@@ -1,0 +1,31 @@
+{
+  "name": "flowstate-host",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Flowstate host: pairs a headset over Wi-Fi (pinned TLS), runs a coding agent CLI on the user's own login, streams resumable events.",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "flowstate-host": "bin/flowstate-host.mjs"
+  },
+  "scripts": {
+    "start": "node --experimental-strip-types --no-warnings src/main.ts",
+    "fake-headset": "node --experimental-strip-types --no-warnings test/fake_headset.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --no-warnings --test --test-concurrency=1 test/*.test.ts"
+  },
+  "dependencies": {
+    "bonjour-service": "^1.4.4",
+    "qrcode": "^1.5.4",
+    "selfsigned": "^5.5.0",
+    "ws": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "@types/qrcode": "^1.5.6",
+    "@types/ws": "^8.18.2",
+    "typescript": "^7.0.2"
+  }
+}

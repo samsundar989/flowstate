@@ -1,0 +1,95 @@
+{
+ "project": "sc59abca77c74f1ea",
+ "excerpts": [
+  {
+   "component": "sims",
+   "sha": "218d1704c32cadf750653d7cd515127628fd7a55",
+   "path": "src/arc3/official/threadsafe.py",
+   "start_line": 122,
+   "end_line": 149,
+   "text": "class ThreadLocalMemberAttribute:\n    \"\"\"A data descriptor giving each thread its own value per enum member.\n\n    Args:\n        name: attribute name; used for the store key and error messages.\n        default_factory: called with the member to produce this thread's initial\n            value the first time it reads without having written.\n    \"\"\"\n\n    def __init__(self, name: str, default_factory: Any) -> None:\n        self.name = name\n        self.default_factory = default_factory\n        self._local = threading.local()\n\n    def _store(self) -> dict:\n        store = getattr(self._local, \"store\", None)\n        if store is None:\n            store = {}\n            self._local.store = store\n        return store\n\n    def __get__(self, obj: Any, objtype: Any = None) -> Any:\n        if obj is None:\n            return self\n        store = self._store()\n        key = obj.name\n        if key not in store:\n            # First read on this thread. Materialise once and keep it, so that",
+   "sources": [
+    {
+     "repo": "grid",
+     "sha": "218d1704c32cadf750653d7cd515127628fd7a55",
+     "path": "src/arc3/official/threadsafe.py"
+    }
+   ]
+  },
+  {
+   "component": "serving",
+   "sha": "9c39b1c45d5602b438306fd60fe59d3654bbabc9",
+   "path": "src/arc3/serving/probe.py",
+   "start_line": 77,
+   "end_line": 84,
+   "text": "def redact(text: str, limit: int = 400) -> str:\n    \"\"\"Strip credential-shaped substrings and bound the length.\n\n    Applied to every error string before it is stored. A probe that faithfully\n    recorded an auth header into a committed artifact would be a credential\n    leak wearing a diagnostic's clothes.\n    \"\"\"\n    return _SECRET_PATTERN.sub(\"<redacted>\", text)[:limit]",
+   "sources": [
+    {
+     "repo": "grid",
+     "sha": "9c39b1c45d5602b438306fd60fe59d3654bbabc9",
+     "path": "src/arc3/serving/probe.py"
+    }
+   ]
+  },
+  {
+   "component": "agent",
+   "sha": "471a2507af2194f10f97b82e1b88994ce536149f",
+   "path": "src/arc3/__main__.py",
+   "start_line": 38,
+   "end_line": 44,
+   "text": "def cmd_games(_: argparse.Namespace) -> int:\n    from arc3.client import Arc3Client\n\n    with Arc3Client() as client:\n        for g in client.list_games():\n            print(f\"{g.get('game_id', '?'):24}  {g.get('title', '')}\")\n    return 0",
+   "sources": [
+    {
+     "repo": "grid",
+     "sha": "471a2507af2194f10f97b82e1b88994ce536149f",
+     "path": "src/arc3/__main__.py"
+    }
+   ]
+  },
+  {
+   "component": "notebook",
+   "sha": "b79cf4f428a25abb669fa8f238fa9f825c1f4460",
+   "path": "src/arc3/submission/grid_notebook.py",
+   "start_line": 103,
+   "end_line": 121,
+   "text": "def configurations(full: bool = False, evidence: bool = False) -> list[str]:\n    \"\"\"The rows to run. Mini-grid by default; section 12's grid on request.\n\n    **The default changed on 2026-09-03 and the reason is not tidiness.**\n    `docs/22` R1 flipped thinking's default to on, which silently changed what\n    the seven un-annotated rows of `FULL_GRID` *mean*: every model row became a\n    thinking-on row. Leaving the default alone would therefore have run 14,000\n    decisions in the one configuration this codebase has already measured as\n    100% truncated and 0% parseable -- and it would have looked like a policy\n    result, which is failure mode #3.\n    \"\"\"\n    if evidence:\n        # The C row alone. Its comparator is the 2026-09-03 artifact, not a\n        # re-run: `model+shell:-thinking` cost 59 minutes and its number\n        # (0.111111, one level in `lp85`) is in `runs/slice02/minigrid-c80-s0/`.\n        # Re-running it to sit beside C would spend an hour of quota to\n        # reproduce a number we already hold.\n        return list(C_ROW)\n    return list(FULL_GRID if full else MINI_GRID)",
+   "sources": [
+    {
+     "repo": "grid",
+     "sha": "b79cf4f428a25abb669fa8f238fa9f825c1f4460",
+     "path": "src/arc3/submission/grid_notebook.py"
+    }
+   ]
+  },
+  {
+   "component": "eval",
+   "sha": "79a62d6004b967a479316ff8b8b46d4f3f4c1e90",
+   "path": "scripts/state.py",
+   "start_line": 54,
+   "end_line": 59,
+   "text": "def git(*args: str) -> str:\n    try:\n        out = subprocess.run([\"git\", *args], cwd=REPO, capture_output=True, text=True, check=False)\n    except FileNotFoundError:\n        return \"\"\n    return out.stdout.strip() if out.returncode == 0 else \"\"",
+   "sources": [
+    {
+     "repo": "grid",
+     "sha": "79a62d6004b967a479316ff8b8b46d4f3f4c1e90",
+     "path": "scripts/state.py"
+    }
+   ]
+  },
+  {
+   "component": "tests",
+   "sha": "3ec341dbc5e7ad09306e32e20dd6e35eae32b728",
+   "path": "scripts/guard.py",
+   "start_line": 107,
+   "end_line": 123,
+   "text": "class Report:\n    \"\"\"Accumulates findings so every check runs even after one fails.\"\"\"\n\n    def __init__(self) -> None:\n        self.failures: list[str] = []\n        self.warnings: list[str] = []\n\n    def fail(self, check: str, message: str) -> None:\n        self.failures.append(f\"{check}: {message}\")\n        print(f\"  FAIL  {check}: {message}\")\n\n    def warn(self, check: str, message: str) -> None:\n        self.warnings.append(f\"{check}: {message}\")\n        print(f\"  WARN  {check}: {message}\")\n\n    def ok(self, check: str, message: str) -> None:\n        print(f\"  ok    {check}: {message}\")",
+   "sources": [
+    {
+     "repo": "grid",
+     "sha": "3ec341dbc5e7ad09306e32e20dd6e35eae32b728",
+     "path": "scripts/guard.py"
+    }
+   ]
+  }
+ ]
+}

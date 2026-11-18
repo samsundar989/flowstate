@@ -1,0 +1,616 @@
+{
+ "project": "sc59abca77c74f1ea",
+ "goal": "An agent that learns unknown grid puzzle games by playing them, scored on a public board, for an abstract reasoning benchmark contest.",
+ "goal_rows": [
+  1
+ ],
+ "entries": [
+  {
+   "block": "NOW",
+   "text": "Workbench: game client, harness and baseline agents",
+   "from": 2,
+   "until": 3,
+   "rows": [
+    2,
+    3
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Workbench: game client, harness and baseline agents",
+   "from": 3,
+   "until": null,
+   "rows": [
+    3
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Official boundary, evaluator and controls",
+   "from": 4,
+   "until": 5,
+   "rows": [
+    4,
+    5
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Official boundary, evaluator and controls",
+   "from": 5,
+   "until": null,
+   "rows": [
+    5
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A local model serving probe",
+   "from": 6,
+   "until": 7,
+   "rows": [
+    6,
+    7
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A local model serving probe",
+   "from": 7,
+   "until": null,
+   "rows": [
+    7
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A deployment twin, a pure-Python scorer and skeptic reviews",
+   "from": 8,
+   "until": 17,
+   "rows": [
+    8,
+    17
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A deployment twin, a pure-Python scorer and skeptic reviews",
+   "from": 17,
+   "until": null,
+   "rows": [
+    17
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "The abstract solver clears level 1 in 4 of 6 games, one fails where predicted",
+   "from": 9,
+   "until": 18,
+   "rows": [
+    9,
+    18
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "The abstract solver clears level 1 in 4 of 6 games, one fails where predicted",
+   "from": 18,
+   "until": null,
+   "rows": [
+    18
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Plans, rulings and strategist packets",
+   "from": 10,
+   "until": 21,
+   "rows": [
+    10,
+    21
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Plans, rulings and strategist packets",
+   "from": 21,
+   "until": null,
+   "rows": [
+    21
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A model-driven agent that plans over its own abstraction, until the reasoning budget runs out",
+   "from": 11,
+   "until": 22,
+   "rows": [
+    11,
+    22
+   ]
+  },
+  {
+   "block": "STUCK",
+   "text": "Did not work: A model-driven agent that plans over its own abstraction, until the reasoning budget runs out.",
+   "from": 22,
+   "until": 34,
+   "rows": [
+    22
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Make the entry score within its time budget",
+   "from": 12,
+   "until": 20,
+   "rows": [
+    12,
+    20
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Make the entry score within its time budget",
+   "from": 20,
+   "until": null,
+   "rows": [
+    20
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Fix a sampler pinning mistake",
+   "from": 13,
+   "until": 15,
+   "rows": [
+    13,
+    15
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Fix a sampler pinning mistake",
+   "from": 15,
+   "until": null,
+   "rows": [
+    15
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Telemetry, tracked evidence and the first local-to-board pair",
+   "from": 14,
+   "until": 19,
+   "rows": [
+    14,
+    19
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Telemetry, tracked evidence and the first local-to-board pair",
+   "from": 19,
+   "until": null,
+   "rows": [
+    19
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Board readings: local gains do not transfer, the best own reading is 5.60",
+   "from": 23,
+   "until": 35,
+   "rows": [
+    23,
+    35
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Board readings: local gains do not transfer, the best own reading is 5.60",
+   "from": 35,
+   "until": null,
+   "rows": [
+    35
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Serving fixes, a rented dev machine and a fine-tune pipeline",
+   "from": 24,
+   "until": 38,
+   "rows": [
+    24,
+    38
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Serving fixes, a rented dev machine and a fine-tune pipeline",
+   "from": 38,
+   "until": null,
+   "rows": [
+    38
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "An evaluation instrument with a paired bootstrap and a held-out game set",
+   "from": 25,
+   "until": 37,
+   "rows": [
+    25,
+    37
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "An evaluation instrument with a paired bootstrap and a held-out game set",
+   "from": 37,
+   "until": null,
+   "rows": [
+    37
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Memory compaction, hints and stagnation rules as entry configs",
+   "from": 26,
+   "until": 33,
+   "rows": [
+    26,
+    33
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Memory compaction, hints and stagnation rules as entry configs",
+   "from": 33,
+   "until": null,
+   "rows": [
+    33
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Clear out the retired process and measure turn economics",
+   "from": 27,
+   "until": 36,
+   "rows": [
+    27,
+    36
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Clear out the retired process and measure turn economics",
+   "from": 36,
+   "until": null,
+   "rows": [
+    36
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Turn guard, loop guard and a full time budget per game",
+   "from": 28,
+   "until": 34,
+   "rows": [
+    28,
+    34
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Turn guard, loop guard and a full time budget per game",
+   "from": 34,
+   "until": null,
+   "rows": [
+    34
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Close a game-pool contamination",
+   "from": 30,
+   "until": 31,
+   "rows": [
+    30,
+    31
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Close a game-pool contamination",
+   "from": 31,
+   "until": null,
+   "rows": [
+    31
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Submit the strongest public solutions as published: a new best of 24.65",
+   "from": 39,
+   "until": 43,
+   "rows": [
+    39,
+    43
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Submit the strongest public solutions as published: a new best of 24.65",
+   "from": 43,
+   "until": null,
+   "rows": [
+    43
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A reading of 3.92 refutes the last inference, readings look noise-dominated",
+   "from": 40,
+   "until": 42,
+   "rows": [
+    40,
+    42
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A reading of 3.92 refutes the last inference, readings look noise-dominated",
+   "from": 42,
+   "until": null,
+   "rows": [
+    42
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A variant builder on the public base: level cards, robust startup and slot priority",
+   "from": 46,
+   "until": 51,
+   "rows": [
+    46,
+    51
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A variant builder on the public base: level cards, robust startup and slot priority",
+   "from": 51,
+   "until": null,
+   "rows": [
+    51
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Smoke tests, a daily slot keeper and a throughput study that adopts nothing",
+   "from": 47,
+   "until": 52,
+   "rows": [
+    47,
+    52
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Smoke tests, a daily slot keeper and a throughput study that adopts nothing",
+   "from": 52,
+   "until": null,
+   "rows": [
+    52
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A noise model of about 3.1 points per reading, level cards read 30.62",
+   "from": 48,
+   "until": 50,
+   "rows": [
+    48,
+    50
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A noise model of about 3.1 points per reading, level cards read 30.62",
+   "from": 50,
+   "until": null,
+   "rows": [
+    50
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "A posterior over configs picks the final pair, the slot keeper runs every day",
+   "from": 53,
+   "until": 63,
+   "rows": [
+    53,
+    63
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A posterior over configs picks the final pair, the slot keeper runs every day",
+   "from": 63,
+   "until": null,
+   "rows": [
+    63
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Final stack: an out-of-memory guard, faster loading and lighter weights that pass an equivalence check",
+   "from": 54,
+   "until": 56,
+   "rows": [
+    54,
+    56
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final stack: an out-of-memory guard, faster loading and lighter weights that pass an equivalence check",
+   "from": 56,
+   "until": null,
+   "rows": [
+    56
+   ]
+  },
+  {
+   "block": "NOW",
+   "text": "Final notes: each candidate, its reading and the selection protocol",
+   "from": 55,
+   "until": 59,
+   "rows": [
+    55,
+    59
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final notes: each candidate, its reading and the selection protocol",
+   "from": 59,
+   "until": null,
+   "rows": [
+    59
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "First local score of the solver build: 4.455, below the predeclared 5.0 to 7.0",
+   "from": 16,
+   "until": null,
+   "rows": [
+    16
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Own agent reads 2.96 on the board: the best so far, and not an improvement",
+   "from": 29,
+   "until": null,
+   "rows": [
+    29
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Memory compaction build reads 5.60, the best own reading",
+   "from": 32,
+   "until": null,
+   "rows": [
+    32
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "Our own agent reads about 4 on the board and the readings look like noise. Keep tuning it, or rebuild on the strongest public solutions?",
+   "from": 41,
+   "until": 44,
+   "rows": [
+    41,
+    44
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Rebuilt on the public base: submitted as published it read 24.65, a new best.",
+   "from": 44,
+   "until": null,
+   "rows": [
+    41,
+    44
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "A leading public solution, submitted as published, reads 24.65",
+   "from": 45,
+   "until": null,
+   "rows": [
+    45
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Pinned level cards on that base read 30.62, the best public reading",
+   "from": 49,
+   "until": null,
+   "rows": [
+    49
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "Choose the two finals: the two highest public readings, or the pair with the highest expected best private score?",
+   "from": 57,
+   "until": 58,
+   "rows": [
+    57,
+    58
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Pick by expected best private score: as of Oct 27 the 30.62 and 29.81 readings, expected best 29.31.",
+   "from": 58,
+   "until": null,
+   "rows": [
+    57,
+    58
+   ]
+  },
+  {
+   "block": "NEEDS",
+   "text": "The faster-loading weights build read 22.86 against the main stack's 26 or more. Keep it in the daily rotation?",
+   "from": 60,
+   "until": 61,
+   "rows": [
+    60,
+    61
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Decided: Demoted. The main stack read 30.14 the next day.",
+   "from": 61,
+   "until": null,
+   "rows": [
+    60,
+    61
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Final stack, fourth reading: 29.25 (earlier 28.57, 30.14 and 28.41)",
+   "from": 62,
+   "until": null,
+   "rows": [
+    62
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "Noise model: one reading varies by about 3.1 points, so a single reading cannot rank two builds.",
+   "from": 64,
+   "until": null,
+   "rows": [
+    64
+   ]
+  },
+  {
+   "block": "DONE",
+   "text": "The project history ends before the final scores; the private result comes after it.",
+   "from": 65,
+   "until": null,
+   "rows": [
+    65
+   ]
+  }
+ ]
+}

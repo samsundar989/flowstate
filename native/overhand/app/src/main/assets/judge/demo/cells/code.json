@@ -1,0 +1,125 @@
+{
+ "project": "sfec9f6d88c8b46f6",
+ "excerpts": [
+  {
+   "component": "data",
+   "sha": "e20f18919be00024ad9def0deed83f8f6b937d5b",
+   "path": "scripts/01_eda.py",
+   "start_line": 20,
+   "end_line": 23,
+   "text": "def main() -> None:\n    raise NotImplementedError(\n        \"Phase 0: implement EDA using celltrack.data once the loaders are written.\"\n    )",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "e20f18919be00024ad9def0deed83f8f6b937d5b",
+     "path": "scripts/01_eda.py"
+    }
+   ]
+  },
+  {
+   "component": "detect",
+   "sha": "2e624cb629a205a31f9b0569370cbd886803d7da",
+   "path": "scripts/p8_mitosis_train.py",
+   "start_line": 45,
+   "end_line": 56,
+   "text": "def load_crops(crops_dir: Path) -> dict[str, dict[str, np.ndarray]]:\n    parts: dict[str, list[dict[str, np.ndarray]]] = {}\n    for path in sorted(crops_dir.glob(\"*.npz\")):\n        with np.load(path) as f:\n            if len(f[\"label\"]) == 0:\n                continue\n            embryo = str(f[\"embryo\"])\n            parts.setdefault(embryo, []).append(\n                {k: f[k] for k in (\"crops\", \"label\", \"kind\")}\n                | {\"movie\": np.full(len(f[\"label\"]), path.stem)}\n            )\n    return {e: {k: np.concatenate([p[k] for p in ps]) for k in ps[0]} for e, ps in parts.items()}",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "2e624cb629a205a31f9b0569370cbd886803d7da",
+     "path": "scripts/p8_mitosis_train.py"
+    }
+   ]
+  },
+  {
+   "component": "link",
+   "sha": "a74b828aa56b9e3f426287421eb307d9e00b5a99",
+   "path": "src/celltrack/postprocess.py",
+   "start_line": 37,
+   "end_line": 64,
+   "text": "class StageReport:\n    \"\"\"What one transform did, and why.\"\"\"\n\n    name: str\n    before: GraphStats\n    after: GraphStats\n    edges_removed: int = 0\n    edges_added: int = 0\n    nodes_removed: int = 0\n    nodes_added: int = 0\n    reasons: dict[str, int] = field(default_factory=dict)\n    params: dict[str, Any] = field(default_factory=dict)\n\n    def summary_line(self) -> str:\n        delta_n = self.after.n_nodes - self.before.n_nodes\n        delta_e = self.after.n_edges - self.before.n_edges\n        reasons = \", \".join(f\"{k}={v}\" for k, v in sorted(self.reasons.items())) or \"-\"\n        return (\n            f\"  {self.name:<26} nodes {self.before.n_nodes:>7} -> {self.after.n_nodes:>7} \"\n            f\"({delta_n:+d})  edges {self.before.n_edges:>7} -> {self.after.n_edges:>7} \"\n            f\"({delta_e:+d})  forks {self.before.n_forks:>5} -> {self.after.n_forks:>5}  [{reasons}]\"\n        )\n\n    def to_json(self) -> dict[str, Any]:\n        return {\n            \"name\": self.name,\n            \"before\": self.before.to_json(),\n            \"after\": self.after.to_json(),",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "a74b828aa56b9e3f426287421eb307d9e00b5a99",
+     "path": "src/celltrack/postprocess.py"
+    }
+   ]
+  },
+  {
+   "component": "divisions",
+   "sha": "9a235ee0c3de71c09e2a872c68b01718a00cae93",
+   "path": "src/celltrack/division_features.py",
+   "start_line": 75,
+   "end_line": 102,
+   "text": "class NodeImageTable:\n    \"\"\"Per-node image measurements for one movie, and their neighbour-relative forms.\n\n    Indexed by graph row position throughout. ``rel_*`` are natural logs of the ratio to\n    the median of the six nearest detections in the same frame, so 0 means \"ordinary for\n    this neighbourhood\" and the units are comparable across movies, depths and frames.\n    \"\"\"\n\n    peak: np.ndarray\n    contrast: np.ndarray\n    dog_max: np.ndarray\n    dog_scale: np.ndarray\n    rel_peak: np.ndarray\n    rel_contrast: np.ndarray\n    rel_dog_max: np.ndarray\n    rel_dog_scale: np.ndarray\n    density_um: np.ndarray\n\n    def to_npz(self) -> dict[str, np.ndarray]:\n        return {\n            \"peak\": self.peak, \"contrast\": self.contrast, \"dog_max\": self.dog_max,\n            \"dog_scale\": self.dog_scale, \"rel_peak\": self.rel_peak,\n            \"rel_contrast\": self.rel_contrast, \"rel_dog_max\": self.rel_dog_max,\n            \"rel_dog_scale\": self.rel_dog_scale, \"density_um\": self.density_um,\n        }\n\n    @classmethod\n    def from_npz(cls, blob) -> NodeImageTable:",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "9a235ee0c3de71c09e2a872c68b01718a00cae93",
+     "path": "src/celltrack/division_features.py"
+    }
+   ]
+  },
+  {
+   "component": "eval",
+   "sha": "30a3269f2cca931d73baa84be298dff860420e96",
+   "path": "scripts/build_precision_panel.py",
+   "start_line": 63,
+   "end_line": 79,
+   "text": "def configure_paths(repo_root: Path) -> None:\n    \"\"\"Re-point every read-only input at an explicit repository.\n\n    Needed because worker-q may run this from a work directory rather than from the\n    repository itself: ``__file__`` then resolves to a snapshot whose gitignored\n    subtrees (``runs/cache``, ``data/train``) are absent or empty. Reading through an\n    absolute path is explicitly allowed; only *writes* have to stay relative or be\n    passed as an absolute ``--out``.\n    \"\"\"\n    global MANIFEST_PATH, DETECT_CACHE, TEACHER_DIR, DATA_ROOT\n    root = Path(repo_root).resolve()\n    if not root.is_dir():\n        raise SystemExit(f\"--repo-root {root} is not a directory\")\n    MANIFEST_PATH = root / \"artifacts\" / \"manifests\" / \"datasets.json\"\n    DETECT_CACHE = root / \"runs\" / \"cache\" / \"detect\"\n    TEACHER_DIR = root / \"data\" / \"dense_labels\"\n    DATA_ROOT = root / \"data\"",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "30a3269f2cca931d73baa84be298dff860420e96",
+     "path": "scripts/build_precision_panel.py"
+    }
+   ]
+  },
+  {
+   "component": "runtime",
+   "sha": "d91260881834ca84c22b09ce3c0d1e813678360f",
+   "path": "src/celltrack/cli.py",
+   "start_line": 48,
+   "end_line": 51,
+   "text": "def _load_manifests(fold_id: str | None = None) -> tuple[dict[str, Any], dict[str, Any] | None]:\n    datasets = load_manifest(MANIFEST_DIR / \"datasets.json\")\n    fold = load_manifest(MANIFEST_DIR / \"folds\" / f\"{fold_id}.json\") if fold_id else None\n    return datasets, fold",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "d91260881834ca84c22b09ce3c0d1e813678360f",
+     "path": "src/celltrack/cli.py"
+    }
+   ]
+  },
+  {
+   "component": "tests",
+   "sha": "1a22a3a1bea7dda2d41007847d1e96365af5d1b4",
+   "path": "tests/test_runtime_representativeness.py",
+   "start_line": 18,
+   "end_line": 28,
+   "text": "def test_runtime_evidence_output_is_create_only_and_exactly_idempotent(tmp_path):\n    out = tmp_path / \"runtime.json\"\n    payload = {\"kind\": \"runtime_representativeness\", \"status\": \"PASS\"}\n    rr._write_exact_json(out, payload)\n    before = out.read_bytes()\n    rr._write_exact_json(out, json.loads(before))\n    assert out.read_bytes() == before\n\n    with pytest.raises(FileExistsError, match=\"refusing to replace different\"):\n        rr._write_exact_json(out, {**payload, \"status\": \"FAIL_RUNTIME\"})\n    assert out.read_bytes() == before",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "1a22a3a1bea7dda2d41007847d1e96365af5d1b4",
+     "path": "tests/test_runtime_representativeness.py"
+    }
+   ]
+  },
+  {
+   "component": "ship",
+   "sha": "60bc4119928181e945c11a6b63016e4067d35979",
+   "path": "scripts/final_submission_certification.py",
+   "start_line": 94,
+   "end_line": 99,
+   "text": "def _sha256(path: Path) -> str:\n    digest = hashlib.sha256()\n    with path.open(\"rb\") as handle:\n        for block in iter(lambda: handle.read(1 << 20), b\"\"):\n            digest.update(block)\n    return digest.hexdigest()",
+   "sources": [
+    {
+     "repo": "cells",
+     "sha": "60bc4119928181e945c11a6b63016e4067d35979",
+     "path": "scripts/final_submission_certification.py"
+    }
+   ]
+  }
+ ]
+}
