@@ -20,11 +20,11 @@ The CLI's provider may charge for the work.
 
 | Step | What you do | Measured on a PC (Nov 18) |
 |---|---|---|
-| 1 | `git clone <this repository's clone URL> flowstate` | 2 s |
+| 1 | `git clone https://github.com/samsundar989/flowstate.git flowstate` | 2 s |
 | 2 | `cd flowstate/host` then `npm ci` (Windows PowerShell: `npm.cmd ci`) | 4 s |
 | 3 | Check your agent: `codex login status` or `claude auth status` must say you are signed in | 1–3 s |
-| 4 | `npm start -- --max-running 1` (leave it running). It prints the six digits and says `Coding agent ready: …` | under 1 s |
-| 5 | Headset: **Settings > Link > Connect your computer**, choose your PC, check the six digits match, type `y` on the PC | under 1 s plus your check |
+| 4 | `npm start -- --max-running 1` (leave it running). It says `Coding agent ready: …` (the code it prints at start is only the keypad fallback) | under 1 s |
+| 5 | Headset: **Settings > Link > Connect your computer**, choose your PC; the PC prints `Pair "…"? Code 123 456. Type y to allow`: check those six digits match the headset, type `y` | under 1 s plus your check |
 | 6 | Headset: turn on **Send real answers** in Settings (it starts off on every launch) | — |
 | 7 | Say "New project, a tiny tap counter…" and pinch **Start** | agent starts in 1–3 s |
 | 8 | Answer its question on the card; wait for **Saved as commit …** | first commit 68 s (claude) to 130 s (codex) after step 4 |
@@ -33,7 +33,8 @@ Optional: `npm test` in `host/` checks the host first (42 tests, about 1 minute)
 
 The app build itself (`INSTALL.md`, Android Studio and Gradle) is one-time and takes several minutes on first run.
 
-Your project is in `~/FlowstateProjects/<name>` on the PC: `git log` there shows the agent's commit. Live mode starts new
+Your project is in `~/FlowstateProjects/<name>` on the PC (or your `--projects` folder; the host's `task … in <folder>` line names it):
+`git log` there shows the agent's commit. Live mode starts new
 projects only; it cannot yet open an existing repository of yours (pull the project folder into your repository instead).
 
 ## When something goes wrong
@@ -46,7 +47,7 @@ Every failure ends in one sentence that says what to do.
 | CLI not signed in | `Your coding agent is installed but not signed in. Run "codex login" (or "claude") in a terminal, sign in, then start the host again.` | `Stopped: your coding agent is not signed in. Sign in on the computer, then send it again.` |
 | Host not running | `node bin/flowstate-host.mjs status` says `host: stopped`; other commands say `The host is not running. Start it with npm start in the host folder, then try again.` | `The host is not running on the computer. Start it there.` |
 | Wrong six digits | `pairing refused … bad_code` | `Wrong code. Check the six digits on the computer.` |
-| Firewall blocks the port | The host prints at start: `If the headset does not find this computer: put both on the same Wi-Fi (not a guest network) and allow Node.js through the firewall for private networks.` | `The computer does not answer. Allow the host through the computer's firewall.` |
+| Firewall blocks the port | The host prints at start: `If the headset does not find this computer: put both on the same Wi-Fi (not a guest network) and allow Node.js through the firewall for the network type your Wi-Fi uses (Private or Public; Windows asks at the first start).` | `The computer does not answer. Allow the host through the computer's firewall.` |
 | PC and headset on different networks | same start-up line | `The computer is on a different network. Connect both to the same Wi-Fi.` |
 | Host stopped mid-task | Start it again with `npm start`; the task comes back: `Back in line after a restart`, then `Picking up after a restart` | `Reconnecting…` with `The host is not running on the computer. Start it there.`; it continues on its own when the host is back |
 | Send real answers is off | — | `Sending is off. Turn on Send real answers in Settings, then pinch Start.` / `Practice: nothing was sent. Turn on Send real answers in Settings to send.` |

@@ -92,5 +92,5 @@ On the headset: only the encrypted paired record (S10). Nothing is written to th
 13. **The headset app still permits cleartext HTTP to any host** (`native/overhand/app/src/main/res/xml/network_security_config.xml`,
     `cleartextTrafficPermitted="true"`, kept for the older dashboard Live mode over `adb reverse`). The host link does not use
     it, but the app-wide setting should be narrowed to `127.0.0.1` before a public release.
-14. The host terminal still says "Scan the code with the headset", but the headset app has no QR reader
+14. The host prints a QR code for other clients; the headset app has no QR reader
     (`HostLink.pairWithQr` has no caller in `native/overhand/app/src/main`); on the headset, pair by confirm or the keypad.

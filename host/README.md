@@ -1,26 +1,28 @@
 # Flowstate host
 
 One command on your computer and no window. It pairs with your headset over Wi-Fi and runs your own installed, signed-in
-coding assistant CLI (agent A or agent B, whichever you have; `--agent` picks) on your projects. Each request is a task in a
+coding CLI (`codex` or `claude`, whichever you have; with both, `auto` starts with `codex`, and `--agent claude` picks the other) on your projects. Each request is a task in a
 queue, done in its own git worktree, merged into the project's `main` when it succeeds. Questions come to the headset; your
 answer resumes the same agent session.
 
 ## Install and first run
 1. Install Node.js 22.6 or newer, and git. Install one coding CLI and sign in to it once in a terminal (the host never sees that sign-in).
 2. clone this repository then `cd host && npm ci` (and `npm test`: offline, the current test suite).
-3. `npm start` (or `node bin/flowstate-host.mjs`). The terminal shows the address, a 6-digit code, the certificate fingerprint and
-   "Discoverable on the local network".
-4. Windows only: allow Node.js in the firewall prompt, ticking the network type your Wi-Fi uses (often *Public*).
-5. In the headset: Settings, **Connect your computer**. It finds this computer by itself and shows six digits. When the terminal
+3. `npm start -- --max-running 1` (Windows PowerShell: `npm.cmd start -- --max-running 1`). The terminal shows the address, a keypad
+   fallback code, the certificate fingerprint, `Coding agent ready: …` and "Discoverable on the local network". Leave it running.
+4. Windows only: allow Node.js in the firewall prompt, ticking the network type your Wi-Fi uses (Private or Public).
+5. In the headset: Settings, **Connect your computer**. It finds this computer by itself and shows six digits. The six digits to compare are NOT the code printed at start: when the terminal
    prints the same six (`Pair "Headset" (…)? Code 123 456. Type y to allow`), type `y`. (Fallback: the headset's keypad takes the
    6-digit code the terminal prints. The QR code is for other clients; the headset app does not read it.) Then turn
    **Send real answers** on in Settings.
 6. Say "new project, a command-line tool that prints the time". Without a headset, in a second terminal:
    `node bin/flowstate-host.mjs new "clock" --prompt "a hello-world CLI that prints the time" --follow`
-7. `node bin/flowstate-host.mjs status` lists projects, tasks and open questions; `answer <question id> <choice>` answers one.
-8. Your projects are in `~/FlowstateProjects/<name>` (`--projects` changes it): `git log` there shows the agent's commits.
+7. In a second terminal in `host/`: `node bin/flowstate-host.mjs status` lists projects, tasks and open questions; `answer <question id> <choice>` answers one
+   (questions and results appear in the headset; the host terminal itself shows only a `task … in <folder>` line per run).
+8. Your projects are in `~/FlowstateProjects/<name>` (`--projects` changes it). `<name>` is the first words of the request (for example
+   `tiny-tap-counter-with-big`); the terminal's `task … in <folder>` line and `status` show it. `git log` there shows the agent's commits.
 9. `node bin/flowstate-host.mjs stop` stops the host; running tasks go back in line and resume on the next start. `stop t3` cancels task t3.
-10. Tested on **Windows 11 only** (host, tests, live runs; clean-clone install log `../runs/ops/hostdocs/`). macOS and Linux use the
+10. Tested on **Windows 11 only** (host, tests, live runs). macOS and Linux use the
     same commands but were **not run**. The headset steps have not yet been done by a person wearing it.
 
 Options for `start`: `--bind <LAN address>` · `--port 47821` · `--projects <folder>` · `--agent auto|codex|claude` · `--config <folder>` ·

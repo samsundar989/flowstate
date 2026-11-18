@@ -53,12 +53,12 @@ async function main() {
     const qr = await QRCode.toString(uri, { type: "terminal", small: true, errorCorrectionLevel: "M" });
     const c = host.pairing.code.value;
     console.log(`\n${qr}\nFlowstate host on ${address}:${port}  (${host.id.name})`);
-    console.log(`Scan the code with the headset, or pick "${host.id.name}" in the headset and enter:  ${c.slice(0, 3)} ${c.slice(3)}`);
-    console.log(`The headset will then show the check:  ${checkCode(host.id.fp, c)}   (QR check: ${checkCode(host.id.fp, host.pairing.token.value)})`);
-    console.log(`Certificate fingerprint: ${host.id.fp}\nCodes expire in 2 minutes; a new one is printed then. Ctrl+C stops the host.`);
+    console.log(`In the headset choose Connect your computer, then "${host.id.name}". The headset shows six digits and this terminal asks "Pair ...? Code ... Type y": type y if they match.`);
+    console.log(`Keypad fallback only (headset "Enter code"):  ${c.slice(0, 3)} ${c.slice(3)}   then the headset shows the check ${checkCode(host.id.fp, c)}. The QR code is for other clients (QR check: ${checkCode(host.id.fp, host.pairing.token.value)}).`);
+    console.log(`Certificate fingerprint: ${host.id.fp}\nThe keypad code changes every 2 minutes (a short line is printed then). Ctrl+C stops the host.`);
     if (process.env.FLOWSTATE_PRINT_URI) console.log(`PAIR_URI ${uri}`);
   };
-  host.pairing.onRotate = () => { void show(); };
+  host.pairing.onRotate = () => { const c = host.pairing.code.value; console.log(`(new keypad fallback code: ${c.slice(0, 3)} ${c.slice(3)})`); };
   await show();
   // #1474: say before the first task whether a coding agent can run, and what to do if not.
   const want = arg("agent", "auto");
@@ -66,7 +66,7 @@ async function main() {
     const kinds = (want === "auto" ? ["codex", "claude"] : [want]) as ("codex" | "claude")[];
     console.log(readinessAdvice(Object.fromEntries(kinds.map(k => [k, agentReadiness(k)]))));
   }
-  console.log(`If the headset does not find this computer: put both on the same Wi-Fi (not a guest network) and allow Node.js through the firewall for private networks.`);
+  console.log(`If the headset does not find this computer: put both on the same Wi-Fi (not a guest network) and allow Node.js through the firewall for the network type your Wi-Fi uses (Private or Public; Windows asks at the first start).`);
   setInterval(() => host.pairing.tick(), 1000).unref();
   attachTerminal(host.confirm); // "Pair "Headset" (192.0.2.10)? Code 123 456. Type y to allow"
   let mdns: Bonjour | undefined;
