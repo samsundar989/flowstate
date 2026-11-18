@@ -7,6 +7,7 @@ import { Host } from "./server.ts";
 import { configDir } from "./config.ts";
 import { DEFAULT_PORT, checkCode, pairUri } from "./protocol.ts";
 import { attachTerminal } from "./pairing_confirm.ts";
+import { agentReadiness, readinessAdvice } from "./agents.ts";
 
 const arg = (k: string, d?: string) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : d; };
 
@@ -32,7 +33,11 @@ export function resolveBind(spec: string | undefined): string | undefined {
 
 async function main() {
   const sub = process.argv[2];
-  if (["new", "status", "stop", "answer"].includes(sub)) { const { cli } = await import("./cli.ts"); process.exit(await cli(process.argv.slice(2))); }
+  if (["new", "status", "stop", "answer"].includes(sub)) {
+    const { cli } = await import("./cli.ts");
+    // #1474: a plain sentence, not a stack trace (host not running, link refused).
+    try { process.exit(await cli(process.argv.slice(2))); } catch (e) { console.error((e as Error).message || String(e)); process.exit(1); }
+  }
   const bind = resolveBind(arg("bind"));
   if (!bind) {
     console.error(arg("bind") === "tailnet" ? "No private-network address found. Sign in to the private network on this computer first, or pass --bind <address>."
@@ -55,6 +60,13 @@ async function main() {
   };
   host.pairing.onRotate = () => { void show(); };
   await show();
+  // #1474: say before the first task whether a coding agent can run, and what to do if not.
+  const want = arg("agent", "auto");
+  if (want !== "replay") {
+    const kinds = (want === "auto" ? ["codex", "claude"] : [want]) as ("codex" | "claude")[];
+    console.log(readinessAdvice(Object.fromEntries(kinds.map(k => [k, agentReadiness(k)]))));
+  }
+  console.log(`If the headset does not find this computer: put both on the same Wi-Fi (not a guest network) and allow Node.js through the firewall for private networks.`);
   setInterval(() => host.pairing.tick(), 1000).unref();
   attachTerminal(host.confirm); // "Pair "Headset" (192.0.2.10)? Code 123 456. Type y to allow"
   let mdns: Bonjour | undefined;

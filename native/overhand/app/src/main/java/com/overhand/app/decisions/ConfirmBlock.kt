@@ -37,7 +37,7 @@ object ConfirmBlock {
 
 /** Live answers reach agents only while the wearer has turned on "Send real answers"; it starts off on every launch. */
 object LiveSafety {
-  const val PRACTICE="Practice: nothing was sent"
+  const val PRACTICE="Practice: nothing was sent. Turn on Send real answers in Settings to send."
   const val SWITCH="Send real answers"
   @Volatile var sendReal=false
   fun maySend(recorded: Boolean,sendReal: Boolean=this.sendReal)=recorded || sendReal

@@ -11,7 +11,7 @@ import { Pairing } from "./pairing.ts";
 import { PairConfirm, type ConfirmConn } from "./pairing_confirm.ts";
 import { EventLog, type NewEvent } from "./eventlog.ts";
 import { AUTH_TIMEOUT_MS, CHUNK_BYTES, MAX_FILE_BYTES, PART_NAME_MAX, SAFE_PATH, SAY_MAX, checkCode, validate, type ErrorCode, type HostEvent, type Part } from "./protocol.ts";
-import { startRun, agentAvailable, clean, killPidTree, isAgentPid, FINAL_SCHEMA, type AgentKind, type Run, type RawPart } from "./agents.ts";
+import { startRun, agentReadiness, SIGNED_OUT_TEXT, clean, killPidTree, isAgentPid, FINAL_SCHEMA, type AgentKind, type Run, type RawPart } from "./agents.ts";
 import { HostState, canMove, type TaskState, type TaskView } from "./state.ts";
 import { initProject, ensureWorktree, commitIfDirty, mergeTask, removeWorktree, branchOf, worktreeRel, fileAtCommit } from "./git.ts";
 
@@ -62,7 +62,8 @@ const MESSAGES: Record<ErrorCode, string> = {
   token_used: "That pairing code was already used.", bad_code: "Wrong code. Check the six digits on the computer.",
   code_expired: "That code has expired. Use the new one on the computer.", rate_limited: "Too many tries. Wait a minute.",
   unknown_project: "No such project.", unknown_decision: "That question is no longer open.", busy: "That project is already working.",
-  agent_unavailable: "No coding assistant is installed and signed in on this computer.", internal: "Something went wrong on the computer.",
+  agent_unavailable: "No coding agent is ready on the computer. Install one there and sign in, then try again.",
+  agent_signed_out: "Your coding agent on the computer is not signed in. Sign in there, then try again.", internal: "Something went wrong on the computer.",
   bad_path: "That file name is not allowed.", not_found: "That file is not in that version of the project.", too_large: "That file is too big to send.",
 };
 export const LOCAL_DEVICE = "d_local";
@@ -167,16 +168,18 @@ export class Host {
       // A headset that lost the `ok` (Wi-Fi drop) resends with the same req_id: answer it, do not start a second project.
       const seen = this.state.created.get(f.req_id);
       if (seen?.task_id) return ok({ project_id: seen.project_id, task_id: seen.task_id });
-      const kind = this.pickAgent(f.agent); if (!kind) return fail("agent_unavailable", f.req_id);
+      const kind = this.pickAgent(f.agent);
       const p = this.createProject(f.name ?? f.prompt, f.req_id);
-      const t = this.enqueue(p, f.prompt, kind, f.req_id);
+      // #1474: no ready agent is a task that ends at once with the next action, so the headset's project window says it
+      // (an error frame for a create is not shown there; it would wait in silence).
+      const t = kind === "!missing" || kind === "!signed_out" ? this.notReady(p, f.prompt, kind, f.req_id) : this.enqueue(p, f.prompt, kind, f.req_id);
       ok({ project_id: p, task_id: t });
       return this.pump();
     }
     if (f.type === "prompt") {
       if (!this.state.projects.has(f.project_id)) return fail("unknown_project", f.req_id);
-      const kind = this.pickAgent("auto"); if (!kind) return fail("agent_unavailable", f.req_id);
-      const t = this.enqueue(f.project_id, f.text, kind);
+      const kind = this.pickAgent("auto");
+      const t = kind === "!missing" || kind === "!signed_out" ? this.notReady(f.project_id, f.text, kind) : this.enqueue(f.project_id, f.text, kind);
       ok({ project_id: f.project_id, task_id: t });
       return this.pump();
     }
@@ -233,10 +236,15 @@ export class Host {
     fail("bad_request", f.req_id);
   }
 
-  private pickAgent(want?: string): AgentKind | undefined {
+  /** An agent that is installed AND signed in; otherwise "!missing" or "!signed_out" (#1474: say which). */
+  private pickAgent(want?: string): AgentKind | "!missing" | "!signed_out" {
     const k = (want && want !== "auto" ? want : this.o.agent ?? "auto") as AgentKind | "auto";
-    if (k !== "auto") return ["claude", "codex", "replay"].includes(k) && agentAvailable(k) ? k : undefined;
-    return (["codex", "claude"] as AgentKind[]).find(agentAvailable);
+    const kinds = (k !== "auto" ? (["claude", "codex", "replay"].includes(k) ? [k] : []) : ["codex", "claude"]) as AgentKind[];
+    let seen: "!missing" | "!signed_out" = "!missing";
+    for (const x of kinds) { const r = agentReadiness(x); if (r === "ready") return x; if (r === "signed_out") seen = "!signed_out"; }
+    this.say(seen === "!signed_out" ? "A coding agent is installed but not signed in. Sign in to it in a terminal on this computer, then try again from the headset."
+      : "No coding agent is installed. Install codex or claude and sign in, then try again from the headset.");
+    return seen;
   }
 
   // ---- the job runner ----------------------------------------------------------------------------------------------
@@ -275,6 +283,13 @@ export class Host {
     this.saveMeta({ task_id, project_id, prompt, agent, asks: 0, ...(replay ? { replay } : {}), ...(phase ? { phase } : {}) });
     const view = { task_id, project_id, state: undefined as any } as TaskView;
     this.setState(view, "queued", clean(prompt.replace(/^\s*new project\s*:\s*/i, "").replace(/\[replay:[^\]]*\]/, ""), "", 80) || "Task", req_id ? { req_id } : {});
+    return task_id;
+  }
+
+  /** A task that cannot start because no coding agent is ready: queued, then failed with the next action. */
+  private notReady(project_id: string, prompt: string, why: "!missing" | "!signed_out", req_id?: string): string {
+    const task_id = this.enqueue(project_id, prompt, "codex", req_id);
+    this.finish(this.state.tasks.get(task_id)!, false, why === "!signed_out" ? "agent_signed_out" : "agent_unavailable", {});
     return task_id;
   }
 
@@ -318,7 +333,8 @@ export class Host {
     const run_id = "r_" + randomBytes(4).toString("hex");
     const raw = join(this.o.dir, "raw", `${run_id}.${m.agent}.jsonl`);
     const base = { project_id: t.project_id, task_id: t.task_id, run_id };
-    const run = startRun({ kind: m.agent, prompt, cwd: wt, replayFile, raw: l => appendFileSync(raw, l + "\n"), schemaFile: join(this.o.dir, "final_schema.json"),
+    let signedOut = false;
+    const run = startRun({ kind: m.agent, prompt, cwd: wt, replayFile, raw: l => { appendFileSync(raw, l + "\n"); if (!signedOut && (l.startsWith("[stderr]") || /"(is_error":true|type":"(error|turn\.failed)")/.test(l)) && SIGNED_OUT_TEXT.test(l)) signedOut = true; }, schemaFile: join(this.o.dir, "final_schema.json"),
       resume: resuming ? m.session : undefined,
       onSession: id => { const x = this.meta(t.task_id); if (x.session !== id) { x.session = id; this.saveMeta(x); } },
       emit: e => { lastEv = Date.now(); this.emit({ ...base, ...e, ...(e.kind === "started" && resuming ? { title: "Agent resumed" } : {}) } as NewEvent); },
@@ -367,7 +383,7 @@ export class Host {
         if (parts.length) this.emit({ ...base, kind: "plan", title: clean(`Plan: ${parts.map(p => p.name).join(", ")}`, wt, 160), parts });
         this.emit({ ...base, kind: "question", title: clean(end.final.question, wt, 160), decision_id, options, allow_text: true });
         this.setState(now, "needs_answer", "Waiting for your answer");
-      } else { this.saveMeta(mm); this.finish(now, end.ok, end.ok ? undefined : "agent_failed", base, end.exit_code, end.final?.summary, end.output); }
+      } else { this.saveMeta(mm); this.finish(now, end.ok, end.ok ? undefined : signedOut ? "agent_signed_out" : "agent_failed", base, end.exit_code, end.final?.summary, end.output); }
       this.pump();
     });
   }
@@ -390,7 +406,13 @@ export class Host {
       reason = r.reason;
     }
     const st: TaskState = reason === "canceled" ? "cancelled" : "failed";
-    const title = reason === "canceled" ? "Stopped" : reason === "timeout" ? "Stopped: took too long" : reason === "stalled" ? "Stopped: the agent went quiet" : reason === "merge_conflict" ? "Could not merge" : "Failed";
+    const title = reason === "canceled" ? "Stopped" : reason === "timeout" ? "Stopped: took too long" : reason === "stalled" ? "Stopped: the agent went quiet" : reason === "merge_conflict" ? "Could not merge"
+      // #1474: every failure names the next action.
+      : reason === "agent_unavailable" ? "Not started: no coding agent is ready on the computer. Install one and sign in there, then send it again."
+      : reason === "agent_signed_out" ? "Stopped: your coding agent is not signed in. Sign in on the computer, then send it again."
+      : reason === "worktree_failed" ? "Failed to start: the project folder is not a usable git folder. Check the host window on the computer."
+      : "Failed: the agent stopped with an error. Check the host window on the computer, then send it again.";
+    if (reason !== "canceled") this.say(`task ${t.task_id} ${reason ?? "failed"}: ${title}${reason === "agent_signed_out" || reason === "agent_unavailable" ? "" : ` Details: ${join(this.o.dir, "raw")}`}`);
     this.emit({ project_id: t.project_id, task_id: t.task_id, run_id: base.run_id, kind: "finished", title, ok: false, exit_code, reason, merged: false,
       ...(existsSync(wt) ? kept : {}) });
     this.setState(t, st, title, existsSync(wt) ? { worktree: kept.worktree, reason } : { reason });

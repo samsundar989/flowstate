@@ -122,6 +122,27 @@ export function agentAvailable(kind: AgentKind): boolean {
   return r.status === 0;
 }
 
+/** #1474: installed is not enough; a CLI that is not signed in fails every task. Both CLIs exit non-zero from their
+ *  own status command when signed out (`codex login status`, `claude auth status`). */
+export type AgentReadiness = "ready" | "missing" | "signed_out";
+export function agentReadiness(kind: AgentKind): AgentReadiness {
+  if (kind === "replay") return "ready";
+  if (!agentAvailable(kind)) return "missing";
+  const args = kind === "codex" ? ["login", "status"] : ["auth", "status"];
+  const r = spawnSync(kind, args, { shell: process.platform === "win32", stdio: "ignore", timeout: 20000, windowsHide: true });
+  return r.status === 0 ? "ready" : "signed_out";
+}
+/** What to tell the person on the computer, one sentence each. */
+export function readinessAdvice(r: Partial<Record<"codex" | "claude", AgentReadiness>>): string {
+  const ready = Object.entries(r).filter(([, v]) => v === "ready").map(([k]) => k);
+  if (ready.length) return `Coding agent ready: ${ready.join(", ")}.`;
+  const out = Object.entries(r).filter(([, v]) => v === "signed_out").map(([k]) => k);
+  if (out.length) return `Your coding agent is installed but not signed in. Run "${out[0] === "codex" ? "codex login" : "claude"}" in a terminal, sign in, then start the host again.`;
+  return `No coding agent found. Install codex or claude, sign in, then start the host again. Pairing and the recorded replay still work.`;
+}
+/** Agent error text that means "sign in again" (stderr, or the CLI's own error/result line). */
+export const SIGNED_OUT_TEXT = /not logged in|please run \/login|run `?codex login|unauthori[sz]ed|\b401\b|invalid api key|authentication (failed|required|error)|login required|token (has )?expired/i;
+
 export interface RunEnd { ok: boolean; exit_code: number | null; final?: Final; session?: string; output?: string }
 /** First non-empty line of a command's output (what the program printed first), or undefined. */
 export const firstLine = (s: unknown) => String(typeof s === "string" ? s : Array.isArray(s) ? s.map((c: any) => c?.text ?? "").join("\n") : "").split(/\r?\n/).map(l => l.trim()).find(Boolean);

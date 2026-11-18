@@ -23,7 +23,7 @@ export const EVENT_KINDS = ["started", "message", "file_written", "command_run",
 export const STATES = ["queued", "running", "needs_answer", "done", "failed", "cancelled"] as const;
 export type EventKind = typeof EVENT_KINDS[number];
 export const ERROR_CODES = ["bad_request", "unauthorized", "bad_token", "token_expired", "token_used", "bad_code", "code_expired",
-  "rate_limited", "unknown_project", "unknown_decision", "busy", "agent_unavailable", "internal", "bad_path", "not_found", "too_large"] as const;
+  "rate_limited", "unknown_project", "unknown_decision", "busy", "agent_unavailable", "agent_signed_out", "internal", "bad_path", "not_found", "too_large"] as const;
 export type ErrorCode = typeof ERROR_CODES[number];
 
 export interface HostEvent {

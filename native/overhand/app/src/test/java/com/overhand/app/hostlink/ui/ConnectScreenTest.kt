@@ -68,6 +68,16 @@ class ConnectScreenTest {
     assertEquals(Diagnosis.FIREWALL,Diagnosis.classify("192.0.2.10",24,"192.0.2.10",Probe.TIMEOUT))
     assertEquals(Diagnosis.OTHER_NETWORK,Diagnosis.classify("192.0.2.10",24,"100.200.1.1",Probe.OPEN))
   }
+  @Test fun noComputerFoundShowsTheThreeStepsAndWhereToGetTheHost() {
+    val s=all().getValue("none")
+    assertEquals(ConnectScreens.SETUP_STEPS,s.lines.takeLast(3))
+    assertTrue(s.lines.any { it.contains(ConnectScreens.HOST_ADDRESS) })
+    assertEquals(listOf("1.","2.","3."),s.lines.takeLast(3).map { it.take(2) })
+    assertEquals(listOf("search","other","close"),s.buttons.map { it.first })
+    // Without a diagnosis the steps still follow the plain finding.
+    val plain=ConnectScreens.of(LinkStatus(LinkState.UNPAIRED,""),emptyList(),null,"",null,false,"your computer")
+    assertEquals(listOf("No computer found on this Wi-Fi.")+ConnectScreens.SETUP_STEPS,plain.lines)
+  }
   @Test fun noVendorNamesInAnyWords() {
     val vendor=Regex("(?i)\\b(meta|quest|oculus|windows|microsoft|android|google|apple|claude|codex|openai|anthropic)\\b")
     val words=all().values.flatMap { listOf(it.title)+it.lines+it.buttons.map { b -> b.second } }+Diagnosis.values().map { it.words }

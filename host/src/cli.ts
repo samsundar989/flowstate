@@ -22,7 +22,7 @@ export function hostInfo(dir: string): HostInfo | undefined {
 
 export async function connectLocal(dir: string): Promise<{ c: HeadsetClient; welcome: any }> {
   const h = hostInfo(dir);
-  if (!h) throw new Error("The host is not running. Start it with: flowstate-host");
+  if (!h) throw new Error("The host is not running. Start it with npm start in the host folder, then try again.");
   const c = await new HeadsetClient(h.address, h.port, h.fp).open();
   const head = new EventLog(join(dir, "events.jsonl")).head;
   c.lastSeq = head;

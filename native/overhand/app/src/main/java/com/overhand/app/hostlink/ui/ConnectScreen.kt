@@ -49,6 +49,12 @@ enum class Diagnosis(val words: String) {
 
 object ConnectScreens {
   const val TITLE="Connect your computer"
+  /** Where the host comes from: the public repository, as text (nothing on the headset opens it). */
+  const val HOST_ADDRESS="github.com/samsundar989/flowstate"
+  /** #1474: the three steps a new user needs. No product names: "your coding agent", "the host". */
+  val SETUP_STEPS=listOf("1. On your computer, get the host from $HOST_ADDRESS",
+    "2. Sign in to your coding agent there, then start the host as its INSTALL page says.",
+    "3. Keep this headset on the same Wi-Fi, then choose Search again.")
   /** The address keyboard (#954): a computer name, an IPv4, or either with `:port`. Five rows of eight. */
   val KEYBOARD=(('a'..'z').map { it.toString() }+('0'..'9').map { it.toString() }+listOf(".","-",":","del")).chunked(8)
   fun spaced(d: String)=if(d.length==6) "${d.take(3)} ${d.drop(3)}" else d
@@ -85,8 +91,9 @@ object ConnectScreens {
         buttons=listOfNotNull("retry" to "Try again",if(paired) "forget" to "Forget this computer" else "search" to "Search again"))
       LinkState.UNPAIRED -> when {
         hosts==null -> ConnectScreen("searching",TITLE,listOf("Looking for computers on this Wi-Fi."),buttons=listOf("close" to "Close"))
-        hosts.isEmpty() -> ConnectScreen("none",TITLE,listOf("No computer found on this Wi-Fi.",
-          why?.words ?: "Start the host on your computer, on the same Wi-Fi as this headset."),buttons=listOf("search" to "Search again","other" to "Other ways to connect","close" to "Close"))
+        // #1474: a new user sees the three steps and where to get the host; Close returns to the recorded day unchanged.
+        hosts.isEmpty() -> ConnectScreen("none",TITLE,listOfNotNull("No computer found on this Wi-Fi.",why?.words)+SETUP_STEPS,
+          buttons=listOf("search" to "Search again","other" to "Other ways to connect","close" to "Close"))
         else -> ConnectScreen("hosts",TITLE,listOf("Choose your computer. Then confirm six digits on it."),hosts=hosts,
           buttons=listOf("code" to "Type a code instead","search" to "Search again","other" to "Other ways to connect"))
       }

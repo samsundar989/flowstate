@@ -1,6 +1,6 @@
 # Install Flowstate
 
-These steps build from source; there is no prebuilt APK. Recorded mode needs no PC once installed. Live mode needs the host on the same Wi-Fi.
+Short version with timings: [docs/FIRST_RUN.md](docs/FIRST_RUN.md). These steps build from source; there is no prebuilt APK. Recorded mode needs no PC once installed. Live mode needs the host on the same Wi-Fi.
 
 ## Prerequisites
 
@@ -65,16 +65,23 @@ Optional JVM unit tests: from `native/overhand`, run `.\gradlew.bat testDebugUni
 
 ## Run and pair the host (Live preview)
 
-From the repository root in a new terminal:
+First make sure your coding CLI is installed **and signed in** on this PC (see the paragraph below on `codex` and `claude`). One of these must report that you are signed in:
+
+```sh
+codex login status
+claude auth status
+```
+
+Then, from the repository root in a new terminal (Windows PowerShell: `npm.cmd` in place of `npm`):
 
 ```sh
 cd host
 npm ci
 npm test
-npm start
+npm start -- --max-running 1
 ```
 
-The terminal prints the host's Wi-Fi address, a six-digit pairing code and certificate fingerprint. The PC and headset must share Wi-Fi; guest networks with client isolation can block discovery. Allow Node.js through the Windows firewall on your trusted private network. If needed, run this **single line** in administrator PowerShell:
+The terminal prints the host's Wi-Fi address, a six-digit pairing code and certificate fingerprint, then `Coding agent ready: ...`. If it says instead that no coding agent was found or that it is not signed in, do what that line says and start the host again; until then the headset's project window shows the same advice. The PC and headset must share Wi-Fi; guest networks with client isolation can block discovery. Allow Node.js through the Windows firewall on your trusted private network. If needed, run this **single line** in administrator PowerShell:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Flowstate host" -Direction Inbound -Program (Get-Command node.exe).Source -Action Allow -Profile Private
@@ -87,6 +94,8 @@ To run live coding, install and sign in to your own supported CLI (`codex` or `c
 ```sh
 node bin/flowstate-host.mjs --agent replay --replay test/fixtures/streams/codex_build.jsonl
 ```
+
+If a task stops with "not signed in", sign in to the CLI in a terminal and send the request again from the headset; you do not need to restart the host for that. If the host stops mid-task, start it again with `npm start`: the task goes back in line and picks up by itself, and the headset reconnects on its own.
 
 Stop the first host before starting another. In a second terminal in `host/`:
 
