@@ -289,6 +289,7 @@ export class Host {
   /** A task that cannot start because no coding agent is ready: queued, then failed with the next action. */
   private notReady(project_id: string, prompt: string, why: "!missing" | "!signed_out", req_id?: string): string {
     const task_id = this.enqueue(project_id, prompt, "codex", req_id);
+    this.setState(this.state.tasks.get(task_id)!, "running", "Starting"); // queued cannot move straight to failed
     this.finish(this.state.tasks.get(task_id)!, false, why === "!signed_out" ? "agent_signed_out" : "agent_unavailable", {});
     return task_id;
   }
