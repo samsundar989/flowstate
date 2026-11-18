@@ -20,14 +20,21 @@ The CLI's provider may charge for the work.
 
 | Step | What you do | Measured on a PC (Nov 18) |
 |---|---|---|
-| 1 | `git clone https://github.com/samsundar989/flowstate.git flowstate` | 2 s |
-| 2 | `cd flowstate/host` then `npm ci` (Windows PowerShell: `npm.cmd ci`) | 4 s |
-| 3 | Check your agent: `codex login status` or `claude auth status` must say you are signed in | 1–3 s |
-| 4 | `npm start -- --max-running 1` (leave it running). It says `Coding agent ready: …` (the code it prints at start is only the keypad fallback) | under 1 s |
-| 5 | Headset: **Settings > Link > Connect your computer**, choose your PC; the PC prints `Pair "…"? Code 123 456. Type y to allow`: check those six digits match the headset, type `y` | under 1 s plus your check |
-| 6 | Headset: turn on **Send real answers** in Settings (it starts off on every launch) | — |
-| 7 | Say "New project, a tiny tap counter…" and pinch **Start** | agent starts in 1–3 s |
-| 8 | Answer its question on the card; wait for **Saved as commit …** | first commit 68 s (claude) to about 4 min (codex) after step 4; up to 2 min with no new card is normal |
+| 1 | In your downloaded/cloned Flowstate folder, double-click **Start Flowstate host.cmd** (Windows), or run `sh ./start-host.sh` (Mac/Linux). First start installs dependencies automatically. Leave the terminal open. | first start needs internet; later starts skip installation |
+| 2 | Check your agent: `codex login status` or `claude auth status` must say you are signed in | 1?3 s |
+| 3 | Headset: **Settings > Link > Connect your computer**, choose your PC; compare the six digits on the headset with the PC confirmation and type `y` on the PC | under 1 s plus your check |
+| 4 | Headset: turn on **Send real answers** in Settings | ? |
+| 5 | Say "New project, a tiny tap counter?" and pinch **Start** | agent starts in 1?3 s |
+| 6 | Answer its question on the card; wait for **Saved as commit ?** | about 1 to 4 minutes; up to 2 quiet minutes is normal |
+
+**The host must be running for the headset to find your computer.** If Node.js is missing or older than 22.6, the launcher gives the download link; install it and start again.
+
+### Start at login (optional, Windows)
+
+From the repository folder: `node host/bin/flowstate-host.mjs autostart on`.
+Remove it with `node host/bin/flowstate-host.mjs autostart off`.
+If installed on your PATH, use `flowstate-host autostart on|off` instead.
+This creates a shortcut for your user only, needs no admin rights, and opens a terminal at login. Keep the repository folder in place; close the terminal to stop the host. Mac/Linux start at login is Windows-only for now.
 
 Optional: `npm test` in `host/` checks the host first (42 tests, about 1 minute).
 

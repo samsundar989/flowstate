@@ -2,6 +2,10 @@
 // One-command start: runs src/main.ts with Node's built-in TypeScript stripping (Node >= 22).
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+if (process.argv[2] === 'autostart') {
+  const { autostart } = await import('../scripts/autostart.mjs');
+  process.exit(autostart(process.argv.slice(3)));
+}
 const main = fileURLToPath(new URL('../src/main.ts', import.meta.url));
 const c = spawn(process.execPath, ['--experimental-strip-types', '--no-warnings', main, ...process.argv.slice(2)], { stdio: 'inherit' });
 for (const s of ['SIGINT', 'SIGTERM']) process.on(s, () => c.kill(s));

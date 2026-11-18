@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Flowstate host: pairs a headset over Wi-Fi (pinned TLS), runs a coding agent CLI on the user's own login, streams resumable events.",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.6"
   },
   "bin": {
     "flowstate-host": "bin/flowstate-host.mjs"
