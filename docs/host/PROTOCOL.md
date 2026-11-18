@@ -128,6 +128,7 @@ Fixtures: `pair_confirm.json` (with `inputs` that recompute `c`, the digits and 
 | `answer` | `req_id`, `decision_id`, `option_id` and/or `text` (`text` only where the question has `allow_text`) | `ok`, then an `answered` event; `error` `unknown_decision` if it is not open or the option is not one of its options |
 | `cancel` | `req_id`, `project_id`, optional `task_id` (default: the project's active task, else its oldest queued one) | `ok`; the whole agent process tree is killed; `finished` with `ok:false, reason:"canceled"`, then `task_state cancelled` |
 | `get_file` | `req_id`, `project_id`, `commit`, `path`, `offset` (#972, section 7e) | `file_chunk`, or `error` `bad_path` / `not_found` / `too_large` / `unknown_project` / `bad_request` |
+| `add_repo` | `req_id`, `path` (a folder on the computer) (#1543) | **Command line on the computer only** (`flowstate-host add`); any other device gets `error` `unauthorized`. `ok` with `project_id`, then `project_created` and one `message` per recent commit (up to 5, oldest first, `commit` = full hash). Tasks in it run on a new branch `flowstate/<task>` in a worktree outside the repository and are never merged: `finished` has `merged:false`, `branch` and `commit`. `error` `bad_request` if the folder is not a git repository with a commit. |
 
 Only `pair_token`, `pair_code`, `pair_request`, `pair_nonce` and `resume` are allowed before auth. Any other frame gets `error` `unauthorized` and is closed (4401).
 

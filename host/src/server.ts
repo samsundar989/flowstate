@@ -4,7 +4,7 @@
 import { createServer, type Server } from "node:https";
 import { createHash, randomBytes } from "node:crypto";
 import { mkdirSync, existsSync, appendFileSync, readFileSync, writeFileSync, renameSync, rmSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
 import { WebSocketServer, type WebSocket } from "ws";
 import { loadIdentity, DeviceStore, type Identity, type Device } from "./config.ts";
 import { Pairing } from "./pairing.ts";
@@ -13,7 +13,7 @@ import { EventLog, type NewEvent } from "./eventlog.ts";
 import { AUTH_TIMEOUT_MS, CHUNK_BYTES, MAX_FILE_BYTES, PART_NAME_MAX, SAFE_PATH, SAY_MAX, checkCode, validate, type ErrorCode, type HostEvent, type Part } from "./protocol.ts";
 import { startRun, agentReadiness, SIGNED_OUT_TEXT, clean, killPidTree, isAgentPid, FINAL_SCHEMA, type AgentKind, type Run, type RawPart } from "./agents.ts";
 import { HostState, canMove, type TaskState, type TaskView } from "./state.ts";
-import { initProject, ensureWorktree, commitIfDirty, mergeTask, removeWorktree, branchOf, worktreeRel, fileAtCommit } from "./git.ts";
+import { initProject, ensureWorktree, commitIfDirty, mergeTask, removeWorktree, branchOf, worktreeRel, fileAtCommit, git, repoInfo, recentCommits, freeBranch, ensureRepoWorktree } from "./git.ts";
 
 export interface HostOpts {
   bind: string; port: number; dir: string; projectsRoot: string;
@@ -39,9 +39,14 @@ interface TaskMeta {
   task_id: string; project_id: string; prompt: string; agent: AgentKind; replay?: string; session?: string; pid?: number;
   restarted?: boolean; question?: { decision_id: string; text: string; options: { id: string; label: string }[]; live: boolean };
   answer?: string; asks: number;
-  /** #972: "plan" = a new project's first task (plan and one design question, then build); "followup" = a later task on it. */
-  phase?: "plan" | "followup";
+  /** #972: "plan" = a new project's first task (plan and one design question, then build); "followup" = a later task on it.
+   *  #1543: "repo" = a task on a repository the person added (`flowstate-host add <path>`). */
+  phase?: "plan" | "followup" | "repo";
+  /** #1543: an added repository's task branch and the commit it started from. */
+  branch?: string; base?: string;
 }
+/** #1543: how many of an added repository's recent commits the headset gets as its starting state. */
+export const ADDED_COMMITS = 5;
 
 /** #972 project shape, pinned for every project the headset builds from nothing (docs/host/PROTOCOL.md section 7). */
 const WEB_SHAPE = `Build it as a static web app: the entry file is index.html; at most 3 files in total (for example index.html, style.css, app.js); ` +
@@ -72,6 +77,8 @@ export class Host {
   id!: Identity; pairing: Pairing; devices: DeviceStore; log: EventLog; state: HostState;
   confirm = new PairConfirm(this); // pairing by confirming six digits on the computer
   runs = new Map<string, Run>(); // task_id -> live agent process
+  /** #1543: project_id -> folder of a repository the person added where it is. Host-only (repos.json); never sent to a headset. */
+  repos: Record<string, string> = {};
   private https!: Server; private wss!: WebSocketServer;
   private say: (s: string) => void;
   o: HostOpts;
@@ -80,6 +87,7 @@ export class Host {
     for (const d of [o.dir, o.projectsRoot, join(o.dir, "raw"), join(o.dir, "tasks")]) mkdirSync(d, { recursive: true });
     this.pairing = new Pairing(o.now); this.devices = new DeviceStore(o.dir); this.log = new EventLog(join(o.dir, "events.jsonl"));
     this.state = HostState.from(this.log.events);
+    try { this.repos = JSON.parse(readFileSync(join(o.dir, "repos.json"), "utf8")); } catch { /* none added yet */ }
     this.say = o.log ?? (s => console.log(s));
     writeFileSync(join(o.dir, "final_schema.json"), JSON.stringify(FINAL_SCHEMA));
   }
@@ -156,14 +164,20 @@ export class Host {
         if (f.type === "pair_request" || f.type === "pair_nonce") { clearTimeout(authTimer); return this.confirm.frame(cc, f, from); }
         return fail("unauthorized", f.req_id, true);
       }
-      try { this.handle(f, (code, req_id) => fail(code, req_id), send); }
+      try { this.handle(f, (code, req_id) => fail(code, req_id), send, device); }
       catch (e) { this.say(`internal error: ${(e as Error).stack}`); fail("internal", f.req_id); }
     });
   }
 
   // ---- requests: the headset and the command line both land here ------------------------------------------------
-  private handle(f: any, fail: (c: ErrorCode, req_id?: string) => void, send: (f: object) => void) {
+  private handle(f: any, fail: (c: ErrorCode, req_id?: string) => void, send: (f: object) => void, device?: Device) {
     const ok = (extra: object) => send({ type: "ok", req_id: f.req_id, ...extra });
+    if (f.type === "add_repo") {
+      // #1543: only the command line on this computer may name a folder here; a headset cannot.
+      if (device?.device_id !== LOCAL_DEVICE) return fail("unauthorized", f.req_id);
+      try { return ok({ project_id: this.addRepo(f.path).project_id }); }
+      catch (e) { return send({ type: "error", code: "bad_request", message: String((e as Error).message).slice(0, 400), req_id: f.req_id }); }
+    }
     if (f.type === "create_project") {
       // A headset that lost the `ok` (Wi-Fi drop) resends with the same req_id: answer it, do not start a second project.
       const seen = this.state.created.get(f.req_id);
@@ -262,7 +276,31 @@ export class Host {
   }
   private meta(task_id: string): TaskMeta { return JSON.parse(readFileSync(join(this.o.dir, "tasks", `${task_id}.json`), "utf8")); }
   private saveMeta(m: TaskMeta) { const f = join(this.o.dir, "tasks", `${m.task_id}.json`); writeFileSync(f + ".tmp", JSON.stringify(m, null, 1)); renameSync(f + ".tmp", f); }
-  projectDir(project_id: string) { return join(this.o.projectsRoot, project_id.replace(/^p_/, "")); }
+  projectDir(project_id: string) { return this.repos[project_id] ?? join(this.o.projectsRoot, project_id.replace(/^p_/, "")); }
+  /** #1543: where an added repository's task works: under the host's own folder, never inside the person's repository. */
+  private repoWorktree(project_id: string, task_id: string) { return join(this.o.dir, "worktrees", project_id.replace(/^p_/, ""), task_id); }
+
+  /** #1543: register an existing git repository where it is and list it to the headset with its recent commits.
+   *  Reads only (git rev-parse, git log): nothing in the repository is written. Adding the same folder again returns its project. */
+  addRepo(path: string): { project_id: string; name: string; added: boolean; commits: number } {
+    const r = repoInfo(resolve(path));
+    if (!r.ok) throw new Error(r.why);
+    const top = resolve(r.top), same = (a: string) => process.platform === "win32" ? a.toLowerCase() === top.toLowerCase() : a === top;
+    const known = Object.entries(this.repos).find(([, d]) => same(resolve(d)));
+    if (known) return { project_id: known[0], name: this.state.projects.get(known[0])?.name ?? known[0], added: false, commits: 0 };
+    const folder = top.split(/[\\/]/).pop() ?? "repo";
+    const base = folder.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "repo";
+    let slug = base, i = 2;
+    while (existsSync(join(this.o.projectsRoot, slug)) || this.state.projects.has("p_" + slug) || this.repos["p_" + slug]) slug = `${base}-${i++}`;
+    const project_id = "p_" + slug, name = clean(folder, "", 40) || slug;
+    this.repos[project_id] = top;
+    const f = join(this.o.dir, "repos.json"); writeFileSync(f + ".tmp", JSON.stringify(this.repos, null, 1)); renameSync(f + ".tmp", f);
+    this.emit({ project_id, kind: "project_created", title: clean(`Added project: ${name}`, "", 120), name });
+    const commits = recentCommits(top, ADDED_COMMITS).reverse();          // oldest first, so the newest is the latest line
+    for (const c of commits) this.emit({ project_id, kind: "message", title: clean(`Commit ${c.short}: ${c.subject}`, top, 120), commit: c.commit });
+    this.say(`added ${name} as ${project_id} with ${commits.length} recent commits; its tasks work on new branches, the checkout is not changed`);
+    return { project_id, name, added: true, commits: commits.length };
+  }
 
   createProject(nameOrPrompt: string, req_id?: string): string {
     const base = nameOrPrompt.replace(/^\s*new project\s*[:,.]?\s*/i, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter(w => !["a", "an", "the", "that"].includes(w)).slice(0, 5).join("-") || "project";
@@ -280,6 +318,7 @@ export class Host {
     const first = this.state.projects.get(project_id)?.tasks[0];
     let phase: TaskMeta["phase"] = first ? undefined : "plan";
     if (first) try { if (this.meta(first.task_id).phase) phase = "followup"; } catch { /* a task from before #972 */ }
+    if (this.repos[project_id]) phase = "repo";
     this.saveMeta({ task_id, project_id, prompt, agent, asks: 0, ...(replay ? { replay } : {}), ...(phase ? { phase } : {}) });
     const view = { task_id, project_id, state: undefined as any } as TaskView;
     this.setState(view, "queued", clean(prompt.replace(/^\s*new project\s*[:,.]?\s*/i, "").replace(/\[replay:[^\]]*\]/, ""), "", 80) || "Task", req_id ? { req_id } : {});
@@ -308,7 +347,13 @@ export class Host {
   private startTask(t: TaskView) {
     const m = this.meta(t.task_id), pdir = this.projectDir(t.project_id);
     let wt: string;
-    try { wt = ensureWorktree(pdir, t.task_id); }
+    try {
+      if (this.repos[t.project_id]) {
+        // #1543: a new branch off the person's HEAD, in a worktree outside their repository; their checkout is not touched.
+        if (!m.branch || !m.base) { m.base = git(pdir, "rev-parse", "HEAD").stdout; m.branch = freeBranch(pdir, t.task_id); this.saveMeta(m); }
+        wt = ensureRepoWorktree(pdir, this.repoWorktree(t.project_id, t.task_id), m.branch, m.base);
+      } else wt = ensureWorktree(pdir, t.task_id);
+    }
     catch (e) { this.say(String(e)); this.setState(t, "running", "Starting"); return this.finish(t, false, "worktree_failed", {}); }
     const resuming = !!m.session && (!!m.answer || !!m.restarted);
     this.setState(t, "running", m.answer ? "Resumed with your answer" : m.restarted ? "Picking up after a restart" : "Working");
@@ -317,8 +362,11 @@ export class Host {
       `{"status":"question","summary":"","question":"<the question>","options":["<2 to 4 short choices>"]}. ` +
       `When you can, ask it as a yes/no question with the options ["Yes","No"]: the person answers from a headset with one word or one pinch. You will be resumed with the answer.`;
     const task = m.prompt.replace(/^\s*new project\s*[:,.]?\s*/i, "");
-    const prompt = m.answer ? `${m.answer}\nContinue the task. For a prepared first task, apply this answer to the isolated setting, run only its focused check, and return done immediately. Do not rebuild, redesign, add features, or repeat checks already passed.${m.phase ? ` ${WEB_SHAPE}` : ""}${tail}`
+    const prompt = m.answer ? `${m.answer}\nContinue the task. For a prepared first task, apply this answer to the isolated setting, run only its focused check, and return done immediately. Do not rebuild, redesign, add features, or repeat checks already passed.${m.phase && m.phase !== "repo" ? ` ${WEB_SHAPE}` : ""}${tail}`
       : resuming ? `The host restarted while you were working. The folder holds your work so far. Continue the task.${tail}`
+      : m.phase === "repo" ? `You are in a separate git worktree of the person's own existing repository, on a new branch made for this task. ` +
+        `Work only inside this folder. Make the change asked, keeping the project's existing style and tools, and check it once. ` +
+        `Do not commit, push or switch branches; the host commits your work on this branch and leaves it for the person to review.\nTask: ${task}${tail}`
       : m.phase === "plan" ? `You are in a git worktree for the first task of a brand-new project. Work only inside this folder. ` +
         `Do not commit; the host commits and merges your work.\nTask: ${task}\n${WEB_SHAPE}\n${PLAN_ASK}${tail}`
       : m.phase === "followup" ? `You are in a git worktree of an existing project: a static web app whose entry is index.html. Change it as asked, ` +
@@ -391,9 +439,26 @@ export class Host {
 
   /** The end of a task: on success commit, merge into main and drop the worktree; otherwise keep the worktree and say where. */
   private finish(t: TaskView, ok: boolean, reason: string | undefined, base: { run_id?: string }, exit_code: number | null = null, summary?: string, output?: string) {
-    const pdir = this.projectDir(t.project_id), wt = join(pdir, worktreeRel(t.task_id)), branch = branchOf(t.task_id);
-    const kept = { branch, worktree: worktreeRel(t.task_id) };
-    if (ok) {
+    const pdir = this.projectDir(t.project_id), added = !!this.repos[t.project_id];
+    let am: TaskMeta | undefined; if (added) try { am = this.meta(t.task_id); } catch { /* no meta */ }
+    const wt = added ? this.repoWorktree(t.project_id, t.task_id) : join(pdir, worktreeRel(t.task_id)), branch = added ? am?.branch ?? "" : branchOf(t.task_id);
+    const kept = { branch, worktree: added ? `worktrees/${t.project_id.replace(/^p_/, "")}/${t.task_id}` : worktreeRel(t.task_id) };
+    if (ok && added && am?.branch && am.base && existsSync(wt)) {
+      // #1543: commit on the task branch only; never merge into the person's branch. The worktree goes once it is clean.
+      commitIfDirty(wt, `${(summary || t.title).replace(/\s+/g, " ").slice(0, 72)} (${t.task_id})`);
+      const range = `${am.base}..${am.branch}`;
+      const ahead = Number(git(pdir, "rev-list", "--count", range).stdout || "0");
+      const files = git(pdir, "diff", "--name-only", range).stdout.split("\n").filter(Boolean);
+      const commit = git(pdir, "rev-parse", "--short", am.branch).stdout || undefined;
+      git(pdir, "worktree", "remove", wt);                 // no --force: a worktree with anything left in it stays
+      if (!ahead) git(pdir, "branch", "-d", am.branch);    // an empty task branch is removed (-d, never -D)
+      this.emit({ project_id: t.project_id, task_id: t.task_id, run_id: base.run_id, kind: "finished", ok: true, exit_code, merged: false,
+        title: ahead ? clean(`Finished and saved on branch ${am.branch}`, "", 120) : "Finished, nothing changed",
+        ...(ahead ? { branch: am.branch, ...(commit ? { commit } : {}) } : {}), ...(reason ? { reason } : {}), files: files.slice(0, 50),
+        ...(output ? { output: clean(output, wt, 160) } : {}) });
+      return this.setState(t, "done", "Done", ahead && commit ? { commit } : {});
+    }
+    if (ok && !added) {
       commitIfDirty(wt, `${(summary || t.title).replace(/\s+/g, " ").slice(0, 72)} (${t.task_id})`);
       const r = mergeTask(pdir, t.task_id);
       if (r.merged || r.reason === "no_changes") {

@@ -13,7 +13,11 @@ Flowstate is a headset app for watching and steering coding agents: see their wo
 
 **Before you start Live mode:** a PC on the same Wi-Fi as the headset (not a guest network), Git, Node.js 22.6 or newer, and one supported coding CLI installed **and signed in** on that PC (the two supported commands are named in [docs/FIRST_RUN.md](docs/FIRST_RUN.md)). The host uses that CLI's own account; there is no Flowstate account or key.
 
-**What Live mode works on today: new projects only.** Each "New project, …" request makes a fresh git repository in `~/FlowstateProjects/<name>` (`--projects` moves it); the agent works there, the host commits and merges into that repository's `main`, and later requests change the same project. The host cannot yet be pointed at an existing repository of yours. To bring that work into a repository of your own, run `git pull --no-edit --allow-unrelated-histories ~/FlowstateProjects/<name> main` inside it (the histories differ, so git needs that flag; use your `--projects` folder if you moved it; files with the same name in both, such as `README.md`, need a normal merge-conflict fix).
+**What Live mode works on.** Each "New project, …" request makes a fresh git repository in `~/FlowstateProjects/<name>` (`--projects` moves it); the agent works there, the host commits and merges into that repository's `main`, and later requests change the same project.
+
+**Your existing repositories:** in `host/`, run `node bin/flowstate-host.mjs add <path to your repo>` (or start with `--add <path>`). The headset lists it beside the projects the host started, with its last 5 commits.
+A task for it (`node bin/flowstate-host.mjs task p_<name> "<what to change>"`, or a follow-up from the headset) runs your coding agent on a **new branch `flowstate/<task>` in a separate folder**: your checked-out branch and files are never changed, nothing is merged, pushed or forced.
+Review the branch with `git log flowstate/t3` and merge it yourself when you like it.
 
 See [architecture](docs/open_source/ARCHITECTURE.md), [security](docs/open_source/SECURITY.md), and [privacy](PRIVACY.md). Host commands and storage locations: [host/README.md](host/README.md).
 

@@ -77,6 +77,8 @@ const C2H: Record<string, Spec> = {
   get_file: { req_id: "s", project_id: "s", commit: "s", path: "s", offset: "n" },
   // #1035 "talk to an agent": one spoken sentence for one running task's own agent session, nowhere else.
   say: { req_id: "s", project_id: "s", task_id: "s", text: "s" },
+  // #1543: the command line on this computer registers an existing repository where it is (refused from any other device).
+  add_repo: { req_id: "s", path: "s" },
 };
 const H2C: Record<string, Spec> = {
   paired: { device_id: "s", device_secret: "s", host_name: "s", check: "s" },

@@ -21,6 +21,9 @@ answer resumes the same agent session.
    (questions and results appear in the headset; the host terminal itself shows a `task … in <folder>` line per run, and `host watchdog nudge` if the agent is quiet for two minutes, which is normal).
 8. Your projects are in `~/FlowstateProjects/<name>` (`--projects` changes it). `<name>` is the first words of the request (for example
    `tiny-tap-counter-with-big`); the terminal's `task … in <folder>` line shows the folder and `status` shows it as `p_<name>`. `git log` there shows the agent's commits.
+   **Existing repositories:** `node bin/flowstate-host.mjs add <path>` (or `--add <path>` at start) lists one to the headset where it is, with its last 5 commits.
+   `node bin/flowstate-host.mjs task p_<name> "<change>"` runs your agent on it on a new branch `flowstate/<task>`, in a worktree under the host's config folder.
+   The repository's checked-out branch, index and files are never changed; nothing is merged, pushed or forced.
 9. `node bin/flowstate-host.mjs stop` (or Ctrl+C in its terminal) stops the host; the `npm start` terminal may then report exit code 1, which is expected; running tasks go back in line and resume on the next start. `stop t3` cancels task t3.
 10. Tested on **Windows 11 only** (host, tests, live runs). macOS and Linux use the
     same commands but were **not run**. The headset steps have not yet been done by a person wearing it.

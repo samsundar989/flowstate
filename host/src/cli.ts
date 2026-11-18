@@ -2,13 +2,14 @@
 // frames as the headset (the CLI is the paired device "d_local"); `status` folds the event log on disk, so it works
 // whether the host is up or not; `stop` with no task stops the host (its tasks resume on the next start).
 import { existsSync, readFileSync, rmSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
+import { homedir } from "node:os";
 import { spawnSync } from "node:child_process";
 import { HeadsetClient } from "./client.ts";
 import { EventLog } from "./eventlog.ts";
 import { HostState } from "./state.ts";
 import { configDir } from "./config.ts";
-import { LOCAL_DEVICE } from "./server.ts";
+import { LOCAL_DEVICE, Host } from "./server.ts";
 
 interface HostInfo { pid: number; address: string; port: number; fp: string }
 const alive = (pid: number) => { try { process.kill(pid, 0); return true; } catch { return false; } };
@@ -46,8 +47,10 @@ export function statusText(dir: string): string {
   const h = hostInfo(dir);
   const s = HostState.from(new EventLog(join(dir, "events.jsonl")).events);
   const out = [h ? `host: running (pid ${h.pid}) on ${h.address}:${h.port}` : "host: stopped"];
+  let repos: Record<string, string> = {};
+  try { repos = JSON.parse(readFileSync(join(dir, "repos.json"), "utf8")); } catch { /* none added */ }
   for (const p of s.projects.values()) {
-    out.push(`${p.project_id}  (${p.state})`);
+    out.push(`${p.project_id}  (${p.state})${repos[p.project_id] ? `  added from ${repos[p.project_id]}` : ""}`);
     for (const t of p.tasks) out.push(`  ${t.task_id.padEnd(5)} ${t.state.padEnd(13)} ${t.title}${t.commit ? `  [${t.commit}]` : ""}${t.worktree ? `  kept in ${t.worktree}` : ""}${t.reason ? `  (${t.reason})` : ""}`);
   }
   if (s.decisions.size) {
@@ -69,6 +72,26 @@ export async function cli(argv: string[]): Promise<number> {
     if (!prompt) { console.error('usage: flowstate-host new "<name>" --prompt "<what to build>"'); return 2; }
     const frame: any = { type: "create_project", req_id, prompt, ...(a1 && opt("prompt") ? { name: a1 } : {}), ...(opt("agent") ? { agent: opt("agent") } : {}) };
     const r = await request(dir, frame, argv.includes("--follow") ? followTask : undefined);
+    console.log(`project ${r.project_id}, task ${r.task_id} queued`);
+    return 0;
+  }
+  if (cmd === "add") {
+    // #1543: register an existing git repository where it is. Nothing in it is moved, copied or changed.
+    if (!a1) { console.error("usage: flowstate-host add <path to a git repository>"); return 2; }
+    const path = resolve(a1);
+    let project_id: string;
+    if (hostInfo(dir)) project_id = (await request(dir, { type: "add_repo", req_id, path })).project_id;
+    else project_id = new Host({ bind: "127.0.0.1", port: 0, dir, projectsRoot: opt("projects") ?? join(homedir(), "FlowstateProjects"), log: () => {} }).addRepo(path).project_id;
+    const s = HostState.from(new EventLog(join(dir, "events.jsonl")).events), p = s.projects.get(project_id);
+    console.log(`added ${p?.name ?? project_id} as ${project_id}${hostInfo(dir) ? "; the paired headset lists it now" : "; the headset lists it when the host starts"}.`);
+    console.log("Tasks for it run your coding agent on a new branch (flowstate/<task>) in a separate folder; your checked-out branch and files are not changed, and nothing is pushed.");
+    return 0;
+  }
+  if (cmd === "task") {
+    // A new task in an existing project (one the host started, or a repository added with `add`): the headset's `prompt` frame.
+    if (!a1 || !a2) { console.error('usage: flowstate-host task <project id, e.g. p_my-app> "<what to change>" [--follow]'); return 2; }
+    const project_id = a1.startsWith("p_") ? a1 : `p_${a1}`;
+    const r = await request(dir, { type: "prompt", req_id, project_id, text: a2 }, argv.includes("--follow") ? followTask : undefined);
     console.log(`project ${r.project_id}, task ${r.task_id} queued`);
     return 0;
   }
@@ -95,7 +118,7 @@ export async function cli(argv: string[]): Promise<number> {
     console.log(alive(h.pid) ? `host pid ${h.pid} did not stop` : "host stopped; running tasks go back in line on the next start");
     return alive(h.pid) ? 1 : 0;
   }
-  console.error("usage: flowstate-host [start] [options] | new \"<name>\" --prompt \"<text>\" [--follow] | status | answer <id> <choice> | stop [<task>]");
+  console.error("usage: flowstate-host [start] [options] [--add <repo>] | add <repo path> | task <project> \"<text>\" [--follow] | new \"<name>\" --prompt \"<text>\" [--follow] | status | answer <id> <choice> | stop [<task>]");
   return 2;
 }
 

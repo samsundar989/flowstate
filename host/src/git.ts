@@ -87,3 +87,41 @@ export function fileAtCommit(projectDir: string, commit: string, path: string, m
   if (r.status !== 0) return { ok: false, code: "not_found" };
   return { ok: true, commit: full.stdout, bytes: r.stdout as Buffer };
 }
+
+// ---- #1543 an existing repository, added where it is -----------------------------------------------------------------
+// The person's repository is never moved, copied or changed in place: its checked-out branch, index and working files stay
+// as they were. A task gets a new branch, checked out in a separate worktree outside the repository, and is never merged,
+// pushed or forced; the branch is left for the person to review.
+
+/** The repository's top folder and HEAD commit, or why it cannot be added. */
+export function repoInfo(path: string): { ok: true; top: string; head: string } | { ok: false; why: string } {
+  if (!existsSync(path)) return { ok: false, why: `${path} does not exist.` };
+  const top = git(path, "rev-parse", "--show-toplevel");
+  if (top.status !== 0 || !top.stdout) return { ok: false, why: `${path} is not inside a git repository (with a working folder). Run git init there first, or pick the repository's folder.` };
+  const head = git(path, "rev-parse", "--verify", "--quiet", "HEAD^{commit}");
+  if (head.status !== 0) return { ok: false, why: `${top.stdout} has no commits yet. Make a first commit there, then add it again.` };
+  return { ok: true, top: top.stdout, head: head.stdout };
+}
+
+/** The last `n` commits on HEAD, newest first: short hash, unix time, subject. */
+export function recentCommits(repo: string, n: number): { commit: string; short: string; time: number; subject: string }[] {
+  return git(repo, "log", `-n${n}`, "--format=%H%x09%h%x09%ct%x09%s", "HEAD").stdout.split("\n").filter(Boolean)
+    .map(l => { const [commit, short, time, ...s] = l.split("\t"); return { commit, short, time: Number(time), subject: s.join("\t") }; });
+}
+
+/** A branch name for a task that no branch in the repository uses yet: flowstate/<task>, then flowstate/<task>-2, ... */
+export function freeBranch(repo: string, task_id: string): string {
+  const exists = (b: string) => git(repo, "rev-parse", "--verify", "--quiet", `refs/heads/${b}`).status === 0;
+  let b = `flowstate/${task_id}`, i = 2;
+  while (exists(b)) b = `flowstate/${task_id}-${i++}`;
+  return b;
+}
+
+/** The task's worktree at `wt` on `branch` (new, off `base`), or re-attached to that branch after a restart. No prune, no force. */
+export function ensureRepoWorktree(repo: string, wt: string, branch: string, base: string): string {
+  if (existsSync(join(wt, ".git"))) return wt;
+  const has = git(repo, "rev-parse", "--verify", "--quiet", `refs/heads/${branch}`).status === 0;
+  const r = has ? git(repo, "worktree", "add", "-q", wt, branch) : git(repo, "worktree", "add", "-q", "-b", branch, wt, base);
+  if (r.status !== 0) throw new Error(`worktree add failed: ${r.stderr}`);
+  return wt;
+}

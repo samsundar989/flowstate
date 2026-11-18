@@ -29,14 +29,16 @@ The CLI's provider may charge for the work.
 | 7 | Say "New project, a tiny tap counter…" and pinch **Start** | agent starts in 1–3 s |
 | 8 | Answer its question on the card; wait for **Saved as commit …** | first commit 68 s (claude) to about 4 min (codex) after step 4; up to 2 min with no new card is normal |
 
-Optional: `npm test` in `host/` checks the host first (42 tests, about 1 minute).
+Optional: `npm test` in `host/` checks the host first (46 tests, about 1 minute).
 
 The app build itself (`INSTALL.md`, Android Studio and Gradle) is one-time and takes several minutes on first run.
 
 Your project is in `~/FlowstateProjects/<name>` on the PC (or your `--projects` folder; the host's `task … in <folder>` line names it):
-`git log` there shows the agent's commit. Live mode starts new
-projects only; it cannot yet open an existing repository of yours (pull the project into your repository instead:
-`git pull --no-edit --allow-unrelated-histories ~/FlowstateProjects/<name> main` inside it).
+`git log` there shows the agent's commit.
+
+**An existing repository of yours:** `node bin/flowstate-host.mjs add <path>` in `host/` (or `npm start -- --add <path>`); the headset lists it with its last 5 commits.
+`node bin/flowstate-host.mjs task p_<name> "<what to change>"` starts your coding agent on it, on a new branch `flowstate/<task>` in a separate folder.
+Your checked-out branch and files are not touched and nothing is pushed; `git log flowstate/<task>` shows the work, and you merge it when you want it.
 
 ## When something goes wrong
 

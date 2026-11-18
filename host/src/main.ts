@@ -33,7 +33,7 @@ export function resolveBind(spec: string | undefined): string | undefined {
 
 async function main() {
   const sub = process.argv[2];
-  if (["new", "status", "stop", "answer"].includes(sub)) {
+  if (["new", "status", "stop", "answer", "add", "task"].includes(sub)) {
     const { cli } = await import("./cli.ts");
     // #1474: a plain sentence, not a stack trace (host not running, link refused).
     try { process.exit(await cli(process.argv.slice(2))); } catch (e) { console.error((e as Error).message || String(e)); process.exit(1); }
@@ -47,6 +47,11 @@ async function main() {
   const host = new Host({ bind, port: Number(arg("port", String(DEFAULT_PORT))), dir: arg("config", configDir())!,
     projectsRoot: arg("projects", join(homedir(), "FlowstateProjects"))!, agent: (arg("agent", "auto") as any), replayFile: arg("replay"),
     perProject: Number(arg("per-project", "1")), maxRunning: Number(arg("max-running", "2")), taskTimeoutMs: Number(arg("task-timeout-min", "30")) * 60_000 });
+  // #1543: `--add <path>` (repeatable) registers existing repositories where they are before the headset connects.
+  for (const [i, a] of process.argv.entries()) if (a === "--add" && process.argv[i + 1]) {
+    try { const r = host.addRepo(process.argv[i + 1]); console.log(r.added ? `Added ${r.name} (${r.commits} recent commit${r.commits === 1 ? "" : "s"}). Tasks for it work on a new branch; your checkout is not changed.` : `${r.name} was already added.`); }
+    catch (e) { console.error((e as Error).message); process.exit(2); }
+  }
   const { address, port } = await host.start();
   const show = async () => {
     const uri = pairUri({ h: address, p: port, fp: host.id.fp, t: host.pairing.token.value, n: host.id.name });
