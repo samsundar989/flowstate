@@ -10,6 +10,8 @@ Flowstate is a headset app for watching and steering coding agents: see their wo
 2. Open the app for the recorded day. Optional voice requires fetching the speech bundle before building.
 3. For Live mode, run `npm ci` and `npm start` inside `host/`. In headset Settings choose **Connect your computer**, compare the six digits, and type `y` in the PC terminal. Turn **Send real answers** on.
 
+**What Live mode works on today: new projects only.** Each "New project, …" request makes a fresh git repository in `~/FlowstateProjects/<name>` (`--projects` moves it); the agent works there, the host commits and merges into that repository's `main`, and later requests change the same project. The host cannot yet be pointed at an existing repository of yours. To bring that work into a repository of your own, run `git pull --allow-unrelated-histories ~/FlowstateProjects/<name> main` inside it (the histories differ, so git needs that flag).
+
 See [architecture](docs/open_source/ARCHITECTURE.md), [security](docs/open_source/SECURITY.md), and [privacy](PRIVACY.md). Host commands and storage locations: [host/README.md](host/README.md).
 
 ## Source and tests

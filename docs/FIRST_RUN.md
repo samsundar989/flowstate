@@ -33,6 +33,9 @@ Optional: `npm test` in `host/` checks the host first (42 tests, about 1 minute)
 
 The app build itself (`INSTALL.md`, Android Studio and Gradle) is one-time and takes several minutes on first run.
 
+Your project is in `~/FlowstateProjects/<name>` on the PC: `git log` there shows the agent's commit. Live mode starts new
+projects only; it cannot yet open an existing repository of yours (pull the project folder into your repository instead).
+
 ## When something goes wrong
 
 Every failure ends in one sentence that says what to do.
