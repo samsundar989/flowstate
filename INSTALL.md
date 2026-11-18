@@ -15,7 +15,7 @@ cd flowstate
 
 ## Windows PowerShell
 
-Run these in PowerShell, not Command Prompt. Adjust paths if Android Studio or the SDK is elsewhere:
+Run these in PowerShell, not Command Prompt. Adjust paths if Android Studio or the SDK is elsewhere. On Windows use `npm.cmd` in place of `npm` in every command below; this avoids PowerShell blocking Node.js's npm.ps1 shim when script execution is disabled (no machine-wide execution-policy change is needed).
 
 ```powershell
 $env:JAVA_HOME = 'C:\Program Files\Android\Android Studio\jbr'
