@@ -13,3 +13,6 @@ runs/voice_fa/*.tsv text eol=lf
 
 # t1008: the recorded build replay serves these bytes and checks their sha256 against the golden manifest; never convert.
 native/overhand/app/src/main/assets/judge/build_from_nothing/** -text
+
+# t1544: Windows batch launchers check out CRLF (cmd.exe label parsing is unreliable with LF).
+*.cmd text eol=crlf
