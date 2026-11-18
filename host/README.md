@@ -18,10 +18,10 @@ answer resumes the same agent session.
 6. Say "new project, a command-line tool that prints the time". Without a headset, in a second terminal:
    `node bin/flowstate-host.mjs new "clock" --prompt "a hello-world CLI that prints the time" --follow`
 7. In a second terminal in `host/`: `node bin/flowstate-host.mjs status` lists projects, tasks and open questions; `answer <question id> <choice>` answers one
-   (questions and results appear in the headset; the host terminal itself shows only a `task … in <folder>` line per run).
+   (questions and results appear in the headset; the host terminal itself shows a `task … in <folder>` line per run, and `host watchdog nudge` if the agent is quiet for two minutes, which is normal).
 8. Your projects are in `~/FlowstateProjects/<name>` (`--projects` changes it). `<name>` is the first words of the request (for example
-   `tiny-tap-counter-with-big`); the terminal's `task … in <folder>` line and `status` show it. `git log` there shows the agent's commits.
-9. `node bin/flowstate-host.mjs stop` stops the host; running tasks go back in line and resume on the next start. `stop t3` cancels task t3.
+   `tiny-tap-counter-with-big`); the terminal's `task … in <folder>` line shows the folder and `status` shows it as `p_<name>`. `git log` there shows the agent's commits.
+9. `node bin/flowstate-host.mjs stop` (or Ctrl+C in its terminal) stops the host; the `npm start` terminal may then report exit code 1, which is expected; running tasks go back in line and resume on the next start. `stop t3` cancels task t3.
 10. Tested on **Windows 11 only** (host, tests, live runs). macOS and Linux use the
     same commands but were **not run**. The headset steps have not yet been done by a person wearing it.
 

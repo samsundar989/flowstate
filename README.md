@@ -9,7 +9,7 @@ Flowstate is a headset app for watching and steering coding agents: see their wo
 1. Follow [INSTALL.md](INSTALL.md) to build and sideload the headset app (Developer Mode required; no prebuilt APK is included).
 2. Open the app for the recorded day. Optional voice requires fetching the speech bundle before building.
 3. For Live mode, run `npm ci` and `npm start -- --max-running 1` inside `host/` (Windows PowerShell: `npm.cmd`). In headset Settings choose **Connect your computer**, compare the six digits, and type `y` in the PC terminal. Turn **Send real answers** on.
-4. Say "New project, a tiny tap counter…" and pinch **Start**. The headset shows the project window with the agent's progress, a question card to answer, and **Saved as commit …** when the agent is done (about 1 to 2 minutes). Step-by-step with timings and every error message: [docs/FIRST_RUN.md](docs/FIRST_RUN.md).
+4. Say "New project, a tiny tap counter…" and pinch **Start**. The headset shows the project window with the agent's progress, a question card to answer, and **Saved as commit …** when the agent is done (about 1 to 4 minutes; the agent may go quiet for two minutes while it checks its work). Step-by-step with timings and every error message: [docs/FIRST_RUN.md](docs/FIRST_RUN.md).
 
 **Before you start Live mode:** a PC on the same Wi-Fi as the headset (not a guest network), Git, Node.js 22.6 or newer, and one supported coding CLI installed **and signed in** on that PC (the two supported commands are named in [docs/FIRST_RUN.md](docs/FIRST_RUN.md)). The host uses that CLI's own account; there is no Flowstate account or key.
 

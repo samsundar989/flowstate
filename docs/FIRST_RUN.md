@@ -27,7 +27,7 @@ The CLI's provider may charge for the work.
 | 5 | Headset: **Settings > Link > Connect your computer**, choose your PC; the PC prints `Pair "…"? Code 123 456. Type y to allow`: check those six digits match the headset, type `y` | under 1 s plus your check |
 | 6 | Headset: turn on **Send real answers** in Settings (it starts off on every launch) | — |
 | 7 | Say "New project, a tiny tap counter…" and pinch **Start** | agent starts in 1–3 s |
-| 8 | Answer its question on the card; wait for **Saved as commit …** | first commit 68 s (claude) to 130 s (codex) after step 4 |
+| 8 | Answer its question on the card; wait for **Saved as commit …** | first commit 68 s (claude) to about 4 min (codex) after step 4; up to 2 min with no new card is normal |
 
 Optional: `npm test` in `host/` checks the host first (42 tests, about 1 minute).
 
@@ -35,7 +35,8 @@ The app build itself (`INSTALL.md`, Android Studio and Gradle) is one-time and t
 
 Your project is in `~/FlowstateProjects/<name>` on the PC (or your `--projects` folder; the host's `task … in <folder>` line names it):
 `git log` there shows the agent's commit. Live mode starts new
-projects only; it cannot yet open an existing repository of yours (pull the project folder into your repository instead).
+projects only; it cannot yet open an existing repository of yours (pull the project into your repository instead:
+`git pull --no-edit --allow-unrelated-histories ~/FlowstateProjects/<name> main` inside it).
 
 ## When something goes wrong
 

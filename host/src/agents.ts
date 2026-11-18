@@ -135,7 +135,7 @@ export function agentReadiness(kind: AgentKind): AgentReadiness {
 /** What to tell the person on the computer, one sentence each. */
 export function readinessAdvice(r: Partial<Record<"codex" | "claude", AgentReadiness>>): string {
   const ready = Object.entries(r).filter(([, v]) => v === "ready").map(([k]) => k);
-  if (ready.length) return `Coding agent ready: ${ready.join(", ")}.`;
+  if (ready.length) return `Coding agent ready: ${ready.join(", ")}.${ready.length > 1 ? ` New tasks use ${ready[0]} (--agent ${ready[1]} picks the other).` : ""}`;
   const out = Object.entries(r).filter(([, v]) => v === "signed_out").map(([k]) => k);
   if (out.length) return `Your coding agent is installed but not signed in. Run "${out[0] === "codex" ? "codex login" : "claude"}" in a terminal, sign in, then start the host again.`;
   return `No coding agent found. Install codex or claude, sign in, then start the host again. Pairing and the recorded replay still work.`;
